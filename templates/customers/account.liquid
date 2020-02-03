@@ -1,0 +1,8 @@
+<h1>
+    SSR user info:
+</h1>
+{{ 'customer.login.user_name' | t }} : {{ customer.user_name }} {{ 'customer.login.email' | t }} : {{ customer.email }}
+
+<div id="app">
+</div>
+<script src="{{ 'bundle/dist/js/account.js' | static_asset_url | append_version }}"></script>

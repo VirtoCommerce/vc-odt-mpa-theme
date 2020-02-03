@@ -1,0 +1,29 @@
+<!-- Header -->
+<header class="header">
+    <div class="header-inner container">
+        <div class="row align-items-center">
+            <div class="col-auto">
+                <div class="header-logo">{{ current_store.name }}</div>
+            </div>
+            <div class="col d-none d-lg-block header-nav">
+                <ul class="nav">
+                    <li class="nav__item ml-auto">
+                        {% if customer.is_registered_user %}
+                        <a href="{{ 'account' | absolute_url }}" class="nav__link">
+                            {{ 'layout.customer.logged_in_as_label' | t }} {{ customer.user_name}} </a>
+                        {% else %}
+                        <a href="{{ 'account/login' | absolute_url }}" class="nav__link">
+                            {{ 'layout.customer.sign_in' | t }} </a>
+                        {% endif %}
+                    </li>
+                    {% if customer.is_registered_user %}
+                        <li class="nav__item ml-auto">
+                            <a href="{{ 'account/logout' | absolute_url }} "
+                                class="nav__link">{{ 'layout.customer.log_out' | t }}</a>
+                        </li>
+                   {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

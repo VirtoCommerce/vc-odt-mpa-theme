@@ -1,0 +1,27 @@
+{% layout 'login' %}
+
+<form accept-charset="UTF-8" action="{{ '~/account/login' | absolute_url }}" method="post" id="customer_login" name="customer_login">
+
+<div class="window d-flex flex-column align-items-center">
+
+    {% include 'form-errors-custom' %}
+
+    <h3>Log in to the portal</h3>
+
+    <div class="form-group">
+        <input type="text" id="username" name="customer[user_name]" required placeholder="Username" />
+    </div>
+
+    <div class="form-group">
+        <input type="password"  id="password" name="customer[password]" required  placeholder="Password" />
+    </div>
+
+    <div class="material-checkbox mt-3">
+        <input id="RememberMe" type="checkbox">
+        <label for="RememberMe">Remember me</label>
+    </div> 
+    <button type="submit" class="btn btn-primary mt-2">Log in</button>
+    <a class="forgot-link align-self-end mt-3" href="{{ '/account/forgotpassword' | absolute_url }}">Forgot the password?</a>
+</div>
+{{ antiforgery }}
+</form>

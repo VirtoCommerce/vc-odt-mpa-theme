@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="20px" viewBox="0 0 16 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Version-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Catalog" transform="translate(-1412.000000, -288.000000)" stroke="#FF3333" stroke-width="1.5">
+            <g id="cart-trash-can-hover" transform="translate(1412.000000, 288.000000)">
+                <path d="M15.25,6.25 L0.75,6.25 L0.75,2.75 L5.25,2.75 L6.25,0.75 L9.75,0.75 L10.75,2.75 L15.25,2.75 L15.25,6.25 Z M12.858,19.25 L3.141,19.25 C2.803,19.25 2.524,18.953 2.501,18.568 L1.75,6.25 L14.25,6.25 L13.5,18.568 C13.474,18.953 13.195,19.25 12.857,19.25 L12.858,19.25 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
