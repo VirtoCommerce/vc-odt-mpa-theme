@@ -1,2 +1,4 @@
 #!groovy
-virtoThemeMix {}
+virtoThemeMix {
+    sampleStore = "odt"
+}
