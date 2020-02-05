@@ -5,17 +5,16 @@ import { State } from "@account/store/state";
 
 //actions
 export const actions: ActionTree<State, State> = {
-  [FETCH_PROFILE](context) {
-    return AccountService.getUserAccount()
-      .then(({ data }) => {
-        context.commit(SET_PROFILE, data);
-
-        return data;
-      })
-      .catch(() => {
-        // #todo SET_ERROR cannot work in multiple states
-        // context.commit(SET_ERROR, response.data.errors)
-      });
+  async [FETCH_PROFILE](context) {
+    try {
+      context.commit(FETCH_PROFILE);
+      const { data } = await AccountService.getUserAccount();
+      context.commit(SET_PROFILE, data);
+      return data;
+    } catch (e) {
+      // #todo SET_ERROR cannot work in multiple states
+      // context.commit(SET_ERROR, response.data.errors)
+    }
   },
   [UPDATE_USER]() {
     //todo
