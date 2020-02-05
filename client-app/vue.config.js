@@ -11,12 +11,20 @@ module.exports = {
     i18n: {
       locale: "en",
       fallbackLocale: "en",
-      enableInSFC: false
+      enableInSFC: true
     }
   },
 
   chainWebpack(config) {
     config.resolve.alias.delete("@");
-    config.resolve.plugin("tsconfig-paths").use(require("tsconfig-paths-webpack-plugin"));
+    config.resolve
+      .plugin("tsconfig-paths")
+      .use(require("tsconfig-paths-webpack-plugin"));
+    config.module
+      .rule('eslint')
+      .use('eslint-loader')
+      .options({
+        fix: true,
+      });
   }
 };

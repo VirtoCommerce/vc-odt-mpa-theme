@@ -3,8 +3,9 @@ module.exports = {
   env: {
     node: true
   },
+  plugins: [ "vue", "import", "@typescript-eslint", "editorconfig" ],
   extends: [
-    "plugin:vue/essential",
+    "plugin:vue/recommended",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
@@ -12,12 +13,32 @@ module.exports = {
     "plugin:import/warnings",
     "plugin:import/typescript",
     "@vue/typescript/recommended",
-    "@vue/prettier",
-    "@vue/prettier/@typescript-eslint"
+    "plugin:editorconfig/noconflict"
   ],
   rules: {
+    "editorconfig/editorconfig": "error",
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    "vue/max-attributes-per-line": ["error", {
+      "singleline": 2,
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": true
+      }
+    }],
+    "vue/html-closing-bracket-newline": ["error", {
+      "singleline": "never",
+      "multiline": "never"
+    }],
+    "vue/html-self-closing": ["error", {
+      "html": {
+        "void": "never",
+        "normal": "never",
+        "component": "never"
+      },
+      "svg": "never",
+      "math": "never"
+    }]
   },
   parserOptions: {
     parser: "@typescript-eslint/parser"
@@ -35,7 +56,6 @@ module.exports = {
       "vue-eslint-parser": [".vue"]
     },
     "import/resolver": {
-      //webpack: {},
       typescript: {},
       node: {}
     }

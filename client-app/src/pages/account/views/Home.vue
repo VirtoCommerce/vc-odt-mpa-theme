@@ -7,7 +7,11 @@
 
       <!-- Tabs work not js only css -->
       <div class="tabs">
-        <input class="tabs__input" type="radio" name="tabs" id="tab-1" checked />
+        <input id="tab-1"
+               class="tabs__input"
+               type="radio"
+               name="tabs"
+               checked>
         <label for="tab-1" class="tabs__item">
           User Details
           <!-- <span class="mobile-name">User Details</span> -->
@@ -17,15 +21,25 @@
             <div class="form-row form-group">
               <div class="col-md">
                 <label for="login">{{ $t("customer.login.user_name") }}</label>
-                <input type="text" class="form-control" id="login" v-model="profile.userName" readonly />
+                <input id="login"
+                       v-model="profile.userName"
+                       type="text"
+                       class="form-control"
+                       readonly>
               </div>
               <div class="col-md">
                 <label for="email">{{ $t("customer.login.email") }}</label>
-                <input type="email" class="form-control" id="email" v-model="profile.email" />
+                <input id="email"
+                       v-model="profile.email"
+                       type="email"
+                       class="form-control">
               </div>
               <div class="col-md">
                 <label for="phone">{{ $t("customer.login.phone") }}</label>
-                <input type="text" class="form-control" id="phone" v-model="profile.phoneNumber" />
+                <input id="phone"
+                       v-model="profile.phoneNumber"
+                       type="text"
+                       class="form-control">
               </div>
             </div>
           </fieldset>
@@ -41,7 +55,7 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { FETCH_PROFILE, UPDATE_USER } from "@account/store/definitions";
 import Loading from "vue-loading-overlay";
-import 'vue-loading-overlay/dist/vue-loading.css';
+import "vue-loading-overlay/dist/vue-loading.css";
 
 @Component({
   name: "ProfileHome",
