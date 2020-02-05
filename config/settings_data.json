@@ -1,0 +1,45 @@
+{
+    "current": "Gray",
+    "presets": {
+        "Blue": {
+            "color_primary": "#007bff",
+            "color_secondary": "#ff8400",
+            "link_color": "#fff"
+        },
+        "Gray": {
+            "color_primary": "#6c757d",
+            "color_secondary": "#7d746c",
+            "link_color": "#fff"
+        },
+        "Green": {
+            "color_primary": "#28a745",
+            "color_secondary": "#a72889",
+            "link_color": "#fff"
+        },
+        "Red": {
+            "color_primary": "#dc3545",
+            "color_secondary": "#35dccb",
+            "link_color": "#fff"
+        },
+        "Yellow": {
+            "color_primary": "#ffc107",
+            "color_secondary": "#0745ff",
+            "link_color": "#fff"
+        },
+        "Cyan": {
+            "color_primary": "#17a2b8",
+            "color_secondary": "#b82c17",
+            "link_color": "#fff"
+        },
+        "Light Gray": {
+            "color_primary": "#f8f9fa",
+            "color_secondary": "#706f6e",
+            "link_color": "#000000"
+        },
+        "Dark": {
+            "color_primary": "#343a40",
+            "color_secondary": "#403a34",
+            "link_color": "#fff"
+        }
+    }
+}
