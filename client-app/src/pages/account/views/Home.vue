@@ -1,7 +1,7 @@
 <template>
   <main class="main container">
     <div class="account">
-      <loading :active.sync="isLoading" :can-cancel="true" :on-cancel="onCancel"></loading>
+      <loading :active.sync="isLoading"></loading>
 
       <h1>MPA Vue user info:</h1>
 
@@ -40,9 +40,14 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { FETCH_PROFILE, UPDATE_USER } from "@account/store/definitions";
+import Loading from "vue-loading-overlay";
+import 'vue-loading-overlay/dist/vue-loading.css';
 
 @Component({
-  name: "ProfileHome"
+  name: "ProfileHome",
+  components: {
+    Loading
+  }
 })
 export default class Home extends Vue {
   get profile() {
