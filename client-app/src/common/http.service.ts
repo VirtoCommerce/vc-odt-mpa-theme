@@ -35,7 +35,7 @@ class HttpService {
     try {
       return await Vue.axios.delete(resource);
     } catch (error) {
-      throw new Error(`[RWV] ApiService ${error}`);
+      throw new Error(`[RWV] HttpService ${error}`);
     }
   }
 }
