@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = {
   pages: {
     account: "src/pages/account/main.ts",
@@ -21,10 +23,11 @@ module.exports = {
       .plugin("tsconfig-paths")
       .use(require("tsconfig-paths-webpack-plugin"));
     config.module
-      .rule('eslint')
-      .use('eslint-loader')
+      .rule("eslint")
+      .use("eslint-loader")
       .options({
         fix: true,
       });
+    config.merge({ devtool: "source-map" });
   }
 };
