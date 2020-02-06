@@ -43,6 +43,6 @@ class HttpService {
 Vue.use(VueAxios, axios);
 
 //BASE_URL is glbal variable initialized on the layout page
-Vue.axios.defaults.baseURL = window.BASE_URL;
+Vue.axios.defaults.baseURL = window.BASE_URL.replace(new RegExp("[/]+$"), "");
 
 export default HttpService;
