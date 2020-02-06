@@ -8,7 +8,11 @@ module.exports = {
 
   outputDir: "../assets/static/bundle/dist",
   filenameHashing: false,
-
+  
+  devServer: {
+    proxy: 'http://localhost:2083'
+  },
+  
   pluginOptions: {
     i18n: {
       locale: "en",
