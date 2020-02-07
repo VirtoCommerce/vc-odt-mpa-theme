@@ -8,7 +8,11 @@ module.exports = {
 
   outputDir: "../assets/static/bundle/dist",
   filenameHashing: false,
-
+  
+  devServer: {
+    proxy: 'http://localhost:2083'
+  },
+  
   pluginOptions: {
     i18n: {
       locale: "en",
@@ -28,6 +32,26 @@ module.exports = {
       .options({
         fix: true,
       });
-    config.merge({ devtool: "source-map" });
+
+    config.merge({
+      devtool: "source-map",
+      module: {
+        rules: [
+          {
+            test: /(\.(js|jsx|ts|tsx|vue|scss|css)$)/,
+            use: ["source-map-loader"],
+            enforce: "pre"
+          }
+        ]
+      }
+    });    
+    config.output.devtoolModuleFilenameTemplate(info => {
+      var $filename = 'sources://' + info.resourcePath;
+      if (info.resourcePath.match(/\.vue$/) && !info.query.match(/type=script/)) {
+        $filename = 'webpack-generated:///' + info.resourcePath + '?' + info.hash;
+      } 
+      return $filename;
+    });
+    config.output.devtoolFallbackModuleFilenameTemplate('webpack:///[resource-path]?[hash]');
   }
 };

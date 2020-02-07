@@ -9,17 +9,25 @@
                 <ul class="nav">
                     <li class="nav__item ml-auto">
                         {% if customer.is_registered_user %}
-                        <a href="{{ 'account' | absolute_url }}" class="nav__link">
-                            {{ 'layout.customer.logged_in_as_label' | t }} {{ customer.user_name}} </a>
+                          <a href="{{ 'account' | absolute_url }}" class="nav__link">
+                                {% if customer.operator_user_id != null %}
+                                    {{ 'layout.customer.logged_in_on_behalf_of_label' | t }}
+                                {% else %}
+                                    {{ 'layout.customer.logged_in_as_label' | t }}
+                                {% endif %}
+                                {{ customer.user_name}}
+                          </a>
                         {% else %}
-                        <a href="{{ 'account/login' | absolute_url }}" class="nav__link">
-                            {{ 'layout.customer.sign_in' | t }} </a>
+                            <a href="{{ 'account/login' | absolute_url }}" class="nav__link">
+                                {{ 'layout.customer.sign_in' | t }}
+                            </a>
                         {% endif %}
                     </li>
                     {% if customer.is_registered_user %}
                         <li class="nav__item ml-auto">
-                            <a href="{{ 'account/logout' | absolute_url }} "
-                                class="nav__link">{{ 'layout.customer.log_out' | t }}</a>
+                            <a href="{{ 'account/logout' | absolute_url }}"
+                                class="nav__link">{{ 'layout.customer.log_out' | t }}
+                            </a>
                         </li>
                    {% endif %}
                 </ul>
