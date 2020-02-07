@@ -3,12 +3,61 @@ module.exports = {
   env: {
     node: true
   },
-  extends: ["plugin:vue/essential", "@vue/prettier"],
+  plugins: [ "vue", "import", "@typescript-eslint", "editorconfig" ],
+  extends: [
+    "plugin:vue/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "@vue/typescript/recommended",
+    "plugin:editorconfig/noconflict"
+  ],
   rules: {
+    "editorconfig/editorconfig": "error",
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    "vue/max-attributes-per-line": ["error", {
+      "singleline": 2,
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": true
+      }
+    }],
+    "vue/html-closing-bracket-newline": ["error", {
+      "singleline": "never",
+      "multiline": "never"
+    }],
+    "vue/html-self-closing": ["error", {
+      "html": {
+        "void": "never",
+        "normal": "never",
+        "component": "never"
+      },
+      "svg": "never",
+      "math": "never"
+    }]
   },
   parserOptions: {
-    parser: "babel-eslint"
+    parser: "@typescript-eslint/parser"
+  },
+  overrides: [
+    {
+      files: ["**/__tests__/*.{j,t}s?(x)"],
+      env: {
+        mocha: true
+      }
+    }
+  ],
+  settings: {
+    "import/parsers": {
+      "vue-eslint-parser": [".vue"]
+    },
+    "import/resolver": {
+      typescript: {},
+      node: {}
+    }
   }
 };

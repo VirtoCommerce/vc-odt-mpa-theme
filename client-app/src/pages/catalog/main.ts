@@ -1,9 +1,9 @@
 import Vue from "vue";
-import App from "./App.vue";
+import App from "@catalog/App.vue";
 
 Vue.config.productionTip = false;
 
 new Vue({
-    el: "#app",
-    render: h => h(App)
+  el: "#app",
+  render: h => h(App)
 });

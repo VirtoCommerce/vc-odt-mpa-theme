@@ -1,21 +1,17 @@
 <template>
-    <!-- <div id="app">
-        <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>
-        </div>
-        <router-view />
-    </div> -->
-    <ProfileHome></ProfileHome>
+  <ProfileHome></ProfileHome>
 </template>
 
-<script>
-import ProfileHome from "./views/Home";
+<script lang="ts">
+import Vue from "vue";
+import Component from "vue-class-component";
+import ProfileHome from "@account/views/Home.vue";
 
-export default {
-    name: "home",
-    components: {
-        ProfileHome
-    }
-};
+@Component({
+  name: "home",
+  components: {
+    ProfileHome
+  }
+})
+export default class App extends Vue {}
 </script>
