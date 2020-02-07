@@ -1,7 +1,8 @@
 import Vue from "vue";
 import App from "@catalog/App.vue";
+import initCommon from "@common/init.common"
 
-Vue.config.productionTip = false;
+initCommon();
 
 new Vue({
   el: "#app",

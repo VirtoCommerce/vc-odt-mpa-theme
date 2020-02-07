@@ -1,6 +1,5 @@
 import Vue from "vue";
 import axios, { AxiosRequestConfig } from "axios";
-import VueAxios from "vue-axios";
 
 class HttpService {
   static async query(resource: string, params?: AxiosRequestConfig) {
@@ -40,9 +39,5 @@ class HttpService {
   }
 }
 
-Vue.use(VueAxios, axios);
-
-//BASE_URL is glbal variable initialized on the layout page
-Vue.axios.defaults.baseURL = window.BASE_URL.replace(new RegExp("[/]+$"), "");
 
 export default HttpService;
