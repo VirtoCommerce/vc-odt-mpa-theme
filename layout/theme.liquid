@@ -24,7 +24,9 @@
   <link rel="stylesheet" href="{{ 'styles.css' | static_asset_url }}"></head>
 
   <script>
-      window.BASE_URL = '{{ "/" | full_url }}';		
+      window.BASE_URL = '{{ "/" | full_url }}';
+      window.STORE_NAME ='{{current_store.name}}';
+      window.STORE_LNG = '{{current_language.culture_name}}';
   </script>
 
 </head>
@@ -32,7 +34,7 @@
   {{ content_for_header }}
 
   {{ content_for_layout }}
-  
+
 <script src="{{ 'bundle/dist/js/chunk-vendors.js' | static_asset_url | append_version }}"></script>
 </body>
 </html>

@@ -1,6 +1,4 @@
 import Vue from "vue";
-//import { ApiAccountClient }  from
-// import AccountService from "@common/account.service";
 import { ActionTree } from "vuex";
 import { FETCH_PROFILE, SET_PROFILE, UPDATE_USER } from "@account/store/definitions";
 import { State } from "@account/store/state";
@@ -12,7 +10,7 @@ export const actions: ActionTree<State, State> = {
     try {
       context.commit(FETCH_PROFILE);
       const accountClient = new ApiAccountClient(Vue.axios.defaults.baseURL, Vue.axios);
-      const user = await accountClient.getCurrentUser("b2b-store", "en-us");
+      const user = await accountClient.getCurrentUser(Vue.$storeInfo.storeName, Vue.$storeInfo.currentLng);
       context.commit(SET_PROFILE, user);
       return user;
     } catch (e) {
@@ -22,7 +20,7 @@ export const actions: ActionTree<State, State> = {
   },
   async [UPDATE_USER](context , userUpdateInfo: UserUpdateInfo) {
     const accountClient = new ApiAccountClient(Vue.axios.defaults.baseURL, Vue.axios);
-    await accountClient.updateAccount(userUpdateInfo, "b2b-store", "en-us");
+    await accountClient.updateAccount(userUpdateInfo, Vue.$storeInfo.storeName, Vue.$storeInfo.currentLng);
     context.dispatch(FETCH_PROFILE);
   }
 };
