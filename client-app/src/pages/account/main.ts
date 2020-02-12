@@ -3,8 +3,9 @@ import App from "@account/App.vue";
 import router from "@account/router";
 import store from "@account/store";
 import i18n from "@i18n";
+import InitializationService from '@common/initialization.service';
 
-Vue.config.productionTip = false;
+InitializationService.initializeCommon();
 
 new Vue({
   i18n,

@@ -43,7 +43,10 @@
               </div>
             </div>
           </fieldset>
-          <a class="btn btn--green" @click.prevent="update()">Update User</a>
+          <b-button variant="primary"
+                    @click.prevent="update()">
+            Update User
+          </b-button>
         </div>
       </div>
     </div>
