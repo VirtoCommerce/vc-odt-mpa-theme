@@ -454,7 +454,8 @@
             "sign_in": "Sign In",
             "cancel": "Return to Store",
             "guest_title": "Continue as a guest",
-            "guest_continue": "Let's go"
+            "guest_continue": "Let's go",
+            "phone": "Phone"
         },
         "orders": {
             "title": "Order History",
