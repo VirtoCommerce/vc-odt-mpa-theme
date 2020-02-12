@@ -2,15 +2,15 @@ import { ActionTree } from "vuex";
 import { FETCH_PROFILE, SET_PROFILE, UPDATE_USER } from "@account/store/definitions";
 import { State } from "@account/store/state";
 import { UserUpdateInfo } from '@common/api/api-clients';
-import { storeInfo } from '@common/constants';
-import {accountClient} from '@common/services/api-clients.service';
+import { storeName, locale } from '@common/constants';
+import { accountClient } from '@common/services/api-clients.service';
 
 //actions
 export const actions: ActionTree<State, State> = {
   async [FETCH_PROFILE](context) {
     try {
       context.commit(FETCH_PROFILE);
-      const user = await accountClient.getCurrentUser(storeInfo.storeName, storeInfo.locale);
+      const user = await accountClient.getCurrentUser(storeName, locale);
       context.commit(SET_PROFILE, user);
       return user;
     } catch (e) {
@@ -19,7 +19,7 @@ export const actions: ActionTree<State, State> = {
     }
   },
   async [UPDATE_USER](context , userUpdateInfo: UserUpdateInfo) {
-    await accountClient.updateAccount(userUpdateInfo, storeInfo.storeName, storeInfo.locale);
+    await accountClient.updateAccount(userUpdateInfo, storeName, locale);
     context.dispatch(FETCH_PROFILE);
   }
 };
