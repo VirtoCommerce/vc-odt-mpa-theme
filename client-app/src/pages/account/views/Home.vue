@@ -43,10 +43,10 @@
               </div>
             </div>
           </fieldset>
-          <b-button variant="primary"
-                    @click.prevent="update()">
+          <button class="btn btn-primary"
+                  @click.prevent="update()">
             Update User
-          </b-button>
+          </button>
         </div>
       </div>
     </div>
