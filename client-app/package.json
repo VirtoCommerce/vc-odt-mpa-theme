@@ -10,7 +10,7 @@
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
-    "nswag:genclient": "nswag run"
+    "nswag": "nswag run"
   },
   "dependencies": {
     "axios": "^0.19.2",

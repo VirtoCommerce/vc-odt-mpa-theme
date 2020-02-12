@@ -1,4 +1,4 @@
-import { StoreInfo } from './models/store.info';
+import { StoreInfo } from './models/store-info';
 
 //It is global variables initialized on the layout page
 const baseUrl = window.BASE_URL.replace(new RegExp("[/]+$"), "");

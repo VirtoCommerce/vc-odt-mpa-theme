@@ -64,7 +64,7 @@
       "enumNameGeneratorType": null,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": "src/common/api/api.clients.ts"
+      "output": "src/common/api/api-clients.ts"
     }
   }
 }

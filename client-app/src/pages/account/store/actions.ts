@@ -1,9 +1,9 @@
 import { ActionTree } from "vuex";
 import { FETCH_PROFILE, SET_PROFILE, UPDATE_USER } from "@account/store/definitions";
 import { State } from "@account/store/state";
-import { UserUpdateInfo } from '@common/api/api.clients';
+import { UserUpdateInfo } from '@common/api/api-clients';
 import { storeInfo } from '@common/constants';
-import {accountClient} from '@common/services/api.clients.services';
+import {accountClient} from '@common/services/api-clients.service';
 
 //actions
 export const actions: ActionTree<State, State> = {

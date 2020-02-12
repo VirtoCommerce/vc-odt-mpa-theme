@@ -1,4 +1,4 @@
-import { ApiAccountClient, ApiCartClient, ApiCatalogClient, ApiOrderClient, ApiPricingClient } from '@common/api/api.clients';
+import { ApiAccountClient, ApiCartClient, ApiCatalogClient, ApiOrderClient, ApiPricingClient } from '@common/api/api-clients';
 import { storeInfo } from '@common/constants';
 import Vue from 'vue';
 
