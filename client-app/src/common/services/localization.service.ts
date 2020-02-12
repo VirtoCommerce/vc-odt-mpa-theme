@@ -1,4 +1,4 @@
-import HttpService from "@common/http.service";
+import HttpService from "@common/services/http.service";
 
 export default class LocalizationService {
   static async get() {

@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueI18n from "vue-i18n";
-import LocalizationService from "@common/localization.service";
+import LocalizationService from "@common/services/localization.service";
 
 Vue.use(VueI18n);
 
