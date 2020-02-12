@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href=" {{ 'bundle/assets/css/bootstrap.min.css' | static_asset_url }}">
+  {{ 'bundle/assets/scss/default.scss.css' | static_asset_url | append_version | stylesheet_tag }}
   {{ 'bundle/login-page.css' | static_asset_url | stylesheet_tag }}
 
   <script>
