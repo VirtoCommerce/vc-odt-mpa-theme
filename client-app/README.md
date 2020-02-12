@@ -30,5 +30,10 @@ npm run test:e2e
 npm run lint
 ```
 
+### Generates Virto Commerce Storefront API clients
+```
+npm run nswag
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

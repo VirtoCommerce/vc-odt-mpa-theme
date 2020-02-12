@@ -9,7 +9,8 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
+    "nswag": "nswag run"
   },
   "dependencies": {
     "@popperjs/core": "^2.0.6",
@@ -54,6 +55,7 @@
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^3.0.0",
     "postcss-scss": "^2.0.0",
+    "nswag": "^13.2.2",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
     "source-map-loader": "^0.2.4",

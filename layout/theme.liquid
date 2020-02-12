@@ -11,7 +11,7 @@
   <meta name="google" content="notranslate">
   <meta name="format-detection" content="telephone=no">
 
-  <title>Procurement portal</title>
+  <title>{{ store.title }}</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,7 +23,9 @@
   {{ 'bundle/default.scss.css' | static_asset_url | append_version | stylesheet_tag }}
 
   <script>
-      window.BASE_URL = '{{ "/" | full_url }}';		
+      window.BASE_URL = '{{ "/" | full_url }}';
+      window.STORE_NAME ='{{current_store.name}}';
+      window.STORE_LNG = '{{current_language.culture_name}}';
   </script>
 
 </head>
@@ -31,7 +33,7 @@
   {{ content_for_header }}
 
   {{ content_for_layout }}
-  
+
 <script src="{{ 'bundle/dist/js/chunk-vendors.js' | static_asset_url | append_version }}"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+import "@common/init-common"
 import Vue from "vue";
 import App from "@account/App.vue";
 import router from "@account/router";
