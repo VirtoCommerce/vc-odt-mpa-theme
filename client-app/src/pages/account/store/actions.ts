@@ -1,16 +1,16 @@
-import Vue from "vue";
 import { ActionTree } from "vuex";
 import { FETCH_PROFILE, SET_PROFILE, UPDATE_USER } from "@account/store/definitions";
 import { State } from "@account/store/state";
-import { ApiAccountClient, UserUpdateInfo } from '@common/api/api.client';
+import { UserUpdateInfo } from '@common/api/api.clients';
+import { storeInfo } from '@common/constants';
+import {accountClient} from '@common/services/api.clients.services';
 
 //actions
 export const actions: ActionTree<State, State> = {
   async [FETCH_PROFILE](context) {
     try {
       context.commit(FETCH_PROFILE);
-      const accountClient = new ApiAccountClient(Vue.axios.defaults.baseURL, Vue.axios);
-      const user = await accountClient.getCurrentUser(Vue.$storeInfo.storeName, Vue.$storeInfo.currentLng);
+      const user = await accountClient.getCurrentUser(storeInfo.storeName, storeInfo.locale);
       context.commit(SET_PROFILE, user);
       return user;
     } catch (e) {
@@ -19,8 +19,7 @@ export const actions: ActionTree<State, State> = {
     }
   },
   async [UPDATE_USER](context , userUpdateInfo: UserUpdateInfo) {
-    const accountClient = new ApiAccountClient(Vue.axios.defaults.baseURL, Vue.axios);
-    await accountClient.updateAccount(userUpdateInfo, Vue.$storeInfo.storeName, Vue.$storeInfo.currentLng);
+    await accountClient.updateAccount(userUpdateInfo, storeInfo.storeName, storeInfo.locale);
     context.dispatch(FETCH_PROFILE);
   }
 };

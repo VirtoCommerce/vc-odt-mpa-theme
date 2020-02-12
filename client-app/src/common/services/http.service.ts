@@ -1,5 +1,5 @@
 import Vue from "vue";
-import axios, { AxiosRequestConfig } from "axios";
+import { AxiosRequestConfig } from "axios";
 
 class HttpService {
   static async query(resource: string, params?: AxiosRequestConfig) {
