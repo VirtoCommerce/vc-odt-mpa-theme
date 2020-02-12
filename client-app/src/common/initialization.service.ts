@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueAxios from "vue-axios";
 import axios from "axios";
 import "styles/default.scss";
+import "bootstrap";
 
 export default class InitializationService {
   static initializeCommon() {
@@ -18,12 +19,6 @@ export default class InitializationService {
     Vue.config.warnHandler = (msg, vue, trace) => {
       // todo
     };
-  }
 
-  static initializeErrorHandling(component: Vue) {
-    window.onerror = (message, source, line, column, error) => {
-      // until error handling will be done
-      throw error;
-    };
   }
 }

@@ -12,9 +12,12 @@
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
   "dependencies": {
+    "@popperjs/core": "^2.0.6",
+    "@types/bootstrap": "^4.3.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "core-js": "^3.4.4",
+    "jquery": "^3.4.1",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.5",
     "vue-class-component": "^7.0.2",
