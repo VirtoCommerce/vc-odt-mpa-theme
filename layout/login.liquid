@@ -11,7 +11,7 @@
   <meta name="google" content="notranslate">
   <meta name="format-detection" content="telephone=no">
 
-  <title>Procurement portal</title>
+  <title>{{ store.title }}</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,11 +20,11 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href=" {{ 'bundle/assets/css/bootstrap.min.css' | static_asset_url }}">
+  {{ 'bundle/assets/scss/default.scss.css' | static_asset_url | append_version | stylesheet_tag }}
   {{ 'bundle/login-page.css' | static_asset_url | stylesheet_tag }}
 
   <script>
-      var BASE_URL = '{{ "/" | full_url }}';		
+      var BASE_URL = '{{ "/" | full_url }}';
   </script>
 
 </head>
@@ -32,7 +32,7 @@
 	<main>
   {{ content_for_layout }}
 </main>
- 
+
 
 </body>
 </html>

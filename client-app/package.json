@@ -9,7 +9,8 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
+    "nswag": "nswag run"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -48,10 +49,7 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-mocha": "^6.2.2",
     "eslint-plugin-vue": "^6.1.2",
-    "exports-loader": "^0.7.0",
-    "postcss-easy-import": "^3.0.0",
-    "postcss-loader": "^3.0.0",
-    "postcss-scss": "^2.0.0",
+    "nswag": "^13.2.2",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
     "source-map-loader": "^0.2.4",

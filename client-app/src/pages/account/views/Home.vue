@@ -70,7 +70,7 @@ export default class Home extends Vue {
   }
 
   mounted() {
-    this.$store.dispatch(FETCH_PROFILE, "userName");
+    this.$store.dispatch(FETCH_PROFILE);
   }
   update() {
     this.$store.dispatch(UPDATE_USER, this.profile);

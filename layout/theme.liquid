@@ -11,8 +11,8 @@
     <meta name="google" content="notranslate" />
     <meta name="format-detection" content="telephone=no" />
 
-    <title>Procurement portal</title>
-    <base href="/" />
+  <title>{{ store.title }}</title>
+  <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -23,9 +23,11 @@
     {{ "bundle/assets/scss/default.scss.css" | static_asset_url | append_version | stylesheet_tag }}
     <!-- <link rel="stylesheet" href="{{ 'styles.css' | static_asset_url }}"></head> -->
 
-    <script>
+  <script>
       window.BASE_URL = '{{ "/" | full_url }}';
-    </script>
+      window.STORE_NAME ='{{current_store.name}}';
+      window.STORE_LNG = '{{current_language.culture_name}}';
+  </script>
   </head>
   <body class="min-vh-100 d-flex flex-column">
     {{ content_for_header }}
