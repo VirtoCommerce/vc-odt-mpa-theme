@@ -13,5 +13,7 @@ declare global {
 
   interface Window {
     BASE_URL: string;
+    STORE_NAME: string;
+    LOCALE: string;
   }
 }

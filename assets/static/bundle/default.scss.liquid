@@ -1,0 +1,43 @@
+// Your variable overrides
+$primary: {{ settings.color_primary }};
+$secondary: {{ settings.color_secondary }};
+$link-color: {{ settings.link_color }};
+
+@import "dist/default.scss";
+
+.header {
+    background: $primary;
+    border-bottom: 1px solid #d6d6d6;
+    height: 3.75rem;
+    -webkit-box-flex: 0;
+    flex: 0 0 3.75rem;
+  }
+  .header .row {
+    height: inherit;
+  }
+  .header .nav__link {
+    -webkit-box-align: center;
+    align-items: center;
+    color: $link-color;
+    display: -webkit-box;
+    display: flex;
+    height: 3.75rem;
+    padding: 0 0.9375rem;
+  }
+  .header-logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 1.875rem;
+  }
+
+  a.btn--green {
+    background-color: #07b919;
+    border-color: #07b919;
+    color: $link-color;
+  }
+
+  a.btn--green:hover {
+    background-color: #06a016;
+    color: $link-color;
+  }
