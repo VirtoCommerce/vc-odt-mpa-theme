@@ -15,8 +15,6 @@ export default class InitializationService {
     Vue.use(VueAxios, axios);
     Vue.axios.defaults.baseURL = baseUrl;
 
-    Vue.use(VueI18n);
-
     LocalizationService.get().then(({ data }) => {
       i18n.setLocaleMessage("en", data);
     });

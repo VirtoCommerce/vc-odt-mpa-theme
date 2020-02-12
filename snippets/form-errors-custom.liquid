@@ -1,5 +1,5 @@
 {% if form.errors.size > 0 %}
-<div class="note form-error">
+<div class="alert alert-danger">
   <p>{{ 'general.forms.post_error' | t }}</p>
   <ul class="disc">
     {% for form_error in form.errors %}
