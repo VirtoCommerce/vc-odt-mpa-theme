@@ -1,4 +1,4 @@
-var webpack = require('webpack');
+const path = require("path");
 
 module.exports = {
   pages: {
@@ -10,7 +10,7 @@ module.exports = {
   filenameHashing: false,
   
   devServer: {
-    proxy: 'http://localhost:2083'
+    proxy: "http://localhost:2083"
   },
   
   pluginOptions: {
@@ -33,25 +33,33 @@ module.exports = {
         fix: true,
       });
 
-    config.merge({
-      devtool: "source-map",
-      module: {
-        rules: [
-          {
-            test: /(\.(js|jsx|ts|tsx|vue|scss|css)$)/,
-            use: ["source-map-loader"],
-            enforce: "pre"
-          }
-        ]
-      }
-    });    
+    config.module.rules.delete("scss");
+    config.module.rule("default").test(/\.scss$/)
+      .include.add(/default.scss$/).end()
+      .use('file-loader').loader('file-loader').tap(options => ({ name: "default.scss" }))
+      .before("exports-loader").end().use('exports-loader').loader('exports-loader')
+      .before("postcss").end().use("postcss").loader("postcss-loader").tap(options => ({
+        ident: "embedded",
+        syntax: require("postcss-scss"),
+        plugins: (loader) => [
+            require("postcss-easy-import")({
+                root: loader.resourcePath,
+                prefix: "_",
+                extensions: ".scss"
+            }),
+        ],
+        sourceMap: "inline"
+      })).end();
+
+    config.devtool("source-map");
+    config.module.rule("source-maps").test(/\.(js|jsx|ts|tsx|scss|css|vue)$/).enforce("pre").use('source-map-loader').loader('source-map-loader');
     config.output.devtoolModuleFilenameTemplate(info => {
-      var $filename = 'sources://' + info.resourcePath;
+      var $filename = "sources://" + info.resourcePath;
       if (info.resourcePath.match(/\.vue$/) && !info.query.match(/type=script/)) {
-        $filename = 'webpack-generated:///' + info.resourcePath + '?' + info.hash;
+        $filename = "webpack-generated:///" + info.resourcePath + "?" + info.hash;
       } 
       return $filename;
     });
-    config.output.devtoolFallbackModuleFilenameTemplate('webpack:///[resource-path]?[hash]');
+    config.output.devtoolFallbackModuleFilenameTemplate("webpack:///[resource-path]?[hash]");
   }
 };

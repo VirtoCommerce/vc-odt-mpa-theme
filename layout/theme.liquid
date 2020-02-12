@@ -14,14 +14,13 @@
   <title>Procurement portal</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  {{ 'bundle/assets/scss/default.scss.css' | static_asset_url | append_version | stylesheet_tag }}
-  <!-- <link rel="stylesheet" href="{{ 'styles.css' | static_asset_url }}"></head> -->
+  {{ 'bundle/default.scss.css' | static_asset_url | append_version | stylesheet_tag }}
 
   <script>
       window.BASE_URL = '{{ "/" | full_url }}';		

@@ -1,7 +1,8 @@
 import Vue from "vue";
 import App from "@catalog/App.vue";
+import InitializationService from '@common/initialization.service';
 
-Vue.config.productionTip = false;
+InitializationService.initializeCommon();
 
 new Vue({
   el: "#app",
