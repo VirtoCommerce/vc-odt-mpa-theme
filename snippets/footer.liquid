@@ -45,13 +45,11 @@
         </div>
       {% endif %}
 
-      {% if settings.footer_content_enable %}
       <div>
         <h3>{{ 'layout.footer.get_in_touch' | t }}</h3>
         <p>
             {{ 'layout.footer.footer_content_text' | t }}
         </p>
-
         {% if settings.footer_social_enable %}
           <ul class="inline-list social-icons">
             {% if settings.social_twitter_link != blank %}
@@ -129,8 +127,6 @@
           </ul>
         {% endif %}
       </div>
-      {% endif %}
-
     </div>
 
     <hr class="my-4">

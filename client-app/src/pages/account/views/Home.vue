@@ -42,9 +42,10 @@
             </div>
           </div>
         </fieldset>
-          <button class="btn btn-primary"
-                  @click.prevent="update()">
-            Update User
+        <button class="btn btn-primary"
+                @click.prevent="update()">
+          Update User
+        </button>
       </div>
     </div>
   </div>
