@@ -4,6 +4,8 @@ import { actions } from "@account/store/actions";
 import { getters } from "@account/store/getters";
 import { mutations } from "@account/store/mutations";
 import { state } from "@account/store/state";
+import orders from './modules/orders'
+
 
 const debug = process.env.NODE_ENV !== "production";
 
@@ -14,5 +16,8 @@ export default new Store({
   getters,
   actions,
   mutations,
-  strict: debug
+  strict: debug,
+  modules: {
+    orders
+  }
 });
