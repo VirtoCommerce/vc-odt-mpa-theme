@@ -13,15 +13,15 @@
                     {% if customer.is_registered_user %}
                         <a href="{{ 'account' | absolute_url }}" class="nav-link">
                             {% if customer.operator_user_id != null %}
-                                {{ "layout.customer.logged_in_on_behalf_of_label" | t }}
+                                {{ "common.header.logged_in.on_behalf" | t }}
                             {% else %}
-                                {{ "layout.customer.logged_in_as_label" | t }}
+                                {{ "common.header.logged_in.as" | t }}
                             {% endif %}
                             {{ customer.user_name }}
                         </a>
                     {% else %}
                         <a href="{{ 'account/login' | absolute_url }}" class="nav-link">
-                            {{ "layout.customer.sign_in" | t }}
+                            {{ "common.header.sign_in" | t }}
                         </a>
                     {% endif %}
                 </li>
