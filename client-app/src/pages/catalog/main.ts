@@ -1,6 +1,6 @@
 import Vue from "vue";
+import InitializationService from '@common/services/initialization.service';
 import App from "@catalog/App.vue";
-import InitializationService from '@common/initialization.service';
 
 InitializationService.initializeCommon();
 
