@@ -1,18 +1,17 @@
-const path = require("path");
-
 module.exports = {
   pages: {
+    common: "src/pages/common/main.ts",
     account: "src/pages/account/main.ts",
     catalog: "src/pages/catalog/main.ts"
   },
 
   outputDir: "../assets/static/bundle/dist",
   filenameHashing: false,
-  
+
   devServer: {
     proxy: "http://localhost:2083"
   },
-  
+
   pluginOptions: {
     i18n: {
       locale: "en",
@@ -77,7 +76,7 @@ module.exports = {
       var $filename = "sources://" + info.resourcePath;
       if (info.resourcePath.match(/\.vue$/) && !info.query.match(/type=script/)) {
         $filename = "webpack-generated:///" + info.resourcePath + "?" + info.hash;
-      } 
+      }
       return $filename;
     });
     config.output.devtoolFallbackModuleFilenameTemplate("webpack:///[resource-path]?[hash]");
