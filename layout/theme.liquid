@@ -33,11 +33,11 @@
   <header class="header">{{ content_for_header }}</header>
 
   <main class="container">
-    <div id="common"></div>
+    <div id="initApp"></div>
     {{ content_for_layout }}
   </main>
 
-  <script src="{{ 'bundle/dist/js/common.js' | static_asset_url | append_version }}"></script>
+  <script src="{{ 'bundle/dist/js/init.js' | static_asset_url | append_version }}"></script>
   <script src="{{ 'bundle/dist/js/chunk-vendors.js' | static_asset_url | append_version }}"></script>
 </body>
 </html>

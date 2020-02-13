@@ -5,7 +5,7 @@ import App from "@account/App.vue";
 import router from "@account/router";
 import store from "@account/store";
 
-InitializationService.initializeCommon();
+//InitializationService.initializeCommon();
 
 new Vue({
   i18n,

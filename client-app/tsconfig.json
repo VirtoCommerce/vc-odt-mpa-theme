@@ -22,7 +22,7 @@
       "@i18n": [ "i18n" ],
       "@common/*": [ "common/*" ],
       "@components/*": [ "components/*" ],
-      "@pages/common/*": [ "pages/common/*" ],
+      "@init-app/*": [ "pages/init/*" ],
       "@account/*": [ "pages/account/*" ],
       "@catalog/*": [ "pages/catalog/*" ]
     },
