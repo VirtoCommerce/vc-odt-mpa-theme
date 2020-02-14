@@ -1,39 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8"/>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="robots" content="index, follow, noodp">
-  <meta name="googlebot" content="index, follow">
-  <meta name="google" content="notranslate">
-  <meta name="format-detection" content="telephone=no">
+        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="keywords"/>
+        <meta content="index, follow, noodp" name="robots"/>
+        <meta content="index, follow" name="googlebot"/>
+        <meta content="notranslate" name="google"/>
+        <meta content="telephone=no" name="format-detection"/>
 
-  <title>{{ store.title }}</title>
-  <base href="/">
+        <title>{{ store.title }}</title>
+        <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
-  <!-- Google fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet"/>
 
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  {{ 'bundle/default.scss.css' | static_asset_url | append_version | stylesheet_tag }}
+        <link href="favicon.ico" rel="icon" type="image/x-icon">
+        {{ 'bundle/default.scss.css' | static_asset_url | append_version | stylesheet_tag }}
 
-  <script>
+        <script>
       window.BASE_URL = '{{ "/" | full_url }}';
       window.STORE_NAME ='{{current_store.name}}';
       window.LOCALE = '{{current_language.culture_name}}';
   </script>
-
-</head>
-<body>
-  {{ content_for_header }}
-
-  {{ content_for_layout }}
-
-<script src="{{ 'bundle/dist/js/chunk-vendors.js' | static_asset_url | append_version }}"></script>
-</body>
+    </head>
+    <body class="min-vh-100 d-flex flex-column">
+        {{ content_for_header }}
+        <main class="container flex-grow-1">
+			<div id="initApp"></div>
+            {{ content_for_layout }}
+        </main>
+        {% include 'footer' %}
+        <script src="{{ 'bundle/dist/js/init.js' | static_asset_url | append_version }}"></script>
+		<script src="{{ 'bundle/dist/js/chunk-vendors.js' | static_asset_url | append_version }}"></script>
+    </body>
 </html>

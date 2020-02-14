@@ -18,14 +18,5 @@ export default class InitializationService {
     LocalizationService.get().then(({ data }) => {
       i18n.setLocaleMessage("en", data);
     });
-
-    Vue.config.errorHandler = (err) => {
-      throw err;
-    };
-
-    Vue.config.warnHandler = (msg, vue, trace) => {
-      // todo
-    };
-
   }
 }

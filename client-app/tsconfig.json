@@ -20,10 +20,11 @@
     ],
     "paths": {
       "@i18n": [ "i18n" ],
-      "@account/*": [ "pages/account/*" ],
-      "@catalog/*": [ "pages/catalog/*" ],
       "@common/*": [ "common/*" ],
-      "@components/*": [ "components/*" ]
+      "@components/*": [ "components/*" ],
+      "@init-app/*": [ "pages/init/*" ],
+      "@account/*": [ "pages/account/*" ],
+      "@catalog/*": [ "pages/catalog/*" ]
     },
     "lib": [
       "esnext",

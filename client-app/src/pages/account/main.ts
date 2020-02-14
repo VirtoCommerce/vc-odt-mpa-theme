@@ -1,9 +1,9 @@
 import Vue from "vue";
+import i18n from "@i18n";
+import InitializationService from '@common/services/initialization.service';
 import App from "@account/App.vue";
 import router from "@account/router";
 import store from "@account/store";
-import i18n from "@i18n";
-import InitializationService from '@common/initialization.service';
 
 InitializationService.initializeCommon();
 
