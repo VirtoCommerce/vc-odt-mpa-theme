@@ -1,5 +1,5 @@
 <template>
-  <div class="account">
+  <div class="account mb-3">
     <loading :active.sync="isLoading"></loading>
 
     <h1>MPA Vue user info:</h1>
