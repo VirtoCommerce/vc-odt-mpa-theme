@@ -10,6 +10,9 @@ export const getters: GetterTree<OrdersState, State> = {
   },
   isLoading: (state: OrdersState) => {
     return state.isLoading;
+  },
+  gridColumns: (state) => {
+    return state.gridColumns;
   }
 
 };

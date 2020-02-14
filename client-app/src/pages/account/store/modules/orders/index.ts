@@ -7,8 +7,8 @@ import {mutations} from "./mutations";
 
 
 
-const ordersModule : Module<OrdersState, State> = {
-  namespaced: true,
+const ordersModule: Module<OrdersState, State> = {
+  //namespaced: true,
   state,
   getters,
   actions,

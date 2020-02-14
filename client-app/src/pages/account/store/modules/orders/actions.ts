@@ -6,6 +6,8 @@ import { orderClient } from '@common/services/api-clients.service';
 import { OrdersState } from './state';
 import { OrderSearchCriteria } from '@common/api/api-clients';
 import { GET_ORDERS } from './action-types';
+import {ORDERS_LOADED, ORDERS_REQUEST} from "./mutation-types";
+
 
 //actions
 export const actions: ActionTree<OrdersState, State> = {

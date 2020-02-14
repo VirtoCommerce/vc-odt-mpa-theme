@@ -1,14 +1,16 @@
 <template>
-  <ProfileHome></ProfileHome>
-  <hr>
-  <orders-list></orders-list>
+  <div>
+    <ProfileHome></ProfileHome>
+    <hr>
+    <OrdersList></OrdersList>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
 import ProfileHome from "@account/views/Home.vue";
-import OrdersList from "./views/Orders.vue";
+import OrdersList from "./views/OrdersList.vue";
 
 @Component({
   name: "home",

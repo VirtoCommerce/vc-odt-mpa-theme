@@ -2,6 +2,7 @@ import { MutationTree } from "vuex";
 import { OrdersState } from './state';
 import { CustomerOrderSearchResult } from '@common/api/api-clients';
 import { Pagination } from '@common/models/pagination';
+import {ORDERS_LOADED, ORDERS_REQUEST, SET_PAGINATION} from "./mutation-types";
 
 
 //mutations
