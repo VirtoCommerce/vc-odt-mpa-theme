@@ -30,15 +30,11 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import Loading from "vue-loading-overlay";
-import AccountInfo from "@account/views/AccountInfo.vue";
-import AccountOrders from "@account/views/AccountOrders.vue";
 import "vue-loading-overlay/dist/vue-loading.css";
 
 @Component({
   name: "home",
   components: {
-    AccountInfo,
-    AccountOrders,
     Loading
   }
 })
