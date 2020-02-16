@@ -1,17 +1,50 @@
 <template>
-  <ProfileHome></ProfileHome>
+  <div class="account mb-3 mt-3">
+    <loading :active.sync="isLoading"></loading>
+
+    <ul class="nav bg-primary">
+      <li class="nav-item">
+        <router-link to="/"
+                     tag="a"
+                     active-class="bg-secondary"
+                     class="nav-link"
+                     exact>
+          User Details
+        </router-link>
+      </li>
+      <li class="nav-item">
+        <router-link to="orders"
+                     tag="a"
+                     active-class="bg-secondary"
+                     class="nav-link">
+          Orders
+        </router-link>
+      </li>
+    </ul>
+
+    <router-view></router-view>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import ProfileHome from "@account/views/Home.vue";
+import Loading from "vue-loading-overlay";
+import AccountInfo from "@account/views/AccountInfo.vue";
+import AccountOrders from "@account/views/AccountOrders.vue";
+import "vue-loading-overlay/dist/vue-loading.css";
 
 @Component({
   name: "home",
   components: {
-    ProfileHome
+    AccountInfo,
+    AccountOrders,
+    Loading
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  get isLoading() {
+    return this.$store.getters.isLoading;
+  }
+}
 </script>
