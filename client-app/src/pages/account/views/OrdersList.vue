@@ -3,31 +3,47 @@
     <h2>OrdersList</h2>
     <b-table striped
              hover
-             :items="orders"
-             :fields="fields"></b-table>
+             :items="ordersList.orders"
+             :fields="ordersList.listConfig.columns"></b-table>
+
+    <button class="btn btn-primary"
+            @click.prevent="setPage(2)">
+      Next page
+    </button>
   </div>
 </template>
 
-<script>
-import { GET_ORDERS } from "../store/modules/orders/action-types";
+<script lang="ts">
+import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG } from "@account/store/modules/orders-list/definitions";
+import { OrdersList, OrdersListConfig  } from "@account/store/modules/orders-list/types";
 import Component from "vue-class-component";
 import Vue from "vue";
+import { State, Getter, Action, Mutation, namespace } from 'vuex-class';
+const ordersListModule = namespace('ordersListModule');
+
 
 @Component
-export default class OrdersList extends Vue{
-  get orders() {
-    return this.$store.getters.ordersPage;
-  }
+export default class OrdersListPage extends Vue{
 
-  get fields() {
-    return this.$store.getters.gridColumns;
-  }
-  // get isLoading() {
-  //   return this.$store.getters.orders.isLoading;
-  // }
+
+  @ordersListModule.Getter('ordersList')
+  private ordersList!: OrdersList;
+
+  @ordersListModule.Getter('isLoading')
+  private isLoading!: boolean;
+
+  @ordersListModule.Action(FETCH_ORDERS)
+  private fetchOrders!: () => OrdersList
+
+  @ordersListModule.Action(SET_ORDERS_LIST_CONFIG)
+  private setListConfig!: (listConfig:  OrdersListConfig) => void
 
   mounted() {
-    this.$store.dispatch(GET_ORDERS);
+    this.fetchOrders();
+  }
+
+  setPage(page: number) {
+    this.setListConfig({ ...this.ordersList.listConfig, pageNumber: page });
   }
 
 }

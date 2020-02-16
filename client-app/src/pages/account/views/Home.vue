@@ -54,9 +54,12 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { FETCH_PROFILE, UPDATE_USER } from "@account/store/definitions";
+import { FETCH_PROFILE, UPDATE_USER } from "@account/store/modules/profile/definitions";
 import Loading from "vue-loading-overlay";
 import "vue-loading-overlay/dist/vue-loading.css";
+import { State, Getter, Action, Mutation, namespace } from 'vuex-class';
+const profileModule = namespace('profileModule');
+
 
 @Component({
   name: "ProfileHome",
@@ -65,18 +68,16 @@ import "vue-loading-overlay/dist/vue-loading.css";
   }
 })
 export default class Home extends Vue {
-  get profile() {
-    return this.$store.getters.profile;
-  }
-  get isLoading() {
-    return this.$store.getters.isLoading;
-  }
+  @profileModule.Getter('profile') profile: any;
+  @profileModule.Getter('isLoading') isLoading: any;
+  @profileModule.Action(FETCH_PROFILE) fetchProfile: any;
+  @profileModule.Action(UPDATE_USER) updateProfile: any;
 
   mounted() {
-    this.$store.dispatch(FETCH_PROFILE);
+    this.fetchProfile();
   }
   update() {
-    this.$store.dispatch(UPDATE_USER, this.profile);
+    this.updateProfile({ profile: this.profile });
   }
 }
 </script>

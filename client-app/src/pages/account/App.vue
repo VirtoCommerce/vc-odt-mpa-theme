@@ -2,7 +2,7 @@
   <div>
     <ProfileHome></ProfileHome>
     <hr>
-    <OrdersList></OrdersList>
+    <OrdersListPage></OrdersListPage>
   </div>
 </template>
 
@@ -10,13 +10,13 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import ProfileHome from "@account/views/Home.vue";
-import OrdersList from "./views/OrdersList.vue";
+import OrdersListPage from "./views/OrdersList.vue";
 
 @Component({
   name: "home",
   components: {
     ProfileHome,
-    OrdersList
+    OrdersListPage
   }
 })
 export default class App extends Vue {}
