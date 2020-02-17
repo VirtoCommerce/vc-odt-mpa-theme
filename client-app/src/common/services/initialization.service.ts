@@ -1,4 +1,4 @@
-import Vue, { PluginObject } from 'vue';
+import Vue from 'vue';
 import VueAxios from "vue-axios";
 import axios from "axios";
 import VueI18n from "vue-i18n";
@@ -7,6 +7,7 @@ import { baseUrl } from "@common/constants";
 import LocalizationService from "@common/services/localization.service";
 import "styles/default.scss";
 import "bootstrap";
+import "vue-loading-overlay/dist/vue-loading.css";
 import { TablePlugin, PaginationPlugin } from "bootstrap-vue";
 import Loading from 'vue-loading-overlay';
 

@@ -4,6 +4,7 @@ import {getters} from "./getters";
 import {actions} from "./actions";
 import {mutations} from "./mutations";
 import { RootState } from "../../types";
+import { defaultPageSize } from '@common/constants';
 
 
 // initial state
@@ -13,7 +14,7 @@ export const initialState: OrdersListState = {
     listConfig: {
       columns : [ "number", "status", "createdDate", "items.length", "createdBy"],
       pageNumber: 1,
-      pageSize: 10,
+      pageSize: defaultPageSize,
       filters : {
         statuses: []
       }

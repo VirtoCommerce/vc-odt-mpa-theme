@@ -3,7 +3,7 @@ import { CustomerOrder } from '@common/api/api-clients';
 export interface OrdersListConfig {
   columns: string[];
   pageNumber: number;
-  pageSize?: number;
+  pageSize: number;
   filters: OrdersListFilters;
 }
 

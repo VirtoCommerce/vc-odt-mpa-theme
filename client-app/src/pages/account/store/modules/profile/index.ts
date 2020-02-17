@@ -4,12 +4,13 @@ import { getters } from "./getters";
 import { actions } from "./actions";
 import { mutations } from "./mutations";
 import { RootState } from "../../types";
+import { User } from '@common/api/api-clients';
 
 
 // initial state
 export const initialState: ProfileState = {
   errors: {},
-  profile: {},
+  profile: new User,
   isLoading: false,
   loaded: false
 };
