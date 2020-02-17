@@ -1,15 +1,30 @@
 <template>
   <div>
     <h2>OrdersList</h2>
-    <b-table striped
+    <b-table id="orders-table"
+             striped
              hover
              :items="ordersList.orders"
-             :fields="ordersList.listConfig.columns"></b-table>
-
-    <button class="btn btn-primary"
-            @click.prevent="setPage(2)">
-      Next page
-    </button>
+             :fields="ordersList.listConfig.columns">
+    </b-table>
+    <div class="d-flex justify-content-between">
+      <b-pagination v-model="currentPage"
+                    aria-controls="oders-table"
+                    :total-rows="ordersList.totalCount"
+                    :per-page="ordersList.listConfig.pageSize"
+                    @change="pageChanged()"></b-pagination>
+      <div>
+        <select v-model="pageSize"
+                class="form-control"
+                @change="pageSizeChanged()">
+          <option v-for="ps in pageSizes"
+                  :key="ps"
+                  :value="ps">
+            {{ ps }}
+          </option>
+        </select>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -19,8 +34,9 @@ import { OrdersList, OrdersListConfig  } from "@account/store/modules/orders-lis
 import Component from "vue-class-component";
 import Vue from "vue";
 import { State, Getter, Action, Mutation, namespace } from 'vuex-class';
-const ordersListModule = namespace('ordersListModule');
+import { pageSizes, defaultPageSize } from "@common/constants";
 
+const ordersListModule = namespace('ordersListModule');
 
 @Component
 export default class OrdersListPage extends Vue{
@@ -38,12 +54,22 @@ export default class OrdersListPage extends Vue{
   @ordersListModule.Action(SET_ORDERS_LIST_CONFIG)
   private setListConfig!: (listConfig:  OrdersListConfig) => void
 
+  currentPage = 1;
+  pageSize = 10;
+  pageSizes = pageSizes;
+
   mounted() {
+    this.currentPage = this.ordersList.listConfig.pageNumber;
+    this.pageSize = this.ordersList.listConfig.pageSize || defaultPageSize;
     this.fetchOrders();
   }
 
-  setPage(page: number) {
-    this.setListConfig({ ...this.ordersList.listConfig, pageNumber: page });
+  pageChanged() {
+    this.setListConfig(({ ...this.ordersList.listConfig, pageNumber: this.currentPage }))
+  }
+
+  pageSizeChanged() {
+    this.setListConfig(({ ...this.ordersList.listConfig, pageSize: this.pageSize }))
   }
 
 }

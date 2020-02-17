@@ -7,7 +7,7 @@ import { baseUrl } from "@common/constants";
 import LocalizationService from "@common/services/localization.service";
 import "styles/default.scss";
 import "bootstrap";
-import { TablePlugin } from "bootstrap-vue";
+import { TablePlugin, PaginationPlugin } from "bootstrap-vue";
 
 export default class InitializationService {
   static initializeCommon() {
@@ -21,5 +21,6 @@ export default class InitializationService {
     });
 
     Vue.use(TablePlugin);
+    Vue.use(PaginationPlugin);
   }
 }
