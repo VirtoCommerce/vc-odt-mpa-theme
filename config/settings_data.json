@@ -1,157 +1,165 @@
 {
-    "current": "Cyan",
-    "presets": {
-        "Blue": {
-            "color_primary": "#007bff",
-            "color_secondary": "#ff8400",
-            "link_color": "#fff",
-            "footer_quicklinks_enable": true,
-            "footer_quicklinks_linklist": "footer",
-            "footer_content_enable": true,
-            "footer_social_enable": true,
-            "social_twitter_link": "https://twitter.com/virtocommerce",
-            "social_facebook_link": "https://facebook.com/virtocommerce",
-            "social_pinterest_link": "",
-            "social_google_plus_link": "https://plus.google.com/+virtocommerce",
-            "social_instagram_link": "https://instagram.com/virtocommerce",
-            "social_tumblr_link": "",
-            "social_youtube_link": "",
-            "social_vimeo_link": "",
-            "social_fancy_link": "",
-            "footer_legallinks_enable": true
+  "current": "Blue",
+  "presets": {
+    "Blue": {
+      "color_primary": "#007bff",
+      "color_secondary": "#ff8400",
+      "link_color": "#fff",
+      "copyright": "<p>&copy; 2020</p>",
+      "footer": [
+        {
+          "title": "Column 1",
+          "content": "<p><ul><li>content 1</li></ul><p>"
         },
-        "Gray": {
-            "color_primary": "#6c757d",
-            "color_secondary": "#7d746c",
-            "link_color": "#fff",
-            "footer_quicklinks_enable": true,
-            "footer_quicklinks_linklist": "footer",
-            "footer_content_enable": true,
-            "footer_social_enable": true,
-            "social_twitter_link": "https://twitter.com/virtocommerce",
-            "social_facebook_link": "https://facebook.com/virtocommerce",
-            "social_pinterest_link": "",
-            "social_google_plus_link": "https://plus.google.com/+virtocommerce",
-            "social_instagram_link": "https://instagram.com/virtocommerce",
-            "social_tumblr_link": "",
-            "social_youtube_link": "",
-            "social_vimeo_link": "",
-            "social_fancy_link": "",
-            "footer_legallinks_enable": true
+        {
+          "title": "Column 2",
+          "content": "<p><ul><li>content 2</li></ul><p>"
         },
-        "Green": {
-            "color_primary": "#28a745",
-            "color_secondary": "#a72889",
-            "link_color": "#fff",
-            "footer_quicklinks_enable": true,
-            "footer_quicklinks_linklist": "footer",
-            "footer_content_enable": true,
-            "footer_social_enable": true,
-            "social_twitter_link": "https://twitter.com/virtocommerce",
-            "social_facebook_link": "https://facebook.com/virtocommerce",
-            "social_pinterest_link": "",
-            "social_google_plus_link": "https://plus.google.com/+virtocommerce",
-            "social_instagram_link": "https://instagram.com/virtocommerce",
-            "social_tumblr_link": "",
-            "social_youtube_link": "",
-            "social_vimeo_link": "",
-            "social_fancy_link": "",
-            "footer_legallinks_enable": true
-        },
-        "Red": {
-            "color_primary": "#dc3545",
-            "color_secondary": "#35dccb",
-            "link_color": "#fff",
-            "footer_quicklinks_enable": true,
-            "footer_quicklinks_linklist": "footer",
-            "footer_content_enable": true,
-            "footer_social_enable": true,
-            "social_twitter_link": "https://twitter.com/virtocommerce",
-            "social_facebook_link": "https://facebook.com/virtocommerce",
-            "social_pinterest_link": "",
-            "social_google_plus_link": "https://plus.google.com/+virtocommerce",
-            "social_instagram_link": "https://instagram.com/virtocommerce",
-            "social_tumblr_link": "",
-            "social_youtube_link": "",
-            "social_vimeo_link": "",
-            "social_fancy_link": "",
-            "footer_legallinks_enable": true
-        },
-        "Yellow": {
-            "color_primary": "#ffc107",
-            "color_secondary": "#0745ff",
-            "link_color": "#fff",
-            "footer_quicklinks_enable": true,
-            "footer_quicklinks_linklist": "footer",
-            "footer_content_enable": true,
-            "footer_social_enable": true,
-            "social_twitter_link": "https://twitter.com/virtocommerce",
-            "social_facebook_link": "https://facebook.com/virtocommerce",
-            "social_pinterest_link": "",
-            "social_google_plus_link": "https://plus.google.com/+virtocommerce",
-            "social_instagram_link": "https://instagram.com/virtocommerce",
-            "social_tumblr_link": "",
-            "social_youtube_link": "",
-            "social_vimeo_link": "",
-            "social_fancy_link": "",
-            "footer_legallinks_enable": true
-        },
-        "Cyan": {
-            "color_primary": "#17a2b8",
-            "color_secondary": "#b82c17",
-            "link_color": "#fff",
-            "footer_quicklinks_enable": true,
-            "footer_quicklinks_linklist": "footer",
-            "footer_content_enable": true,
-            "footer_social_enable": true,
-            "social_twitter_link": "https://twitter.com/virtocommerce",
-            "social_facebook_link": "https://facebook.com/virtocommerce",
-            "social_pinterest_link": "",
-            "social_google_plus_link": "https://plus.google.com/+virtocommerce",
-            "social_instagram_link": "https://instagram.com/virtocommerce",
-            "social_tumblr_link": "",
-            "social_youtube_link": "",
-            "social_vimeo_link": "",
-            "social_fancy_link": "",
-            "footer_legallinks_enable": true
-        },
-        "Light Gray": {
-            "color_primary": "#f8f9fa",
-            "color_secondary": "#706f6e",
-            "link_color": "#000000",
-            "footer_quicklinks_enable": true,
-            "footer_quicklinks_linklist": "footer",
-            "footer_content_enable": true,
-            "footer_social_enable": true,
-            "social_twitter_link": "https://twitter.com/virtocommerce",
-            "social_facebook_link": "https://facebook.com/virtocommerce",
-            "social_pinterest_link": "",
-            "social_google_plus_link": "https://plus.google.com/+virtocommerce",
-            "social_instagram_link": "https://instagram.com/virtocommerce",
-            "social_tumblr_link": "",
-            "social_youtube_link": "",
-            "social_vimeo_link": "",
-            "social_fancy_link": "",
-            "footer_legallinks_enable": true
-        },
-        "Dark": {
-            "color_primary": "#343a40",
-            "color_secondary": "#403a34",
-            "link_color": "#fff",
-            "footer_quicklinks_enable": true,
-            "footer_quicklinks_linklist": "footer",
-            "footer_content_enable": true,
-            "footer_social_enable": true,
-            "social_twitter_link": "https://twitter.com/virtocommerce",
-            "social_facebook_link": "https://facebook.com/virtocommerce",
-            "social_pinterest_link": "",
-            "social_google_plus_link": "https://plus.google.com/+virtocommerce",
-            "social_instagram_link": "https://instagram.com/virtocommerce",
-            "social_tumblr_link": "",
-            "social_youtube_link": "",
-            "social_vimeo_link": "",
-            "social_fancy_link": "",
-            "footer_legallinks_enable": true
+        {
+          "title": "Column 3",
+          "content": "<p><ul><li>content 3</li></ul><p>"
         }
+      ]
+    },
+    "Gray": {
+      "color_primary": "#6c757d",
+      "color_secondary": "#7d746c",
+      "link_color": "#fff",
+      "copyright": "<p>&copy; 2020</p>",
+      "footer": [
+        {
+          "title": "Column 1",
+          "content": "<p><ul><li>content 1</li></ul><p>"
+        },
+        {
+          "title": "Column 2",
+          "content": "<p><ul><li>content 2</li></ul><p>"
+        },
+        {
+          "title": "Column 3",
+          "content": "<p><ul><li>content 3</li></ul><p>"
+        }
+      ]
+    },
+    "Green": {
+      "color_primary": "#28a745",
+      "color_secondary": "#a72889",
+      "link_color": "#fff",
+      "copyright": "<p>&copy; 2020</p>",
+      "footer": [
+        {
+          "title": "Column 1",
+          "content": "<p><ul><li>content 1</li></ul><p>"
+        },
+        {
+          "title": "Column 2",
+          "content": "<p><ul><li>content 2</li></ul><p>"
+        },
+        {
+          "title": "Column 3",
+          "content": "<p><ul><li>content 3</li></ul><p>"
+        }
+      ]
+    },
+    "Red": {
+      "color_primary": "#dc3545",
+      "color_secondary": "#35dccb",
+      "link_color": "#fff",
+      "copyright": "<p>&copy; 2020</p>",
+      "footer": [
+        {
+          "title": "Column 1",
+          "content": "<p><ul><li>content 1</li></ul><p>"
+        },
+        {
+          "title": "Column 2",
+          "content": "<p><ul><li>content 2</li></ul><p>"
+        },
+        {
+          "title": "Column 3",
+          "content": "<p><ul><li>content 3</li></ul><p>"
+        }
+      ]
+    },
+    "Yellow": {
+      "color_primary": "#ffc107",
+      "color_secondary": "#0745ff",
+      "link_color": "#fff",
+      "copyright": "<p>&copy; 2020</p>",
+      "footer": [
+        {
+          "title": "Column 1",
+          "content": "<p><ul><li>content 1</li></ul><p>"
+        },
+        {
+          "title": "Column 2",
+          "content": "<p><ul><li>content 2</li></ul><p>"
+        },
+        {
+          "title": "Column 3",
+          "content": "<p><ul><li>content 3</li></ul><p>"
+        }
+      ]
+    },
+    "Cyan": {
+      "color_primary": "#17a2b8",
+      "color_secondary": "#b82c17",
+      "link_color": "#fff",
+      "copyright": "<p>&copy; 2020</p>",
+      "footer": [
+        {
+          "title": "Column 1",
+          "content": "<p><ul><li>content 1</li></ul><p>"
+        },
+        {
+          "title": "Column 2",
+          "content": "<p><ul><li>content 2</li></ul><p>"
+        },
+        {
+          "title": "Column 3",
+          "content": "<p><ul><li>content 3</li></ul><p>"
+        }
+      ]
+    },
+    "Light Gray": {
+      "color_primary": "#f8f9fa",
+      "color_secondary": "#706f6e",
+      "link_color": "#000000",
+      "copyright": "<p>&copy; 2020</p>",
+      "footer": [
+        {
+          "title": "Column 1",
+          "content": "<p><ul><li>content 1</li></ul><p>"
+        },
+        {
+          "title": "Column 2",
+          "content": "<p><ul><li>content 2</li></ul><p>"
+        },
+        {
+          "title": "Column 3",
+          "content": "<p><ul><li>content 3</li></ul><p>"
+        }
+      ]
+    },
+    "Dark": {
+      "color_primary": "#343a40",
+      "color_secondary": "#403a34",
+      "link_color": "#fff",
+      "copyright": "<p>&copy; 2020</p>",
+      "footer": [
+        {
+          "title": "Column 1",
+          "content": "<p><ul><li>content 1</li></ul><p>"
+        },
+        {
+          "title": "Column 2",
+          "content": "<p><ul><li>content 2</li></ul><p>"
+        },
+        {
+          "title": "Column 3",
+          "content": "<p><ul><li>content 3</li></ul><p>"
+        }
+      ]
     }
+  }
 }
