@@ -58,13 +58,9 @@ export default class AccountOrders extends Vue{
   @ordersListModule.Action(SET_ORDERS_LIST_CONFIG)
   private setListConfig!: (listConfig:  OrdersListConfig) => void
 
-  // currentPage = 1;
-  // pageSize = 10;
   pageSizes = pageSizes;
 
   mounted() {
-    // this.currentPage = this.ordersList.listConfig.pageNumber;
-    // this.pageSize = this.ordersList.listConfig.pageSize || defaultPageSize;
     this.fetchOrders();
   }
 
