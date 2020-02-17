@@ -1,7 +1,5 @@
 <template>
   <div class="account mb-3 mt-3">
-    <loading :active.sync="isLoading"></loading>
-
     <ul class="nav bg-primary">
       <li class="nav-item">
         <router-link to="/"
@@ -21,7 +19,6 @@
         </router-link>
       </li>
     </ul>
-
     <router-view></router-view>
   </div>
 </template>
@@ -33,14 +30,8 @@ import Loading from "vue-loading-overlay";
 import "vue-loading-overlay/dist/vue-loading.css";
 
 @Component({
-  name: "home",
-  components: {
-    Loading
-  }
+  name: "home"
 })
 export default class App extends Vue {
-  get isLoading() {
-    return this.$store.getters.isLoading;
-  }
 }
 </script>
