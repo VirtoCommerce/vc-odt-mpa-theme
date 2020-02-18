@@ -49,5 +49,5 @@ testem.log
 Thumbs.db
 
  # Custom
- assets/static/bundle
 /assets/static/bundle/dist
+/config/draft
