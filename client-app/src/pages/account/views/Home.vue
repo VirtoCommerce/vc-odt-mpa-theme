@@ -2,6 +2,13 @@
   <div class="account mb-3">
     <loading :active.sync="isLoading"></loading>
 
+    <div class="d-flex flex-grow-1 justify-content-center mt-3">
+      <b-button variant="danger"
+                @click="throwError()">
+        Throw error from vue.js
+      </b-button>
+    </div>
+
     <h1>MPA Vue user info:</h1>
 
     <!-- Tabs work not js only css -->
@@ -54,8 +61,8 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { FETCH_PROFILE, UPDATE_USER } from "@account/store/definitions";
 import Loading from "vue-loading-overlay";
+import { FETCH_PROFILE, UPDATE_USER } from "@account/store/definitions";
 import "vue-loading-overlay/dist/vue-loading.css";
 
 @Component({
@@ -70,6 +77,10 @@ export default class Home extends Vue {
   }
   get isLoading() {
     return this.$store.getters.isLoading;
+  }
+
+  throwError() {
+    throw new Error();
   }
 
   mounted() {

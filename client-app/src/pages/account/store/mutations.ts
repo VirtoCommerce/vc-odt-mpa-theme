@@ -1,5 +1,5 @@
-import { FETCH_PROFILE, SET_PROFILE } from "@account/store/definitions";
 import { MutationTree } from "vuex";
+import { FETCH_PROFILE, SET_PROFILE } from "@account/store/definitions";
 import { State } from "@account/store/state";
 
 //mutations

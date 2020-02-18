@@ -1,22 +1,27 @@
 import Vue from 'vue';
 import VueAxios from "vue-axios";
+import * as VueMoment from "vue-moment";
+import VueRx from "vue-rx";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
-import VueI18n from "vue-i18n";
-import i18n from "@i18n";
+import { ButtonPlugin, CollapsePlugin, ToastPlugin } from 'bootstrap-vue'
 import { baseUrl } from "@common/constants";
-import LocalizationService from "@common/services/localization.service";
-import "styles/default.scss";
-import "bootstrap";
 
 export default class InitializationService {
   static initializeCommon() {
     Vue.config.productionTip = false;
 
+    Vue.use(VueRx);
+
     Vue.use(VueAxios, axios);
     Vue.axios.defaults.baseURL = baseUrl;
 
-    LocalizationService.get().then(({ data }) => {
-      i18n.setLocaleMessage("en", data);
-    });
+    Vue.use(VueMoment);
+
+    Vue.use(ButtonPlugin);
+    Vue.use(CollapsePlugin);
+    Vue.use(ToastPlugin);
+
+    Vue.component('font-awesome-icon', FontAwesomeIcon);
   }
 }

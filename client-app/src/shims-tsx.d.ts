@@ -1,4 +1,5 @@
 import Vue, { VNode } from "vue";
+import { LocaleMessages } from "vue-i18n";
 
 declare global {
   namespace JSX {
@@ -15,5 +16,6 @@ declare global {
     BASE_URL: string;
     STORE_NAME: string;
     LOCALE: string;
+    LOCALIZATION_MESSAGES: LocaleMessages;
   }
 }

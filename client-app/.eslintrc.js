@@ -38,6 +38,26 @@ module.exports = {
       },
       "svg": "never",
       "math": "never"
+    }],
+    "import/order": ["error", {
+      "groups": ["builtin", "external", "internal", "unknown", "parent", "sibling", "index"],
+      "pathGroups": [
+        {
+          "pattern": "vue*",
+          "group": "external",
+          "position": "before"
+        },
+        {
+          "pattern": "{i18n,@common/**,@components/**,@init-app/**,@account/**,@catalog/**}",
+          "group": "unknown",
+          "position": "after"
+        }
+      ],
+      "pathGroupsExcludedImportTypes": [],
+      "newlines-between": "never",
+      "alphabetize": {
+        "order": "asc"
+      }
     }]
   },
   parserOptions: {

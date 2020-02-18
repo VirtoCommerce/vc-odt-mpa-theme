@@ -1,12 +1,37 @@
 <template>
-  <div></div>
+  <div>
+    <Error v-for="(error, index) in errors"
+           :id="'error-'+index"
+           :key="error.timestamp"
+           :index="index"
+           :error-info="error"
+           @close="removeError(error)">
+    </Error>
+  </div>
 </template>
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { Subscription } from "rxjs";
+import { ReactiveErrorInfo } from "@common/models/error-info.model";
+import { REMOVE_ERROR } from "@init-app/store/definitions";
+import Error from "@init-app/views/Error.vue";
 
 @Component({
-  name: "InitApp"
+  name: "InitApp",
+  components: {
+    Error
+  }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+
+  get errors() {
+    return this.$store.getters.errors;
+  }
+
+  removeError(error: ReactiveErrorInfo) {
+    this.$store.dispatch(REMOVE_ERROR, error);
+  }
+}
 </script>

@@ -1,0 +1,17 @@
+@import "bootstrap-vue/src/components/toast/toast";
+
+@each $color, $value in $theme-colors {
+  .b-toast-#{$color} {
+    .toast  .toast-body  .toast-link{
+      color: darken(theme-color-level($color, $b-toast-color-level), 10%);
+    }
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    .toast {
+      max-width: breakpoint-min($breakpoint);
+    }
+  }
+}

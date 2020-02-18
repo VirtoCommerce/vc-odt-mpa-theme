@@ -9,10 +9,13 @@
       }
     },
     "error": {
-      "client:":{
+      "client":{
         "close": "Close",
         "header": "Ooops! Something went wrong",
-        "description": "And error occured during execution. Please contact administrator"
+        "description": "An error occured during execution. Please contact support.",
+        "tip": "Try reload page to resolve error.",
+        "details": "Click to see technical details",
+        "stack": "{0} Error\r\n   at {1}:{2}:{3}"
       },
       "forms": {
         "post": "Sorry, looks like something went wrong. Please correct the following and submit again:"
