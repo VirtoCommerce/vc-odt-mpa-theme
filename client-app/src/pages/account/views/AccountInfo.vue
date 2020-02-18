@@ -2,7 +2,6 @@
   <div>
     <loading :active.sync="isLoading"></loading>
 
-    <h1>MPA Vue user info:</h1>
     <fieldset>
       <div class="form-row form-group">
         <div class="col-md">

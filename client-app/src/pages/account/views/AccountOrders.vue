@@ -2,7 +2,6 @@
   <div>
     <loading :active.sync="isLoading"></loading>
 
-    <h2>{{ $t('orders-list.header') }}</h2>
     <b-table id="orders-list"
              striped
              hover
@@ -10,9 +9,15 @@
              :fields="ordersList.listConfig.columns">
       <!-- A custom formatted header cell for field 'name' -->
       <template v-slot:head()="data">
-        <span class="text-info">{{ $t( `grids.orders-list.columns.${data.column.split('.').join('_')}`) }}</span>
+        <span class="text-info">{{ $t( `grids.orders_list.columns.${data.column.split('.').join('_')}`) }}</span>
+      </template>
+
+      <!-- A custom formatted column -->
+      <template v-slot:cell(createdDate)="data">
+        <b class="text-info">{{ data.value | moment('ddd, DD/MM/YY') }}</b>, <b>{{ data.value.first }}</b>
       </template>
     </b-table>
+
     <div class="d-flex justify-content-between">
       <b-pagination :value="ordersList.listConfig.pageNumber"
                     aria-controls="oders-table"
@@ -72,7 +77,7 @@ export default class AccountOrders extends Vue{
   }
 
   pageSizeChanged(pageSize: number) {
-    this.setListConfig(({ ...this.ordersList.listConfig, pageSize: pageSize }))
+    this.setListConfig(({ ...this.ordersList.listConfig, pageNumber: 1, pageSize: pageSize }))
   }
 
 }

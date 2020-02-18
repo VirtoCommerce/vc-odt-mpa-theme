@@ -7,7 +7,7 @@
                      active-class="bg-secondary"
                      class="nav-link"
                      exact>
-          User Details
+          {{ $t('account.menu_titles.home') }}
         </router-link>
       </li>
       <li class="nav-item">
@@ -15,7 +15,7 @@
                      tag="a"
                      active-class="bg-secondary"
                      class="nav-link">
-          Orders
+          {{ $t('account.menu_titles.orders') }}
         </router-link>
       </li>
     </ul>

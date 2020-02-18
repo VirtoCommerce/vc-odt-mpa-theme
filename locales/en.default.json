@@ -20,12 +20,13 @@
     }
   },
   "account":{
+    "menu_titles": {
+      "home":"User Details",
+      "orders": "Orders"
+    },
     "email": "Email",
     "user_name": "User name",
     "phone": "Phone"
-  },
-  "orders-list": {
-    "header": "Orders list"
   },
   "grids":{
     "orders_list":{
