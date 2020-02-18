@@ -1,165 +1,190 @@
 {
-  "current": "Blue",
-  "presets": {
-    "Blue": {
-      "color_primary": "#007bff",
-      "color_secondary": "#ff8400",
-      "link_color": "#fff",
-      "copyright": "<p>&copy; 2020</p>",
-      "footer": [
-        {
-          "title": "Column 1",
-          "content": "<p><ul><li>content 1</li></ul><p>"
-        },
-        {
-          "title": "Column 2",
-          "content": "<p><ul><li>content 2</li></ul><p>"
-        },
-        {
-          "title": "Column 3",
-          "content": "<p><ul><li>content 3</li></ul><p>"
-        }
-      ]
+    "current": {
+        "color_primary": "#007bff",
+        "color_secondary": "#ff8400",
+        "link_color": "#fff",
+        "copyright": "<p>&copy; 2020 virto commerce</p>\n",
+        "footer": [
+            {
+                "title": "Column 1",
+                "content": "<p><ul><li>content 1</li></ul><p>"
+            },
+            {
+                "title": "Column 2",
+                "content": "<p><ul><li>content 2</li></ul><p>"
+            },
+            {
+                "title": "Column 3",
+                "content": "<p><ul><li>content 3</li></ul><p>"
+            }
+        ],
+        "footer_column1_title": null,
+        "footer_column1_content": null,
+        "footer_column2_title": null,
+        "footer_column2_content": null,
+        "footer_column3_title": null,
+        "footer_column3_content": null
     },
-    "Gray": {
-      "color_primary": "#6c757d",
-      "color_secondary": "#7d746c",
-      "link_color": "#fff",
-      "copyright": "<p>&copy; 2020</p>",
-      "footer": [
-        {
-          "title": "Column 1",
-          "content": "<p><ul><li>content 1</li></ul><p>"
+    "presets": {
+        "Blue": {
+            "color_primary": "#007bff",
+            "color_secondary": "#ff8400",
+            "link_color": "#fff",
+            "copyright": "<p>&copy; 2020</p>",
+            "footer": [
+                {
+                    "title": "Column 1",
+                    "content": "<p><ul><li>content 1</li></ul><p>"
+                },
+                {
+                    "title": "Column 2",
+                    "content": "<p><ul><li>content 2</li></ul><p>"
+                },
+                {
+                    "title": "Column 3",
+                    "content": "<p><ul><li>content 3</li></ul><p>"
+                }
+            ]
         },
-        {
-          "title": "Column 2",
-          "content": "<p><ul><li>content 2</li></ul><p>"
+        "Gray": {
+            "color_primary": "#6c757d",
+            "color_secondary": "#7d746c",
+            "link_color": "#fff",
+            "copyright": "<p>&copy; 2020</p>",
+            "footer": [
+                {
+                    "title": "Column 1",
+                    "content": "<p><ul><li>content 1</li></ul><p>"
+                },
+                {
+                    "title": "Column 2",
+                    "content": "<p><ul><li>content 2</li></ul><p>"
+                },
+                {
+                    "title": "Column 3",
+                    "content": "<p><ul><li>content 3</li></ul><p>"
+                }
+            ]
         },
-        {
-          "title": "Column 3",
-          "content": "<p><ul><li>content 3</li></ul><p>"
+        "Green": {
+            "color_primary": "#28a745",
+            "color_secondary": "#a72889",
+            "link_color": "#fff",
+            "copyright": "<p>&copy; 2020</p>",
+            "footer": [
+                {
+                    "title": "Column 1",
+                    "content": "<p><ul><li>content 1</li></ul><p>"
+                },
+                {
+                    "title": "Column 2",
+                    "content": "<p><ul><li>content 2</li></ul><p>"
+                },
+                {
+                    "title": "Column 3",
+                    "content": "<p><ul><li>content 3</li></ul><p>"
+                }
+            ]
+        },
+        "Red": {
+            "color_primary": "#dc3545",
+            "color_secondary": "#35dccb",
+            "link_color": "#fff",
+            "copyright": "<p>&copy; 2020</p>",
+            "footer": [
+                {
+                    "title": "Column 1",
+                    "content": "<p><ul><li>content 1</li></ul><p>"
+                },
+                {
+                    "title": "Column 2",
+                    "content": "<p><ul><li>content 2</li></ul><p>"
+                },
+                {
+                    "title": "Column 3",
+                    "content": "<p><ul><li>content 3</li></ul><p>"
+                }
+            ]
+        },
+        "Yellow": {
+            "color_primary": "#ffc107",
+            "color_secondary": "#0745ff",
+            "link_color": "#fff",
+            "copyright": "<p>&copy; 2020</p>",
+            "footer": [
+                {
+                    "title": "Column 1",
+                    "content": "<p><ul><li>content 1</li></ul><p>"
+                },
+                {
+                    "title": "Column 2",
+                    "content": "<p><ul><li>content 2</li></ul><p>"
+                },
+                {
+                    "title": "Column 3",
+                    "content": "<p><ul><li>content 3</li></ul><p>"
+                }
+            ]
+        },
+        "Cyan": {
+            "color_primary": "#17a2b8",
+            "color_secondary": "#b82c17",
+            "link_color": "#fff",
+            "copyright": "<p>&copy; 2020</p>",
+            "footer": [
+                {
+                    "title": "Column 1",
+                    "content": "<p><ul><li>content 1</li></ul><p>"
+                },
+                {
+                    "title": "Column 2",
+                    "content": "<p><ul><li>content 2</li></ul><p>"
+                },
+                {
+                    "title": "Column 3",
+                    "content": "<p><ul><li>content 3</li></ul><p>"
+                }
+            ]
+        },
+        "Light Gray": {
+            "color_primary": "#f8f9fa",
+            "color_secondary": "#706f6e",
+            "link_color": "#000000",
+            "copyright": "<p>&copy; 2020</p>",
+            "footer": [
+                {
+                    "title": "Column 1",
+                    "content": "<p><ul><li>content 1</li></ul><p>"
+                },
+                {
+                    "title": "Column 2",
+                    "content": "<p><ul><li>content 2</li></ul><p>"
+                },
+                {
+                    "title": "Column 3",
+                    "content": "<p><ul><li>content 3</li></ul><p>"
+                }
+            ]
+        },
+        "Dark": {
+            "color_primary": "#343a40",
+            "color_secondary": "#403a34",
+            "link_color": "#fff",
+            "copyright": "<p>&copy; 2020</p>",
+            "footer": [
+                {
+                    "title": "Column 1",
+                    "content": "<p><ul><li>content 1</li></ul><p>"
+                },
+                {
+                    "title": "Column 2",
+                    "content": "<p><ul><li>content 2</li></ul><p>"
+                },
+                {
+                    "title": "Column 3",
+                    "content": "<p><ul><li>content 3</li></ul><p>"
+                }
+            ]
         }
-      ]
-    },
-    "Green": {
-      "color_primary": "#28a745",
-      "color_secondary": "#a72889",
-      "link_color": "#fff",
-      "copyright": "<p>&copy; 2020</p>",
-      "footer": [
-        {
-          "title": "Column 1",
-          "content": "<p><ul><li>content 1</li></ul><p>"
-        },
-        {
-          "title": "Column 2",
-          "content": "<p><ul><li>content 2</li></ul><p>"
-        },
-        {
-          "title": "Column 3",
-          "content": "<p><ul><li>content 3</li></ul><p>"
-        }
-      ]
-    },
-    "Red": {
-      "color_primary": "#dc3545",
-      "color_secondary": "#35dccb",
-      "link_color": "#fff",
-      "copyright": "<p>&copy; 2020</p>",
-      "footer": [
-        {
-          "title": "Column 1",
-          "content": "<p><ul><li>content 1</li></ul><p>"
-        },
-        {
-          "title": "Column 2",
-          "content": "<p><ul><li>content 2</li></ul><p>"
-        },
-        {
-          "title": "Column 3",
-          "content": "<p><ul><li>content 3</li></ul><p>"
-        }
-      ]
-    },
-    "Yellow": {
-      "color_primary": "#ffc107",
-      "color_secondary": "#0745ff",
-      "link_color": "#fff",
-      "copyright": "<p>&copy; 2020</p>",
-      "footer": [
-        {
-          "title": "Column 1",
-          "content": "<p><ul><li>content 1</li></ul><p>"
-        },
-        {
-          "title": "Column 2",
-          "content": "<p><ul><li>content 2</li></ul><p>"
-        },
-        {
-          "title": "Column 3",
-          "content": "<p><ul><li>content 3</li></ul><p>"
-        }
-      ]
-    },
-    "Cyan": {
-      "color_primary": "#17a2b8",
-      "color_secondary": "#b82c17",
-      "link_color": "#fff",
-      "copyright": "<p>&copy; 2020</p>",
-      "footer": [
-        {
-          "title": "Column 1",
-          "content": "<p><ul><li>content 1</li></ul><p>"
-        },
-        {
-          "title": "Column 2",
-          "content": "<p><ul><li>content 2</li></ul><p>"
-        },
-        {
-          "title": "Column 3",
-          "content": "<p><ul><li>content 3</li></ul><p>"
-        }
-      ]
-    },
-    "Light Gray": {
-      "color_primary": "#f8f9fa",
-      "color_secondary": "#706f6e",
-      "link_color": "#000000",
-      "copyright": "<p>&copy; 2020</p>",
-      "footer": [
-        {
-          "title": "Column 1",
-          "content": "<p><ul><li>content 1</li></ul><p>"
-        },
-        {
-          "title": "Column 2",
-          "content": "<p><ul><li>content 2</li></ul><p>"
-        },
-        {
-          "title": "Column 3",
-          "content": "<p><ul><li>content 3</li></ul><p>"
-        }
-      ]
-    },
-    "Dark": {
-      "color_primary": "#343a40",
-      "color_secondary": "#403a34",
-      "link_color": "#fff",
-      "copyright": "<p>&copy; 2020</p>",
-      "footer": [
-        {
-          "title": "Column 1",
-          "content": "<p><ul><li>content 1</li></ul><p>"
-        },
-        {
-          "title": "Column 2",
-          "content": "<p><ul><li>content 2</li></ul><p>"
-        },
-        {
-          "title": "Column 3",
-          "content": "<p><ul><li>content 3</li></ul><p>"
-        }
-      ]
     }
-  }
 }
