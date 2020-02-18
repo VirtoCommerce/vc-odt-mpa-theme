@@ -14,7 +14,7 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "footer_column3_content": "<ul><li>Content 3</li></ul>"
     },
     "Gray": {
       "color_primary": "#6c757d",
@@ -29,7 +29,7 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "footer_column3_content": "<ul><li>Content 3</li></ul>"
     },
     "Green": {
       "color_primary": "#28a745",
@@ -44,7 +44,7 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "footer_column3_content": "<ul><li>Content 3</li></ul>"
     },
     "Red": {
       "color_primary": "#dc3545",
@@ -59,7 +59,7 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "footer_column3_content": "<ul><li>Content 3</li></ul>"
     },
     "Yellow": {
       "color_primary": "#ffc107",
@@ -74,7 +74,7 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "footer_column3_content": "<ul><li>Content 3</li></ul>"
     },
     "Cyan": {
       "color_primary": "#17a2b8",
@@ -89,7 +89,7 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "footer_column3_content": "<ul><li>Content 3</li></ul>"
     },
     "Light Gray": {
       "color_primary": "#f8f9fa",
@@ -104,7 +104,7 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "footer_column3_content": "<ul><li>Content 3</li></ul>"
     },
     "Dark": {
       "color_primary": "#343a40",
@@ -119,6 +119,7 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "footer_column3_content": "<ul><li>Content 3</li></ul>"
     }
+  }
 }
