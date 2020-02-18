@@ -7,6 +7,10 @@ import { baseUrl } from "@common/constants";
 import LocalizationService from "@common/services/localization.service";
 import "styles/default.scss";
 import "bootstrap";
+import "vue-loading-overlay/dist/vue-loading.css";
+import { TablePlugin, PaginationPlugin } from "bootstrap-vue";
+import Loading from 'vue-loading-overlay';
+import VueMoment from 'vue-moment';
 
 export default class InitializationService {
   static initializeCommon() {
@@ -18,5 +22,13 @@ export default class InitializationService {
     LocalizationService.get().then(({ data }) => {
       i18n.setLocaleMessage("en", data);
     });
+
+    //plugins
+    Vue.use(TablePlugin);
+    Vue.use(PaginationPlugin);
+    Vue.use(VueMoment);
+
+    //global components
+    Vue.component("loading", Loading);
   }
 }
