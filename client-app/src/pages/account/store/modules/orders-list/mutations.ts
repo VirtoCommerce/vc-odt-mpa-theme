@@ -1,7 +1,7 @@
-import { FETCH_ORDERS, SET_ORDERS, SET_ORDERS_LIST_CONFIG } from "./definitions";
 import { MutationTree } from "vuex";
-import { OrdersListState, OrdersListConfig } from "./types";
 import { CustomerOrderSearchResult } from '@common/api/api-clients';
+import { FETCH_ORDERS, SET_ORDERS, SET_ORDERS_LIST_CONFIG } from "./definitions";
+import { OrdersListState, OrdersListConfig } from "./types";
 
 //mutations
 export const mutations: MutationTree<OrdersListState> = {

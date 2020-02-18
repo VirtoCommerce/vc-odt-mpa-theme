@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import AccountOrders from "@account/views/AccountOrders.vue";
 import AccountInfo from "@account/views/AccountInfo.vue";
+import AccountOrders from "@account/views/AccountOrders.vue";
 
 Vue.use(VueRouter);
 

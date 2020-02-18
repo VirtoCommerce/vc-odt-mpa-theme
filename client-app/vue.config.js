@@ -1,9 +1,11 @@
+const pages = {
+  init: "src/pages/init/main.ts",
+  account: "src/pages/account/main.ts",
+  catalog: "src/pages/catalog/main.ts"
+};
+
 module.exports = {
-  pages: {
-    init: "src/pages/init/main.ts",
-    account: "src/pages/account/main.ts",
-    catalog: "src/pages/catalog/main.ts"
-  },
+  pages,
 
   outputDir: "../assets/static/bundle/dist",
   filenameHashing: false,
@@ -80,5 +82,12 @@ module.exports = {
       return $filename;
     });
     config.output.devtoolFallbackModuleFilenameTemplate("webpack:///[resource-path]?[hash]");
+
+    // Disable generation of html pages because we don't use them anyway
+    Object.keys(pages).forEach(page => {
+      config.plugins.delete(`html-${page}`);
+      config.plugins.delete(`preload-${page}`);
+      config.plugins.delete(`prefetch-${page}`);
+    });
   }
 };

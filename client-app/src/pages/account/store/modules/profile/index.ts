@@ -1,10 +1,10 @@
 import { Module } from "vuex";
-import { ProfileState } from "./types";
-import { getters } from "./getters";
-import { actions } from "./actions";
-import { mutations } from "./mutations";
-import { RootState } from "../../types";
 import { User } from '@common/api/api-clients';
+import { RootState } from "../../types";
+import { actions } from "./actions";
+import { getters } from "./getters";
+import { mutations } from "./mutations";
+import { ProfileState } from "./types";
 
 
 // initial state

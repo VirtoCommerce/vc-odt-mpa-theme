@@ -1,5 +1,11 @@
 <template>
   <div class="account mb-3 mt-3">
+    <b-button variant="danger"
+              class="my-3"
+              @click="throwError()">
+      Throw error from vue.js
+    </b-button>
+
     <ul class="nav nav-tabs">
       <li class="nav-item">
         <router-link to="/"
@@ -26,12 +32,14 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import Loading from "vue-loading-overlay";
 import "vue-loading-overlay/dist/vue-loading.css";
 
 @Component({
   name: "home"
 })
 export default class App extends Vue {
+  throwError() {
+    throw new Error();
+  }
 }
 </script>

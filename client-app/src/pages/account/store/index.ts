@@ -1,8 +1,8 @@
 import Vue from "vue";
-import Vuex, { StoreOptions } from "vuex";
-import { RootState } from "./types";
+import Vuex, { Store, StoreOptions } from "vuex";
 import ordersListModule from "@account/store/modules/orders-list";
 import profileModule from "@account/store/modules/profile";
+import { RootState } from "./types";
 
 const debug = process.env.NODE_ENV !== "production";
 
@@ -20,4 +20,4 @@ const store: StoreOptions<RootState> = {
   strict: debug
 };
 
-export default new Vuex.Store<RootState>(store);
+export default new Store<RootState>(store);

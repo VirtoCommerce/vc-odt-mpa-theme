@@ -1,6 +1,6 @@
+import Vue from 'vue';
 import { ApiAccountClient, ApiCartClient, ApiCatalogClient, ApiOrderClient, ApiPricingClient } from '@common/api/api-clients';
 import { baseUrl } from '@common/constants';
-import Vue from 'vue';
 
 // There is globals instances of api clients fore shared usage.
 // Add here new global instance any api client class if you need.

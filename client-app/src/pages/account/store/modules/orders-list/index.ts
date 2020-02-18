@@ -1,10 +1,10 @@
 import { Module, } from "vuex";
-import { OrdersListState } from "./types";
-import {getters} from "./getters";
-import {actions} from "./actions";
-import {mutations} from "./mutations";
-import { RootState } from "../../types";
 import { defaultPageSize } from '@common/constants';
+import { RootState } from "../../types";
+import {actions} from "./actions";
+import {getters} from "./getters";
+import {mutations} from "./mutations";
+import { OrdersListState } from "./types";
 
 
 // initial state

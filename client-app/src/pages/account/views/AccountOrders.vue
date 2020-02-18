@@ -41,12 +41,12 @@
 
 <script lang="ts">
 
+import Vue from "vue";
+import Component from "vue-class-component";
+import { namespace } from 'vuex-class';
 import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG } from "@account/store/modules/orders-list/definitions";
 import { OrdersList, OrdersListConfig  } from "@account/store/modules/orders-list/types";
-import Component from "vue-class-component";
-import Vue from "vue";
-import { State, Getter, Action, Mutation, namespace } from 'vuex-class';
-import { pageSizes, defaultPageSize } from "@common/constants";
+import { pageSizes } from "@common/constants";
 
 const ordersListModule = namespace('ordersListModule');
 

@@ -1,32 +1,42 @@
 import Vue from 'vue';
 import VueAxios from "vue-axios";
-import axios from "axios";
-import VueI18n from "vue-i18n";
-import i18n from "@i18n";
-import { baseUrl } from "@common/constants";
-import LocalizationService from "@common/services/localization.service";
-import "styles/default.scss";
-import "bootstrap";
-import "vue-loading-overlay/dist/vue-loading.css";
-import { TablePlugin, PaginationPlugin } from "bootstrap-vue";
 import Loading from 'vue-loading-overlay';
-import VueMoment from 'vue-moment';
+import "vue-moment";
+import VueRx from "vue-rx";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import axios from "axios";
+import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin } from 'bootstrap-vue'
+import { baseUrl } from "@common/constants";
 
 export default class InitializationService {
   static initializeCommon() {
     Vue.config.productionTip = false;
 
+    // window.onerror will not catch error if we will simple throw it, it still be unhandled.
+    // instead of that, we calling window.onerror directly
+    // undefined used here because js & ts doesn't support set optional parameters by parameter name
+    Vue.config.errorHandler = (err, _vm, info) => {
+      if (window.onerror){
+        window.onerror(info, undefined, undefined, undefined, err);
+      }
+    };
+
+    Vue.use(VueRx);
+
     Vue.use(VueAxios, axios);
     Vue.axios.defaults.baseURL = baseUrl;
 
-    LocalizationService.get().then(({ data }) => {
-      i18n.setLocaleMessage("en", data);
-    });
-
     //plugins
-    Vue.use(TablePlugin);
+    // workaround because of unstable build caused by broken .d.ts
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    Vue.use(require("vue-moment"));
+    Vue.use(ButtonPlugin);
+    Vue.use(CollapsePlugin);
     Vue.use(PaginationPlugin);
-    Vue.use(VueMoment);
+    Vue.use(TablePlugin);
+    Vue.use(ToastPlugin);
+
+    Vue.component("font-awesome-icon", FontAwesomeIcon);
 
     //global components
     Vue.component("loading", Loading);
