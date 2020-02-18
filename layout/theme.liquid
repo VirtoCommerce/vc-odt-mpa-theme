@@ -29,9 +29,9 @@
       window.LOCALIZATION_MESSAGES = {{ '' | t  }};
     </script>
   </head>
-  <body class="d-flex flex-column min-vh-100">
+  <body class="min-vh-100 d-flex flex-column">
     {{ content_for_header }}
-    <main class="container d-flex flex-column flex-fill">
+    <main class="container flex-grow-1">
       <div id="initApp"></div>
       {{ content_for_layout }}
     </main>
