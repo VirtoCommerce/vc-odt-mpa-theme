@@ -1,13 +1,23 @@
 <footer class="bg-secondary pt-3">
   <div class="container d-flex flex-column">
     <div class="d-flex w-100 justify-content-between flex-wrap">
-      {% if settings.footer %}
-        {% for item in settings.footer %}
+      {% if settings.footer_column1_title %}
           <div>
-            <h1>{{ item.title }}</h1>
-            {{ item.content }}
+            <h1>{{ settings.footer_column1_title }}</h1>
+            {{ settings.footer_column1_content }}
           </div>
-        {% endfor %}
+      {% endif %}
+      {% if settings.footer_column2_title %}
+          <div>
+            <h1>{{ settings.footer_column2_title }}</h1>
+            {{ settings.footer_column2_content }}
+          </div>
+      {% endif %}
+      {% if settings.footer_column3_title %}
+          <div>
+            <h1>{{ settings.footer_column3_title }}</h1>
+            {{ settings.footer_column3_content }}
+          </div>
       {% endif %}
     </div>
     <div>
