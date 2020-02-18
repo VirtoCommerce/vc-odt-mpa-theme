@@ -19,9 +19,16 @@
                 variant="link"
                 size="sm"
                 class="toast-link mt-2 p-0">
+        <font-awesome-icon v-if="!showDetails"
+                           :icon="faCaretRight"
+                           fixed-width></font-awesome-icon>
+        <font-awesome-icon v-if="showDetails"
+                           :icon="faCaretDown"
+                           fixed-width></font-awesome-icon>
         &nbsp;{{ $t("common.error.client.details") }}
       </b-button>
-      <b-collapse :id="id + '-collapse'">
+      <b-collapse :id="id + '-collapse'"
+                  v-model="showDetails">
         <!-- This code shouldn't be "properly" formatted and eslint will not automatically format it too, because of preformatted code tag -->
         <pre class="mt-2 mb-0"><code>{{ errorInfo.error && errorInfo.error.stack || $t("common.error.client.stack", [errorInfo.message, errorInfo.columnNumber, errorInfo.lineNumber, errorInfo.source]) }}</code></pre>
       </b-collapse>
@@ -50,6 +57,8 @@ export default class App extends Vue {
 
   timeAgo = "";
   timestampSubscription!: Subscription;
+
+  showDetails = false;
 
   mounted() {
     this.$bvToast.show(this.id);
