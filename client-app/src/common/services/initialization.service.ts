@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import VueAxios from "vue-axios";
-import * as VueMoment from "vue-moment";
+import Loading from 'vue-loading-overlay';
+import "vue-moment";
 import VueRx from "vue-rx";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
-import { ButtonPlugin, CollapsePlugin, ToastPlugin } from 'bootstrap-vue'
+import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin } from 'bootstrap-vue'
 import { baseUrl } from "@common/constants";
 
 export default class InitializationService {
@@ -25,12 +26,18 @@ export default class InitializationService {
     Vue.use(VueAxios, axios);
     Vue.axios.defaults.baseURL = baseUrl;
 
-    Vue.use(VueMoment);
-
+    //plugins
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    Vue.use(require("vue-moment"));
     Vue.use(ButtonPlugin);
     Vue.use(CollapsePlugin);
+    Vue.use(PaginationPlugin);
+    Vue.use(TablePlugin);
     Vue.use(ToastPlugin);
 
-    Vue.component('font-awesome-icon', FontAwesomeIcon);
+    Vue.component("font-awesome-icon", FontAwesomeIcon);
+
+    //global components
+    Vue.component("loading", Loading);
   }
 }

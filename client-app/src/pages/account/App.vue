@@ -1,7 +1,5 @@
 <template>
   <div class="account mb-3 mt-3">
-    <loading :active.sync="isLoading"></loading>
-
     <b-button variant="danger"
               class="my-3"
               @click="throwError()">
@@ -15,7 +13,7 @@
                      active-class="bg-secondary"
                      class="nav-link"
                      exact>
-          User Details
+          {{ $t('account.menu_titles.home') }}
         </router-link>
       </li>
       <li class="nav-item">
@@ -23,11 +21,10 @@
                      tag="a"
                      active-class="bg-secondary"
                      class="nav-link">
-          Orders
+          {{ $t('account.menu_titles.orders') }}
         </router-link>
       </li>
     </ul>
-
     <router-view></router-view>
   </div>
 </template>
@@ -39,16 +36,9 @@ import Loading from "vue-loading-overlay";
 import "vue-loading-overlay/dist/vue-loading.css";
 
 @Component({
-  name: "home",
-  components: {
-    Loading
-  }
+  name: "home"
 })
 export default class App extends Vue {
-  get isLoading() {
-    return this.$store.getters.isLoading;
-  }
-
   throwError() {
     throw new Error();
   }

@@ -1,18 +1,23 @@
 import Vue from "vue";
-import Vuex, { Store } from "vuex";
-import { actions } from "@account/store/actions";
-import { getters } from "@account/store/getters";
-import { mutations } from "@account/store/mutations";
-import { state } from "@account/store/state";
+import Vuex, { StoreOptions } from "vuex";
+import ordersListModule from "@account/store/modules/orders-list";
+import profileModule from "@account/store/modules/profile";
+import { RootState } from "./types";
 
 const debug = process.env.NODE_ENV !== "production";
 
 Vue.use(Vuex);
 
-export default new Store({
-  state,
-  getters,
-  actions,
-  mutations,
+const store: StoreOptions<RootState> = {
+  state: {
+    isLoading : false,
+    loaded : false
+  },
+  modules: {
+    ordersListModule,
+    profileModule
+  },
   strict: debug
-});
+};
+
+export default new Vuex.Store<RootState>(store);

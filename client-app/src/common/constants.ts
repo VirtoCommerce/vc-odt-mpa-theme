@@ -7,3 +7,5 @@ export const baseUrl = window.BASE_URL.replace(`/${storeName}`, "/")
   .replace(/[/]+$/, "");
 
 // Other constants can be placed here
+export const pageSizes = [10, 20, 30, 40, 50]
+export const defaultPageSize = 10;
