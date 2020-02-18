@@ -60,10 +60,8 @@ export default class AccountInfo extends Vue {
   }
   update() {
     const userUpdateInfo =  new UserUpdateInfo();
-    userUpdateInfo.id = this.profile.id;
-    userUpdateInfo.firstName = this.profile.firstName;
-    userUpdateInfo.lastName = this.profile.lastName;
-    userUpdateInfo.email = this.profile.email;
+    Object.assign(userUpdateInfo, this.profile);
+
     this.updateProfile({ userUpdateInfo });
   }
 }
