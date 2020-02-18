@@ -11,6 +11,9 @@ export default class InitializationService {
   static initializeCommon() {
     Vue.config.productionTip = false;
 
+    // window.onerror will not catch error if we will simple throw it, it still be unhandled.
+    // instead of that, we calling window.onerror directly
+    // undefined used here because js & ts doesn't support set optional parameters by parameter name
     Vue.config.errorHandler = (err, _vm, info) => {
       if (window.onerror){
         window.onerror(info, undefined, undefined, undefined, err);

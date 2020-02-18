@@ -1,4 +1,4 @@
-import ErrorInfo from '@common/models/error-info.model';
+import ErrorInfo from '@init-app/store/types';
 
 // state type
 export interface State {

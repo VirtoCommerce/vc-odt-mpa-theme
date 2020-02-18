@@ -2,12 +2,11 @@
   <div class="account mb-3 mt-3">
     <loading :active.sync="isLoading"></loading>
 
-    <div class="d-flex flex-grow-1 justify-content-center my-3">
-      <b-button variant="danger"
-                @click="throwError()">
-        Throw error from vue.js
-      </b-button>
-    </div>
+    <b-button variant="danger"
+              class="my-3"
+              @click="throwError()">
+      Throw error from vue.js
+    </b-button>
 
     <ul class="nav bg-primary">
       <li class="nav-item">
