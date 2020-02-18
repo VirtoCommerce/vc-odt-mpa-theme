@@ -27,6 +27,7 @@ export default class InitializationService {
     Vue.axios.defaults.baseURL = baseUrl;
 
     //plugins
+    // workaround because of unstable build caused by broken .d.ts
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     Vue.use(require("vue-moment"));
     Vue.use(ButtonPlugin);
