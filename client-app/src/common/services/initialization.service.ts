@@ -11,6 +11,12 @@ export default class InitializationService {
   static initializeCommon() {
     Vue.config.productionTip = false;
 
+    Vue.config.errorHandler = (err, _vm, info) => {
+      if (window.onerror){
+        window.onerror(info, undefined, undefined, undefined, err);
+      }
+    };
+
     Vue.use(VueRx);
 
     Vue.use(VueAxios, axios);

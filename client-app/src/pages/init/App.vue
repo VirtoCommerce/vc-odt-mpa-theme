@@ -15,8 +15,8 @@ import Component from "vue-class-component";
 import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { Subscription } from "rxjs";
 import { ReactiveErrorInfo } from "@common/models/error-info.model";
+import Error from "@components/Error.vue";
 import { REMOVE_ERROR } from "@init-app/store/definitions";
-import Error from "@init-app/views/Error.vue";
 
 @Component({
   name: "InitApp",

@@ -8,10 +8,21 @@
   }
 }
 
-@each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-up($breakpoint) {
-    .toast {
-      max-width: breakpoint-min($breakpoint);
+.b-toaster {
+  &.b-toaster-top-right,
+  &.b-toaster-top-left,
+  &.b-toaster-top-center,
+  &.b-toaster-top-full,
+  &.b-toaster-bottom-right,
+  &.b-toaster-bottom-left,
+  &.b-toaster-bottom-center,
+  &.b-toaster-bottom-full {
+    .b-toaster-slot {
+      max-width: breakpoint-max(xs);
     }
   }
+}
+.b-toast,
+.toast {
+  max-width: breakpoint-max(xs);
 }
