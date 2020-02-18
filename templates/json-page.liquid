@@ -1,0 +1,9 @@
+{% if page.layout != blank %}
+    {% layout page.layout %}
+{% endif %}
+
+{{ 'blocks.css' | asset_url | stylesheet_tag }}
+
+<div class="page">
+    {% include 'json-blocks' -%}
+</div>

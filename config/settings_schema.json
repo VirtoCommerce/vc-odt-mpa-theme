@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Colors",
+    "icon": "colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary color",
+        "default": "#007bff"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary color",
+        "default": "#ff8400"
+      },
+      {
+        "type": "color",
+        "id": "link_color",
+        "label": "Link color",
+        "default": "#fff"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "icon": "typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Footer"
+      },
+      {
+        "type": "string",
+        "id": "footer_column1_title",
+        "label": "Left column title"
+      },
+      {
+        "type": "text",
+        "id": "footer_column1_content",
+        "label": "Left column content"
+      },
+      {
+        "type": "string",
+        "id": "footer_column2_title",
+        "label": "Center column title"
+      },
+      {
+        "type": "text",
+        "id": "footer_column2_content",
+        "label": "Center column content"
+      },
+      {
+        "type": "string",
+        "id": "footer_column3_title",
+        "label": "Right column title"
+      },
+      {
+        "type": "text",
+        "id": "footer_column3_content",
+        "label": "Right column content"
+      },
+      {
+        "type": "text",
+        "id": "copyright",
+        "label": "Copyright"
+      }
+    ]
+  }
+]

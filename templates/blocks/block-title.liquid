@@ -1,0 +1,15 @@
+{% if block.title != "" %}
+	{% if block.headerType == 'h1' %}
+	<h1 class="section__t {{ block.titleAlignment }} {{ block.titleStyle }}">{{ block.title }}</h1>
+	{% elsif block.headerType == 'h2' %}
+	<h2 class="section__t {{ block.titleAlignment }} {{ block.titleStyle }}">{{ block.title }}</h2>
+	{% elsif block.headerType == 'h3' %}
+	<h3 class="section__t {{ block.titleAlignment }} {{ block.titleStyle }}">{{ block.title }}</h3>
+	{% elsif block.headerType == 'like-h1' %}
+	<div class="section__t like-h1 {{ block.titleAlignment }} {{ block.titleStyle }}">{{ block.title }}</div>
+	{% elsif block.headerType == 'like-h3' %}
+	<div class="section__t like-h3 {{ block.titleAlignment }} {{ block.titleStyle }}">{{ block.title }}</div>
+    {% else %}
+    <div class="section__t like-h2 {{ block.titleAlignment }}">{{ block.title }}</div>
+	{% endif %}
+{% endif %}
