@@ -12,7 +12,7 @@ export const initialState: OrdersListState = {
   errors: {},
   ordersList: {
     listConfig: {
-      columns : [ "number", "status", "createdDate", "items.length", "createdBy"],
+      columns : [ "number", "status", "createdDate", "items.length", "createdBy", "order.total.formattedAmount"],
       pageNumber: 1,
       pageSize: defaultPageSize,
       filters : {

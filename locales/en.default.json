@@ -23,5 +23,21 @@
     "email": "Email",
     "user_name": "User name",
     "phone": "Phone"
+  },
+  "orders-list": {
+    "header": "Orders list"
+  },
+  "grids":{
+    "orders_list":{
+      "columns":{
+        "number": "Order ID",
+        "status": "Status",
+        "createdDate": "Date",
+        "items_length": "# Items",
+        "createdBy": "Created by",
+        "order_total_formattedAmount": "Total"
+      }
+    }
   }
+
 }

@@ -2,13 +2,16 @@
   <div>
     <loading :active.sync="isLoading"></loading>
 
-    <h2>OrdersList</h2>
-    <b-table id="orders-table"
+    <h2>{{ $t('orders-list.header') }}</h2>
+    <b-table id="orders-list"
              striped
              hover
-             sele
              :items="ordersList.orders"
              :fields="ordersList.listConfig.columns">
+      <!-- A custom formatted header cell for field 'name' -->
+      <template v-slot:head()="data">
+        <span class="text-info">{{ $t( `grids.orders-list.columns.${data.column.split('.').join('_')}`) }}</span>
+      </template>
     </b-table>
     <div class="d-flex justify-content-between">
       <b-pagination :value="ordersList.listConfig.pageNumber"
