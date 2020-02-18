@@ -33,7 +33,6 @@ import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { Subscription } from "rxjs";
-import { REMOVE_ERROR } from "@init-app/store/definitions";
 import { ReactiveErrorInfo } from "@init-app/store/types";
 
 @Component({

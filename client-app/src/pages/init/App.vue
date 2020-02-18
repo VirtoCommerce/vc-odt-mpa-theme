@@ -12,8 +12,6 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons'
-import { Subscription } from "rxjs";
 import Error from "@components/Error.vue";
 import { REMOVE_ERROR } from "@init-app/store/definitions";
 import { ReactiveErrorInfo } from "@init-app/store/types";

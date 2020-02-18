@@ -37,10 +37,9 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { State, Getter, Action, Mutation, namespace } from 'vuex-class';
+import { namespace } from 'vuex-class';
 import { FETCH_PROFILE, UPDATE_USER } from "@account/store/modules/profile/definitions";
 import { User, UserUpdateInfo } from "@common/api/api-clients";
-
 
 const profileModule = namespace('profileModule');
 
