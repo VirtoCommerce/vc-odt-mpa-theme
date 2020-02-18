@@ -30,7 +30,7 @@
   },
   "access-denied": {
     "title": "Access denied",
-    "no-access": "You have no access to view this page. Please, contact to your administrator"
+    "no-access": "You have no permission to view this page. Please, contact to your administrator"
   },
   "account":{
     "menu_titles": {
