@@ -6,11 +6,11 @@
       Throw error from vue.js
     </b-button>
 
-    <ul class="nav bg-primary">
+    <ul class="nav nav-tabs">
       <li class="nav-item">
         <router-link to="/"
                      tag="a"
-                     active-class="bg-secondary"
+                     active-class="border-bottom-0 border-primary"
                      class="nav-link"
                      exact>
           {{ $t('account.menu_titles.home') }}
@@ -18,8 +18,8 @@
       </li>
       <li class="nav-item">
         <router-link to="orders"
+                     active-class="border-bottom-0 border-primary"
                      tag="a"
-                     active-class="bg-secondary"
                      class="nav-link">
           {{ $t('account.menu_titles.orders') }}
         </router-link>

@@ -4,7 +4,7 @@
     "Blue": {
       "color_primary": "#007bff",
       "color_secondary": "#ff8400",
-      "link_color": "#fff",
+      "link_color": "#000000",
       "pagination_color": "#007bff",
       "pagination_active_color": "#007bff",
       "navbar_links_color": "#fff",
@@ -19,7 +19,7 @@
     "Gray": {
       "color_primary": "#6c757d",
       "color_secondary": "#7d746c",
-      "link_color": "#fff",
+      "link_color": "#000000",
       "pagination_color": "#6c757d",
       "pagination_active_color": "#6c757d",
       "navbar_links_color": "#fff",
@@ -34,7 +34,7 @@
     "Green": {
       "color_primary": "#28a745",
       "color_secondary": "#a72889",
-      "link_color": "#fff",
+      "link_color": "#000000",
       "pagination_color": "#28a745",
       "pagination_active_color": "#28a745",
       "navbar_links_color": "#fff",
@@ -49,7 +49,7 @@
     "Red": {
       "color_primary": "#dc3545",
       "color_secondary": "#35dccb",
-      "link_color": "#fff",
+      "link_color": "#000000",
       "pagination_color": "#dc3545",
       "pagination_active_color": "#dc3545",
       "navbar_links_color": "#fff",
@@ -64,7 +64,7 @@
     "Yellow": {
       "color_primary": "#ffc107",
       "color_secondary": "#0745ff",
-      "link_color": "#fff",
+      "link_color": "#000000",
       "pagination_color": "#ffc107",
       "pagination_active_color": "#ffc107",
       "navbar_links_color": "#fff",
@@ -79,7 +79,7 @@
     "Cyan": {
       "color_primary": "#17a2b8",
       "color_secondary": "#b82c17",
-      "link_color": "#fff",
+      "link_color": "#000000",
       "pagination_color": "#17a2b8",
       "pagination_active_color": "#17a2b8",
       "navbar_links_color": "#fff",
@@ -109,7 +109,7 @@
     "Dark": {
       "color_primary": "#343a40",
       "color_secondary": "#403a34",
-      "link_color": "#fff",
+      "link_color": "#000000",
       "pagination_color": "#343a40",
       "pagination_active_color": "#403a34",
       "navbar_links_color": "#fff",
