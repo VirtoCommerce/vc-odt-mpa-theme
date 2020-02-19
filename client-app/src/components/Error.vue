@@ -1,6 +1,7 @@
 <template>
   <b-toast :id="id"
            variant="danger"
+           solid
            no-auto-hide
            toaster="b-toaster-top-center"
            @hidden="$emit('close')">
