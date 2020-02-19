@@ -1,11 +1,11 @@
 import { Module, } from "vuex";
+import i18n from "@i18n";
 import { defaultPageSize } from '@common/constants';
 import { RootState } from "../../types";
 import {actions} from "./actions";
 import {getters} from "./getters";
 import {mutations} from "./mutations";
 import { OrdersListState } from "./types";
-
 
 // initial state
 export const initialState: OrdersListState = {
@@ -25,6 +25,11 @@ export const initialState: OrdersListState = {
   isLoading: false,
   loaded: false
 };
+// We need this because bootstrap-vue will directly use labels on stacked table
+initialState.ordersList.listConfig.columns = (initialState.ordersList.listConfig.columns as string[]).map(column => ({
+  key: column,
+  label: i18n.t(`grids.orders_list.columns.${column.split('.').join('_')}`) as string
+}));
 
 
 const ordersListModule: Module<OrdersListState, RootState> = {
