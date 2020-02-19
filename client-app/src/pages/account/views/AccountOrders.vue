@@ -4,16 +4,16 @@
 
     <div v-if="ordersList.totalCount > 0">
       <b-table id="orders-list"
-                 stacked="md"
-                 striped
-                 hover
-                 :items="ordersList.orders"
-                 :fields="ordersList.listConfig.columns">
-          <!-- A custom formatted column -->
-          <template v-slot:cell(createdDate)="data">
-            <b class="text-info">{{ data.value | moment('ddd, DD/MM/YY') }}</b>
-          </template>
-        </b-table>
+               stacked="md"
+               striped
+               hover
+               :items="ordersList.orders"
+               :fields="ordersList.listConfig.columns">
+        <!-- A custom formatted column -->
+        <template v-slot:cell(createdDate)="data">
+          <b class="text-info">{{ data.value | moment('ddd, DD/MM/YY') }}</b>
+        </template>
+      </b-table>
 
       <div class="d-flex justify-content-between">
         <b-pagination :value="ordersList.listConfig.pageNumber"
