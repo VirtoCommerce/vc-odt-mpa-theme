@@ -3,6 +3,8 @@ import VueAxios from "vue-axios";
 import Loading from 'vue-loading-overlay';
 import "vue-moment";
 import VueRx from "vue-rx";
+import { library, dom } from '@fortawesome/fontawesome-svg-core'
+import { faHeartBroken, faLock, faMeteor } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
 import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin } from 'bootstrap-vue'
@@ -37,6 +39,9 @@ export default class InitializationService {
     Vue.use(ToastPlugin);
 
     Vue.component("font-awesome-icon", FontAwesomeIcon);
+    // Add here icons which you need in liquid
+    library.add(faHeartBroken, faLock, faMeteor);
+    dom.watch();
 
     //global components
     Vue.component("loading", Loading);

@@ -22,6 +22,16 @@
       }
     }
   },
+  "404": {
+    "not-found": "Page not found"
+  },
+  "500": {
+    "something-went-wrong": "Something went wrong"
+  },
+  "access-denied": {
+    "title": "Access denied",
+    "no-access": "You have no permission to view this page. Please, contact to your administrator"
+  },
   "account":{
     "menu_titles": {
       "home":"User Details",
