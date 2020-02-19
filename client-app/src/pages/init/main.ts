@@ -1,6 +1,7 @@
 import Vue from "vue";
 import i18n from "@i18n";
 import "styles/default.scss";
+import "vue-loading-overlay/dist/vue-loading.css";
 import InitializationService from '@common/services/initialization.service';
 import App from "@init-app/App.vue";
 import store from "@init-app/store";
