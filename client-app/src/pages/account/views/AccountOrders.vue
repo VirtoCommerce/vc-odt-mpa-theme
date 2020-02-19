@@ -5,6 +5,7 @@
     <b-table id="orders-list"
              striped
              hover
+             :bordered="true"
              :items="ordersList.orders"
              :fields="ordersList.listConfig.columns">
       <!-- A custom formatted header cell for field 'name' -->
@@ -53,6 +54,7 @@ const ordersListModule = namespace('ordersListModule');
 @Component
 export default class AccountOrders extends Vue{
 
+
   @ordersListModule.Getter('ordersList')
   private ordersList!: OrdersList;
 
@@ -69,6 +71,43 @@ export default class AccountOrders extends Vue{
 
   mounted() {
     this.fetchOrders();
+    this.resizeTableColumns();
+  }
+
+  resizeTableColumns() {
+    let thElm: any;
+    let startOffset: number;
+
+    Array.prototype.forEach.call(
+      document.querySelectorAll("table th"),
+      function (th: any) {
+        console.log(typeof th)
+        th.style.position = 'relative';
+
+        const grip = document.createElement('div');
+        grip.style.top = '0';
+        grip.style.right = '0';
+        grip.style.bottom = '0';
+        grip.style.width = '5px';
+        grip.style.position = 'absolute';
+        grip.style.cursor = 'col-resize';
+        grip.addEventListener('mousedown', function (e) {
+          thElm = th;
+          startOffset = th.offsetWidth - e.pageX;
+        });
+
+        th.appendChild(grip);
+      });
+
+    document.addEventListener('mousemove', function (e) {
+      if (thElm) {
+        thElm.style.width = startOffset + e.pageX + 'px';
+      }
+    });
+
+    document.addEventListener('mouseup', function () {
+      thElm = undefined;
+    });
   }
 
   pageChanged(page: number) {
@@ -81,3 +120,7 @@ export default class AccountOrders extends Vue{
 
 }
 </script>
+
+<style>
+
+</style>
