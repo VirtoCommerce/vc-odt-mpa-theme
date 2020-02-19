@@ -81,7 +81,6 @@ export default class AccountOrders extends Vue{
     Array.prototype.forEach.call(
       document.querySelectorAll("table th"),
       function (th: any) {
-        console.log(typeof th)
         th.style.position = 'relative';
 
         const grip = document.createElement('div');
