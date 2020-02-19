@@ -1,7 +1,7 @@
 import { CustomerOrder } from '@common/api/api-clients';
 
 export interface OrdersListConfig {
-  columns: string[];
+  columns: (string | { key: string, label: string })[];
   pageNumber: number;
   pageSize: number;
   filters: OrdersListFilters;

@@ -4,18 +4,14 @@
 
     <div v-if="ordersList.totalCount > 0">
       <b-table id="orders-list"
+               stacked="md"
                striped
                hover
                :items="ordersList.orders"
                :fields="ordersList.listConfig.columns">
-        <!-- A custom formatted header cell for field 'name' -->
-        <template v-slot:head()="data">
-          <span class="text-info">{{ $t( `account.orders.grid.columns.${data.column.split('.').join('_')}`) }}</span>
-        </template>
-
         <!-- A custom formatted column -->
         <template v-slot:cell(createdDate)="data">
-          <b class="text-info">{{ data.value | moment('ddd, DD/MM/YY') }}</b>, <b>{{ data.value.first }}</b>
+          <b class="text-info">{{ data.value | moment('ddd, DD/MM/YY') }}</b>
         </template>
       </b-table>
 
