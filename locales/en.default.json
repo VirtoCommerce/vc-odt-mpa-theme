@@ -39,19 +39,18 @@
     },
     "email": "Email",
     "user_name": "User name",
-    "phone": "Phone"
-  },
-  "grids":{
-    "orders_list":{
-      "columns":{
-        "number": "Order ID",
-        "status": "Status",
-        "createdDate": "Date",
-        "items_length": "# Items",
-        "createdBy": "Created by",
-        "order_total_formattedAmount": "Total"
+    "phone": "Phone",
+    "grids":{
+      "orders_list":{
+        "columns":{
+          "number": "Order ID",
+          "status": "Status",
+          "createdDate": "Date",
+          "items_length": "# Items",
+          "createdBy": "Created by",
+          "order_total_formattedAmount": "Total"
+        }
       }
     }
   }
-
 }

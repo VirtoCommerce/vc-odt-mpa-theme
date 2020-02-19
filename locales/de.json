@@ -1,0 +1,56 @@
+{
+  "common": {
+    "header": {
+      "sign_in": "Einloggen",
+      "log_out": "Ausloggen",
+      "logged_in": {
+        "on_bealf": "Eingeloggt im Namen von",
+        "as": "Angemeldet als"
+      }
+    },
+    "error": {
+      "client":{
+        "close": "Schließen",
+        "header": "Ups! Etwas ist schief gelaufen",
+        "description": "Während der Ausführung ist ein Fehler aufgetreten. Bitte wenden Sie sich an den Support.",
+        "tip": "Versuchen Sie, die Seite neu zu laden, um den Fehler zu beheben.",
+        "details": "Klicken Sie hier, um technische Details anzuzeigen",
+        "stack": "{0} Fehler\r\n   in {1}:{2}:{3}"
+      },
+      "forms": {
+        "post": "Entschuldigung, es sieht so aus, als wäre etwas schief gelaufen. Bitte korrigieren Sie Folgendes und senden Sie es erneut:"
+      }
+    }
+  },
+  "404": {
+    "not-found": "Seite nicht gefunden"
+  },
+  "500": {
+    "something-went-wrong": "Etwas ist schief gelaufen"
+  },
+  "access-denied": {
+    "title": "Zugriff verweigert",
+    "no-access": "Sie haben keine Berechtigung zum Anzeigen dieser Seite. Bitte wenden Sie sich an Ihren Administrator"
+  },
+  "account":{
+    "menu_titles": {
+      "home":"Nutzerdetails",
+      "orders": "Aufträge"
+    },
+    "email": "Email",
+    "user_name": "Nutzername",
+    "phone": "Telefon",
+    "grids":{
+      "orders_list":{
+        "columns":{
+          "number": "Auftragsnummer",
+          "status": "Status",
+          "createdDate": "Datum",
+          "items_length": "# Positionen",
+          "createdBy": "Erstellt von",
+          "order_total_formattedAmount": "Auftragssumme"
+        }
+      }
+    }
+  }
+}

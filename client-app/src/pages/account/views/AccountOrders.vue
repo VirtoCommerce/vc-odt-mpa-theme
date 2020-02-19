@@ -9,7 +9,7 @@
              :fields="ordersList.listConfig.columns">
       <!-- A custom formatted header cell for field 'name' -->
       <template v-slot:head()="data">
-        <span class="text-info">{{ $t( `grids.orders_list.columns.${data.column.split('.').join('_')}`) }}</span>
+        <span class="text-info">{{ $t( `account.grids.orders_list.columns.${data.column.split('.').join('_')}`) }}</span>
       </template>
 
       <!-- A custom formatted column -->
