@@ -28,7 +28,7 @@ export const initialState: OrdersListState = {
 // We need this because bootstrap-vue will directly use labels on stacked table
 initialState.ordersList.listConfig.columns = (initialState.ordersList.listConfig.columns as string[]).map(column => ({
   key: column,
-  label: i18n.t(`grids.orders_list.columns.${column.split('.').join('_')}`) as string
+  label: i18n.t(`account.orders.grid.columns.${column.split('.').join('_')}`) as string
 }));
 
 
