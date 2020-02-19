@@ -53,7 +53,6 @@ const ordersListModule = namespace('ordersListModule');
 @Component
 export default class AccountOrders extends Vue{
 
-
   @ordersListModule.Getter('ordersList')
   private ordersList!: OrdersList;
 
@@ -82,7 +81,3 @@ export default class AccountOrders extends Vue{
 
 }
 </script>
-
-<style>
-
-</style>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
+<head>
+  <meta charset="utf-8">
 
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
     <meta content="" name="description"/>
@@ -11,17 +11,16 @@
     <meta content="notranslate" name="google"/>
     <meta content="telephone=no" name="format-detection"/>
 
-    <title>{{ store.title }}</title>
-    <base href="/">
+  <title>{{ store.title }}</title>
+  <base href="/">
 
-    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet"/>
 
     <link href="favicon.ico" rel="icon" type="image/x-icon">
     {{ 'bundle/default.scss.css' | static_asset_url | append_version | stylesheet_tag }}
-    {{ 'bundle/dist/css/chunk-vendors.css' | static_asset_url | append_version | stylesheet_tag }}
 
     <script>
       window.BASE_URL = `{{ "/" | full_url }}`;
@@ -29,18 +28,11 @@
       window.LOCALE = "{{ current_language.culture_name }}";
       window.LOCALIZATION_MESSAGES = {{ '' | t  }};
     </script>
-  </head>
-  <body class="min-vh-100 d-flex flex-column">
-    {{ content_for_header }}
-    <main class="container flex-grow-1">
-      <div id="initApp"></div>
-      {{ content_for_layout }}
-    </main>
-    {% include 'footer' %}
-    <script src="{{ 'bundle/dist/js/chunk-vendors.js' | static_asset_url | append_version }}"></script>
-    {% comment %}
-      <script src="{{ 'bundle/dist/js/chunk-common.js' | static_asset_url | append_version }}">
-    {% endcomment %}
-    <script src="{{ 'bundle/dist/js/init.js' | static_asset_url | append_version }}"></script>
-  </body>
+
+</head>
+<body>
+	<main>
+  {{ content_for_layout }}
+  </main>
+</body>
 </html>

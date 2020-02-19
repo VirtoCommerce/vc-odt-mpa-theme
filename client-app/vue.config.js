@@ -22,6 +22,10 @@ module.exports = {
     }
   },
 
+  css: {
+    extract: true
+  },
+
   // Web pack configuration chaining
   // https://cli.vuejs.org/guide/webpack.html#chaining-advanced
   // https://github.com/neutrinojs/webpack-chain
@@ -49,7 +53,7 @@ module.exports = {
       // Any way, we will include all scss dependencies into this one file
       .include.add(/default.scss$/).end()
       // Save to file
-      .use('file-loader').loader('file-loader').tap(options => ({ name: "default.scss" }))
+      .use('file-loader').loader('file-loader').tap(options => ({ outputPath: "scss", name: "default.scss" }))
       // Export generated js module (yep) into simple string with scss code
       .before("exports-loader").end().use('exports-loader').loader('exports-loader')
       // Process scss
