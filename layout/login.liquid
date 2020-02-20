@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="keywords"/>
+    <meta content="index, follow, noodp" name="robots"/>
+    <meta content="index, follow" name="googlebot"/>
+    <meta content="notranslate" name="google"/>
+    <meta content="telephone=no" name="format-detection"/>
+
+  <title>{{ store.title }}</title>
+  <base href="/">
+
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet"/>
+
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    {{ 'bundle/default.scss.css' | static_asset_url | append_version | stylesheet_tag }}
+
+</head>
+<body>
+	<main>
+  {{ content_for_layout }}
+  </main>
+</body>
+</html>

@@ -37,11 +37,14 @@
       "home":"User Details",
       "orders": "Orders"
     },
-    "email": "Email",
-    "user_name": "User name",
-    "phone": "Phone",
-    "grids":{
-      "orders_list":{
+    "home": {
+      "email": "Email",
+      "user_name": "User name",
+      "phone": "Phone"
+    },
+    "orders": {
+      "no-orders": "You have no orders placed",
+      "grid":{
         "columns":{
           "number": "Order ID",
           "status": "Status",
