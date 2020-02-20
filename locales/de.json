@@ -4,7 +4,7 @@
       "sign_in": "Einloggen",
       "log_out": "Ausloggen",
       "logged_in": {
-        "on_bealf": "Eingeloggt im Namen von",
+        "on_behalf": "Eingeloggt im Namen von",
         "as": "Angemeldet als"
       }
     },
@@ -26,15 +26,21 @@
       "remember_me": "Erinnere dich an mich",
       "log_in": "Einloggen",
       "forgot_password": "Haben Sie Ihr Passwort vergessen?",
-      "reset_password_header": "Setze dein Passwort zurück",
-      "reset_password_confirm": "Dein Passwort wurde zurück gesetzt",
-      "recover_password_header": "Stellen Sie Ihr Passwort wieder her",
-      "confirm_password": "Passwort bestätigen",
-      "click_to_log_in": "Bitte klicken Sie hier, um sich anzumelden",
-      "submit": "Einreichen",
       "password": "Passwort",
-      "username": "Nutzername",
-      "email": "Email"
+      "username": "Nutzername"
+    },
+    "recover_password": {
+      "title": "Stellen Sie Ihr Passwort wieder her",
+      "email": "Email",
+      "submit": "Einreichen"
+    },
+    "reset_password": {
+      "title": "Setze dein Passwort zurück",
+      "password": "Passwort",
+      "confirm_password": "Passwort bestätigen",
+      "submit": "Einreichen",
+      "reset_password_confirm": "Dein Passwort wurde zurück gesetzt",
+      "click_to_log_in": "Bitte klicken Sie hier, um sich anzumelden"
     }
   },
   "404": {
