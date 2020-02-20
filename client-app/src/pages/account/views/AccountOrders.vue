@@ -52,8 +52,8 @@ import { namespace } from 'vuex-class';
 import { BvTableCtxObject } from "bootstrap-vue";
 import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG } from "@account/store/modules/orders-list/definitions";
 import { OrdersList, OrdersListConfig  } from "@account/store/modules/orders-list/types";
+import { CustomerOrder } from "@common/api/api-clients";
 import { pageSizes } from "@common/constants";
-import { CustomerOrder } from "../../../common/api/api-clients";
 
 const ordersListModule = namespace('ordersListModule');
 
