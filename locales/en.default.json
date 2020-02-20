@@ -20,6 +20,21 @@
       "forms": {
         "post": "Sorry, looks like something went wrong. Please correct the following and submit again:"
       }
+    },
+    "login": {
+      "login_header": "Log in to the portal",
+      "remember_me": "Remember me",
+      "log_in": "Log in",
+      "forgot_password": "Forgot the password?",
+      "reset_password_header": "Reset your password",
+      "reset_password_confirm": "Your password has been reset",
+      "recover_password_header": "Recover your password",
+      "confirm_password": "Confirm password",
+      "click_to_log_in": "Please click here to log in",
+      "submit": "Submit",
+      "password": "Password",
+      "username": "Username",
+      "email": "Email"
     }
   },
   "404": {
