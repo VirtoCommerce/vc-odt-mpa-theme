@@ -43,17 +43,15 @@
       "phone": "Telefon",
     },
     "orders":{
-      "orders_list":{
-        "no-orders": "Sie haben keine Bestellungen aufgegeben",
-        "grid":{
-          "columns":{
-            "number": "Auftragsnummer",
-            "status": "Status",
-            "createdDate": "Datum",
-            "items_length": "# Positionen",
-            "createdBy": "Erstellt von",
-            "order_total_formattedAmount": "Auftragssumme"
-          }
+      "no-orders": "Sie haben keine Bestellungen aufgegeben",
+      "grid":{
+        "columns":{
+          "number": "Auftragsnummer",
+          "status": "Status",
+          "createdDate": "Datum",
+          "items_length": "# Positionen",
+          "createdBy": "Erstellt von",
+          "order_total_formattedAmount": "Auftragssumme"
         }
       }
     }
