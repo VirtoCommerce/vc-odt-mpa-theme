@@ -4,7 +4,7 @@
       "sign_in": "Sign in",
       "log_out": "Log out",
       "logged_in": {
-        "on_bealf": "Logged in on behalf of",
+        "on_behalf": "Logged in on behalf of",
         "as": "Logged in as"
       }
     },
@@ -26,15 +26,21 @@
       "remember_me": "Remember me",
       "log_in": "Log in",
       "forgot_password": "Forgot the password?",
-      "reset_password_header": "Reset your password",
-      "reset_password_confirm": "Your password has been reset",
-      "recover_password_header": "Recover your password",
-      "confirm_password": "Confirm password",
-      "click_to_log_in": "Please click here to log in",
-      "submit": "Submit",
       "password": "Password",
-      "username": "Username",
-      "email": "Email"
+      "username": "Username"
+    },
+    "recover_password": {
+      "title": "Recover your password",
+      "email": "Email",
+      "submit": "Submit"
+    },
+    "reset_password": {
+      "title": "Reset your password",
+      "password": "Password",
+      "confirm_password": "Confirm password",
+      "submit": "Submit",
+      "reset_password_confirm": "Your password has been reset",
+      "click_to_log_in": "Please click here to log in"
     }
   },
   "404": {
