@@ -20,6 +20,21 @@
       "forms": {
         "post": "Entschuldigung, es sieht so aus, als wäre etwas schief gelaufen. Bitte korrigieren Sie Folgendes und senden Sie es erneut:"
       }
+    },
+    "login": {
+      "login_header": "Melden Sie sich beim Portal an",
+      "remember_me": "Erinnere dich an mich",
+      "log_in": "Einloggen",
+      "forgot_password": "Haben Sie Ihr Passwort vergessen?",
+      "reset_password_header": "Setze dein Passwort zurück",
+      "reset_password_confirm": "Dein Passwort wurde zurück gesetzt",
+      "recover_password_header": "Stellen Sie Ihr Passwort wieder her",
+      "confirm_password": "Passwort bestätigen",
+      "click_to_log_in": "Bitte klicken Sie hier, um sich anzumelden",
+      "submit": "Einreichen",
+      "password": "Passwort",
+      "username": "Nutzername",
+      "email": "Email"
     }
   },
   "404": {
