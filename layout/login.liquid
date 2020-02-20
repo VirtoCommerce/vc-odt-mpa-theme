@@ -1,38 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="robots" content="index, follow, noodp">
-  <meta name="googlebot" content="index, follow">
-  <meta name="google" content="notranslate">
-  <meta name="format-detection" content="telephone=no">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="keywords"/>
+    <meta content="index, follow, noodp" name="robots"/>
+    <meta content="index, follow" name="googlebot"/>
+    <meta content="notranslate" name="google"/>
+    <meta content="telephone=no" name="format-detection"/>
 
-  <title>Procurement portal</title>
+  <title>{{ store.title }}</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
-  <!-- Google fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet"/>
 
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href=" {{ 'bundle/assets/css/bootstrap.min.css' | static_asset_url }}">
-  {{ 'bundle/login-page.css' | static_asset_url | stylesheet_tag }}
-
-  <script>
-      var BASE_URL = '{{ "/" | full_url }}';		
-  </script>
+    <link href="{{'favicon.ico' | static_asset_url }}" rel="icon" type="image/x-icon">
+    {{ 'bundle/default.scss.css' | static_asset_url | append_version | stylesheet_tag }}
 
 </head>
 <body>
 	<main>
   {{ content_for_layout }}
-</main>
- 
-
+  </main>
 </body>
 </html>

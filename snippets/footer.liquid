@@ -1,0 +1,27 @@
+<footer class="bg-secondary pt-3">
+  <div class="container d-flex flex-column">
+    <div class="d-flex w-100 justify-content-between flex-wrap">
+      {% if settings.footer_column1_title %}
+          <div>
+            <h1>{{ settings.footer_column1_title }}</h1>
+            {{ settings.footer_column1_content }}
+          </div>
+      {% endif %}
+      {% if settings.footer_column2_title %}
+          <div>
+            <h1>{{ settings.footer_column2_title }}</h1>
+            {{ settings.footer_column2_content }}
+          </div>
+      {% endif %}
+      {% if settings.footer_column3_title %}
+          <div>
+            <h1>{{ settings.footer_column3_title }}</h1>
+            {{ settings.footer_column3_content }}
+          </div>
+      {% endif %}
+    </div>
+    <div>
+      {{ settings.copyright }}
+    </div>
+  </div>
+</footer>

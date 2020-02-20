@@ -1,21 +1,44 @@
 <template>
-    <!-- <div id="app">
-        <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>
-        </div>
-        <router-view />
-    </div> -->
-    <ProfileHome></ProfileHome>
+  <div class="account mb-3 mt-3">
+    <b-button variant="danger"
+              class="my-3"
+              @click="throwError()">
+      Throw error from vue.js
+    </b-button>
+
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <router-link to="/"
+                     tag="a"
+                     active-class="border-bottom-0 border-primary"
+                     class="nav-link"
+                     exact>
+          {{ $t('account.menu_titles.home') }}
+        </router-link>
+      </li>
+      <li class="nav-item">
+        <router-link to="orders"
+                     active-class="border-bottom-0 border-primary"
+                     tag="a"
+                     class="nav-link">
+          {{ $t('account.menu_titles.orders') }}
+        </router-link>
+      </li>
+    </ul>
+    <router-view></router-view>
+  </div>
 </template>
 
-<script>
-import ProfileHome from "./views/Home";
+<script lang="ts">
+import Vue from "vue";
+import Component from "vue-class-component";
 
-export default {
-    name: "home",
-    components: {
-        ProfileHome
-    }
-};
+@Component({
+  name: "home"
+})
+export default class App extends Vue {
+  throwError() {
+    throw new Error();
+  }
+}
 </script>
