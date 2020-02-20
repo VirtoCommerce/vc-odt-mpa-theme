@@ -14,7 +14,7 @@ export const actions: ActionTree<OrdersListState, RootState> = {
     const searchCriteria = new OrderSearchCriteria();
     searchCriteria.pageNumber =context.state.ordersList.listConfig.pageNumber;
     searchCriteria.pageSize = context.state.ordersList.listConfig.pageSize;
-
+    searchCriteria.sort = context.state.ordersList.listConfig.filters.sort;
     const result = await orderClient.searchCustomerOrders(searchCriteria, storeName, locale);
     context.commit(SET_ORDERS, result);
   },

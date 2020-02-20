@@ -6,7 +6,12 @@
              striped
              hover
              :items="ordersList.orders"
-             :fields="ordersList.listConfig.columns">
+             :fields="ordersList.listConfig.columns"
+             no-local-sorting
+             selectable
+             select-mode="single"
+             @sort-changed="sortChanged"
+             @row-selected="rowSelected">
       <!-- A custom formatted header cell for field 'name' -->
       <template v-slot:head()="data">
         <span class="text-info">{{ $t( `grids.orders_list.columns.${data.column.split('.').join('_')}`) }}</span>
@@ -14,7 +19,7 @@
 
       <!-- A custom formatted column -->
       <template v-slot:cell(createdDate)="data">
-        <b class="text-info">{{ data.value | moment('ddd, DD/MM/YY') }}</b>, <b>{{ data.value.first }}</b>
+        <b class="text-info">{{ data.value | moment('ddd, DD/MM/YY') }}</b>
       </template>
     </b-table>
 
@@ -44,9 +49,11 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { namespace } from 'vuex-class';
+import { BvTableCtxObject } from "bootstrap-vue";
 import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG } from "@account/store/modules/orders-list/definitions";
 import { OrdersList, OrdersListConfig  } from "@account/store/modules/orders-list/types";
 import { pageSizes } from "@common/constants";
+import { CustomerOrder } from "../../../common/api/api-clients";
 
 const ordersListModule = namespace('ordersListModule');
 
@@ -66,6 +73,8 @@ export default class AccountOrders extends Vue{
   @ordersListModule.Action(SET_ORDERS_LIST_CONFIG)
   private setListConfig!: (listConfig:  OrdersListConfig) => void
 
+  selectedOrder?: CustomerOrder;
+
   pageSizes = pageSizes;
 
   mounted() {
@@ -73,11 +82,23 @@ export default class AccountOrders extends Vue{
   }
 
   pageChanged(page: number) {
-    this.setListConfig(({ ...this.ordersList.listConfig, pageNumber: page }))
+    this.setListConfig(({ ...this.ordersList.listConfig, pageNumber: page }));
   }
 
   pageSizeChanged(pageSize: number) {
-    this.setListConfig(({ ...this.ordersList.listConfig, pageNumber: 1, pageSize: pageSize }))
+    this.setListConfig(({ ...this.ordersList.listConfig, pageNumber: 1, pageSize: pageSize }));
+  }
+
+  sortChanged(ctx: BvTableCtxObject) {
+    const sortDirection = ctx.sortDesc?"desc":"asc";
+    const sortExpression = `${ctx.sortBy}:${sortDirection}`;
+    const newListConfig = { ...this.ordersList.listConfig, pageNumber: 1 };
+    newListConfig.filters = {...this.ordersList.listConfig.filters, sort: sortExpression }
+    this.setListConfig(newListConfig);
+  }
+
+  rowSelected(items: CustomerOrder[]) {
+    this.selectedOrder = items[0];
   }
 
 }
