@@ -1,7 +1,8 @@
-import { CustomerOrder } from '@common/api/api-clients';
+import { CustomerOrder } from "@common/api/api-clients";
+import { BvTableField } from "bootstrap-vue";
 
 export interface OrdersListConfig {
-  columns: (string | { key: string, label: string })[];
+  columns: ({ key: string } & BvTableField)[];
   pageNumber: number;
   pageSize: number;
   filters: OrdersListFilters;

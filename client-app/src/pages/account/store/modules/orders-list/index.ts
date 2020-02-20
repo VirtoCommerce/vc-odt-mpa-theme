@@ -1,5 +1,6 @@
 import { Module, } from "vuex";
 import i18n from "@i18n";
+import { BvTableField } from "bootstrap-vue";
 import { defaultPageSize } from '@common/constants';
 import { RootState } from "../../types";
 import {actions} from "./actions";
@@ -12,7 +13,14 @@ export const initialState: OrdersListState = {
   errors: {},
   ordersList: {
     listConfig: {
-      columns : [ "number", "status", "createdDate", "items.length", "createdBy", "order.total.formattedAmount"],
+      columns : [
+        { key: "number", sortable: true },
+        { key: "status",  sortable: true },
+        { key: "createdDate",  sortable: true },
+        { key: "items.length",  sortable: false },
+        { key: "createdBy",  sortable: true },
+        { key: "order.total.formattedAmount",  sortable: true }
+      ],
       pageNumber: 1,
       pageSize: defaultPageSize,
       filters : {
@@ -26,9 +34,9 @@ export const initialState: OrdersListState = {
   loaded: false
 };
 // We need this because bootstrap-vue will directly use labels on stacked table
-initialState.ordersList.listConfig.columns = (initialState.ordersList.listConfig.columns as string[]).map(column => ({
-  key: column,
-  label: i18n.t(`account.orders.grid.columns.${column.split('.').join('_')}`) as string
+initialState.ordersList.listConfig.columns = initialState.ordersList.listConfig.columns.map(column => ({
+  ...column,
+  label: i18n.t(`account.orders.grid.columns.${column.key.split(".").join("_")}`) as string
 }));
 
 
