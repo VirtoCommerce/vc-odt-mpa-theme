@@ -72,7 +72,7 @@
           "createdDate": "Datum",
           "items_length": "# Positionen",
           "createdBy": "Erstellt von",
-          "order_total_formattedAmount": "Auftragssumme"
+          "total_formattedAmount": "Auftragssumme"
         }
       }
     }

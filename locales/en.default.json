@@ -72,7 +72,7 @@
           "createdDate": "Date",
           "items_length": "# Items",
           "createdBy": "Created by",
-          "order_total_formattedAmount": "Total"
+          "total_formattedAmount": "Total"
         }
       }
     }
