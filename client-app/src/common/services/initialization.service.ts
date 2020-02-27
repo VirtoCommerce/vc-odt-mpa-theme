@@ -7,7 +7,7 @@ import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faHeartBroken, faLock, faMeteor } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
-import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin } from 'bootstrap-vue'
+import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin} from 'bootstrap-vue'
 import { baseUrl } from "@common/constants";
 
 export default class InitializationService {
@@ -37,6 +37,8 @@ export default class InitializationService {
     Vue.use(PaginationPlugin);
     Vue.use(TablePlugin);
     Vue.use(ToastPlugin);
+    Vue.use(ModalPlugin);
+    Vue.use(CardPlugin);
 
     Vue.component("font-awesome-icon", FontAwesomeIcon);
     // Add here icons which you need in liquid

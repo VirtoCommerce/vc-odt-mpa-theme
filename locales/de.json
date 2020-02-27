@@ -74,6 +74,20 @@
           "createdBy": "Erstellt von",
           "order_total_formattedAmount": "Auftragssumme"
         }
+      },
+      "order-details": {
+        "title": "Bestelldetails",
+        "details": "Einzelheiten",
+        "subtotal": "Zwischensumme",
+        "shipping": "Versand",
+        "total": "Gesamt",
+        "created-by": "Erstellt von",
+        "status": "Status",
+        "order-details": "Bestelldetails",
+        "sku": "SKU:",
+        "unit-price": "Stückpreis:",
+        "quantity": "Menge:",
+        "cancel": "Stornieren"
       }
     }
   }

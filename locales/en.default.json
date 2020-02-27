@@ -74,6 +74,20 @@
           "createdBy": "Created by",
           "order_total_formattedAmount": "Total"
         }
+      },
+      "order-details": {
+        "title": "Order details information",
+        "details": "Details",
+        "subtotal": "Subtotal",
+        "shipping": "Shipping",
+        "total": "Total",
+        "created-by": "Created by",
+        "status": "Status",
+        "order-details": "Order Details",
+        "sku": "SKU:",
+        "unit-price": "Unit price:",
+        "quantity": "Quantity:",
+        "cancel": "Cancel"
       }
     }
   }

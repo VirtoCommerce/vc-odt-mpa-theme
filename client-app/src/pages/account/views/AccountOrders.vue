@@ -1,7 +1,9 @@
 <template>
   <div>
-    <loading :active.sync="isLoading"></loading>
-
+    <loading :active.sync="isLoading" :z-index="5000"></loading>
+    <account-order-details-modal
+      :order-id="selectedOrderId">
+    </account-order-details-modal>
     <div v-if="ordersList.totalCount > 0">
       <b-table id="orders-list"
                stacked="md"
@@ -14,7 +16,9 @@
                select-mode="single"
                @sort-changed="sortChanged"
                @row-selected="rowSelected">
-        <!-- A custom formatted column -->
+        <template v-slot:cell(number)="data">
+          <a @click="openOrderDetails(data.value)">{{ data.value }}</a>
+        </template>
         <template v-slot:cell(createdDate)="data">
           <b class="text-info">{{ data.value | moment('ddd, DD/MM/YY') }}</b>
         </template>
@@ -56,10 +60,15 @@ import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG } from "@account/store/modules/ord
 import { OrdersList, OrdersListConfig  } from "@account/store/modules/orders-list/types";
 import { CustomerOrder } from "@common/api/api-clients";
 import { pageSizes } from "@common/constants";
+import AccountOrderDetailsModal from './AccountOrderDetailsModal.vue';
 
 const ordersListModule = namespace('ordersListModule');
 
-@Component
+@Component({
+  components: {
+    AccountOrderDetailsModal
+  }
+})
 export default class AccountOrders extends Vue{
 
   @ordersListModule.Getter('ordersList')
@@ -74,7 +83,9 @@ export default class AccountOrders extends Vue{
   @ordersListModule.Action(SET_ORDERS_LIST_CONFIG)
   private setListConfig!: (listConfig:  OrdersListConfig) => void
 
-  selectedOrder?: CustomerOrder;
+  selectedOrder: CustomerOrder | null = null;
+
+  selectedOrderId: string | null = null;
 
   pageSizes = pageSizes;
 
@@ -100,6 +111,11 @@ export default class AccountOrders extends Vue{
 
   rowSelected(items: CustomerOrder[]) {
     this.selectedOrder = items[0];
+  }
+
+  openOrderDetails(orderId: string) {
+    this.selectedOrderId = orderId;
+    this.$bvModal.show("orderDetailsModal")
   }
 
 }

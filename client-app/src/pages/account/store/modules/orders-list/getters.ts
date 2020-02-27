@@ -1,4 +1,5 @@
 import { GetterTree } from "vuex";
+import { CustomerOrder } from '@common/api/api-clients';
 import { RootState } from "../../types";
 import { OrdersListState, OrdersList } from "./types";
 
@@ -9,5 +10,8 @@ export const getters: GetterTree<OrdersListState, RootState> = {
   },
   ordersList: (state: OrdersListState): OrdersList => {
     return state.ordersList;
+  },
+  selectedOrder: (state: OrdersListState): CustomerOrder => {
+    return state.selectedOrder;
   }
 };
