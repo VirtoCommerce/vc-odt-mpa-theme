@@ -125,9 +125,7 @@ export default class AccountOrderDetails extends Vue {
     return this.order.subTotal?.formattedAmount;
   }
   get shipping(): string | undefined {
-    return this.order.shippingTotal?.formattedAmount == "$0.00"
-      ? "Free"
-      : this.order.shippingTotal?.formattedAmount;
+    return this.order.shippingTotal?.formattedAmount == "0,00 $" ? "Free" : this.order.shippingTotal?.formattedAmount;
   }
   get total(): string | undefined {
     return this.order.total?.formattedAmount;
