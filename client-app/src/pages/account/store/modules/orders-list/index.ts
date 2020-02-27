@@ -19,7 +19,7 @@ export const initialState: OrdersListState = {
         { key: "createdDate",  sortable: true },
         { key: "items.length",  sortable: false },
         { key: "createdBy",  sortable: true },
-        { key: "order.total.formattedAmount",  sortable: true }
+        { key: "total.formattedAmount",  sortable: true }
       ],
       pageNumber: 1,
       pageSize: defaultPageSize,
