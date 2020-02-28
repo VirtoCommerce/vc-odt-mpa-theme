@@ -11,7 +11,7 @@ export const getters: GetterTree<OrdersListState, RootState> = {
   ordersList: (state: OrdersListState): OrdersList => {
     return state.ordersList;
   },
-  selectedOrder: (state: OrdersListState): CustomerOrder => {
+  selectedOrder: (state: OrdersListState): CustomerOrder | null => {
     return state.selectedOrder;
   }
 };

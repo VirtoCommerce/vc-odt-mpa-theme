@@ -76,7 +76,7 @@
         }
       },
       "order-details": {
-        "title": "Order details information",
+        "title": "Order details",
         "details": "Details",
         "subtotal": "Subtotal",
         "shipping": "Shipping",
@@ -87,7 +87,8 @@
         "sku": "SKU:",
         "unit-price": "Unit price:",
         "quantity": "Quantity:",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "ok": "OK"
       }
     }
   }

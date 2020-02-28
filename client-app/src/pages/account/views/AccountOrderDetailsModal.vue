@@ -1,7 +1,8 @@
 <template>
-  <b-modal id="orderDetailsModal"
-           :no-enforce-focus="true"
-           size="lg">
+  <b-modal
+    id="orderDetailsModal"
+    :no-enforce-focus="true"
+    size="lg">
     <div slot="modal-title">
       {{ $t("account.orders.order-details.title") }}
     </div>
@@ -22,36 +23,7 @@
                     accordion="my-accordion"
                     role="tabpanel">
           <b-card-body>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="list-group list-group-flush">
-                  <div class="list-group-item d-flex justify-content-between">
-                    <span class="font-weight-bold">{{ $t("account.orders.order-details.subtotal") }}</span>
-                    {{ subtotal }}
-                  </div>
-                  <div class="list-group-item d-flex justify-content-between">
-                    <span class="font-weight-bold">{{ $t("account.orders.order-details.shipping") }}</span>
-                    {{ shipping }}
-                  </div>
-                  <div class="list-group-item d-flex justify-content-between">
-                    <span class="font-weight-bold">{{ $t("account.orders.order-details.total") }}</span>
-                    {{ total }}
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="list-group list-group-flush">
-                  <div class="list-group-item d-flex justify-content-between">
-                    <span class="font-weight-bold">{{ $t("account.orders.order-details.created-by") }}</span>
-                    {{ createdBy }}
-                  </div>
-                  <div class="list-group-item d-flex justify-content-between">
-                    <span class="font-weight-bold">{{ $t("account.orders.order-details.status") }}</span>
-                    {{ status }}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <order-details-totals :odrer="order"></order-details-totals>
           </b-card-body>
         </b-collapse>
       </b-card>
@@ -71,25 +43,16 @@
                     accordion="my-accordion"
                     role="tabpanel">
           <b-card-body v-for="item in order.items" :key="item.id">
-            <b-card-text>{{ item.name }}</b-card-text>
-            <b-card-text>
-              <span class="font-weight-bold">{{ $t("account.orders.order-details.sku") }}</span>
-              {{ item.sku }}
-            </b-card-text>
-            <b-card-text>
-              <span class="font-weight-bold">{{ $t("account.orders.order-details.unit-price") }}</span>
-              {{ item.placedPrice.formattedAmount }}
-            </b-card-text>
-            <b-card-text>
-              <span class="font-weight-bold">{{ $t("account.orders.order-details.quantity") }}</span>
-              {{ item.quantity }}
-            </b-card-text>
+            <order-details-item :item="item"></order-details-item>
           </b-card-body>
         </b-collapse>
       </b-card>
     </div>
-    <div slot="modal-cancel">
+    <div slot="modal-cancel" class="btn btn-secondary">
       {{ $t("account.orders.order-details.cancel") }}
+    </div>
+    <div slot="modal-ok" class="btn btn-primary">
+      {{ $t("account.orders.order-details.ok") }}
     </div>
   </b-modal>
 </template>
@@ -99,6 +62,8 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { Watch } from 'vue-property-decorator';
 import { namespace } from "vuex-class";
+import OrderDetailsItem from '@account/components/order-details/OrderDetailsItem.vue';
+import OrderDetailsTotals from '@account/components/order-details/OrderDetailsTotals.vue';
 import { FETCH_ORDER } from "@account/store/modules/orders-list/definitions";
 import { CustomerOrder } from "@common/api/api-clients";
 
@@ -107,6 +72,10 @@ const ordersListModule = namespace("ordersListModule");
 @Component({
   props: {
     orderId: String
+  },
+  components: {
+    OrderDetailsItem,
+    OrderDetailsTotals,
   }
 })
 export default class AccountOrderDetails extends Vue {
@@ -120,22 +89,6 @@ export default class AccountOrderDetails extends Vue {
 
   @ordersListModule.Action(FETCH_ORDER)
   private fetchOrder!: (orderId: string) => CustomerOrder;
-
-  get subtotal(): string | undefined {
-    return this.order.subTotal?.formattedAmount;
-  }
-  get shipping(): string | undefined {
-    return this.order.shippingTotal?.formattedAmount == "0,00 $" ? "Free" : this.order.shippingTotal?.formattedAmount;
-  }
-  get total(): string | undefined {
-    return this.order.total?.formattedAmount;
-  }
-  get createdBy(): string | undefined {
-    return this.order.createdBy;
-  }
-  get status(): string | undefined {
-    return this.order.status;
-  }
 
 }
 </script>

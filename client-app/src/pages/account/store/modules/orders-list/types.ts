@@ -27,5 +27,5 @@ export interface OrdersListState {
   ordersList: OrdersList;
   isLoading: boolean;
   loaded: boolean;
-  selectedOrder: CustomerOrder;
+  selectedOrder: CustomerOrder | null;
 }

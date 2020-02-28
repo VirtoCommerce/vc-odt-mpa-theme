@@ -1,6 +1,5 @@
 import { Module, } from "vuex";
 import i18n from "@i18n";
-import { CustomerOrder } from '@common/api/api-clients';
 import { defaultPageSize } from '@common/constants';
 import { RootState } from "../../types";
 import {actions} from "./actions";
@@ -31,7 +30,7 @@ export const initialState: OrdersListState = {
     totalCount : 0,
     orders: []
   },
-  selectedOrder: new CustomerOrder,
+  selectedOrder: null,
   isLoading: false,
   loaded: false
 };
