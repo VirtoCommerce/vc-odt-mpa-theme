@@ -5,7 +5,7 @@ import "vue-moment";
 import VueRx from "vue-rx";
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faHeartBroken, faLock, faMeteor } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
 import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin} from 'bootstrap-vue'
 import { baseUrl } from "@common/constants";
@@ -41,6 +41,7 @@ export default class InitializationService {
     Vue.use(CardPlugin);
 
     Vue.component("font-awesome-icon", FontAwesomeIcon);
+    Vue.component('font-awesome-layers', FontAwesomeLayers);
     // Add here icons which you need in liquid
     library.add(faHeartBroken, faLock, faMeteor);
     dom.watch();

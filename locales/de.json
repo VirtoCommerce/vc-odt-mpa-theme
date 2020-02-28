@@ -86,9 +86,7 @@
         "order-details": "Bestelldetails",
         "sku": "SKU:",
         "unit-price": "Stückpreis:",
-        "quantity": "Menge:",
-        "cancel": "Stornieren",
-        "ok": "OK"
+        "quantity": "Menge:"
       }
     }
   }

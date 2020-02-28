@@ -1,24 +1,29 @@
 <template>
-  <b-modal
-    id="orderDetailsModal"
-    :no-enforce-focus="true"
-    size="lg">
+  <b-modal id="orderDetailsModal"
+           :no-enforce-focus="true"
+           hide-footer
+           size="lg">
     <div slot="modal-title">
       {{ $t("account.orders.order-details.title") }}
     </div>
     <div v-if="order" role="tablist">
-      <b-card no-body class="mb-1">
-        <b-card-header header-tag="header"
-                       class="p-1"
+      <b-card no-body class="mb-1 border-0">
+        <b-card-header v-b-toggle.accordion-1
+                       header-tag="header"
+                       class="p-3 bg-white"
                        role="tab">
-          <b-button
-            v-b-toggle.accordion-1
-            block
-            variant="primary">
-            {{ $t("account.orders.order-details.details") }}
-          </b-button>
+          <div class="d-flex justify-content-between align-items-center">
+            <b :class="{ 'text-primary': showDetails }">{{ $t("account.orders.order-details.details") }}</b>
+            <font-awesome-layers v-if="showDetails" :class="{ 'text-primary': showDetails }">
+              <font-awesome-icon :icon="faAngleUp" size="lg"></font-awesome-icon>
+            </font-awesome-layers>
+            <font-awesome-layers v-if="!showDetails">
+              <font-awesome-icon :icon="faAngleDown" size="lg"></font-awesome-icon>
+            </font-awesome-layers>
+          </div>
         </b-card-header>
         <b-collapse id="accordion-1"
+                    v-model="showDetails"
                     visible
                     accordion="my-accordion"
                     role="tabpanel">
@@ -28,18 +33,23 @@
         </b-collapse>
       </b-card>
 
-      <b-card no-body class="mb-1">
-        <b-card-header header-tag="header"
-                       class="p-1"
+      <b-card no-body class="mb-1 border-0">
+        <b-card-header v-b-toggle.accordion-2
+                       header-tag="header"
+                       class="p-3 bg-white"
                        role="tab">
-          <b-button
-            v-b-toggle.accordion-2
-            block
-            variant="primary">
-            {{ $t("account.orders.order-details.order-details") }}
-          </b-button>
+          <div class="d-flex justify-content-between align-items-center">
+            <b :class="{ 'text-primary': showOrderDetails }">{{ $t("account.orders.order-details.order-details") }}</b>
+            <font-awesome-layers v-if="showOrderDetails" :class="{ 'text-primary': showOrderDetails }">
+              <font-awesome-icon :icon="faAngleUp" size="lg"></font-awesome-icon>
+            </font-awesome-layers>
+            <font-awesome-layers v-if="!showOrderDetails">
+              <font-awesome-icon :icon="faAngleDown" size="lg"></font-awesome-icon>
+            </font-awesome-layers>
+          </div>
         </b-card-header>
         <b-collapse id="accordion-2"
+                    v-model="showOrderDetails"
                     accordion="my-accordion"
                     role="tabpanel">
           <b-card-body v-for="item in order.items" :key="item.id">
@@ -48,22 +58,17 @@
         </b-collapse>
       </b-card>
     </div>
-    <div slot="modal-cancel" class="btn btn-secondary">
-      {{ $t("account.orders.order-details.cancel") }}
-    </div>
-    <div slot="modal-ok" class="btn btn-primary">
-      {{ $t("account.orders.order-details.ok") }}
-    </div>
   </b-modal>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { Watch } from 'vue-property-decorator';
+import { Watch } from "vue-property-decorator";
 import { namespace } from "vuex-class";
-import OrderDetailsItem from '@account/components/order-details/OrderDetailsItem.vue';
-import OrderDetailsTotals from '@account/components/order-details/OrderDetailsTotals.vue';
+import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import OrderDetailsItem from "@account/components/order-details/OrderDetailsItem.vue";
+import OrderDetailsTotals from "@account/components/order-details/OrderDetailsTotals.vue";
 import { FETCH_ORDER } from "@account/store/modules/orders-list/definitions";
 import { CustomerOrder } from "@common/api/api-clients";
 
@@ -75,13 +80,19 @@ const ordersListModule = namespace("ordersListModule");
   },
   components: {
     OrderDetailsItem,
-    OrderDetailsTotals,
+    OrderDetailsTotals
   }
 })
 export default class AccountOrderDetails extends Vue {
-  @Watch('orderId')
+  faAngleUp = faAngleUp;
+  faAngleDown = faAngleDown;
+
+  showDetails = true;
+  showOrderDetails = false;
+
+  @Watch("orderId")
   onPropertyChanged(value: string) {
-    this.fetchOrder(value)
+    this.fetchOrder(value);
   }
 
   @ordersListModule.Getter("selectedOrder")
@@ -89,6 +100,5 @@ export default class AccountOrderDetails extends Vue {
 
   @ordersListModule.Action(FETCH_ORDER)
   private fetchOrder!: (orderId: string) => CustomerOrder;
-
 }
 </script>

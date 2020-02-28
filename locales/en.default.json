@@ -86,9 +86,7 @@
         "order-details": "Order Details",
         "sku": "SKU:",
         "unit-price": "Unit price:",
-        "quantity": "Quantity:",
-        "cancel": "Cancel",
-        "ok": "OK"
+        "quantity": "Quantity:"
       }
     }
   }
