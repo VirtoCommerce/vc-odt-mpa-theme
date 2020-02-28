@@ -1,5 +1,5 @@
 <template>
-  <div v-if="order" class="row">
+  <div class="row">
     <div class="col-md-6">
       <div class="list-group list-group-flush">
         <div class="list-group-item d-flex justify-content-between">
@@ -37,18 +37,15 @@ import Component from "vue-class-component";
 import { Prop } from 'vue-property-decorator';
 import { CustomerOrder } from "@common/api/api-clients";
 
-
-// @Component({
-//   props: {
-//     order: CustomerOrder
-//   }
-// })
+@Component
 export default class OrderDetailsTotals extends Vue {
-  @Prop({default: null})
-  order!: CustomerOrder | null
+
+  @Prop()
+  order!: CustomerOrder
 
   get shipping(): string | undefined {
-    return this.order?.shippingTotal?.formattedAmount == "0,00 $" ? "Free" : this.order?.shippingTotal?.formattedAmount;
+    return this.order.shippingTotal?.formattedAmount == "0,00 $" ? "Free" : this.order.shippingTotal?.formattedAmount;
   }
+
 }
 </script>

@@ -6,7 +6,7 @@
     <div slot="modal-title">
       {{ $t("account.orders.order-details.title") }}
     </div>
-    <div role="tablist">
+    <div v-if="order" role="tablist">
       <b-card no-body class="mb-1">
         <b-card-header header-tag="header"
                        class="p-1"
@@ -23,7 +23,7 @@
                     accordion="my-accordion"
                     role="tabpanel">
           <b-card-body>
-            <order-details-totals :odrer="order"></order-details-totals>
+            <order-details-totals :order="order"></order-details-totals>
           </b-card-body>
         </b-collapse>
       </b-card>
