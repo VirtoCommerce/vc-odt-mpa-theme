@@ -1,5 +1,5 @@
-import { CustomerOrder } from "@common/api/api-clients";
 import { BvTableField } from "bootstrap-vue";
+import { CustomerOrder } from "@common/api/api-clients";
 
 export interface OrdersListConfig {
   columns: ({ key: string } & BvTableField)[];
@@ -20,7 +20,6 @@ export interface OrdersList {
   totalCount: number;
 }
 
-
 // state type
 export interface OrdersListState {
   // todo: replace with real errors model
@@ -28,4 +27,6 @@ export interface OrdersListState {
   ordersList: OrdersList;
   isLoading: boolean;
   loaded: boolean;
+  selectedOrder: CustomerOrder | null;
+  selectedOrderIsLoaded: boolean;
 }
