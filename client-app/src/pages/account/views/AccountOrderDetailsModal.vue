@@ -24,12 +24,13 @@
             </font-awesome-layers>
           </div>
         </b-card-header>
-        <b-collapse id="accordion-1"
-                    v-model="showDetails"
-                    visible
-                    accordion="my-accordion"
-                    role="tabpanel">
-          <b-card-body>
+        <b-collapse
+          id="accordion-1"
+          v-model="showDetails"
+          visible
+          accordion="my-accordion"
+          role="tabpanel">
+          <b-card-body v-if="order">
             <order-details-totals :order="order"></order-details-totals>
           </b-card-body>
         </b-collapse>
@@ -50,7 +51,8 @@
             </font-awesome-layers>
           </div>
         </b-card-header>
-        <b-collapse id="accordion-2"
+        <b-collapse v-if="order"
+                    id="accordion-2"
                     v-model="showOrderDetails"
                     accordion="my-accordion"
                     role="tabpanel">
@@ -71,7 +73,7 @@ import { namespace } from "vuex-class";
 import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import OrderDetailsItem from "@account/components/order-details/OrderDetailsItem.vue";
 import OrderDetailsTotals from "@account/components/order-details/OrderDetailsTotals.vue";
-import { FETCH_ORDER, HIDE_MODAL} from "@account/store/modules/orders-list/definitions";
+import { FETCH_ORDER, CLEAR_ORDER_DETAIL} from "@account/store/modules/orders-list/definitions";
 import { CustomerOrder } from "@common/api/api-clients";
 
 const ordersListModule = namespace("ordersListModule");
@@ -106,7 +108,7 @@ export default class AccountOrderDetails extends Vue {
   @ordersListModule.Action(FETCH_ORDER)
   private fetchOrder!: (orderId: string) => CustomerOrder;
 
-  @ordersListModule.Action(HIDE_MODAL)
+  @ordersListModule.Action(CLEAR_ORDER_DETAIL)
   private hideModal!: () => void;
 }
 </script>
