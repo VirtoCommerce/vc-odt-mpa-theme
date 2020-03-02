@@ -73,7 +73,7 @@ import { namespace } from "vuex-class";
 import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import OrderDetailsItem from "@account/components/order-details/OrderDetailsItem.vue";
 import OrderDetailsTotals from "@account/components/order-details/OrderDetailsTotals.vue";
-import { FETCH_ORDER, CLEAR_ORDER_DETAIL} from "@account/store/modules/orders-list/definitions";
+import { FETCH_ORDER, CLEAR_SELECTED_ORDER} from "@account/store/modules/orders-list/definitions";
 import { CustomerOrder } from "@common/api/api-clients";
 
 const ordersListModule = namespace("ordersListModule");
@@ -108,7 +108,7 @@ export default class AccountOrderDetails extends Vue {
   @ordersListModule.Action(FETCH_ORDER)
   private fetchOrder!: (orderId: string) => CustomerOrder;
 
-  @ordersListModule.Action(CLEAR_ORDER_DETAIL)
+  @ordersListModule.Action(CLEAR_SELECTED_ORDER)
   private hideModal!: () => void;
 }
 </script>

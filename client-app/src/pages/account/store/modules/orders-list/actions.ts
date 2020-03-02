@@ -3,7 +3,7 @@ import { OrderSearchCriteria } from '@common/api/api-clients';
 import { storeName, locale } from '@common/constants';
 import { orderClient} from '@common/services/api-clients.service';
 import { RootState } from "../../types";
-import { FETCH_ORDERS, FETCH_ORDER, SET_ORDERS, SET_ORDERS_LIST_CONFIG, SET_ORDER, CLEAR_ORDER_DETAIL} from "./definitions";
+import { FETCH_ORDERS, FETCH_ORDER, SET_ORDERS, SET_ORDERS_LIST_CONFIG, SET_ORDER, CLEAR_SELECTED_ORDER} from "./definitions";
 import { OrdersListState, OrdersListConfig } from "./types";
 
 
@@ -27,7 +27,7 @@ export const actions: ActionTree<OrdersListState, RootState> = {
     const result = await orderClient.getCustomerOrder(payload, storeName, locale);
     context.commit(SET_ORDER, result);
   },
-  [CLEAR_ORDER_DETAIL](context) {
-    context.commit(CLEAR_ORDER_DETAIL);
+  [CLEAR_SELECTED_ORDER](context) {
+    context.commit(CLEAR_SELECTED_ORDER);
   }
 };
