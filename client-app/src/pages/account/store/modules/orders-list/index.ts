@@ -31,6 +31,7 @@ export const initialState: OrdersListState = {
     orders: []
   },
   selectedOrder: null,
+  selectedOrderIsLoaded: false,
   isLoading: false,
   loaded: false
 };

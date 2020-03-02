@@ -1,12 +1,14 @@
 <template>
   <b-modal id="orderDetailsModal"
+           :visible="orderIsLoaded"
            :no-enforce-focus="true"
            hide-footer
-           size="lg">
+           size="lg"
+           @hide="hideModal()">
     <div slot="modal-title">
       {{ $t("account.orders.order-details.title") }}
     </div>
-    <div v-if="order" role="tablist">
+    <div role="tablist">
       <b-card no-body class="mb-1 border-0">
         <b-card-header v-b-toggle.accordion-1
                        header-tag="header"
@@ -69,7 +71,7 @@ import { namespace } from "vuex-class";
 import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import OrderDetailsItem from "@account/components/order-details/OrderDetailsItem.vue";
 import OrderDetailsTotals from "@account/components/order-details/OrderDetailsTotals.vue";
-import { FETCH_ORDER } from "@account/store/modules/orders-list/definitions";
+import { FETCH_ORDER, HIDE_MODAL} from "@account/store/modules/orders-list/definitions";
 import { CustomerOrder } from "@common/api/api-clients";
 
 const ordersListModule = namespace("ordersListModule");
@@ -98,7 +100,13 @@ export default class AccountOrderDetails extends Vue {
   @ordersListModule.Getter("selectedOrder")
   private order!: CustomerOrder;
 
+  @ordersListModule.Getter("orderIsLoaded")
+  private orderIsLoaded!: boolean;
+
   @ordersListModule.Action(FETCH_ORDER)
   private fetchOrder!: (orderId: string) => CustomerOrder;
+
+  @ordersListModule.Action(HIDE_MODAL)
+  private hideModal!: () => void;
 }
 </script>

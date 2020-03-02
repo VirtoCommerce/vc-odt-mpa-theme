@@ -1,6 +1,6 @@
 import { MutationTree } from "vuex";
 import { CustomerOrderSearchResult, CustomerOrder } from '@common/api/api-clients';
-import { FETCH_ORDERS, SET_ORDERS, SET_ORDERS_LIST_CONFIG, SET_ORDER, FETCH_ORDER } from "./definitions";
+import { FETCH_ORDERS, SET_ORDERS, SET_ORDERS_LIST_CONFIG, SET_ORDER, FETCH_ORDER,HIDE_MODAL } from "./definitions";
 import { OrdersListState, OrdersListConfig } from "./types";
 
 //mutations
@@ -26,5 +26,9 @@ export const mutations: MutationTree<OrdersListState> = {
     state.selectedOrder = payload;
     state.loaded = true;
     state.isLoading = false;
+    state.selectedOrderIsLoaded = true;
+  },
+  [HIDE_MODAL](state) {
+    state.selectedOrderIsLoaded = false;
   }
 };

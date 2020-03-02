@@ -13,5 +13,8 @@ export const getters: GetterTree<OrdersListState, RootState> = {
   },
   selectedOrder: (state: OrdersListState): CustomerOrder | null => {
     return state.selectedOrder;
+  },
+  orderIsLoaded: (state: OrdersListState): boolean => {
+    return state.selectedOrderIsLoaded;
   }
 };

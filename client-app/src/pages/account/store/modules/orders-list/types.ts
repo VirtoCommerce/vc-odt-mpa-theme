@@ -28,4 +28,5 @@ export interface OrdersListState {
   isLoading: boolean;
   loaded: boolean;
   selectedOrder: CustomerOrder | null;
+  selectedOrderIsLoaded: boolean;
 }
