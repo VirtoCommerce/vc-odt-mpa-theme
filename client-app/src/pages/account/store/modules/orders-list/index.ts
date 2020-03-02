@@ -1,11 +1,11 @@
-import { Module, } from "vuex";
+import { Module } from "vuex";
 import i18n from "@i18n";
 import { BvTableField } from "bootstrap-vue";
-import { defaultPageSize } from '@common/constants';
+import { defaultPageSize, ordersGridFields } from "@common/constants";
 import { RootState } from "../../types";
-import {actions} from "./actions";
-import {getters} from "./getters";
-import {mutations} from "./mutations";
+import { actions } from "./actions";
+import { getters } from "./getters";
+import { mutations } from "./mutations";
 import { OrdersListState } from "./types";
 
 // initial state
@@ -13,32 +13,32 @@ export const initialState: OrdersListState = {
   errors: {},
   ordersList: {
     listConfig: {
-      columns : [
-        { key: "number", sortable: true },
-        { key: "status",  sortable: true },
-        { key: "createdDate",  sortable: true },
-        { key: "items.length",  sortable: false },
-        { key: "createdBy",  sortable: true },
-        { key: "total.formattedAmount",  sortable: true }
-      ],
+      columns: ordersGridFields,
       pageNumber: 1,
       pageSize: defaultPageSize,
-      filters : {
+      filters: {
         statuses: []
       }
     },
-    totalCount : 0,
+    totalCount: 0,
     orders: []
   },
   isLoading: false,
   loaded: false
 };
 // We need this because bootstrap-vue will directly use labels on stacked table
-initialState.ordersList.listConfig.columns = initialState.ordersList.listConfig.columns.map(column => ({
-  ...column,
-  label: i18n.t(`account.orders.grid.columns.${column.key.split(".").join("_")}`) as string
-}));
-
+initialState.ordersList.listConfig.columns = initialState.ordersList.listConfig.columns.map(column => {
+  if (typeof column === "string") {
+    return {
+      key: column,
+      label: i18n.t(`account.orders.grid.columns.${column.split(".").join("_")}`) as string
+    };
+  } else
+    return {
+      ...column,
+      label: i18n.t(`account.orders.grid.columns.${column.key.split(".").join("_")}`) as string
+    };
+});
 
 const ordersListModule: Module<OrdersListState, RootState> = {
   namespaced: true,
@@ -46,6 +46,6 @@ const ordersListModule: Module<OrdersListState, RootState> = {
   getters,
   actions,
   mutations
-}
+};
 
 export default ordersListModule;
