@@ -8,7 +8,7 @@
         </div>
         <div class="list-group-item d-flex justify-content-between">
           <span class="font-weight-bold">{{ $t("account.orders.order-details.shipping") }}</span>
-          {{ shipping }}
+          {{ order.shippingTotal.amount == 0 ? $t("account.orders.order-details.free") : order.shippingTotal.formattedAmount }}
         </div>
         <div class="list-group-item d-flex justify-content-between">
           <span class="font-weight-bold">{{ $t("account.orders.order-details.total") }}</span>
@@ -42,8 +42,5 @@ export default class OrderDetailsTotals extends Vue {
   @Prop()
   order!: CustomerOrder;
 
-  get shipping(): string | undefined {
-    return this.order.shippingTotal?.amount == 0 ? "Free" : this.order.shippingTotal?.formattedAmount;
-  }
 }
 </script>
