@@ -4,7 +4,7 @@
       "sign_in": "Sign in",
       "log_out": "Log out",
       "logged_in": {
-        "on_bealf": "Logged in on behalf of",
+        "on_behalf": "Logged in on behalf of",
         "as": "Logged in as"
       }
     },
@@ -20,6 +20,27 @@
       "forms": {
         "post": "Sorry, looks like something went wrong. Please correct the following and submit again:"
       }
+    },
+    "login": {
+      "login_header": "Log in to the portal",
+      "remember_me": "Remember me",
+      "log_in": "Log in",
+      "forgot_password": "Forgot the password?",
+      "password": "Password",
+      "username": "Username"
+    },
+    "recover_password": {
+      "title": "Recover your password",
+      "email": "Email",
+      "submit": "Submit"
+    },
+    "reset_password": {
+      "title": "Reset your password",
+      "password": "Password",
+      "confirm_password": "Confirm password",
+      "submit": "Submit",
+      "reset_password_confirm": "Your password has been reset",
+      "click_to_log_in": "Please click here to log in"
     }
   },
   "404": {
@@ -51,7 +72,7 @@
           "createdDate": "Date",
           "items_length": "# Items",
           "createdBy": "Created by",
-          "order_total_formattedAmount": "Total"
+          "total_formattedAmount": "Total"
         }
       }
     }
