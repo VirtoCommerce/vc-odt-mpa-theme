@@ -43,7 +43,7 @@ export default class OrderDetailsTotals extends Vue {
   order!: CustomerOrder;
 
   get shipping(): string | undefined {
-    return this.order.shippingTotal?.formattedAmount == "0,00 $" ? "Free" : this.order.shippingTotal?.formattedAmount;
+    return this.order.shippingTotal?.amount == 0 ? "Free" : this.order.shippingTotal?.formattedAmount;
   }
 }
 </script>
