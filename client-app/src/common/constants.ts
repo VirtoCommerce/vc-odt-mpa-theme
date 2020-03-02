@@ -12,4 +12,4 @@ export const baseUrl = window.BASE_URL.replace(`/${storeName}`, "/")
 export const pageSizes = [10, 20, 30, 40, 50]
 export const defaultPageSize = 10;
 
-export const ordersGridFields = JSON.parse( window.THEME_SETTINGS.orders_grid_fields) as BvTableFieldArray;
+export const ordersGridFields =  window.THEME_SETTINGS.orders_grid_fields as BvTableFieldArray;
