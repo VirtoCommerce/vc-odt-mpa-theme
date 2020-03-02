@@ -24,12 +24,15 @@ export const initialState: OrdersListState = {
       pageNumber: 1,
       pageSize: defaultPageSize,
       filters : {
-        statuses: []
+        statuses: [],
+        endDate: undefined,
+        startDate: undefined
       }
     },
     totalCount : 0,
     orders: []
   },
+  datepickerLabels: i18n.t(`account.orders.datepicker`),
   selectedOrder: null,
   selectedOrderIsLoaded: false,
   isLoading: false,

@@ -1,5 +1,7 @@
+import { LocaleMessages } from 'vue-i18n';
 import { BvTableField } from "bootstrap-vue";
 import { CustomerOrder } from "@common/api/api-clients";
+
 
 export interface OrdersListConfig {
   columns: ({ key: string } & BvTableField)[];
@@ -11,7 +13,9 @@ export interface OrdersListConfig {
 export interface OrdersListFilters {
   sort?: string;
   keyword?: string;
-  statuses: string[];
+  statuses?: string[];
+  startDate?: Date;
+  endDate?: Date;
 }
 
 export interface OrdersList {
@@ -27,6 +31,7 @@ export interface OrdersListState {
   ordersList: OrdersList;
   isLoading: boolean;
   loaded: boolean;
+  datepickerLabels: LocaleMessages | string;
   selectedOrder: CustomerOrder | null;
   selectedOrderIsLoaded: boolean;
 }

@@ -1,5 +1,6 @@
+import { LocaleMessages } from "vue-i18n";
 import { GetterTree } from "vuex";
-import { CustomerOrder } from '@common/api/api-clients';
+import { CustomerOrder } from "@common/api/api-clients";
 import { RootState } from "../../types";
 import { OrdersListState, OrdersList } from "./types";
 
@@ -16,5 +17,12 @@ export const getters: GetterTree<OrdersListState, RootState> = {
   },
   orderIsLoaded: (state: OrdersListState): boolean => {
     return state.selectedOrderIsLoaded;
+  },
+  getDatepickerLocales: (state: OrdersListState): LocaleMessages | {} => {
+    if (typeof state.datepickerLabels === "string") {
+      return {};
+    } else {
+      return state.datepickerLabels;
+    }
   }
 };

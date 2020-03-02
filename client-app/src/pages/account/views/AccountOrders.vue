@@ -3,6 +3,37 @@
     <loading :active.sync="isLoading" :z-index="5000"></loading>
     <account-order-details-modal :order-id="selectedOrderId">
     </account-order-details-modal>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="start-datepicker">{{ $t("account.orders.from") }}</label>
+        <b-form-datepicker id="start-datepicker"
+                           :value="ordersList.listConfig.filters.startDate"
+                           value-as-date
+                           reset-button
+                           :label-reset-button="$t('account.orders.reset')"
+                           :state="isDateValid"
+                           :locale="locale"
+                           v-bind="datepickerLabels"
+                           class="mb-2"
+                           @input="changeStartDate($event)"></b-form-datepicker>
+      </div>
+      <div class="col-md-6">
+        <label for="end-datepicker">{{ $t("account.orders.to") }}</label>
+        <b-form-datepicker id="end-datepicker"
+                           :value="ordersList.listConfig.filters.endDate"
+                           value-as-date
+                           reset-button
+                           :label-reset-button="$t('account.orders.reset')"
+                           :state="isDateValid"
+                           :locale="locale"
+                           v-bind="datepickerLabels"
+                           class="mb-2"
+                           @input="changeEndDate($event)"></b-form-datepicker>
+      </div>
+      <div class="col-md-12">
+        <span v-if="!isDateValid && isDateValid != null" class="text-danger">{{ $t("account.orders.date-error") }}</span>
+      </div>
+    </div>
     <div v-if="ordersList.totalCount > 0">
       <b-table
         id="orders-list"
@@ -53,12 +84,13 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { LocaleMessages } from 'vue-i18n';
 import { namespace } from "vuex-class";
 import { BvTableCtxObject } from "bootstrap-vue";
 import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG } from "@account/store/modules/orders-list/definitions";
 import { OrdersList, OrdersListConfig } from "@account/store/modules/orders-list/types";
 import { CustomerOrder } from "@common/api/api-clients";
-import { pageSizes } from "@common/constants";
+import { pageSizes, locale } from "@common/constants";
 import AccountOrderDetailsModal from "./AccountOrderDetailsModal.vue";
 
 const ordersListModule = namespace("ordersListModule");
@@ -75,6 +107,9 @@ export default class AccountOrders extends Vue {
   @ordersListModule.Getter("isLoading")
   private isLoading!: boolean;
 
+  @ordersListModule.Getter("getDatepickerLocales")
+  private datepickerLabels!: LocaleMessages | {};
+
   @ordersListModule.Action(FETCH_ORDERS)
   private fetchOrders!: () => OrdersList;
 
@@ -85,7 +120,15 @@ export default class AccountOrders extends Vue {
 
   selectedOrderId: string | null = null;
 
+  startDate: Date | undefined = undefined;
+
+  endDate: Date | undefined = undefined;
+
+  isDateValid: boolean | null = null;
+
   pageSizes = pageSizes;
+
+  locale = locale;
 
   mounted() {
     this.fetchOrders();
@@ -110,6 +153,29 @@ export default class AccountOrders extends Vue {
   openOrderDetails(orderId: string) {
     this.selectedOrderId = orderId;
     this.$bvModal.show("orderDetailsModal");
+  }
+
+  dateChanged() {
+    if (this.startDate && this.endDate) {
+      this.isDateValid = this.startDate < this.endDate;
+      if (this.isDateValid) {
+        this.setListConfig({ ...this.ordersList.listConfig, filters: {startDate: this.startDate, endDate: this.endDate} })
+      }
+    }
+    else  {
+      this.isDateValid = true;
+      this.setListConfig({ ...this.ordersList.listConfig, filters: {startDate: this.startDate, endDate: this.endDate} })
+    }
+  }
+
+  changeStartDate(date: Date) {
+    this.startDate = date;
+    this.dateChanged();
+  }
+
+  changeEndDate(date: Date) {
+    this.endDate = date;
+    this.dateChanged();
   }
 }
 </script>
