@@ -11,6 +11,7 @@
                            value-as-date
                            reset-button
                            :label-reset-button="$t('account.orders.reset')"
+                           :max="new Date()"
                            :state="isDateValid"
                            :locale="locale"
                            v-bind="datepickerLabels"
@@ -24,6 +25,7 @@
                            value-as-date
                            reset-button
                            :label-reset-button="$t('account.orders.reset')"
+                           :max="new Date()"
                            :state="isDateValid"
                            :locale="locale"
                            v-bind="datepickerLabels"
