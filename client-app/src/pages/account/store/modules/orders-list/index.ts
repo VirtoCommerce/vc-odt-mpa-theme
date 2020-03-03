@@ -1,6 +1,7 @@
 import { Module } from "vuex";
-import i18n from "@i18n";
+import { BvTableFieldArray } from 'bootstrap-vue';
 import { defaultPageSize, ordersGridFields } from "@common/constants";
+import { localizeOrdersGridColumns } from '@common/services/localization.helper.service';
 import { RootState } from "../../types";
 import { actions } from "./actions";
 import { getters } from "./getters";
@@ -26,23 +27,10 @@ export const initialState: OrdersListState = {
   loaded: false
 };
 
-function localizeOrdersGridColumns () {
-  const localizationOrdersGridColumnsNode = "account.orders.grid.columns"
-  initialState.ordersList.listConfig.columns = initialState.ordersList.listConfig.columns.map(column => {
-    if (typeof column === "string") {
-      return {
-        key: column,
-        label: i18n.t(`${localizationOrdersGridColumnsNode}.${column.split(".").join("_")}`) as string
-      };
-    } else
-      return {
-        ...column,
-        label: i18n.t(`${localizationOrdersGridColumnsNode}.${column.key.split(".").join("_")}`) as string
-      };
-  });
-}
+const localizationOrdersGridColumnsNode = "account.orders.grid.columns"
+
 // We need this because bootstrap-vue will directly use labels on stacked table
-localizeOrdersGridColumns();
+initialState.ordersList.listConfig.columns = localizeOrdersGridColumns(localizationOrdersGridColumnsNode, initialState.ordersList.listConfig.columns);
 
 const ordersListModule: Module<OrdersListState, RootState> = {
   namespaced: true,

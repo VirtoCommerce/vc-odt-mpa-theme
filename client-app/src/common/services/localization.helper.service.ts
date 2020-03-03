@@ -1,0 +1,30 @@
+import i18n from "@i18n";
+import { BvTableFieldArray } from "bootstrap-vue";
+
+/**
+ * localize one column label by key and locale file node
+ * @param gridColumnsLocalizationNode
+ * @param columnKey
+ */
+export function localizeGridColumn(gridColumnsLocalizationNode: string, columnKey: string) {
+  return i18n.t(`${gridColumnsLocalizationNode}.${columnKey.split(".").join("_")}`) as string;
+}
+
+/**
+ * localize Bootstrap-Vue table columns
+ * @param gridColumnsLocalizationNode
+ * @param columns
+ */
+export function localizeOrdersGridColumns( gridColumnsLocalizationNode: string, columns: BvTableFieldArray): BvTableFieldArray {
+  return columns.map(column =>
+    typeof column === "string"
+      ? {
+        key: column,
+        label: localizeGridColumn(gridColumnsLocalizationNode, column)
+      }
+      : {
+        ...column,
+        label: localizeGridColumn(gridColumnsLocalizationNode, column.key)
+      }
+  );
+}
