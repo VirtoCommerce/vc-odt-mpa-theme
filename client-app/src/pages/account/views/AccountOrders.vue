@@ -86,6 +86,7 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { LocaleMessages } from 'vue-i18n';
 import { namespace } from "vuex-class";
+import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
 import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG } from "@account/store/modules/orders-list/definitions";
 import { OrdersList, OrdersListConfig } from "@account/store/modules/orders-list/types";
@@ -107,9 +108,6 @@ export default class AccountOrders extends Vue {
   @ordersListModule.Getter("isLoading")
   private isLoading!: boolean;
 
-  @ordersListModule.Getter("getDatepickerLocales")
-  private datepickerLabels!: LocaleMessages | {};
-
   @ordersListModule.Action(FETCH_ORDERS)
   private fetchOrders!: () => OrdersList;
 
@@ -126,11 +124,14 @@ export default class AccountOrders extends Vue {
 
   isDateValid: boolean | null = null;
 
+  datepickerLabels: LocaleMessages | {} = {};
+
   pageSizes = pageSizes;
 
   locale = locale;
 
   mounted() {
+    this.getDatepickerLocalization()
     this.fetchOrders();
   }
 
@@ -166,6 +167,10 @@ export default class AccountOrders extends Vue {
       this.isDateValid = true;
       this.setListConfig({ ...this.ordersList.listConfig, filters: {startDate: this.startDate, endDate: this.endDate} })
     }
+  }
+
+  getDatepickerLocalization() {
+    typeof i18n.t(`account.orders.datepicker`) === "string" ? this.datepickerLabels = {} : this.datepickerLabels = i18n.t(`account.orders.datepicker`);
   }
 
   changeStartDate(date: Date) {

@@ -32,7 +32,6 @@ export const initialState: OrdersListState = {
     totalCount : 0,
     orders: []
   },
-  datepickerLabels: i18n.t(`account.orders.datepicker`),
   selectedOrder: null,
   selectedOrderIsLoaded: false,
   isLoading: false,

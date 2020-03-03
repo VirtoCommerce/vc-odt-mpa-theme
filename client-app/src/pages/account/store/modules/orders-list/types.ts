@@ -1,4 +1,3 @@
-import { LocaleMessages } from 'vue-i18n';
 import { BvTableField } from "bootstrap-vue";
 import { CustomerOrder } from "@common/api/api-clients";
 
@@ -31,7 +30,6 @@ export interface OrdersListState {
   ordersList: OrdersList;
   isLoading: boolean;
   loaded: boolean;
-  datepickerLabels: LocaleMessages | string;
   selectedOrder: CustomerOrder | null;
   selectedOrderIsLoaded: boolean;
 }
