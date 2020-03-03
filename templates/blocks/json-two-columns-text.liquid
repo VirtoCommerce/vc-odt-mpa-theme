@@ -1,0 +1,46 @@
+<div class="section {% if block.style == 'dark' %} section--gray {% endif %}
+     {% if block.noTop == 'True' %} section--small-top {% endif %}
+     {% if block.noBottom == 'True' %} section--small-bottom {% endif %}
+     {% if block.noPad == 'True' %} section--no-padding {% endif %}">
+	<div class="section__inner container">
+        {% include 'blocks/block-title' block: block %}
+        <div class="section__info">
+            {% if block.contentBefore != '' %}
+            <div class="section__descr">
+                {{ block.contentBefore }}
+            </div>
+            {% endif %}
+            {% assign thecycle = '' %}
+            {% for item in block.items %}
+            {% if thecycle == 'odd' %}
+                {% assign thecycle = 'even' %}
+            {% else %}
+                {% assign thecycle = 'odd' %}
+            {% endif %}
+            {% if thecycle == 'odd' and forloop.last != true %}
+                <div class="row">
+            {% endif %}
+            {% if thecycle == 'odd' and forloop.last == true %}
+                <div class="row mt-5">
+                    <div class="col">
+            {% else %}
+				<div class="col-lg-6">
+            {% endif %}
+					<div class="section__descr">
+                        {{ item.text }}
+                    </div>
+				</div>
+            {% if thecycle == 'even' or forloop.last %}
+    			</div>
+            {% endif %}			
+            {% endfor %}
+		</div>
+	</div>
+</div>
+
+{% comment %}
+
+{"id": "name","label": "Block name","type": "string","default": "Text"},
+{"id": "content","label": "Content","type": "text","default": "Lorem ipsum dolor sit amet, consectetur ..." }
+
+{% endcomment %}
