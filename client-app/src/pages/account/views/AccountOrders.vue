@@ -1,50 +1,41 @@
 <template>
   <div>
     <loading :active.sync="isLoading" :z-index="5000"></loading>
-    <account-order-details-modal :order-id="selectedOrderId"></account-order-details-modal>
-    <ValidationObserver>
-      <div class="row">
-        <div class="col-md-6">
-          <ValidationProvider name="startDate">
-            <label for="startDate">{{ $t("account.orders.from") }}</label>
-            <b-form-datepicker
-              id="startDate"
-              :value="ordersList.listConfig.filters.startDate"
-              value-as-date
-              reset-button
-              :label-reset-button="$t('account.orders.reset')"
-              :max="new Date()"
-              :state="isDateValid"
-              :locale="locale"
-              v-bind="datepickerLabels"
-              class="mb-2"
-              @input="changeStartDate($event)"></b-form-datepicker>
-          </ValidationProvider>
-        </div>
-        <div class="col-md-6">
-          <ValidationProvider name="endDate">
-            <label for="endDate">{{ $t("account.orders.to") }}</label>
-            <b-form-datepicker
-              id="endDate"
-              :value="ordersList.listConfig.filters.endDate"
-              value-as-date
-              reset-button
-              :label-reset-button="$t('account.orders.reset')"
-              :max="new Date()"
-              :state="isDateValid"
-              :locale="locale"
-              v-bind="datepickerLabels"
-              class="mb-2"
-              @input="changeEndDate($event)"></b-form-datepicker>
-          </ValidationProvider>
-        </div>
-        <div class="col-md-12">
-          <span
-            v-if="!isDateValid && isDateValid != null"
-            class="text-danger">{{ $t("account.orders.date-error") }}</span>
-        </div>
+    <account-order-details-modal :order-id="selectedOrderId">
+    </account-order-details-modal>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="begin-date">{{ $t("account.orders.from") }}</label>
+        <b-form-datepicker id="begin-date"
+                           :value="ordersList.listConfig.filters.startDate"
+                           value-as-date
+                           reset-button
+                           :label-reset-button="$t('account.orders.reset')"
+                           :max="new Date()"
+                           :state="isDateValid"
+                           :locale="locale"
+                           v-bind="datepickerLabels"
+                           class="mb-2"
+                           @input="changeStartDate($event)"></b-form-datepicker>
       </div>
-    </ValidationObserver>
+      <div class="col-md-6">
+        <label for="end-date">{{ $t("account.orders.to") }}</label>
+        <b-form-datepicker id="end-date"
+                           :value="ordersList.listConfig.filters.endDate"
+                           value-as-date
+                           reset-button
+                           :label-reset-button="$t('account.orders.reset')"
+                           :max="new Date()"
+                           :state="isDateValid"
+                           :locale="locale"
+                           v-bind="datepickerLabels"
+                           class="mb-2"
+                           @input="changeEndDate($event)"></b-form-datepicker>
+      </div>
+      <div class="col-md-12">
+        <span v-if="!isDateValid && isDateValid != null" class="text-danger">{{ $t("account.orders.date-error") }}</span>
+      </div>
+    </div>
     <div v-if="ordersList.totalCount > 0">
       <b-table
         id="orders-list"
@@ -56,9 +47,9 @@
         no-local-sorting
         @sort-changed="sortChanged">
         <template v-slot:cell(number)="data">
-          <a
-            class="text-primary btn d-inline p-0"
-            @click="openOrderDetails(data.value)">{{ data.value }}</a>
+          <a class="text-primary btn d-inline p-0" @click="openOrderDetails(data.value)">
+            {{ data.value }}
+          </a>
         </template>
         <template v-slot:cell(createdDate)="data">
           <span>{{ data.value | moment("ddd, DD/MM/YY") }}</span>
@@ -95,11 +86,10 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { LocaleMessages } from "vue-i18n";
+import { LocaleMessages } from 'vue-i18n';
 import { namespace } from "vuex-class";
 import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
-import { validate } from "vee-validate";
 import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG } from "@account/store/modules/orders-list/definitions";
 import { OrdersList, OrdersListConfig } from "@account/store/modules/orders-list/types";
 import { CustomerOrder } from "@common/api/api-clients";
@@ -143,7 +133,7 @@ export default class AccountOrders extends Vue {
   locale = locale;
 
   mounted() {
-    this.getDatepickerLocalization();
+    this.getDatepickerLocalization()
     this.fetchOrders();
   }
 
@@ -152,21 +142,14 @@ export default class AccountOrders extends Vue {
   }
 
   pageSizeChanged(pageSize: number) {
-    this.setListConfig({
-      ...this.ordersList.listConfig,
-      pageNumber: 1,
-      pageSize: pageSize
-    });
+    this.setListConfig({ ...this.ordersList.listConfig, pageNumber: 1, pageSize: pageSize });
   }
 
   sortChanged(ctx: BvTableCtxObject) {
     const sortDirection = ctx.sortDesc ? "desc" : "asc";
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
     const listConfig = { ...this.ordersList.listConfig, pageNumber: 1 };
-    listConfig.filters = {
-      ...this.ordersList.listConfig.filters,
-      sort: sortExpression
-    };
+    listConfig.filters = { ...this.ordersList.listConfig.filters, sort: sortExpression };
     this.setListConfig(listConfig);
   }
 
@@ -175,43 +158,31 @@ export default class AccountOrders extends Vue {
     this.$bvModal.show("orderDetailsModal");
   }
 
-  dateChanged(value: Date, rule: string) {
-    validate(value,rule, {}).then(result => {
-      if (result.valid) {
-        console.log(result)
-        this.isDateValid = true;
-        this.setListConfig({
-          ...this.ordersList.listConfig,
-          filters: {
-            startDate: this.startDate,
-            endDate: this.endDate
-              ? this.$moment(this.endDate)
-                .add(1, "days")
-                .subtract(1, "seconds")
-                .toDate()
-              : undefined
-          }
-        });
-      } else {
-        this.isDateValid = false;
+  dateChanged() {
+    if (this.startDate && this.endDate) {
+      this.isDateValid = this.startDate < this.endDate;
+      if (this.isDateValid) {
+        this.setListConfig({ ...this.ordersList.listConfig, filters: {startDate: this.startDate, endDate: this.endDate} })
       }
-    });
+    }
+    else  {
+      this.isDateValid = true;
+      this.setListConfig({ ...this.ordersList.listConfig, filters: {startDate: this.startDate, endDate: this.endDate} })
+    }
   }
 
   getDatepickerLocalization() {
-    typeof i18n.t(`account.orders.datepicker`) === "string"
-      ? (this.datepickerLabels = {})
-      : (this.datepickerLabels = i18n.t(`account.orders.datepicker`));
+    typeof i18n.t(`account.orders.datepicker`) === "string" ? this.datepickerLabels = {} : this.datepickerLabels = i18n.t(`account.orders.datepicker`);
   }
 
   changeStartDate(date: Date) {
     this.startDate = date;
-    this.dateChanged(date,"before:@endDate");
+    this.dateChanged();
   }
 
   changeEndDate(date: Date) {
     this.endDate = date;
-    this.dateChanged(date,"after:@startDate");
+    this.dateChanged();
   }
 }
 </script>

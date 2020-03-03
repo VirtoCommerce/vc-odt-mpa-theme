@@ -8,9 +8,7 @@ import { faHeartBroken, faLock, faMeteor } from '@fortawesome/free-solid-svg-ico
 import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
 import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, FormDatepickerPlugin } from 'bootstrap-vue'
-import { ValidationProvider,ValidationObserver } from 'vee-validate';
 import { baseUrl } from "@common/constants";
-import "@common/validation/rules.js";
 
 export default class InitializationService {
   static initializeCommon() {
@@ -42,9 +40,6 @@ export default class InitializationService {
     Vue.use(ModalPlugin);
     Vue.use(CardPlugin);
     Vue.use(FormDatepickerPlugin);
-
-    Vue.component('ValidationProvider', ValidationProvider);
-    Vue.component('ValidationObserver', ValidationObserver);
 
     Vue.component("font-awesome-icon", FontAwesomeIcon);
     Vue.component('font-awesome-layers', FontAwesomeLayers);
