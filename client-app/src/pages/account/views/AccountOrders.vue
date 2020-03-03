@@ -5,8 +5,8 @@
     </account-order-details-modal>
     <div class="row">
       <div class="col-md-6">
-        <label for="start-datepicker">{{ $t("account.orders.from") }}</label>
-        <b-form-datepicker id="start-datepicker"
+        <label for="begin-date">{{ $t("account.orders.from") }}</label>
+        <b-form-datepicker id="begin-date"
                            :value="ordersList.listConfig.filters.startDate"
                            value-as-date
                            reset-button
@@ -18,8 +18,8 @@
                            @input="changeStartDate($event)"></b-form-datepicker>
       </div>
       <div class="col-md-6">
-        <label for="end-datepicker">{{ $t("account.orders.to") }}</label>
-        <b-form-datepicker id="end-datepicker"
+        <label for="end-date">{{ $t("account.orders.to") }}</label>
+        <b-form-datepicker id="end-date"
                            :value="ordersList.listConfig.filters.endDate"
                            value-as-date
                            reset-button
