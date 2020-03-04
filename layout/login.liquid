@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
   <meta charset="utf-8">
 
@@ -23,8 +23,8 @@
     {{ 'bundle/default.scss.css' | static_asset_url | append_version | stylesheet_tag }}
 
 </head>
-<body>
-	<main>
+<body class="h-100">
+	<main class="h-100 d-flex justify-content-center align-items-center">
   {{ content_for_layout }}
   </main>
 </body>

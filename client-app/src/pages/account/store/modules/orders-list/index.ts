@@ -1,12 +1,12 @@
 import { Module, } from "vuex";
 import i18n from "@i18n";
-import { BvTableField } from "bootstrap-vue";
 import { defaultPageSize } from '@common/constants';
 import { RootState } from "../../types";
 import {actions} from "./actions";
 import {getters} from "./getters";
 import {mutations} from "./mutations";
 import { OrdersListState } from "./types";
+
 
 // initial state
 export const initialState: OrdersListState = {
@@ -30,6 +30,8 @@ export const initialState: OrdersListState = {
     totalCount : 0,
     orders: []
   },
+  selectedOrder: null,
+  selectedOrderIsLoaded: false,
   isLoading: false,
   loaded: false
 };
