@@ -160,14 +160,19 @@ export default class AccountOrders extends Vue {
 
   dateChanged() {
     if (this.startDate && this.endDate) {
-      this.isDateValid = this.startDate < this.endDate;
+      this.isDateValid = this.startDate <= this.endDate;
       if (this.isDateValid) {
-        this.setListConfig({ ...this.ordersList.listConfig, filters: {startDate: this.startDate, endDate: this.endDate} })
+        this.setListConfig({ ...this.ordersList.listConfig, filters: {startDate: this.startDate, endDate: this.$moment(this.endDate).add(1, "days").subtract(1, "seconds").toDate()}})
       }
     }
     else  {
-      this.isDateValid = true;
-      this.setListConfig({ ...this.ordersList.listConfig, filters: {startDate: this.startDate, endDate: this.endDate} })
+      this.endDate === null && this.startDate === null ? this.isDateValid = null : this.isDateValid = true;
+      this.setListConfig({ ...this.ordersList.listConfig, filters: {startDate: this.startDate, endDate: this.endDate
+        ? this.$moment(this.endDate)
+          .add(1, "days")
+          .subtract(1, "seconds")
+          .toDate()
+        : undefined}})
     }
   }
 
