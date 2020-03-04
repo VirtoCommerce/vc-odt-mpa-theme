@@ -1,6 +1,7 @@
 import { BvTableField } from "bootstrap-vue";
 import { CustomerOrder } from "@common/api/api-clients";
 
+
 export interface OrdersListConfig {
   columns: ({ key: string } & BvTableField)[];
   pageNumber: number;
@@ -11,7 +12,9 @@ export interface OrdersListConfig {
 export interface OrdersListFilters {
   sort?: string;
   keyword?: string;
-  statuses: string[];
+  statuses?: string[];
+  startDate?: Date;
+  endDate?: Date;
 }
 
 export interface OrdersList {

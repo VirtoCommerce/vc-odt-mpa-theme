@@ -1,5 +1,5 @@
 import { GetterTree } from "vuex";
-import { CustomerOrder } from '@common/api/api-clients';
+import { CustomerOrder } from "@common/api/api-clients";
 import { RootState } from "../../types";
 import { OrdersListState, OrdersList } from "./types";
 

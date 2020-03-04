@@ -24,7 +24,9 @@ export const initialState: OrdersListState = {
       pageNumber: 1,
       pageSize: defaultPageSize,
       filters : {
-        statuses: []
+        statuses: [],
+        endDate: undefined,
+        startDate: undefined
       }
     },
     totalCount : 0,
