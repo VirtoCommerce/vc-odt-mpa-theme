@@ -18,6 +18,7 @@ export const actions: ActionTree<OrdersListState, RootState> = {
     searchCriteria.statuses = context.state.ordersList.listConfig.filters.statuses;
     searchCriteria.startDate = context.state.ordersList.listConfig.filters.startDate;
     searchCriteria.endDate = context.state.ordersList.listConfig.filters.endDate;
+    searchCriteria.keyword = context.state.ordersList.listConfig.filters.keyword;
     const result = await orderClient.searchCustomerOrders(searchCriteria, storeName, locale);
     context.commit(SET_ORDERS, result);
   },

@@ -74,6 +74,8 @@
       "select-all": "Select All",
       "unselect-all": "Un-select All",
       "all": "All",
+      "enter-keyword": "Enter keyword here",
+      "keyword-search-title": "Search by keyword",
       "grid":{
         "columns":{
           "number": "Order ID",

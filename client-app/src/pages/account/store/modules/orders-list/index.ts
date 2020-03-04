@@ -26,7 +26,8 @@ export const initialState: OrdersListState = {
       filters : {
         statuses: filters,
         endDate: undefined,
-        startDate: undefined
+        startDate: undefined,
+        keyword: undefined
       }
     },
     totalCount : 0,

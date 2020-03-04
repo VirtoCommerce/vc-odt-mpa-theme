@@ -32,7 +32,16 @@
                            class="mb-2"
                            @input="changeEndDate($event)"></b-form-datepicker>
       </div>
-      <div class="col-md-3 d-flex flex-column justify-content-center">
+      <div class="col-md-3">
+        <label for="keyword-search">{{ $t("account.orders.keyword-search-title") }}</label>
+        <b-form-input id="keyword-search"
+                      type="text"
+                      :debounce="1000"
+                      :placeholder="$t('account.orders.enter-keyword')"
+                      :value="activeKeyword"
+                      @update="changeKeyword($event)"></b-form-input>
+      </div>
+      <div class="col-md-2 d-flex flex-column justify-content-center">
         <label for="dropdown-filters">{{ $t("account.orders.filter-by") }}</label>
         <b-dropdown id="dropdown-filters"
                     class="mb-2 d-inline"
@@ -52,9 +61,6 @@
             stacked
             @change="filtersChanged($event)"></b-form-checkbox-group>
         </b-dropdown>
-      </div>
-      <div class="col-md-3">
-        <!-- Placeholder for seachByKeyword -->
       </div>
       <div class="col-md-12">
         <span v-if="!isDateValid && isDateValid != null" class="text-danger">{{ $t("account.orders.date-error") }}</span>
@@ -133,6 +139,9 @@ export default class AccountOrders extends Vue {
 
   @ordersListModule.Getter("isLoading")
   private isLoading!: boolean;
+
+  @ordersListModule.Getter("activeKeyword")
+  private activeKeyword!: string | undefined;
 
   @ordersListModule.Getter("activeFilters")
   private activeFilters!: string[];
@@ -219,6 +228,10 @@ export default class AccountOrders extends Vue {
   changeEndDate(date: Date) {
     this.endDate = date;
     this.dateChanged();
+  }
+
+  changeKeyword(value: string) {
+    this.setListConfig({ ...this.ordersList.listConfig, filters: {statuses: this.activeFilters, keyword: value }});
   }
 
   filtersChanged(activeFilters: string[]) {
