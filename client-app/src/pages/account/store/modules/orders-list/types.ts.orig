@@ -1,6 +1,11 @@
+<<<<<<< HEAD
+import { CustomerOrder } from "@common/api/api-clients";
 import { BvTableFieldArray } from "bootstrap-vue";
+=======
+import { BvTableField } from "bootstrap-vue";
 import { CustomerOrder } from "@common/api/api-clients";
 
+>>>>>>> dev
 
 export interface OrdersListConfig {
   columns: BvTableFieldArray;

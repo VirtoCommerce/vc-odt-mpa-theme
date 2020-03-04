@@ -9,7 +9,7 @@
       }
     },
     "error": {
-      "client":{
+      "client": {
         "close": "Schließen",
         "header": "Ups! Etwas ist schief gelaufen",
         "description": "Während der Ausführung ist ein Fehler aufgetreten. Bitte wenden Sie sich an den Support.",
@@ -32,7 +32,8 @@
     "recover_password": {
       "title": "Stellen Sie Ihr Passwort wieder her",
       "email": "Email",
-      "submit": "Einreichen"
+      "submit": "Einreichen",
+      "success": "Wir haben Ihnen eine E-Mail mit einem Link zum Aktualisieren Ihres Passworts gesendet."
     },
     "reset_password": {
       "title": "Setze dein Passwort zurück",
@@ -53,20 +54,24 @@
     "title": "Zugriff verweigert",
     "no-access": "Sie haben keine Berechtigung zum Anzeigen dieser Seite. Bitte wenden Sie sich an Ihren Administrator"
   },
-  "account":{
+  "account": {
     "menu_titles": {
-      "home":"Nutzerdetails",
+      "home": "Nutzerdetails",
       "orders": "Aufträge"
     },
     "home": {
       "email": "Email",
       "user_name": "Nutzername",
-      "phone": "Telefon",
+      "phone": "Telefon"
     },
-    "orders":{
+    "orders": {
+      "from": "Von",
+      "to": "Zu",
+      "reset": "Zurücksetzen",
+      "date-error": "Das Startdatum sollte vor dem Enddatum liegen",
       "no-orders": "Sie haben keine Bestellungen aufgegeben",
-      "grid":{
-        "columns":{
+      "grid": {
+        "columns": {
           "number": "Auftragsnummer",
           "status": "Status",
           "createdDate": "Datum",
@@ -74,6 +79,33 @@
           "createdBy": "Erstellt von",
           "total_formattedAmount": "Auftragssumme"
         }
+      },
+      "order-details": {
+        "title": "Bestelldetails",
+        "details": "Einzelheiten",
+        "subtotal": "Zwischensumme",
+        "shipping": "Versand",
+        "free": "Kostenlos",
+        "total": "Gesamt",
+        "created-by": "Erstellt von",
+        "status": "Status",
+        "order-details": "Bestelldetails",
+        "sku": "SKU:",
+        "unit-price": "Stückpreis:",
+        "quantity": "Menge:"
+      },
+      "datepicker": {
+        "labelPrevYear": "Vorheriges Jahr",
+        "labelPrevMonth": "Vorheriger Monat",
+        "labelCurrentMonth": "Aktueller Monat",
+        "labelNextMonth": "Nächster Monat",
+        "labelNextYear": "Nächstes Jahr",
+        "labelToday": "Heute",
+        "labelSelected": "Ausgewähltes Datum",
+        "labelNoDateSelected": "Kein Datum gewählt",
+        "labelCalendar": "Kalender",
+        "labelNav": "Kalendernavigation",
+        "labelHelp": "Mit den Pfeiltasten durch den Kalender navigieren"
       }
     }
   }

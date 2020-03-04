@@ -32,7 +32,8 @@
     "recover_password": {
       "title": "Recover your password",
       "email": "Email",
-      "submit": "Submit"
+      "submit": "Submit",
+      "success": "We've sent you an email with a link to update your password."
     },
     "reset_password": {
       "title": "Reset your password",
@@ -64,6 +65,10 @@
       "phone": "Phone"
     },
     "orders": {
+      "from": "From",
+      "to": "To",
+      "reset": "Reset",
+      "date-error": "Start date should be earlier than end date",
       "no-orders": "You have no orders placed",
       "grid":{
         "columns":{
@@ -74,6 +79,20 @@
           "createdBy": "Created by",
           "total_formattedAmount": "Total"
         }
+      },
+      "order-details": {
+        "title": "Order details",
+        "details": "Details",
+        "subtotal": "Subtotal",
+        "shipping": "Shipping",
+        "free": "Free",
+        "total": "Total",
+        "created-by": "Created by",
+        "status": "Status",
+        "order-details": "Order Details",
+        "sku": "SKU:",
+        "unit-price": "Unit price:",
+        "quantity": "Quantity:"
       }
     }
   }
