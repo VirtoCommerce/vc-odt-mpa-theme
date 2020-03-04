@@ -70,8 +70,12 @@
       "reset": "Zurücksetzen",
       "date-error": "Das Startdatum sollte vor dem Enddatum liegen",
       "no-orders": "Sie haben keine Bestellungen aufgegeben",
-      "grid": {
-        "columns": {
+      "filter-by": "Nach Status filtern",
+      "select-all": "Wählen Sie Alle",
+      "unselect-all": "Alles wiederufen",
+      "all": "Alle",
+      "grid":{
+        "columns":{
           "number": "Auftragsnummer",
           "status": "Status",
           "createdDate": "Datum",

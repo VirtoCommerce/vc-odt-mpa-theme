@@ -1,6 +1,6 @@
 import { Module, } from "vuex";
 import i18n from "@i18n";
-import { defaultPageSize } from '@common/constants';
+import { defaultPageSize, filters } from '@common/constants';
 import { RootState } from "../../types";
 import {actions} from "./actions";
 import {getters} from "./getters";
@@ -24,7 +24,7 @@ export const initialState: OrdersListState = {
       pageNumber: 1,
       pageSize: defaultPageSize,
       filters : {
-        statuses: [],
+        statuses: filters,
         endDate: undefined,
         startDate: undefined
       }

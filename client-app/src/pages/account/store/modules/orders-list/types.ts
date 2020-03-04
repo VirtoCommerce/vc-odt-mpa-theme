@@ -12,7 +12,7 @@ export interface OrdersListConfig {
 export interface OrdersListFilters {
   sort?: string;
   keyword?: string;
-  statuses?: string[];
+  statuses: string[];
   startDate?: Date;
   endDate?: Date;
 }

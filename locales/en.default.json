@@ -70,6 +70,10 @@
       "reset": "Reset",
       "date-error": "Start date should be earlier than end date",
       "no-orders": "You have no orders placed",
+      "filter-by": "Filter by status",
+      "select-all": "Select All",
+      "unselect-all": "Un-select All",
+      "all": "All",
       "grid":{
         "columns":{
           "number": "Order ID",

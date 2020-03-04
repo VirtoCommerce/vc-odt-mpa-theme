@@ -4,7 +4,7 @@
     <account-order-details-modal :order-id="selectedOrderId">
     </account-order-details-modal>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-3">
         <label for="begin-date">{{ $t("account.orders.from") }}</label>
         <b-form-datepicker id="begin-date"
                            :value="ordersList.listConfig.filters.startDate"
@@ -18,7 +18,7 @@
                            class="mb-2"
                            @input="changeStartDate($event)"></b-form-datepicker>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-3">
         <label for="end-date">{{ $t("account.orders.to") }}</label>
         <b-form-datepicker id="end-date"
                            :value="ordersList.listConfig.filters.endDate"
@@ -31,6 +31,30 @@
                            v-bind="datepickerLabels"
                            class="mb-2"
                            @input="changeEndDate($event)"></b-form-datepicker>
+      </div>
+      <div class="col-md-3 d-flex flex-column justify-content-center">
+        <label for="dropdown-filters">{{ $t("account.orders.filter-by") }}</label>
+        <b-dropdown id="dropdown-filters"
+                    class="mb-2 d-inline"
+                    variant="outline-primary"
+                    menu-class="p-2">
+          <template v-slot:button-content>
+            {{ allFiltersSelected || activeFilters.length == 0 ? $t("account.orders.all") : activeFilters.length == 1 ? activeFilters[0] : '...' }}
+          </template>
+          <b-form-checkbox
+            v-model="allFiltersSelected"
+            @change="toggleAllFilters">
+            {{ allFiltersSelected ? $t("account.orders.unselect-all") : $t("account.orders.select-all") }}
+          </b-form-checkbox>
+          <b-form-checkbox-group
+            :checked="activeFilters"
+            :options="filters"
+            stacked
+            @change="filtersChanged($event)"></b-form-checkbox-group>
+        </b-dropdown>
+      </div>
+      <div class="col-md-3">
+        <!-- Placeholder for seachByKeyword -->
       </div>
       <div class="col-md-12">
         <span v-if="!isDateValid && isDateValid != null" class="text-danger">{{ $t("account.orders.date-error") }}</span>
@@ -93,7 +117,7 @@ import { BvTableCtxObject } from "bootstrap-vue";
 import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG } from "@account/store/modules/orders-list/definitions";
 import { OrdersList, OrdersListConfig } from "@account/store/modules/orders-list/types";
 import { CustomerOrder } from "@common/api/api-clients";
-import { pageSizes, locale } from "@common/constants";
+import { pageSizes, locale, filters } from "@common/constants";
 import AccountOrderDetailsModal from "./AccountOrderDetailsModal.vue";
 
 const ordersListModule = namespace("ordersListModule");
@@ -109,6 +133,9 @@ export default class AccountOrders extends Vue {
 
   @ordersListModule.Getter("isLoading")
   private isLoading!: boolean;
+
+  @ordersListModule.Getter("activeFilters")
+  private activeFilters!: string[];
 
   @ordersListModule.Action(FETCH_ORDERS)
   private fetchOrders!: () => OrdersList;
@@ -129,6 +156,10 @@ export default class AccountOrders extends Vue {
   datepickerLabels: LocaleMessages | {} = {};
 
   pageSizes = pageSizes;
+
+  filters = filters;
+
+  allFiltersSelected = true;
 
   locale = locale;
 
@@ -162,12 +193,12 @@ export default class AccountOrders extends Vue {
     if (this.startDate && this.endDate) {
       this.isDateValid = this.startDate <= this.endDate;
       if (this.isDateValid) {
-        this.setListConfig({ ...this.ordersList.listConfig, filters: {startDate: this.startDate, endDate: this.$moment(this.endDate).add(1, "days").subtract(1, "seconds").toDate()}})
+        this.setListConfig({ ...this.ordersList.listConfig, filters: {statuses: this.activeFilters ,startDate: this.startDate, endDate: this.$moment(this.endDate).add(1, "days").subtract(1, "seconds").toDate()}})
       }
     }
     else  {
       this.endDate === null && this.startDate === null ? this.isDateValid = null : this.isDateValid = true;
-      this.setListConfig({ ...this.ordersList.listConfig, filters: {startDate: this.startDate, endDate: this.endDate
+      this.setListConfig({ ...this.ordersList.listConfig, filters: {statuses: this.activeFilters, startDate: this.startDate, endDate: this.endDate
         ? this.$moment(this.endDate)
           .add(1, "days")
           .subtract(1, "seconds")
@@ -189,5 +220,15 @@ export default class AccountOrders extends Vue {
     this.endDate = date;
     this.dateChanged();
   }
+
+  filtersChanged(activeFilters: string[]) {
+    activeFilters.length != this.filters.length ? this.allFiltersSelected = false : this.allFiltersSelected = true;
+    this.setListConfig({ ...this.ordersList.listConfig, filters: {statuses: activeFilters}});
+  }
+
+  toggleAllFilters(checked: string[]) {
+    checked ? this.setListConfig({ ...this.ordersList.listConfig, filters: {statuses: this.filters}}) : this.setListConfig({ ...this.ordersList.listConfig, filters: {statuses: []}});
+  }
+
 }
 </script>

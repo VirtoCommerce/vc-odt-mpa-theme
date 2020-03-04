@@ -16,5 +16,8 @@ export const getters: GetterTree<OrdersListState, RootState> = {
   },
   orderIsLoaded: (state: OrdersListState): boolean => {
     return state.selectedOrderIsLoaded;
+  },
+  activeFilters: (state: OrdersListState): string[] => {
+    return state.ordersList.listConfig.filters.statuses;
   }
 };
