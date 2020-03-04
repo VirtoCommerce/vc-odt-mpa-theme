@@ -44,8 +44,9 @@
       <div class="col-md-2 d-flex flex-column justify-content-center">
         <label for="dropdown-filters">{{ $t("account.orders.filter-by") }}</label>
         <b-dropdown id="dropdown-filters"
-                    class="mb-2 d-inline"
+                    class="mb-2"
                     variant="outline-primary"
+                    toggle-class="text-left"
                     menu-class="p-2">
           <template v-slot:button-content>
             {{ allFiltersSelected || activeFilters.length == 0 ? $t("account.orders.all") : activeFilters.length == 1 ? activeFilters[0] : '...' }}
@@ -123,7 +124,7 @@ import { BvTableCtxObject } from "bootstrap-vue";
 import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG } from "@account/store/modules/orders-list/definitions";
 import { OrdersList, OrdersListConfig } from "@account/store/modules/orders-list/types";
 import { CustomerOrder } from "@common/api/api-clients";
-import { pageSizes, locale, filters } from "@common/constants";
+import { pageSizes, locale, ordersStatuses } from "@common/constants";
 import AccountOrderDetailsModal from "./AccountOrderDetailsModal.vue";
 
 const ordersListModule = namespace("ordersListModule");
@@ -166,7 +167,7 @@ export default class AccountOrders extends Vue {
 
   pageSizes = pageSizes;
 
-  filters = filters;
+  filters = ordersStatuses;
 
   allFiltersSelected = true;
 
@@ -199,20 +200,20 @@ export default class AccountOrders extends Vue {
   }
 
   dateChanged() {
+    const listConfig = { ...this.ordersList.listConfig };
     if (this.startDate && this.endDate) {
       this.isDateValid = this.startDate <= this.endDate;
       if (this.isDateValid) {
-        this.setListConfig({ ...this.ordersList.listConfig, filters: {statuses: this.activeFilters ,startDate: this.startDate, endDate: this.$moment(this.endDate).add(1, "days").subtract(1, "seconds").toDate()}})
+        listConfig.filters = { ...this.ordersList.listConfig.filters, startDate: this.startDate, endDate: this.prepareEndDate() };
+        this.setListConfig(listConfig);
       }
     }
     else  {
       this.endDate === null && this.startDate === null ? this.isDateValid = null : this.isDateValid = true;
-      this.setListConfig({ ...this.ordersList.listConfig, filters: {statuses: this.activeFilters, startDate: this.startDate, endDate: this.endDate
-        ? this.$moment(this.endDate)
-          .add(1, "days")
-          .subtract(1, "seconds")
-          .toDate()
-        : undefined}})
+      listConfig.filters = { ...this.ordersList.listConfig.filters, startDate: this.startDate, endDate: this.endDate
+        ? this.prepareEndDate()
+        : undefined };
+      this.setListConfig(listConfig);
     }
   }
 
@@ -231,16 +232,26 @@ export default class AccountOrders extends Vue {
   }
 
   changeKeyword(value: string) {
-    this.setListConfig({ ...this.ordersList.listConfig, filters: {statuses: this.activeFilters, keyword: value }});
+    const listConfig = { ...this.ordersList.listConfig };
+    listConfig.filters = { ...this.ordersList.listConfig.filters, keyword: value };
+    this.setListConfig(listConfig);
   }
 
   filtersChanged(activeFilters: string[]) {
     activeFilters.length != this.filters.length ? this.allFiltersSelected = false : this.allFiltersSelected = true;
-    this.setListConfig({ ...this.ordersList.listConfig, filters: {statuses: activeFilters}});
+    const listConfig = { ...this.ordersList.listConfig };
+    listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: activeFilters };
+    this.setListConfig(listConfig);
   }
 
   toggleAllFilters(checked: string[]) {
-    checked ? this.setListConfig({ ...this.ordersList.listConfig, filters: {statuses: this.filters}}) : this.setListConfig({ ...this.ordersList.listConfig, filters: {statuses: []}});
+    const listConfig = { ...this.ordersList.listConfig };
+    checked ? listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: this.filters } : listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: [] };
+    this.setListConfig(listConfig);
+  }
+
+  private prepareEndDate(): Date {
+    return this.$moment(this.endDate).add(1, "days").subtract(1, "seconds").toDate();
   }
 
 }

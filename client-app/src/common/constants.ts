@@ -9,4 +9,4 @@ export const baseUrl = window.BASE_URL.replace(`/${storeName}`, "/")
 // Other constants can be placed here
 export const pageSizes = [10, 20, 50, 100]
 export const defaultPageSize = 10;
-export const filters = ["New","Cancelled","Processing","Completed","Pending"];
+export const ordersStatuses = ["New","Cancelled","Processing","Completed","Pending"];
