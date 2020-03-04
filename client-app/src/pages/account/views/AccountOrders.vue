@@ -209,7 +209,7 @@ export default class AccountOrders extends Vue {
       }
     }
     else  {
-      this.endDate === null && this.startDate === null ? this.isDateValid = null : this.isDateValid = true;
+      this.endDate == null && this.startDate == null ? this.isDateValid = null : this.isDateValid = true;
       listConfig.filters = { ...this.ordersList.listConfig.filters, startDate: this.startDate, endDate: this.endDate
         ? this.prepareEndDate()
         : undefined };
