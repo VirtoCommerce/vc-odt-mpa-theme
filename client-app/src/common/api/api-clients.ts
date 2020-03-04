@@ -12235,6 +12235,7 @@ export interface IShoppingCartSearchResult {
 
 export class OrderSearchCriteria implements IOrderSearchCriteria {
     sort?: string | undefined;
+    keyword?: string | undefined;
     customerId?: string | undefined;
     startDate?: Date | undefined;
     endDate?: Date | undefined;
@@ -12257,6 +12258,7 @@ export class OrderSearchCriteria implements IOrderSearchCriteria {
     init(_data?: any) {
         if (_data) {
             this.sort = _data["sort"];
+            this.keyword = _data["keyword"];
             this.customerId = _data["customerId"];
             this.startDate = _data["startDate"] ? new Date(_data["startDate"].toString()) : <any>undefined;
             this.endDate = _data["endDate"] ? new Date(_data["endDate"].toString()) : <any>undefined;
@@ -12287,6 +12289,7 @@ export class OrderSearchCriteria implements IOrderSearchCriteria {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["sort"] = this.sort;
+        data["keyword"] = this.keyword;
         data["customerId"] = this.customerId;
         data["startDate"] = this.startDate ? this.startDate.toISOString() : <any>undefined;
         data["endDate"] = this.endDate ? this.endDate.toISOString() : <any>undefined;
@@ -12310,6 +12313,7 @@ export class OrderSearchCriteria implements IOrderSearchCriteria {
 
 export interface IOrderSearchCriteria {
     sort?: string | undefined;
+    keyword?: string | undefined;
     customerId?: string | undefined;
     startDate?: Date | undefined;
     endDate?: Date | undefined;
