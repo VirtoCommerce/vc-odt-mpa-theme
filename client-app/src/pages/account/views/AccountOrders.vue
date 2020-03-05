@@ -113,8 +113,8 @@
           </select>
         </div>
       </div>
+      <p>{{ $t("account.orders.grid.text-below") }}</p>
     </div>
-    <p>{{ $t("account.orders.grid.text-below") }}</p>
   </div>
 </template>
 
