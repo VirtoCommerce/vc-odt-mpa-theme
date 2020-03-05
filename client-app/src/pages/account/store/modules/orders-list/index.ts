@@ -1,5 +1,4 @@
 import { Module } from "vuex";
-import { BvTableFieldArray } from 'bootstrap-vue';
 import { defaultPageSize, ordersStatuses, ordersGridFields } from '@common/constants';
 import { localizeOrdersGridColumns } from '@common/services/localization.helper.service';
 import { RootState } from "../../types";

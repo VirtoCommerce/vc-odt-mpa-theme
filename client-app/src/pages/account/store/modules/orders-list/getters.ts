@@ -20,7 +20,7 @@ export const getters: GetterTree<OrdersListState, RootState> = {
   activeKeyword: (state: OrdersListState): string | undefined => {
     return state.ordersList.listConfig.filters.keyword;
   },
-  activeFilters: (state: OrdersListState): string[] => {
+  activeStatuses: (state: OrdersListState): string[] => {
     return state.ordersList.listConfig.filters.statuses;
   }
 };

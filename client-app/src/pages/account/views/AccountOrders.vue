@@ -49,15 +49,15 @@
                     toggle-class="text-left"
                     menu-class="p-2">
           <template v-slot:button-content>
-            {{ allFiltersSelected || activeFilters.length == 0 ? $t("account.orders.status-filter.all") : activeFilters.length == 1 ? activeFilters[0] : '...' }}
+            {{ allStatusesSelected || activeStatuses.length == 0 ? $t("account.orders.status-filter.all") : activeStatuses.length == 1 ? activeStatuses[0] : '...' }}
           </template>
           <b-form-checkbox
-            v-model="allFiltersSelected"
+            v-model="allStatusesSelected"
             @change="toggleAllStatuses">
-            {{ allFiltersSelected ? $t("account.orders.status-filter.unselect-all") : $t("account.orders.status-filter.select-all") }}
+            {{ allStatusesSelected ? $t("account.orders.status-filter.unselect-all") : $t("account.orders.status-filter.select-all") }}
           </b-form-checkbox>
           <b-form-checkbox-group
-            :checked="activeFilters"
+            :checked="activeStatuses"
             :options="availableOrderStatuses"
             stacked
             @change="selectedStatusesChanged($event)"></b-form-checkbox-group>
@@ -144,8 +144,8 @@ export default class AccountOrders extends Vue {
   @ordersListModule.Getter("activeKeyword")
   private activeKeyword!: string | undefined;
 
-  @ordersListModule.Getter("activeFilters")
-  private activeFilters!: string[];
+  @ordersListModule.Getter("activeStatuses")
+  private activeStatuses!: string[];
 
   @ordersListModule.Action(FETCH_ORDERS)
   private fetchOrders!: () => OrdersList;
@@ -169,7 +169,7 @@ export default class AccountOrders extends Vue {
 
   availableOrderStatuses = ordersStatuses;
 
-  allFiltersSelected = true;
+  allStatusesSelected = true;
 
   locale = locale;
 
@@ -238,7 +238,7 @@ export default class AccountOrders extends Vue {
   }
 
   selectedStatusesChanged(selectedStatuses: string[]) {
-    selectedStatuses.length != this.availableOrderStatuses.length ? this.allFiltersSelected = false : this.allFiltersSelected = true;
+    selectedStatuses.length != this.availableOrderStatuses.length ? this.allStatusesSelected = false : this.allStatusesSelected = true;
     const listConfig = { ...this.ordersList.listConfig };
     listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: selectedStatuses };
     this.setListConfig(listConfig);
