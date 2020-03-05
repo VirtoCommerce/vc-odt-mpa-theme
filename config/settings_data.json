@@ -14,7 +14,15 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>"
+      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "orders_grid_fields": [
+        { "key": "number", "sortable": true },
+        { "key": "status", "sortable": true },
+        { "key": "createdDate", "sortable": true },
+        { "key": "items.length", "sortable": false },
+        { "key": "createdBy", "sortable": true },
+        { "key": "total.formattedAmount", "sortable": false }
+      ]
     },
     "Gray": {
       "color_primary": "#6c757d",
@@ -29,7 +37,15 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>"
+      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "orders_grid_fields": [
+        { "key": "number", "sortable": true },
+        { "key": "status", "sortable": true },
+        { "key": "createdDate", "sortable": true },
+        { "key": "items.length", "sortable": false },
+        { "key": "createdBy", "sortable": true },
+        { "key": "total.formattedAmount", "sortable": false }
+      ]
     },
     "Green": {
       "color_primary": "#28a745",
@@ -44,7 +60,15 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>"
+      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "orders_grid_fields": [
+        { "key": "number", "sortable": true },
+        { "key": "status", "sortable": true },
+        { "key": "createdDate", "sortable": true },
+        { "key": "items.length", "sortable": false },
+        { "key": "createdBy", "sortable": true },
+        { "key": "total.formattedAmount", "sortable": false }
+      ]
     },
     "Red": {
       "color_primary": "#dc3545",
@@ -59,7 +83,15 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>"
+      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "orders_grid_fields": [
+        { "key": "number", "sortable": true },
+        { "key": "status", "sortable": true },
+        { "key": "createdDate", "sortable": true },
+        { "key": "items.length", "sortable": false },
+        { "key": "createdBy", "sortable": true },
+        { "key": "total.formattedAmount", "sortable": false }
+      ]
     },
     "Yellow": {
       "color_primary": "#ffc107",
@@ -74,7 +106,15 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>"
+      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "orders_grid_fields": [
+        { "key": "number", "sortable": true },
+        { "key": "status", "sortable": true },
+        { "key": "createdDate", "sortable": true },
+        { "key": "items.length", "sortable": false },
+        { "key": "createdBy", "sortable": true },
+        { "key": "total.formattedAmount", "sortable": false }
+      ]
     },
     "Cyan": {
       "color_primary": "#17a2b8",
@@ -89,7 +129,15 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>"
+      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "orders_grid_fields": [
+        { "key": "number", "sortable": true },
+        { "key": "status", "sortable": true },
+        { "key": "createdDate", "sortable": true },
+        { "key": "items.length", "sortable": false },
+        { "key": "createdBy", "sortable": true },
+        { "key": "total.formattedAmount", "sortable": false }
+      ]
     },
     "Light Gray": {
       "color_primary": "#f8f9fa",
@@ -104,7 +152,15 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>"
+      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "orders_grid_fields": [
+        { "key": "number", "sortable": true },
+        { "key": "status", "sortable": true },
+        { "key": "createdDate", "sortable": true },
+        { "key": "items.length", "sortable": false },
+        { "key": "createdBy", "sortable": true },
+        { "key": "total.formattedAmount", "sortable": false }
+      ]
     },
     "Dark": {
       "color_primary": "#343a40",
@@ -119,7 +175,15 @@
       "footer_column2_title": "Column 2",
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>"
+      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "orders_grid_fields": [
+        { "key": "number", "sortable": true },
+        { "key": "status", "sortable": true },
+        { "key": "createdDate", "sortable": true },
+        { "key": "items.length", "sortable": false },
+        { "key": "createdBy", "sortable": true },
+        { "key": "total.formattedAmount", "sortable": false }
+      ]
     }
   }
 }
