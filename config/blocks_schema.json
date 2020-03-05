@@ -532,11 +532,11 @@
                 "type": "select",
                 "options": [
                     {
-                        "value": null,
+                        "value": "text-center",
                         "label": "Center"
                     },
                     {
-                        "value": "section__t--left-alignment",
+                        "value": null,
                         "label": "Left"
                     }
                 ]
@@ -552,7 +552,7 @@
                         "label": "Standard"
                     },
                     {
-                        "value": "section__t--gray",
+                        "value": "bg-light",
                         "label": "Gray"
                     }
                 ],
