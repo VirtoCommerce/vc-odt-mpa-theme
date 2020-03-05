@@ -42,25 +42,25 @@
                       @update="changeKeyword($event)"></b-form-input>
       </div>
       <div class="col-md-2 d-flex flex-column justify-content-center">
-        <label for="dropdown-filters">{{ $t("account.orders.filter-by") }}</label>
+        <label for="dropdown-filters">{{ $t("account.orders.status-filter.filter-by") }}</label>
         <b-dropdown id="dropdown-filters"
                     class="mb-2"
                     variant="outline-primary"
                     toggle-class="text-left"
                     menu-class="p-2">
           <template v-slot:button-content>
-            {{ allFiltersSelected || activeFilters.length == 0 ? $t("account.orders.all") : activeFilters.length == 1 ? activeFilters[0] : '...' }}
+            {{ allFiltersSelected || activeFilters.length == 0 ? $t("account.orders.status-filter.all") : activeFilters.length == 1 ? activeFilters[0] : '...' }}
           </template>
           <b-form-checkbox
             v-model="allFiltersSelected"
-            @change="toggleAllFilters">
-            {{ allFiltersSelected ? $t("account.orders.unselect-all") : $t("account.orders.select-all") }}
+            @change="toggleAllStatuses">
+            {{ allFiltersSelected ? $t("account.orders.status-filter.unselect-all") : $t("account.orders.status-filter.select-all") }}
           </b-form-checkbox>
           <b-form-checkbox-group
             :checked="activeFilters"
-            :options="filters"
+            :options="availableOrderStatuses"
             stacked
-            @change="filtersChanged($event)"></b-form-checkbox-group>
+            @change="selectedStatusesChanged($event)"></b-form-checkbox-group>
         </b-dropdown>
       </div>
       <div class="col-md-12">
@@ -167,7 +167,7 @@ export default class AccountOrders extends Vue {
 
   pageSizes = pageSizes;
 
-  filters = ordersStatuses;
+  availableOrderStatuses = ordersStatuses;
 
   allFiltersSelected = true;
 
@@ -237,16 +237,16 @@ export default class AccountOrders extends Vue {
     this.setListConfig(listConfig);
   }
 
-  filtersChanged(activeFilters: string[]) {
-    activeFilters.length != this.filters.length ? this.allFiltersSelected = false : this.allFiltersSelected = true;
+  selectedStatusesChanged(selectedStatuses: string[]) {
+    selectedStatuses.length != this.availableOrderStatuses.length ? this.allFiltersSelected = false : this.allFiltersSelected = true;
     const listConfig = { ...this.ordersList.listConfig };
-    listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: activeFilters };
+    listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: selectedStatuses };
     this.setListConfig(listConfig);
   }
 
-  toggleAllFilters(checked: string[]) {
+  toggleAllStatuses(selectedStatuses: string[]) {
     const listConfig = { ...this.ordersList.listConfig };
-    checked ? listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: this.filters } : listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: [] };
+    selectedStatuses ? listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: this.availableOrderStatuses } : listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: [] };
     this.setListConfig(listConfig);
   }
 
