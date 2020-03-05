@@ -76,7 +76,7 @@
         stacked="md"
         striped
         hover
-        show-empty="true"
+        :show-empty="true"
         :empty-text="$t('account.orders.no-orders')"
         :items="ordersList.orders"
         :fields="ordersList.listConfig.columns"
