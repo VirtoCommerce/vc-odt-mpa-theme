@@ -71,6 +71,7 @@
       <span class="text-danger">{{ $t("account.orders.date-error") }}</span>
     </div>
     <div v-if="!isLoading">
+      <p>{{ $t("account.orders.grid.text-above") }}</p>
       <b-table
         id="orders-list"
         stacked="md"
@@ -112,6 +113,7 @@
           </select>
         </div>
       </div>
+      <p>{{ $t("account.orders.grid.text-below") }}</p>
     </div>
   </div>
 </template>
@@ -246,9 +248,9 @@ export default class AccountOrders extends Vue {
     this.setListConfig(listConfig);
   }
 
-  toggleAllStatuses() {
+  toggleAllStatuses(newSelectAllStatusesValue: boolean) {
     const listConfig = { ...this.ordersList.listConfig };
-    this.isSelectAllStatusesChecked ? listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: this.availableOrderStatuses } : listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: [] };
+    newSelectAllStatusesValue ? listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: this.availableOrderStatuses } : listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: [] };
     this.setListConfig(listConfig);
   }
 

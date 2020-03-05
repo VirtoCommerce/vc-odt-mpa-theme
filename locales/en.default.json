@@ -85,7 +85,9 @@
           "items_length": "# Items",
           "createdBy": "Created by",
           "total_formattedAmount": "Total"
-        }
+        },
+        "text-above": "",
+        "text-below": ""
       },
       "order-details": {
         "title": "Order details",
