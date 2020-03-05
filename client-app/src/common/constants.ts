@@ -11,5 +11,6 @@ export const baseUrl = window.BASE_URL.replace(`/${storeName}`, "/")
 // Other constants can be placed here
 export const pageSizes = [10, 20, 50, 100]
 export const defaultPageSize = 10;
+export const ordersStatuses = ["New","Cancelled","Processing","Completed","Pending"];
 
 export const ordersGridFields =  window.THEME_SETTINGS.orders_grid_fields as BvTableFieldArray;
