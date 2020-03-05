@@ -248,9 +248,9 @@ export default class AccountOrders extends Vue {
     this.setListConfig(listConfig);
   }
 
-  toggleAllStatuses() {
+  toggleAllStatuses(newSelectAllStatusesValue: boolean) {
     const listConfig = { ...this.ordersList.listConfig };
-    this.isSelectAllStatusesChecked ? listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: this.availableOrderStatuses } : listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: [] };
+    newSelectAllStatusesValue ? listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: this.availableOrderStatuses } : listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: [] };
     this.setListConfig(listConfig);
   }
 
