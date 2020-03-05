@@ -28,6 +28,7 @@
       window.STORE_NAME = "{{ current_store.name }}";
       window.LOCALE = "{{ current_language.culture_name }}";
       window.LOCALIZATION_MESSAGES = {{ '' | t  }};
+      window.THEME_SETTINGS = {{ settings | json }};
     </script>
   </head>
   <body class="min-vh-100 d-flex flex-column">

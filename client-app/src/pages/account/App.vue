@@ -1,11 +1,5 @@
 <template>
   <div class="account mb-3 mt-3">
-    <b-button variant="danger"
-              class="my-3"
-              @click="throwError()">
-      Throw error from vue.js
-    </b-button>
-
     <ul class="nav nav-tabs">
       <li class="nav-item">
         <router-link to="/"

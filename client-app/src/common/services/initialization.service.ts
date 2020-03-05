@@ -7,7 +7,7 @@ import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faHeartBroken, faLock, faMeteor } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
-import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin} from 'bootstrap-vue'
+import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, FormDatepickerPlugin } from 'bootstrap-vue'
 import { baseUrl } from "@common/constants";
 
 export default class InitializationService {
@@ -39,6 +39,7 @@ export default class InitializationService {
     Vue.use(ToastPlugin);
     Vue.use(ModalPlugin);
     Vue.use(CardPlugin);
+    Vue.use(FormDatepickerPlugin);
 
     Vue.component("font-awesome-icon", FontAwesomeIcon);
     Vue.component('font-awesome-layers', FontAwesomeLayers);

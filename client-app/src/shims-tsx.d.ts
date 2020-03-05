@@ -17,5 +17,6 @@ declare global {
     STORE_NAME: string;
     LOCALE: string;
     LOCALIZATION_MESSAGES: LocaleMessages;
+    THEME_SETTINGS: any;
   }
 }
