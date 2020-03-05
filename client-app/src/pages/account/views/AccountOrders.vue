@@ -37,6 +37,7 @@
       </div>
     </div>
     <div v-if="ordersList.totalCount > 0">
+      <p>{{ $t("account.orders.grid.text-above") }}</p>
       <b-table
         id="orders-list"
         stacked="md"
@@ -80,6 +81,7 @@
     <div v-if="!isLoading && ordersList.totalCount == 0" class="mt-3">
       <span>{{ $t("account.orders.no-orders") }}</span>
     </div>
+    <p>{{ $t("account.orders.grid.text-below") }}</p>
   </div>
 </template>
 

@@ -78,7 +78,9 @@
           "items_length": "# Positionen",
           "createdBy": "Erstellt von",
           "total_formattedAmount": "Auftragssumme"
-        }
+        },
+        "text-above": "",
+        "text-below": ""
       },
       "order-details": {
         "title": "Bestelldetails",
