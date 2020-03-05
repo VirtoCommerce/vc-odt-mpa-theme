@@ -1,6 +1,5 @@
 import { Module } from "vuex";
-import { BvTableFieldArray } from 'bootstrap-vue';
-import { defaultPageSize, ordersGridFields } from "@common/constants";
+import { defaultPageSize, ordersStatuses, ordersGridFields } from '@common/constants';
 import { localizeOrdersGridColumns } from '@common/services/localization.helper.service';
 import { RootState } from "../../types";
 import { actions } from "./actions";
@@ -18,9 +17,10 @@ export const initialState: OrdersListState = {
       pageNumber: 1,
       pageSize: defaultPageSize,
       filters: {
-        statuses: [],
+        statuses: ordersStatuses,
         endDate: undefined,
-        startDate: undefined
+        startDate: undefined,
+        keyword: undefined
       }
     },
     totalCount: 0,
