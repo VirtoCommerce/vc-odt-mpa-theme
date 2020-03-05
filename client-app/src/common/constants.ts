@@ -1,3 +1,5 @@
+import {  BvTableFieldArray } from 'bootstrap-vue';
+
 //It is global variables initialized on the layout page
 export const storeName = window.STORE_NAME;
 export const locale = window.LOCALE;
@@ -10,3 +12,5 @@ export const baseUrl = window.BASE_URL.replace(`/${storeName}`, "/")
 export const pageSizes = [10, 20, 50, 100]
 export const defaultPageSize = 10;
 export const ordersStatuses = ["New","Cancelled","Processing","Completed","Pending"];
+
+export const ordersGridFields =  window.THEME_SETTINGS.orders_grid_fields as BvTableFieldArray;
