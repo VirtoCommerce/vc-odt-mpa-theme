@@ -73,7 +73,6 @@
       "status-filter":{
         "filter-by": "Filter by status",
         "select-all": "Select All",
-        "unselect-all": "Un-select All",
         "all": "All"
       },
       "enter-keyword": "Enter keyword here",

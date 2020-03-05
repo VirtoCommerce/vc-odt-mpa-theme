@@ -73,7 +73,6 @@
       "status-filter":{
         "filter-by": "Nach Status filtern",
         "select-all": "Wählen Sie Alle",
-        "unselect-all": "Alles wiederufen",
         "all": "Alle"
       },
       "enter-keyword": "Suchbegriff eingeben",
