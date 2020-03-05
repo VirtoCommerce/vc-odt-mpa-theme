@@ -51,10 +51,10 @@
                     toggle-class="text-left"
                     menu-class="p-2">
           <template v-slot:button-content>
-            {{ allStatusesSelected || activeStatuses.length == 0 ? $t("account.orders.status-filter.all") : activeStatuses.length == 1 ? activeStatuses[0] : '...' }}
+            {{ isSelectAllStatusesChecked || activeStatuses.length == 0 ? $t("account.orders.status-filter.all") : activeStatuses.length == 1 ? activeStatuses[0] : '...' }}
           </template>
           <b-form-checkbox
-            v-model="allStatusesSelected"
+            v-model="isSelectAllStatusesChecked"
             @change="toggleAllStatuses">
             {{ $t("account.orders.status-filter.select-all") }}
           </b-form-checkbox>
@@ -171,7 +171,7 @@ export default class AccountOrders extends Vue {
 
   availableOrderStatuses = ordersStatuses;
 
-  allStatusesSelected = false;
+  isSelectAllStatusesChecked = false;
 
   locale = locale;
 
@@ -240,15 +240,15 @@ export default class AccountOrders extends Vue {
   }
 
   selectedStatusesChanged(selectedStatuses: string[]) {
-    selectedStatuses.length != this.availableOrderStatuses.length ? this.allStatusesSelected = false : this.allStatusesSelected = true;
+    selectedStatuses.length != this.availableOrderStatuses.length ? this.isSelectAllStatusesChecked = false : this.isSelectAllStatusesChecked = true;
     const listConfig = { ...this.ordersList.listConfig };
     listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: selectedStatuses };
     this.setListConfig(listConfig);
   }
 
-  toggleAllStatuses(selectedStatuses: boolean) {
+  toggleAllStatuses() {
     const listConfig = { ...this.ordersList.listConfig };
-    selectedStatuses ? listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: this.availableOrderStatuses } : listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: [] };
+    this.isSelectAllStatusesChecked ? listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: this.availableOrderStatuses } : listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: [] };
     this.setListConfig(listConfig);
   }
 
