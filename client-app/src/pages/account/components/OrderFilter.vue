@@ -82,7 +82,7 @@ import { OrdersListFilters } from "@account/store/modules/orders-list/types";
 import { locale } from "@common/constants";
 
 @Component
-export default class OrderDetailsItem extends Vue {
+export default class OrderFilter extends Vue {
   @Prop()
   ordersFilter!: OrdersListFilters;
 
