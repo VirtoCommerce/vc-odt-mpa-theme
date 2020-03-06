@@ -3,14 +3,15 @@
     <loading :active.sync="isLoading" :z-index="5000"></loading>
     <account-order-details-modal :order-id="selectedOrderId">
     </account-order-details-modal>
-    <div class="row">
-      <div class="col-md-3">
+    <div class="d-flex flex-wrap">
+      <div class="flex-grow-1">
         <label for="begin-date">{{ $t("account.orders.from") }}</label>
         <b-form-datepicker id="begin-date"
                            :value="ordersList.listConfig.filters.startDate"
                            value-as-date
                            reset-button
                            :label-reset-button="$t('account.orders.reset')"
+                           :date-format-options="{ 'year': 'numeric', 'month': 'long', 'day': 'numeric' }"
                            :max="new Date()"
                            :state="isDateValid"
                            :locale="locale"
@@ -18,13 +19,14 @@
                            class="mb-2"
                            @input="changeStartDate($event)"></b-form-datepicker>
       </div>
-      <div class="col-md-3">
+      <div class="flex-grow-1 ml-2">
         <label for="end-date">{{ $t("account.orders.to") }}</label>
         <b-form-datepicker id="end-date"
                            :value="ordersList.listConfig.filters.endDate"
                            value-as-date
                            reset-button
                            :label-reset-button="$t('account.orders.reset')"
+                           :date-format-options="{ 'year': 'numeric', 'month': 'long', 'day': 'numeric' }"
                            :max="new Date()"
                            :state="isDateValid"
                            :locale="locale"
@@ -32,7 +34,7 @@
                            class="mb-2"
                            @input="changeEndDate($event)"></b-form-datepicker>
       </div>
-      <div class="col-md-3">
+      <div class="flex-grow-1 ml-2">
         <label for="keyword-search">{{ $t("account.orders.keyword-search-title") }}</label>
         <b-form-input id="keyword-search"
                       type="text"
@@ -41,7 +43,7 @@
                       :value="activeKeyword"
                       @update="changeKeyword($event)"></b-form-input>
       </div>
-      <div class="col-md-2 d-flex flex-column justify-content-center">
+      <div class="d-flex flex-column justify-content-center flex-grow-1 ml-2">
         <label for="dropdown-filters">{{ $t("account.orders.status-filter.filter-by") }}</label>
         <b-dropdown id="dropdown-filters"
                     class="mb-2"
@@ -49,13 +51,14 @@
                     toggle-class="text-left"
                     menu-class="p-2">
           <template v-slot:button-content>
-            {{ allStatusesSelected || activeStatuses.length == 0 ? $t("account.orders.status-filter.all") : activeStatuses.length == 1 ? activeStatuses[0] : '...' }}
+            {{ isSelectAllStatusesChecked || activeStatuses.length == 0 ? $t("account.orders.status-filter.all") : activeStatuses.length == 1 ? activeStatuses[0] : '...' }}
           </template>
           <b-form-checkbox
-            v-model="allStatusesSelected"
+            v-model="isSelectAllStatusesChecked"
             @change="toggleAllStatuses">
-            {{ allStatusesSelected ? $t("account.orders.status-filter.unselect-all") : $t("account.orders.status-filter.select-all") }}
+            {{ $t("account.orders.status-filter.select-all") }}
           </b-form-checkbox>
+          <b-dropdown-divider></b-dropdown-divider>
           <b-form-checkbox-group
             :checked="activeStatuses"
             :options="availableOrderStatuses"
@@ -63,16 +66,19 @@
             @change="selectedStatusesChanged($event)"></b-form-checkbox-group>
         </b-dropdown>
       </div>
-      <div class="col-md-12">
-        <span v-if="!isDateValid && isDateValid != null" class="text-danger">{{ $t("account.orders.date-error") }}</span>
-      </div>
     </div>
-    <div v-if="ordersList.totalCount > 0">
+    <div v-if="!isDateValid && isDateValid != null">
+      <span class="text-danger">{{ $t("account.orders.date-error") }}</span>
+    </div>
+    <div v-if="!isLoading">
+      <p>{{ $t("account.orders.grid.text-above") }}</p>
       <b-table
         id="orders-list"
         stacked="md"
         striped
         hover
+        :show-empty="true"
+        :empty-text="$t('account.orders.no-orders')"
         :items="ordersList.orders"
         :fields="ordersList.listConfig.columns"
         no-local-sorting
@@ -107,9 +113,7 @@
           </select>
         </div>
       </div>
-    </div>
-    <div v-if="!isLoading && ordersList.totalCount == 0" class="mt-3">
-      <span>{{ $t("account.orders.no-orders") }}</span>
+      <p>{{ $t("account.orders.grid.text-below") }}</p>
     </div>
   </div>
 </template>
@@ -169,7 +173,7 @@ export default class AccountOrders extends Vue {
 
   availableOrderStatuses = ordersStatuses;
 
-  allStatusesSelected = true;
+  isSelectAllStatusesChecked = false;
 
   locale = locale;
 
@@ -238,15 +242,15 @@ export default class AccountOrders extends Vue {
   }
 
   selectedStatusesChanged(selectedStatuses: string[]) {
-    selectedStatuses.length != this.availableOrderStatuses.length ? this.allStatusesSelected = false : this.allStatusesSelected = true;
+    selectedStatuses.length != this.availableOrderStatuses.length ? this.isSelectAllStatusesChecked = false : this.isSelectAllStatusesChecked = true;
     const listConfig = { ...this.ordersList.listConfig };
     listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: selectedStatuses };
     this.setListConfig(listConfig);
   }
 
-  toggleAllStatuses(selectedStatuses: string[]) {
+  toggleAllStatuses(newSelectAllStatusesValue: boolean) {
     const listConfig = { ...this.ordersList.listConfig };
-    selectedStatuses ? listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: this.availableOrderStatuses } : listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: [] };
+    newSelectAllStatusesValue ? listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: this.availableOrderStatuses } : listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: [] };
     this.setListConfig(listConfig);
   }
 

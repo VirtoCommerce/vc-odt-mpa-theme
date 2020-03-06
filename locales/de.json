@@ -73,7 +73,6 @@
       "status-filter":{
         "filter-by": "Nach Status filtern",
         "select-all": "Wählen Sie Alle",
-        "unselect-all": "Alles wiederufen",
         "all": "Alle"
       },
       "enter-keyword": "Suchbegriff eingeben",
@@ -86,7 +85,9 @@
           "items_length": "# Positionen",
           "createdBy": "Erstellt von",
           "total_formattedAmount": "Auftragssumme"
-        }
+        },
+        "text-above": "",
+        "text-below": ""
       },
       "order-details": {
         "title": "Bestelldetails",
