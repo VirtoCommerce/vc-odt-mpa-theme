@@ -70,6 +70,13 @@
       "reset": "Reset",
       "date-error": "Start date should be earlier than end date",
       "no-orders": "You have no orders placed",
+      "status-filter":{
+        "filter-by": "Filter by status",
+        "select-all": "Select All",
+        "all": "All"
+      },
+      "enter-keyword": "Enter keyword here",
+      "keyword-search-title": "Search by keyword",
       "grid":{
         "columns":{
           "number": "Order ID",
@@ -78,7 +85,9 @@
           "items_length": "# Items",
           "createdBy": "Created by",
           "total_formattedAmount": "Total"
-        }
+        },
+        "text-above": "",
+        "text-below": ""
       },
       "order-details": {
         "title": "Order details",

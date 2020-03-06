@@ -16,5 +16,11 @@ export const getters: GetterTree<OrdersListState, RootState> = {
   },
   orderIsLoaded: (state: OrdersListState): boolean => {
     return state.selectedOrderIsLoaded;
+  },
+  activeKeyword: (state: OrdersListState): string | undefined => {
+    return state.ordersList.listConfig.filters.keyword;
+  },
+  activeStatuses: (state: OrdersListState): string[] => {
+    return state.ordersList.listConfig.filters.statuses;
   }
 };

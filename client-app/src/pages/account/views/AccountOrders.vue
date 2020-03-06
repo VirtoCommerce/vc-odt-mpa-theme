@@ -3,14 +3,15 @@
     <loading :active.sync="isLoading" :z-index="5000"></loading>
     <account-order-details-modal :order-id="selectedOrderId">
     </account-order-details-modal>
-    <div class="row">
-      <div class="col-md-6">
+    <div class="d-flex flex-wrap">
+      <div class="flex-grow-1">
         <label for="begin-date">{{ $t("account.orders.from") }}</label>
         <b-form-datepicker id="begin-date"
                            :value="ordersList.listConfig.filters.startDate"
                            value-as-date
                            reset-button
                            :label-reset-button="$t('account.orders.reset')"
+                           :date-format-options="{ 'year': 'numeric', 'month': 'long', 'day': 'numeric' }"
                            :max="new Date()"
                            :state="isDateValid"
                            :locale="locale"
@@ -18,13 +19,14 @@
                            class="mb-2"
                            @input="changeStartDate($event)"></b-form-datepicker>
       </div>
-      <div class="col-md-6">
+      <div class="flex-grow-1 ml-2">
         <label for="end-date">{{ $t("account.orders.to") }}</label>
         <b-form-datepicker id="end-date"
                            :value="ordersList.listConfig.filters.endDate"
                            value-as-date
                            reset-button
                            :label-reset-button="$t('account.orders.reset')"
+                           :date-format-options="{ 'year': 'numeric', 'month': 'long', 'day': 'numeric' }"
                            :max="new Date()"
                            :state="isDateValid"
                            :locale="locale"
@@ -32,16 +34,51 @@
                            class="mb-2"
                            @input="changeEndDate($event)"></b-form-datepicker>
       </div>
-      <div class="col-md-12">
-        <span v-if="!isDateValid && isDateValid != null" class="text-danger">{{ $t("account.orders.date-error") }}</span>
+      <div class="flex-grow-1 ml-2">
+        <label for="keyword-search">{{ $t("account.orders.keyword-search-title") }}</label>
+        <b-form-input id="keyword-search"
+                      type="text"
+                      :debounce="1000"
+                      :placeholder="$t('account.orders.enter-keyword')"
+                      :value="activeKeyword"
+                      @update="changeKeyword($event)"></b-form-input>
+      </div>
+      <div class="d-flex flex-column justify-content-center flex-grow-1 ml-2">
+        <label for="dropdown-filters">{{ $t("account.orders.status-filter.filter-by") }}</label>
+        <b-dropdown id="dropdown-filters"
+                    class="mb-2"
+                    variant="outline-primary"
+                    toggle-class="text-left"
+                    menu-class="p-2">
+          <template v-slot:button-content>
+            {{ isSelectAllStatusesChecked || activeStatuses.length == 0 ? $t("account.orders.status-filter.all") : activeStatuses.length == 1 ? activeStatuses[0] : '...' }}
+          </template>
+          <b-form-checkbox
+            v-model="isSelectAllStatusesChecked"
+            @change="toggleAllStatuses">
+            {{ $t("account.orders.status-filter.select-all") }}
+          </b-form-checkbox>
+          <b-dropdown-divider></b-dropdown-divider>
+          <b-form-checkbox-group
+            :checked="activeStatuses"
+            :options="availableOrderStatuses"
+            stacked
+            @change="selectedStatusesChanged($event)"></b-form-checkbox-group>
+        </b-dropdown>
       </div>
     </div>
-    <div v-if="ordersList.totalCount > 0">
+    <div v-if="!isDateValid && isDateValid != null">
+      <span class="text-danger">{{ $t("account.orders.date-error") }}</span>
+    </div>
+    <div v-if="!isLoading">
+      <p>{{ $t("account.orders.grid.text-above") }}</p>
       <b-table
         id="orders-list"
         stacked="md"
         striped
         hover
+        :show-empty="true"
+        :empty-text="$t('account.orders.no-orders')"
         :items="ordersList.orders"
         :fields="ordersList.listConfig.columns"
         no-local-sorting
@@ -76,9 +113,7 @@
           </select>
         </div>
       </div>
-    </div>
-    <div v-if="!isLoading && ordersList.totalCount == 0" class="mt-3">
-      <span>{{ $t("account.orders.no-orders") }}</span>
+      <p>{{ $t("account.orders.grid.text-below") }}</p>
     </div>
   </div>
 </template>
@@ -93,7 +128,7 @@ import { BvTableCtxObject } from "bootstrap-vue";
 import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG } from "@account/store/modules/orders-list/definitions";
 import { OrdersList, OrdersListConfig } from "@account/store/modules/orders-list/types";
 import { CustomerOrder } from "@common/api/api-clients";
-import { pageSizes, locale } from "@common/constants";
+import { pageSizes, locale, ordersStatuses } from "@common/constants";
 import AccountOrderDetailsModal from "./AccountOrderDetailsModal.vue";
 
 const ordersListModule = namespace("ordersListModule");
@@ -109,6 +144,12 @@ export default class AccountOrders extends Vue {
 
   @ordersListModule.Getter("isLoading")
   private isLoading!: boolean;
+
+  @ordersListModule.Getter("activeKeyword")
+  private activeKeyword!: string | undefined;
+
+  @ordersListModule.Getter("activeStatuses")
+  private activeStatuses!: string[];
 
   @ordersListModule.Action(FETCH_ORDERS)
   private fetchOrders!: () => OrdersList;
@@ -129,6 +170,10 @@ export default class AccountOrders extends Vue {
   datepickerLabels: LocaleMessages | {} = {};
 
   pageSizes = pageSizes;
+
+  availableOrderStatuses = ordersStatuses;
+
+  isSelectAllStatusesChecked = false;
 
   locale = locale;
 
@@ -159,20 +204,20 @@ export default class AccountOrders extends Vue {
   }
 
   dateChanged() {
+    const listConfig = { ...this.ordersList.listConfig };
     if (this.startDate && this.endDate) {
       this.isDateValid = this.startDate <= this.endDate;
       if (this.isDateValid) {
-        this.setListConfig({ ...this.ordersList.listConfig, filters: {startDate: this.startDate, endDate: this.$moment(this.endDate).add(1, "days").subtract(1, "seconds").toDate()}})
+        listConfig.filters = { ...this.ordersList.listConfig.filters, startDate: this.startDate, endDate: this.prepareEndDate() };
+        this.setListConfig(listConfig);
       }
     }
     else  {
-      this.endDate === null && this.startDate === null ? this.isDateValid = null : this.isDateValid = true;
-      this.setListConfig({ ...this.ordersList.listConfig, filters: {startDate: this.startDate, endDate: this.endDate
-        ? this.$moment(this.endDate)
-          .add(1, "days")
-          .subtract(1, "seconds")
-          .toDate()
-        : undefined}})
+      this.endDate == null && this.startDate == null ? this.isDateValid = null : this.isDateValid = true;
+      listConfig.filters = { ...this.ordersList.listConfig.filters, startDate: this.startDate, endDate: this.endDate
+        ? this.prepareEndDate()
+        : undefined };
+      this.setListConfig(listConfig);
     }
   }
 
@@ -189,5 +234,29 @@ export default class AccountOrders extends Vue {
     this.endDate = date;
     this.dateChanged();
   }
+
+  changeKeyword(value: string) {
+    const listConfig = { ...this.ordersList.listConfig };
+    listConfig.filters = { ...this.ordersList.listConfig.filters, keyword: value };
+    this.setListConfig(listConfig);
+  }
+
+  selectedStatusesChanged(selectedStatuses: string[]) {
+    selectedStatuses.length != this.availableOrderStatuses.length ? this.isSelectAllStatusesChecked = false : this.isSelectAllStatusesChecked = true;
+    const listConfig = { ...this.ordersList.listConfig };
+    listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: selectedStatuses };
+    this.setListConfig(listConfig);
+  }
+
+  toggleAllStatuses(newSelectAllStatusesValue: boolean) {
+    const listConfig = { ...this.ordersList.listConfig };
+    newSelectAllStatusesValue ? listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: this.availableOrderStatuses } : listConfig.filters = { ...this.ordersList.listConfig.filters, statuses: [] };
+    this.setListConfig(listConfig);
+  }
+
+  private prepareEndDate(): Date {
+    return this.$moment(this.endDate).add(1, "days").subtract(1, "seconds").toDate();
+  }
+
 }
 </script>
