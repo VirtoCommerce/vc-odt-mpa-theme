@@ -1,6 +1,6 @@
 <template>
   <div v-if="ordersFilter && availableOrderStatuses">
-    <div class="d-flex flex-wrap">
+    <div class="d-flex flex-wrap flex-sm-row flex-column">
       <div class="flex-grow-1">
         <label for="begin-date">{{ $t("account.orders.from") }}</label>
         <b-form-datepicker
@@ -17,7 +17,7 @@
           class="mb-2"
           @input="changeStartDate($event)"></b-form-datepicker>
       </div>
-      <div class="flex-grow-1 ml-2">
+      <div class="flex-grow-1 ml-sm-2">
         <label for="end-date">{{ $t("account.orders.to") }}</label>
         <b-form-datepicker
           id="end-date"
@@ -33,7 +33,7 @@
           class="mb-2"
           @input="changeEndDate($event)"></b-form-datepicker>
       </div>
-      <div class="flex-grow-1 ml-2">
+      <div class="flex-grow-1 ml-md-2">
         <label for="keyword-search">{{ $t("account.orders.keyword-search-title") }}</label>
         <b-form-input
           id="keyword-search"
@@ -43,7 +43,7 @@
           :value="ordersFilter.keyword"
           @update="changeKeyword($event)"></b-form-input>
       </div>
-      <div class="d-flex flex-column justify-content-center flex-grow-1 ml-2">
+      <div class="d-flex flex-column justify-content-center flex-grow-1 ml-sm-2">
         <label for="dropdown-filters">{{ $t("account.orders.status-filter.filter-by") }}</label>
         <b-dropdown
           id="dropdown-filters"
