@@ -52,7 +52,7 @@
           toggle-class="text-left"
           menu-class="p-2">
           <template v-slot:button-content>
-            {{ allStatusesSelected || ordersFilter.statuses.length == 0 ? $t("account.orders.status-filter.all") : ordersFilter.statuses.length == 1 ? ordersFilter.statuses[0] : "..." }}
+            {{ getCurrentStatusLabel() }}
           </template>
           <b-form-checkbox v-model="allStatusesSelected" @change="toggleAllStatuses">
             {{ $t("account.orders.status-filter.select-all") }}
@@ -75,7 +75,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { LocaleMessages } from "vue-i18n";
+import { LocaleMessages, TranslateResult } from "vue-i18n";
 import { Prop } from "vue-property-decorator";
 import i18n from "@i18n";
 import { OrdersListFilters } from "@account/store/modules/orders-list/types";
@@ -141,6 +141,16 @@ export default class OrderFilter extends Vue {
     typeof i18n.t(`account.orders.datepicker`) === "string"
       ? (this.datepickerLabels = {})
       : (this.datepickerLabels = i18n.t(`account.orders.datepicker`));
+  }
+
+  getCurrentStatusLabel(): TranslateResult {
+    if (this.allStatusesSelected || this.ordersFilter.statuses.length == 0) {
+      return i18n.t("account.orders.status-filter.all");
+    } else {
+      if (this.ordersFilter.statuses.length == 1) {
+        return this.ordersFilter.statuses[0];
+      } else return "...";
+    }
   }
 
   changeKeyword(value: string) {
