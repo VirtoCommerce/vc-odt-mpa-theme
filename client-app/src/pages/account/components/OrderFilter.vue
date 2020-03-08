@@ -50,9 +50,20 @@
           class="mb-2"
           variant="outline-primary"
           toggle-class="text-left"
-          menu-class="p-2">
+          menu-class="p-2"
+          no-caret
+          @hide="showStatusDropdown = !showStatusDropdown"
+          @show="showStatusDropdown = !showStatusDropdown">
           <template v-slot:button-content>
-            {{ getCurrentStatusLabel() }}
+            <div class="d-flex justify-content-between align-items-center">
+              {{ getCurrentStatusLabel() }}
+              <font-awesome-layers v-if="showStatusDropdown">
+                <font-awesome-icon :icon="faAngleUp" size="lg"></font-awesome-icon>
+              </font-awesome-layers>
+              <font-awesome-layers v-if="!showStatusDropdown">
+                <font-awesome-icon :icon="faAngleDown" size="lg"></font-awesome-icon>
+              </font-awesome-layers>
+            </div>
           </template>
           <b-form-checkbox v-model="allStatusesSelected" @change="toggleAllStatuses">
             {{ $t("account.orders.status-filter.select-all") }}
@@ -77,6 +88,7 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { LocaleMessages, TranslateResult } from "vue-i18n";
 import { Prop } from "vue-property-decorator";
+import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import i18n from "@i18n";
 import { OrdersListFilters } from "@account/store/modules/orders-list/types";
 import { locale } from "@common/constants";
@@ -100,6 +112,12 @@ export default class OrderFilter extends Vue {
   datepickerLabels: LocaleMessages | {} = {};
 
   locale = locale;
+
+  faAngleUp = faAngleUp;
+
+  faAngleDown = faAngleDown;
+
+  showStatusDropdown = false;
 
   emitChanges(updatedFilters: OrdersListFilters) {
     this.$emit("filtersChanged", updatedFilters);
