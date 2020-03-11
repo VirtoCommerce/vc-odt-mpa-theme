@@ -15,7 +15,7 @@ export function localizeGridColumn(gridColumnsLocalizationNode: string, columnKe
  * @param gridColumnsLocalizationNode
  * @param columns
  */
-export function localizeOrdersGridColumns( gridColumnsLocalizationNode: string, columns: BvTableFieldArray): BvTableFieldArray {
+export function localizeGridColumns( gridColumnsLocalizationNode: string, columns: BvTableFieldArray): BvTableFieldArray {
   return columns.map(column =>
     typeof column === "string"
       ? {

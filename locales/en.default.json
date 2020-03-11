@@ -57,7 +57,8 @@
   "account":{
     "menu_titles": {
       "home":"User Details",
-      "orders": "Orders"
+      "orders": "Orders",
+      "users": "Users"
     },
     "home": {
       "email": "Email",
@@ -102,6 +103,11 @@
         "sku": "SKU:",
         "unit-price": "Unit price:",
         "quantity": "Quantity:"
+      }
+    },
+    "users":{
+      "grid":{
+        "columns": {}
       }
     }
   }

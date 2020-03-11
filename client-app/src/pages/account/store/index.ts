@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex, { Store, StoreOptions } from "vuex";
 import ordersListModule from "@account/store/modules/orders-list";
 import profileModule from "@account/store/modules/profile";
+import usersListModule from "@account/store/modules/users-list";
 import { RootState } from "./types";
 
 const debug = process.env.NODE_ENV !== "production";
@@ -15,7 +16,8 @@ const store: StoreOptions<RootState> = {
   },
   modules: {
     ordersListModule,
-    profileModule
+    profileModule,
+    usersListModule
   },
   strict: debug
 };

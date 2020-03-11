@@ -1,6 +1,6 @@
 import { Module } from "vuex";
 import { defaultPageSize, ordersGridFields } from '@common/constants';
-import { localizeOrdersGridColumns } from '@common/services/localization.helper.service';
+import { localizeGridColumns } from '@common/services/localization.helper.service';
 import { RootState } from "../../types";
 import { actions } from "./actions";
 import { getters } from "./getters";
@@ -35,7 +35,7 @@ export const initialState: OrdersListState = {
 const localizationOrdersGridColumnsNode = "account.orders.grid.columns"
 
 // We need this because bootstrap-vue will directly use labels on stacked table
-initialState.ordersList.listConfig.columns = localizeOrdersGridColumns(localizationOrdersGridColumnsNode, initialState.ordersList.listConfig.columns);
+initialState.ordersList.listConfig.columns = localizeGridColumns(localizationOrdersGridColumnsNode, initialState.ordersList.listConfig.columns);
 
 const ordersListModule: Module<OrdersListState, RootState> = {
   namespaced: true,
