@@ -52,8 +52,8 @@
           toggle-class="text-left"
           menu-class="p-2"
           no-caret
-          @hide="showStatusDropdown = !showStatusDropdown"
-          @show="showStatusDropdown = !showStatusDropdown">
+          @hide="toggleStatusDropdown()"
+          @show="toggleStatusDropdown()">
           <template v-slot:button-content>
             <div class="d-flex justify-content-between align-items-center">
               {{ getCurrentStatusLabel() }}
@@ -190,6 +190,10 @@ export default class OrderFilter extends Vue {
       ? (updatedFilters = { ...this.ordersFilter, statuses: this.availableOrderStatuses })
       : (updatedFilters = { ...this.ordersFilter, statuses: [] });
     this.emitChanges(updatedFilters);
+  }
+
+  toggleStatusDropdown(){
+    this.showStatusDropdown = !this.showStatusDropdown;
   }
 
   private prepareEndDate(): Date {
