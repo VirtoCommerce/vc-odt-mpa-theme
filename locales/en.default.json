@@ -108,6 +108,37 @@
     "users":{
       "grid":{
         "columns": {}
+      },
+      "add-user":{
+        "title": "Add new user",
+        "email-label": "Email",
+        "email-placeholder": "Enter email",
+        "email-required": "Email is required",
+        "email-not-valid": "Email is not valid",
+        "first-name-label": "First Name",
+        "first-name-placeholder": "Enter first name",
+        "first-name-required": "First Name is required",
+        "last-name-label": "Last Name",
+        "last-name-placeholder": "Enter last name",
+        "last-name-required": "Last Name is required",
+        "role-label": "Role",
+        "role-default-placeholder": "Please select an option",
+        "account-admin": "Account admin",
+        "business-user": "Business user",
+        "role-required": "User role is required",
+        "password-label": "Password",
+        "password-placeholder": "Enter password",
+        "password-required": "Password is required",
+        "password-uppercase-error": "Password must have at least one uppercase character",
+        "password-lowercase-error": "Password must have at least one lowercase character",
+        "password-length-error": "Password must have at least {0} letters",
+        "confirm-password-label": "Confirm Password",
+        "confirm-password-placeholder": "Confirm password",
+        "confirm-password-password-required": "Input password first",
+        "confirm-password-required": "Confirm your password",
+        "confirm-password-not-same": "Passwords must be identical",
+        "reset": "Reset",
+        "submit": "Submit"
       }
     }
   }
