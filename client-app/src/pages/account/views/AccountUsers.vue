@@ -1,6 +1,6 @@
 <template>
   <div>
-    <loading :active.sync="isLoading" :z-index="5000"></loading>
+    <loading :active.sync="isLoading"></loading>
     <div v-if="!isLoading">
       <p>{{ $t("account.users.grid.text-above") }}</p>
       <b-table
