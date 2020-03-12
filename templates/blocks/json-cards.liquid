@@ -1,0 +1,33 @@
+<div class="section {% if block.style == 'dark' %} section--gray {% endif %}
+     {% if block.noTop == 'True' %} section--small-top {% endif %}
+     {% if block.noBottom == 'True' %} section--small-bottom {% endif %}
+     {% if block.noPad == 'True' %} section--no-padding {% endif %}">
+    <div class="section__inner container">
+        {% include 'blocks/block-title' block: block %}
+        <div class="list list--cards row">
+            {% for item in block.items %}
+            <div class="list__item col-md-6 col-lg-4">
+                <div class="list__inner">
+                    {% if item.image != '' and item.image.url != '' %}
+                    <div class="list__img">
+                        <img src="{{ item.image.url }}" alt="{{ item.image.altText }}" class="list__pic">
+                    </div>
+                    {% endif %}
+                    <div class="list__t">{{ item.title }}</div>
+                    <div class="list__descr">
+                        {{ item.text }}
+                    </div>
+                    {% if item.link != '' and item.link.urlText != '' %}
+                    <a href="{{ item.link.url }}" class="btn {{ item.link.style }}">{{ item.link.urlText }}</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% comment %}
+
+
+{% endcomment %}
