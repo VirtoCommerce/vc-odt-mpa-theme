@@ -129,6 +129,8 @@
           "phoneNumber": "Telefon",
           "actions": "Aktionen"
         },
+        "edit": "Edit",
+        "delete": "Löschen",
         "text-above": "",
         "text-below": ""
       }

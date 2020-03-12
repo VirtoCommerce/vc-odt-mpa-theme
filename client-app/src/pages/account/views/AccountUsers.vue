@@ -14,6 +14,16 @@
         :fields="usersList.listConfig.columns"
         no-local-sorting
         @sort-changed="sortChanged">
+        <template v-slot:cell(actions)="row">
+          <b-button size="sm"
+                    class="mr-1"
+                    @click="editUser(row.item)">
+            {{ $t('account.users.grid.edit') }}
+          </b-button>
+          <b-button size="sm" @click="confirmDeleteUser(row.item)">
+            {{ $t('account.users.grid.delete') }}
+          </b-button>
+        </template>
       </b-table>
 
       <div class="d-flex justify-content-between">
@@ -48,9 +58,10 @@ import { LocaleMessages } from "vue-i18n";
 import { namespace } from "vuex-class";
 import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
-import { FETCH_USERS, SET_USERS_LIST_CONFIG } from "@account/store/modules/users-list/definitions";
+import { FETCH_USERS, SET_USERS_LIST_CONFIG, DELETE_USER } from "@account/store/modules/users-list/definitions";
 import { UsersList, UsersListConfig } from "@account/store/modules/users-list/types";
 import { pageSizes, locale } from "@common/constants";
+import { User } from "../../../common/api/api-clients";
 
 const usersListModule = namespace("usersListModule");
 
@@ -67,6 +78,9 @@ export default class AccountUsers extends Vue {
 
   @usersListModule.Action(SET_USERS_LIST_CONFIG)
   private setListConfig!: (listConfig: UsersListConfig) => void;
+
+  @usersListModule.Action(DELETE_USER)
+  private deleteUser!: (userId: string) => void;
 
   pageSizes = pageSizes;
 
@@ -90,6 +104,12 @@ export default class AccountUsers extends Vue {
     this.setListConfig(listConfig);
   }
 
+  confirmDeleteUser(user: User) {
+    if(user === undefined) {
+      throw Error("");
+    }
+    this.deleteUser(user.id!);
+  }
 
 }
 </script>

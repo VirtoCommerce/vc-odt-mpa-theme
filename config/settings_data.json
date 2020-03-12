@@ -190,7 +190,8 @@
         "approvalRole",
         "role.name",
         "email",
-        "phoneNumber"
+        "phoneNumber",
+        "actions"
       ]
     },
     "Light Gray": {

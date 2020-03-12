@@ -117,6 +117,8 @@
           "phoneNumber": "Phone",
           "actions": "Actions"
         },
+        "edit": "Edit",
+        "delete": "Delete",
         "text-above": "",
         "text-below": ""
       }
