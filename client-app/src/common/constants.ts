@@ -14,3 +14,4 @@ export const defaultPageSize = 10;
 export const ordersStatuses = ["New","Cancelled","Processing","Completed","Pending"];
 
 export const ordersGridFields =  window.THEME_SETTINGS.orders_grid_fields as BvTableFieldArray;
+export const usersGridFields =  window.THEME_SETTINGS.users_grid_fields as BvTableFieldArray;

@@ -3,7 +3,8 @@ import { OrderSearchCriteria } from '@common/api/api-clients';
 import { storeName, locale } from '@common/constants';
 import { orderClient} from '@common/services/api-clients.service';
 import { RootState } from "../../types";
-import { FETCH_ORDERS, FETCH_ORDER, SET_ORDERS, SET_ORDERS_LIST_CONFIG, SET_ORDER, CLEAR_SELECTED_ORDER } from "./definitions";
+import { FETCH_ORDERS, FETCH_ORDER, SET_ORDERS_LIST_CONFIG, CLEAR_SELECTED_ORDER } from "./definitions";
+import { SET_ORDERS, SET_ORDER } from "./mutations"
 import { OrdersListState, OrdersListConfig } from "./types";
 
 

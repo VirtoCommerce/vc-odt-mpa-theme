@@ -9,7 +9,7 @@
     <div v-if="!isLoading">
       <p>{{ $t("account.orders.grid.text-above") }}</p>
       <b-table
-        id="orders-list"
+        id="orders-table"
         stacked="md"
         striped
         hover
@@ -32,7 +32,7 @@
       <div class="d-flex justify-content-between">
         <b-pagination
           :value="ordersList.listConfig.pageNumber"
-          aria-controls="oders-table"
+          aria-controls="orders-table"
           :total-rows="ordersList.totalCount"
           :per-page="ordersList.listConfig.pageSize"
           @change="pageChanged($event)"></b-pagination>
