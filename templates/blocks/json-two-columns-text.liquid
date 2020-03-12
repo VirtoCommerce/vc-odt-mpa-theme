@@ -1,0 +1,40 @@
+<div class="container-fluid
+        {% if block.style == 'dark' %}
+            bg-dark text-white
+        {% endif %}
+        {% if block.noTop != 'True' %}
+            mt-3
+        {% endif %}
+        {% if block.noBottom != 'True' %}
+            mb-3
+        {% endif %}
+        {% if block.noPad == 'True' %}
+            px-0
+        {% endif %}">
+    {% include 'blocks/block-title' block: block %}
+    <div class="row
+            {% if block.noPad == 'True' %}
+                no-gutters mx-0
+            {% endif %}">
+        {% if block.contentBefore != '' %}
+            <div class="col-12
+                    {% if block.noPad == 'True' %}
+                        px-0
+                    {% endif %}">
+                {{ block.contentBefore }}
+            </div>
+        {% endif %}
+        {% for item in block.items %}
+            <div class="{% if (forloop.index0 | modulo:2) == 1 and forloop.last %}
+                            col-12
+                        {% else %}
+                            col-6
+                        {% endif %}
+                        {% if block.noPad == 'True' %}
+                            px-0
+                        {% endif %}">
+                {{ item.text }}
+            </div>
+        {% endfor %}
+	</div>
+</div>
