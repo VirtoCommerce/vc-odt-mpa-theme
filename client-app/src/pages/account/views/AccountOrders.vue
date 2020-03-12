@@ -7,6 +7,7 @@
                   :available-order-statuses="availableOrderStatuses"
                   @filtersChanged="filtersChanged"></order-filter>
     <div v-if="!isLoading">
+      <p>{{ $t("account.orders.grid.text-above") }}</p>
       <b-table
         id="orders-list"
         stacked="md"
@@ -48,6 +49,7 @@
           </select>
         </div>
       </div>
+      <p>{{ $t("account.orders.grid.text-below") }}</p>
     </div>
   </div>
 </template>
