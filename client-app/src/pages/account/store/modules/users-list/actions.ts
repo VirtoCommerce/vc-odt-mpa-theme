@@ -16,7 +16,7 @@ export const actions: ActionTree<UsersListState, RootState> = {
     searchCriteria.pageNumber = context.state.usersList.listConfig.pageNumber;
     searchCriteria.pageSize = context.state.usersList.listConfig.pageSize;
     searchCriteria.sort = context.state.usersList.listConfig.filters.sort;
-    // searchCriteria.keyword = context.state.usersList.listConfig.filters.keyword;
+    searchCriteria.searchPhrase = context.state.usersList.listConfig.filters.keyword;
     const result = await accountClient.searchOrganizationUsers(searchCriteria, storeName, locale);
     context.commit(SET_USERS, result);
   },

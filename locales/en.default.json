@@ -9,7 +9,7 @@
       }
     },
     "error": {
-      "client":{
+      "client": {
         "close": "Close",
         "header": "Ooops! Something went wrong",
         "description": "An error occured during execution. Please contact support.",
@@ -54,9 +54,9 @@
     "title": "Access denied",
     "no-access": "You have no permission to view this page. Please, contact to your administrator"
   },
-  "account":{
+  "account": {
     "menu_titles": {
-      "home":"User Details",
+      "home": "User Details",
       "orders": "Orders",
       "users": "Users"
     },
@@ -71,15 +71,15 @@
       "reset": "Reset",
       "date-error": "Start date should be earlier than end date",
       "no-orders": "You have no orders placed",
-      "status-filter":{
+      "status-filter": {
         "filter-by": "Filter by status",
         "select-all": "Select All",
         "all": "All"
       },
       "enter-keyword": "Enter keyword here",
       "keyword-search-title": "Search by keyword",
-      "grid":{
-        "columns":{
+      "grid": {
+        "columns": {
           "number": "Order ID",
           "status": "Status",
           "createdDate": "Date",
@@ -105,9 +105,20 @@
         "quantity": "Quantity:"
       }
     },
-    "users":{
-      "grid":{
-        "columns": {}
+    "users": {
+      "grid": {
+        "columns": {
+          "userName": "Account",
+          "firstName": "First name",
+          "lastName": "Last name",
+          "approvalRole": "Workflow Role",
+          "role_name": "System Role",
+          "email": "Email",
+          "phoneNumber": "Phone",
+          "actions": "Actions"
+        },
+        "text-above": "",
+        "text-below": ""
       }
     }
   }
