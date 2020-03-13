@@ -84,7 +84,7 @@
           @blur.native="$v.user.role.$touch()">
           <template v-slot:first>
             <b-form-select-option
-              value
+              value=""
               disabled>
               {{ $t("account.users.add-user.role-default-placeholder") }}
             </b-form-select-option>
