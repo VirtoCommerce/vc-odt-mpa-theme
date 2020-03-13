@@ -89,11 +89,11 @@
               {{ $t("account.users.add-user.role-default-placeholder") }}
             </b-form-select-option>
           </template>
-          <b-form-select-option value="store-admin">
+          <b-form-select-option value="Store administrator">
             {{ $t("account.users.add-user.account-admin") }}
           </b-form-select-option>
           <b-form-select-option
-            value="store-manager">
+            value="Store manager">
             {{ $t("account.users.add-user.business-user") }}
           </b-form-select-option>
         </b-form-select>
