@@ -272,7 +272,6 @@ export default class AddUserModal extends Vue {
       password: this.user.password,
       role: this.user.role
     }
-    console.log(user);
     this.$bvModal.hide("addUserModal");
     this.$emit("userAdded", user);
     this.resetForm();
