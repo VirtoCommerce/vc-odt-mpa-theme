@@ -148,6 +148,20 @@
         "confirm-password-required": "Bestätigen Sie Ihr Passwort",
         "confirm-password-not-same": "Passwörter müssen identisch sein",
         "submit": "Einreichen"
+    },
+      "grid":{
+        "columns": {
+          "userName": "Konto",
+          "firstName": "Vorname",
+          "lastName": "Nachname",
+          "approvalRole": "Workflow-Rolle",
+          "role_name": "Systemrolle",
+          "email": "Email",
+          "phoneNumber": "Telefon",
+          "actions": "Aktionen"
+        },
+        "text-above": "",
+        "text-below": ""
       }
     }
   }
