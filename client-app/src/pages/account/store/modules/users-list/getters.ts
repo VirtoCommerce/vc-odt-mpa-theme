@@ -17,7 +17,7 @@ export const getters: GetterTree<UsersListState, RootState> = {
   userIsLoaded: (state: UsersListState): boolean => {
     return state.selectedUserIsLoaded;
   },
-  // activeKeyword: (state: UsersListState): string | undefined => {
-  //   return state.usersList.listConfig.filters.keyword;
-  // }
+  activeKeyword: (state: UsersListState): string | undefined => {
+    return state.usersList.listConfig.filters.keyword;
+  }
 };

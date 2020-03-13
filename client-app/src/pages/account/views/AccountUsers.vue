@@ -44,9 +44,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { LocaleMessages } from "vue-i18n";
 import { namespace } from "vuex-class";
-import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
 import { FETCH_USERS, SET_USERS_LIST_CONFIG } from "@account/store/modules/users-list/definitions";
 import { UsersList, UsersListConfig } from "@account/store/modules/users-list/types";
