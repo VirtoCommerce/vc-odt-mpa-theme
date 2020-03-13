@@ -1,10 +1,6 @@
 <template>
   <div class="mt-3">
     <loading :active.sync="isLoading"></loading>
-    <b-button v-b-modal.addUserModal>
-      Show Modal
-    </b-button>
-    <add-user-modal></add-user-modal>
     <fieldset>
       <div class="form-row form-group">
         <div class="col-md">
@@ -43,13 +39,10 @@ import Component from "vue-class-component";
 import { namespace } from 'vuex-class';
 import { FETCH_PROFILE, UPDATE_USER } from "@account/store/modules/profile/definitions";
 import { User, UserUpdateInfo } from "@common/api/api-clients";
-import AddUserModal from './AddUserModal.vue';
 
 const profileModule = namespace('profileModule');
 
-@Component({
-  components: {AddUserModal}
-})
+@Component
 export default class AccountInfo extends Vue {
   @profileModule.Getter('profile')
   profile!: User;

@@ -1,6 +1,6 @@
 import { MutationTree } from "vuex";
 import { UserSearchResult, User } from '@common/api/api-clients';
-import { FETCH_USERS, SET_USERS_LIST_CONFIG, FETCH_USER, CLEAR_SELECTED_USER } from "./definitions";
+import { FETCH_USERS, SET_USERS_LIST_CONFIG, FETCH_USER, CLEAR_SELECTED_USER, ADD_USER } from "./definitions";
 import { UsersListState, UsersListConfig } from "./types";
 
 export const SET_USERS = "setUsers";

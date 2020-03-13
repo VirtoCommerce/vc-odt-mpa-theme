@@ -120,7 +120,7 @@
         "text-above": "",
         "text-below": ""
       },
-      "add-user":{
+      "add-user": {
         "title": "New user",
         "required-field": "This field is required",
         "email-label": "Email",
@@ -129,10 +129,11 @@
         "email-not-valid": "Email is not valid",
         "first-name-label": "First Name",
         "first-name-placeholder": "Enter first name",
-        "first-name-required": "First Name is required",
         "last-name-label": "Last Name",
         "last-name-placeholder": "Enter last name",
-        "last-name-required": "Last Name is required",
+        "username-label": "User Name",
+        "username-placeholder": "Enter User Name",
+        "username-required": "User Name is required",
         "role-label": "Role",
         "role-default-placeholder": "Please select an option",
         "account-admin": "Account admin",
@@ -149,7 +150,8 @@
         "confirm-password-password-required": "Input password first",
         "confirm-password-required": "Confirm your password",
         "confirm-password-not-same": "Passwords must be identical",
-        "submit": "Submit"
+        "submit": "Submit",
+        "add-user": "Add user"
       }
     }
   }

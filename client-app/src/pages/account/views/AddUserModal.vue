@@ -8,7 +8,7 @@
     <b-form>
       <b-form-group :label="$t('account.users.add-user.email-label')"
                     label-for="email"
-                    label-cols-sm="4">
+                    label-cols-sm="3">
         <b-form-input
           id="email"
           v-model="$v.user.email.$model"
@@ -21,62 +21,61 @@
           {{ $t("account.users.add-user.required-field") }}
         </b-form-text>
         <div
-          v-if="!$v.user.email.required"
-          class="invalid-feedback">
-          {{ $t("account.users.add-user.email-required") }}
-        </div>
-        <div
           v-if="!$v.user.email.email"
           class="invalid-feedback">
           {{ $t("account.users.add-user.email-not-valid") }}
+        </div>
+        <div
+          v-if="!$v.user.email.required"
+          class="invalid-feedback">
+          {{ $t("account.users.add-user.email-required") }}
         </div>
       </b-form-group>
 
       <b-form-group :label="$t('account.users.add-user.first-name-label')"
                     label-for="firstName"
-                    label-cols-sm="4">
+                    label-cols-sm="3">
         <b-form-input
           id="firstName"
-          v-model="$v.user.firstName.$model"
+          v-model="user.firstName"
           type="text"
-          :class="{ 'is-invalid': $v.user.firstName.$error }"
-          :placeholder="$t('account.users.add-user.first-name-placeholder')"
-          aria-describedby="firstName-help-block"
-          @blur="$v.user.firstName.$touch()"></b-form-input>
-        <b-form-text v-if="!$v.user.firstName.$dirty" id="firstName-help-block">
-          {{ $t("account.users.add-user.required-field") }}
-        </b-form-text>
-        <div
-          v-if="!$v.user.firstName.required"
-          class="invalid-feedback">
-          {{ $t("account.users.add-user.first-name-required") }}
-        </div>
+          :placeholder="$t('account.users.add-user.first-name-placeholder')"></b-form-input>
       </b-form-group>
 
       <b-form-group :label="$t('account.users.add-user.last-name-label')"
                     label-for="lastName"
-                    label-cols-sm="4">
+                    label-cols-sm="3">
         <b-form-input
           id="lastName"
-          v-model="$v.user.lastName.$model"
+          v-model="user.lastName"
           type="text"
-          :class="{ 'is-invalid': $v.user.lastName.$error }"
-          :placeholder="$t('account.users.add-user.last-name-placeholder')"
-          aria-describedby="lastName-help-block"
-          @blur="$v.user.lastName.$touch()"></b-form-input>
-        <b-form-text v-if="!$v.user.lastName.$dirty" id="lastName-help-block">
+          :placeholder="$t('account.users.add-user.last-name-placeholder')"></b-form-input>
+      </b-form-group>
+
+      <b-form-group :label="$t('account.users.add-user.username-label')"
+                    label-for="userName"
+                    label-cols-sm="3">
+        <b-form-input
+          id="userName"
+          v-model="$v.user.userName.$model"
+          :class="{ 'is-invalid': $v.user.userName.$error }"
+          type="text"
+          :placeholder="$t('account.users.add-user.username-placeholder')"
+          aria-describedby="userName-help-block"
+          @blur="$v.user.userName.$touch()"></b-form-input>
+        <b-form-text v-if="!$v.user.userName.$dirty" id="userName-help-block">
           {{ $t("account.users.add-user.required-field") }}
         </b-form-text>
         <div
-          v-if="!$v.user.lastName.required"
+          v-if="!$v.user.userName.required"
           class="invalid-feedback">
-          {{ $t("account.users.add-user.last-name-required") }}
+          {{ $t("account.users.add-user.username-required") }}
         </div>
       </b-form-group>
 
       <b-form-group :label="$t('account.users.add-user.role-label')"
                     label-for="role"
-                    label-cols-sm="4">
+                    label-cols-sm="3">
         <b-form-select
           id="role"
           v-model="$v.user.role.$model"
@@ -110,7 +109,7 @@
 
       <b-form-group :label="$t('account.users.add-user.password-label')"
                     label-for="password"
-                    label-cols-sm="4">
+                    label-cols-sm="3">
         <b-input-group>
           <b-form-input
             id="password"
@@ -209,12 +208,12 @@ import Component from "vue-class-component";
 import { Validation } from "vuelidate"; //Don't remove this import
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { required, email, minLength, sameAs } from "vuelidate/lib/validators";
+import { AddUserForm } from "@account/store/modules/users-list/types";
 
 @Component({
   validations: {
     user: {
-      firstName: { required },
-      lastName: { required },
+      userName: { required },
       email: { required, email },
       role: { required },
       password: {
@@ -239,6 +238,7 @@ export default class AddUserModal extends Vue {
   user = {
     firstName: "",
     lastName: "",
+    userName: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -249,6 +249,7 @@ export default class AddUserModal extends Vue {
     this.user.email = "";
     this.user.firstName = "";
     this.user.lastName = "";
+    this.user.userName = "";
     this.user.role = "";
     this.user.password = "";
     this.user.confirmPassword = "";
@@ -263,9 +264,17 @@ export default class AddUserModal extends Vue {
   }
 
   submitForm() {
+    const user: AddUserForm = {
+      firstName: this.user.firstName,
+      lastName: this.user.lastName,
+      email: this.user.email,
+      userName: this.user.userName,
+      password: this.user.password,
+      role: this.user.role
+    }
+    console.log(user);
     this.$bvModal.hide("addUserModal");
-    //todo: emit user object to parent component
-    console.log(this.user);
+    this.$emit("userAdded", user);
     this.resetForm();
   }
 }

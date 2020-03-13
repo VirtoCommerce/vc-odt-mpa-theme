@@ -70,15 +70,15 @@
       "reset": "Zurücksetzen",
       "date-error": "Das Startdatum sollte vor dem Enddatum liegen",
       "no-orders": "Sie haben keine Bestellungen aufgegeben",
-      "status-filter":{
+      "status-filter": {
         "filter-by": "Nach Status filtern",
         "select-all": "Wählen Sie Alle",
         "all": "Alle"
       },
       "enter-keyword": "Suchbegriff eingeben",
       "keyword-search-title": "Über Schlüsselwort suchen",
-      "grid":{
-        "columns":{
+      "grid": {
+        "columns": {
           "number": "Auftragsnummer",
           "status": "Status",
           "createdDate": "Datum",
@@ -118,19 +118,20 @@
       }
     },
     "users": {
-      "add-user":{
+      "add-user": {
         "title": "Neuer Benutzer",
         "required-field": "Dieses Feld wird benötigt",
         "email-label": "Email",
         "email-placeholder": "Email eingeben",
-        "email-required": "E-Mail ist erforderlich",
+        "email-required": "Email ist erforderlich",
         "email-not-valid": "Email ist ungültig",
         "first-name-label": "Vorname",
         "first-name-placeholder": "Bitte Vornamen eingeben",
-        "first-name-required": "Vorname ist erforderlich",
         "last-name-label": "Nachname",
         "last-name-placeholder": "Nachnamen eingeben",
-        "last-name-required": "Nachname ist erforderlich",
+        "username-label": "Nutzername",
+        "username-placeholder": "Geben Sie den Benutzernamen ein",
+        "username-required": "Ein Benutzername ist erforderlich",
         "role-label": "Rolle",
         "role-default-placeholder": "Bitte wähle eine Option",
         "account-admin": "Kontoadministrator",
@@ -147,9 +148,10 @@
         "confirm-password-password-required": "Geben Sie zuerst das Passwort ein",
         "confirm-password-required": "Bestätigen Sie Ihr Passwort",
         "confirm-password-not-same": "Passwörter müssen identisch sein",
-        "submit": "Einreichen"
-    },
-      "grid":{
+        "submit": "Einreichen",
+        "add-user": "Add user"
+      },
+      "grid": {
         "columns": {
           "userName": "Konto",
           "firstName": "Vorname",

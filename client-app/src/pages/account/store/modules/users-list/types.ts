@@ -20,6 +20,15 @@ export interface UsersList {
   totalCount: number;
 }
 
+export interface AddUserForm {
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  userName: string;
+  password: string;
+  role: string;
+}
+
 // state type
 export interface UsersListState {
   // todo: replace with real errors model
