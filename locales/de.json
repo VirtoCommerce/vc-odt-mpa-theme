@@ -119,7 +119,8 @@
     },
     "users": {
       "add-user":{
-        "title": "Neuen Benutzer hinzufügen",
+        "title": "Neuer Benutzer",
+        "required-field": "Dieses Feld wird benötigt",
         "email-label": "Email",
         "email-placeholder": "Email eingeben",
         "email-required": "E-Mail ist erforderlich",
@@ -146,7 +147,6 @@
         "confirm-password-password-required": "Geben Sie zuerst das Passwort ein",
         "confirm-password-required": "Bestätigen Sie Ihr Passwort",
         "confirm-password-not-same": "Passwörter müssen identisch sein",
-        "reset": "Zurücksetzen",
         "submit": "Einreichen"
       }
     }

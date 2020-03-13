@@ -110,7 +110,8 @@
         "columns": {}
       },
       "add-user":{
-        "title": "Add new user",
+        "title": "New user",
+        "required-field": "This field is required",
         "email-label": "Email",
         "email-placeholder": "Enter email",
         "email-required": "Email is required",
@@ -137,7 +138,6 @@
         "confirm-password-password-required": "Input password first",
         "confirm-password-required": "Confirm your password",
         "confirm-password-not-same": "Passwords must be identical",
-        "reset": "Reset",
         "submit": "Submit"
       }
     }
