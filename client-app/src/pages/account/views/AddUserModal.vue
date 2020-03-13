@@ -1,7 +1,7 @@
 <template>
   <b-modal id="addUserModal"
            no-close-on-backdrop
-           @close="resetForm">
+           @hide="resetForm">
     <div slot="modal-title">
       {{ $t("account.users.add-user.title") }}
     </div>
@@ -274,7 +274,6 @@ export default class AddUserModal extends Vue {
     }
     this.$bvModal.hide("addUserModal");
     this.$emit("userAdded", user);
-    this.resetForm();
   }
 }
 </script>
