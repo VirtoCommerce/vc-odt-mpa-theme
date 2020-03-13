@@ -1,7 +1,10 @@
 <template>
   <div>
     <loading :active.sync="isLoading"></loading>
-    <div v-if="!isLoading">
+    <users-filter class="mt-3"
+                  :users-filter="usersList.listConfig.filters"
+                  @filtersChanged="filtersChanged"></users-filter>
+    <div v-if="!isLoading" class="mt-3">
       <p>{{ $t("account.users.grid.text-above") }}</p>
       <b-table
         id="users-table"
@@ -46,13 +49,19 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { namespace } from "vuex-class";
 import { BvTableCtxObject } from "bootstrap-vue";
+import UsersFilter from "@account/components/users-filter/index.vue";
 import { FETCH_USERS, SET_USERS_LIST_CONFIG } from "@account/store/modules/users-list/definitions";
-import { UsersList, UsersListConfig } from "@account/store/modules/users-list/types";
+import { UsersList, UsersListConfig , UsersListFilters } from "@account/store/modules/users-list/types";
 import { pageSizes, locale } from "@common/constants";
+
 
 const usersListModule = namespace("usersListModule");
 
-@Component
+@Component({
+  components: {
+    UsersFilter
+  }
+})
 export default class AccountUsers extends Vue {
   @usersListModule.Getter("usersList")
   private usersList!: UsersList;
@@ -88,6 +97,9 @@ export default class AccountUsers extends Vue {
     this.setListConfig(listConfig);
   }
 
+  filtersChanged(filters: UsersListFilters) {
+    this.setListConfig({ ...this.usersList.listConfig, filters });
+  }
 
 }
 </script>
