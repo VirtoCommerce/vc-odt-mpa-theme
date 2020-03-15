@@ -81,6 +81,7 @@
           v-model="$v.user.role.$model"
           :class="{ 'is-invalid': $v.user.role.$error }"
           aria-describedby="role-help-block"
+          plain
           @blur.native="$v.user.role.$touch()">
           <template v-slot:first>
             <b-form-select-option
