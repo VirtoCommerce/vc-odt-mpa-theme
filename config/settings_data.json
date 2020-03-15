@@ -22,6 +22,15 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber"
       ]
     },
     "Gray": {
@@ -45,6 +54,15 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber"
       ]
     },
     "Green": {
@@ -68,6 +86,15 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber"
       ]
     },
     "Red": {
@@ -91,6 +118,15 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber"
       ]
     },
     "Yellow": {
@@ -114,6 +150,15 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber"
       ]
     },
     "Cyan": {
@@ -137,6 +182,15 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber"
       ]
     },
     "Light Gray": {
@@ -160,6 +214,15 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber"
       ]
     },
     "Dark": {
@@ -183,6 +246,15 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber"
       ]
     }
   }
