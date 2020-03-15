@@ -60,6 +60,7 @@ import { namespace } from "vuex-class";
 import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
+import UsersFilter from "@account/components/users-filter/index.vue";
 import { FETCH_USERS, SET_USERS_LIST_CONFIG, DELETE_USER } from "@account/store/modules/users-list/definitions";
 import { UsersList, UsersListConfig, UsersListFilters} from "@account/store/modules/users-list/types";
 import { pageSizes, locale } from "@common/constants";
@@ -67,7 +68,11 @@ import { User } from "../../../common/api/api-clients";
 
 const usersListModule = namespace("usersListModule");
 
-@Component
+@Component({
+  components: {
+    UsersFilter
+  }
+})
 export default class AccountUsers extends Vue {
   @usersListModule.Getter("usersList")
   private usersList!: UsersList;
