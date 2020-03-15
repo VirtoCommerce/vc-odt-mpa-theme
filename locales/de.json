@@ -119,6 +119,9 @@
       }
     },
     "users":{
+      "no-users": "Keine Benutzer",
+      "enter-keyword": "Suchbegriff eingeben",
+      "keyword-search-title": "Über Schlüsselwort suchen",
       "grid":{
         "columns": {
           "userName": "Konto",

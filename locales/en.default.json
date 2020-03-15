@@ -106,6 +106,9 @@
       }
     },
     "users": {
+      "no-users": "No users",
+      "enter-keyword": "Enter keyword here",
+      "keyword-search-title": "Search by keyword",
       "grid": {
         "columns": {
           "userName": "Account",
@@ -117,8 +120,6 @@
           "phoneNumber": "Phone",
           "actions": "Actions"
         },
-        "edit": "Edit",
-        "delete": "Delete",
         "text-above": "",
         "text-below": ""
       },

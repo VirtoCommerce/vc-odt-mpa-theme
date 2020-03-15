@@ -1,7 +1,10 @@
 <template>
   <div>
     <loading :active.sync="isLoading"></loading>
-    <div v-if="!isLoading">
+    <users-filter class="mt-3"
+                  :users-filter="usersList.listConfig.filters"
+                  @filtersChanged="filtersChanged"></users-filter>
+    <div v-if="!isLoading" class="mt-3">
       <p>{{ $t("account.users.grid.text-above") }}</p>
       <b-table
         id="users-table"
@@ -58,7 +61,7 @@ import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
 import { FETCH_USERS, SET_USERS_LIST_CONFIG, DELETE_USER } from "@account/store/modules/users-list/definitions";
-import { UsersList, UsersListConfig } from "@account/store/modules/users-list/types";
+import { UsersList, UsersListConfig, UsersListFilters} from "@account/store/modules/users-list/types";
 import { pageSizes, locale } from "@common/constants";
 import { User } from "../../../common/api/api-clients";
 
@@ -105,6 +108,10 @@ export default class AccountUsers extends Vue {
     const listConfig = { ...this.usersList.listConfig, pageNumber: 1 };
     listConfig.filters = { ...this.usersList.listConfig.filters, sort: sortExpression };
     this.setListConfig(listConfig);
+  }
+
+  filtersChanged(filters: UsersListFilters) {
+    this.setListConfig({ ...this.usersList.listConfig, filters });
   }
 
   confirmDeleteUser(user: User) {
