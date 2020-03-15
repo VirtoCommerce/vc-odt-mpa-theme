@@ -57,7 +57,8 @@
   "account": {
     "menu_titles": {
       "home": "Nutzerdetails",
-      "orders": "Aufträge"
+      "orders": "Aufträge",
+      "users": "Benutzer"
     },
     "home": {
       "email": "Email",
@@ -133,6 +134,11 @@
         "delete": "Löschen",
         "text-above": "",
         "text-below": ""
+      },
+      "confirm-delete-modal": {
+        "ok": "Ja",
+        "cancel": "Nein",
+        "message": "Bitte bestätigen Sie, dass Sie den Benutzer \"{0}\" löschen möchten."
       }
     }
   }

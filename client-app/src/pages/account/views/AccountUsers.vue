@@ -108,12 +108,24 @@ export default class AccountUsers extends Vue {
   }
 
   confirmDeleteUser(user: User) {
-    if(user === undefined) {
-      throw Error("");
-    }
-    this.deleteUser(user.id!);
+    this.$bvModal.msgBoxConfirm(i18n.t('account.users.confirm-delete-modal.message', [ user.userName ]) as string, {
+      size: 'md',
+      buttonSize: 'md',
+      okTitle: i18n.t('account.users.confirm-delete-modal.ok') as string,
+      cancelTitle: i18n.t('account.users.confirm-delete-modal.cancel') as string,
+      footerClass: 'p-2',
+      centered: true
+    })
+      .then(value => {
+        if(value) {
+          this.deleteUser(user.id!);
+        }
+      })
+      .catch(err => {
+        // An error occurred
+        console.log(err);
+      });
   }
-
 }
 </script>
 
