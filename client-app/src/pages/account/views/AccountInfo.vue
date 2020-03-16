@@ -1,7 +1,6 @@
 <template>
   <div class="mt-3">
     <loading :active.sync="isLoading"></loading>
-
     <fieldset>
       <div class="form-row form-group">
         <div class="col-md">

@@ -1,6 +1,10 @@
 <template>
-  <div>
+  <div class="mt-3">
     <loading :active.sync="isLoading"></loading>
+    <b-button v-b-modal.addUserModal variant="primary">
+      {{ $t("account.users.add-user.add-user") }}
+    </b-button>
+    <add-user-modal @userAdded="userAdded($event)"></add-user-modal>
     <users-filter class="mt-3"
                   :users-filter="usersList.listConfig.filters"
                   @filtersChanged="filtersChanged"></users-filter>
@@ -55,21 +59,25 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { LocaleMessages } from "vue-i18n";
 import { namespace } from "vuex-class";
 import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
 import UsersFilter from "@account/components/users-filter/index.vue";
-import { FETCH_USERS, SET_USERS_LIST_CONFIG, DELETE_USER } from "@account/store/modules/users-list/definitions";
+import { AddUser } from "@account/models/add-user";
+import { FETCH_PROFILE } from "@account/store/modules/profile/definitions";
+import { FETCH_USERS, SET_USERS_LIST_CONFIG, DELETE_USER, ADD_USER } from "@account/store/modules/users-list/definitions";
 import { UsersList, UsersListConfig, UsersListFilters} from "@account/store/modules/users-list/types";
-import { pageSizes, locale } from "@common/constants";
-import { User } from "../../../common/api/api-clients";
+import { User,OrganizationUserRegistration } from "@common/api/api-clients";
+import { pageSizes } from "@common/constants";
+import AddUserModal from './AddUserModal.vue';
 
 const usersListModule = namespace("usersListModule");
+const profileModule = namespace('profileModule');
 
 @Component({
   components: {
+    AddUserModal,
     UsersFilter
   }
 })
@@ -80,11 +88,20 @@ export default class AccountUsers extends Vue {
   @usersListModule.Getter("isLoading")
   private isLoading!: boolean;
 
+  @profileModule.Getter('profile')
+  profile!: User;
+
+  @profileModule.Action(FETCH_PROFILE)
+  fetchProfile!: () => void;
+
   @usersListModule.Action(FETCH_USERS)
   private fetchUsers!: () => UsersList;
 
   @usersListModule.Action(SET_USERS_LIST_CONFIG)
   private setListConfig!: (listConfig: UsersListConfig) => void;
+
+  @usersListModule.Action(ADD_USER)
+  private addUser!: (user: OrganizationUserRegistration) => void;
 
   @usersListModule.Action(DELETE_USER)
   private deleteUser!: (userId: string) => void;
@@ -96,6 +113,7 @@ export default class AccountUsers extends Vue {
   deleteIcon = faTrashAlt;
 
   mounted() {
+    this.fetchProfile();
     this.fetchUsers();
   }
 
@@ -136,7 +154,15 @@ export default class AccountUsers extends Vue {
         }
       });
   }
+
+  userAdded(newUser: AddUser) {
+    if (this.profile.contact?.organizationId) {
+      const orgId: string = this.profile.contact.organizationId;
+      const registrUser = new OrganizationUserRegistration();
+      registrUser.init({...newUser, organizationId: orgId });
+      this.addUser(registrUser);
+    }
+
+  }
 }
 </script>
-
-<style></style>
