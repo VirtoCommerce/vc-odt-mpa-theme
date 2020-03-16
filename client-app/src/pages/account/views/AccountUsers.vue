@@ -1,7 +1,7 @@
 <template>
   <div class="mt-3">
     <loading :active.sync="isLoading"></loading>
-    <b-button v-b-modal.addUserModal>
+    <b-button v-b-modal.addUserModal variant="primary">
       {{ $t("account.users.add-user.add-user") }}
     </b-button>
     <add-user-modal @userAdded="userAdded($event)"></add-user-modal>
