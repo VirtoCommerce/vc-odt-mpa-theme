@@ -65,6 +65,7 @@ import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
 import AddUserModal from "@account/components/add-user-modal/index.vue";
+import EditUserModal from '@account/components/edit-user-modal/index.vue';
 import UsersFilter from "@account/components/users-filter/index.vue";
 import { AddUser } from "@account/models/add-user";
 import { FETCH_PROFILE } from "@account/store/modules/profile/definitions";
@@ -72,7 +73,6 @@ import { FETCH_USERS, SET_USERS_LIST_CONFIG, DELETE_USER, ADD_USER, UPDATE_USER 
 import { UsersList, UsersListConfig, UsersListFilters} from "@account/store/modules/users-list/types";
 import { User,OrganizationUserRegistration, UserUpdateInfo } from "@common/api/api-clients";
 import { pageSizes } from "@common/constants";
-import EditUserModal from './EditUserModal.vue';
 
 const usersListModule = namespace("usersListModule");
 const profileModule = namespace('profileModule');
