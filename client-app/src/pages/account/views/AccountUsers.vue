@@ -5,6 +5,7 @@
       {{ $t("account.users.add-user.add-user") }}
     </b-button>
     <add-user-modal @userAdded="userAdded($event)"></add-user-modal>
+    <edit-user-modal :user="selectedUser" @userChanged="userChanged($event)"></edit-user-modal>
     <users-filter class="mt-3"
                   :users-filter="usersList.listConfig.filters"
                   @filtersChanged="filtersChanged"></users-filter>
@@ -22,7 +23,7 @@
         no-local-sorting
         @sort-changed="sortChanged">
         <template v-slot:cell(actions)="row">
-          <font-awesome-layers class="mr-3 btn" @click="editUser(row.item)">
+          <font-awesome-layers class="mr-3 btn" @click="openEditUserModal(row.item)">
             <font-awesome-icon :icon="editIcon" size="lg"></font-awesome-icon>
           </font-awesome-layers>
           <font-awesome-layers class="btn" @click="confirmDeleteUser(row.item)">
@@ -66,11 +67,12 @@ import { BvTableCtxObject } from "bootstrap-vue";
 import UsersFilter from "@account/components/users-filter/index.vue";
 import { AddUser } from "@account/models/add-user";
 import { FETCH_PROFILE } from "@account/store/modules/profile/definitions";
-import { FETCH_USERS, SET_USERS_LIST_CONFIG, DELETE_USER, ADD_USER } from "@account/store/modules/users-list/definitions";
+import { FETCH_USERS, SET_USERS_LIST_CONFIG, DELETE_USER, ADD_USER, UPDATE_USER } from "@account/store/modules/users-list/definitions";
 import { UsersList, UsersListConfig, UsersListFilters} from "@account/store/modules/users-list/types";
-import { User,OrganizationUserRegistration } from "@common/api/api-clients";
+import { User,OrganizationUserRegistration, UserUpdateInfo } from "@common/api/api-clients";
 import { pageSizes } from "@common/constants";
 import AddUserModal from './AddUserModal.vue';
+import EditUserModal from './EditUserModal.vue';
 
 const usersListModule = namespace("usersListModule");
 const profileModule = namespace('profileModule');
@@ -78,7 +80,8 @@ const profileModule = namespace('profileModule');
 @Component({
   components: {
     AddUserModal,
-    UsersFilter
+    UsersFilter,
+    EditUserModal
   }
 })
 export default class AccountUsers extends Vue {
@@ -106,11 +109,16 @@ export default class AccountUsers extends Vue {
   @usersListModule.Action(DELETE_USER)
   private deleteUser!: (userId: string) => void;
 
+  @usersListModule.Action(UPDATE_USER)
+  private updateUser!: (user: UserUpdateInfo) => void;
+
   pageSizes = pageSizes;
 
   editIcon = faEdit
 
   deleteIcon = faTrashAlt;
+
+  selectedUser: User | null  = null;
 
   mounted() {
     this.fetchProfile();
@@ -135,6 +143,11 @@ export default class AccountUsers extends Vue {
 
   filtersChanged(filters: UsersListFilters) {
     this.setListConfig({ ...this.usersList.listConfig, filters });
+  }
+
+  openEditUserModal(user: User) {
+    this.selectedUser = user;
+    this.$bvModal.show("editUserModal");
   }
 
   confirmDeleteUser(user: User) {
@@ -162,7 +175,11 @@ export default class AccountUsers extends Vue {
       registrUser.init({...newUser, organizationId: orgId });
       this.addUser(registrUser);
     }
-
   }
+
+  userChanged(updatedUser: UserUpdateInfo) {
+    this.updateUser(updatedUser);
+  }
+
 }
 </script>
