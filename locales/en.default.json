@@ -109,6 +109,7 @@
       "no-users": "No users",
       "enter-keyword": "Enter keyword here",
       "keyword-search-title": "Search by keyword",
+      "edit-user-title": "Edit user",
       "grid": {
         "columns": {
           "userName": "Account",
