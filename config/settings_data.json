@@ -30,7 +30,8 @@
         "approvalRole",
         "role.name",
         "email",
-        "phoneNumber"
+        "phoneNumber",
+        "actions"
       ]
     },
     "Gray": {
@@ -62,7 +63,8 @@
         "approvalRole",
         "role.name",
         "email",
-        "phoneNumber"
+        "phoneNumber",
+        "actions"
       ]
     },
     "Green": {
@@ -94,7 +96,8 @@
         "approvalRole",
         "role.name",
         "email",
-        "phoneNumber"
+        "phoneNumber",
+        "actions"
       ]
     },
     "Red": {
@@ -126,7 +129,8 @@
         "approvalRole",
         "role.name",
         "email",
-        "phoneNumber"
+        "phoneNumber",
+        "actions"
       ]
     },
     "Yellow": {
@@ -158,7 +162,8 @@
         "approvalRole",
         "role.name",
         "email",
-        "phoneNumber"
+        "phoneNumber",
+        "actions"
       ]
     },
     "Cyan": {
@@ -190,7 +195,8 @@
         "approvalRole",
         "role.name",
         "email",
-        "phoneNumber"
+        "phoneNumber",
+        "actions"
       ]
     },
     "Light Gray": {
@@ -222,7 +228,8 @@
         "approvalRole",
         "role.name",
         "email",
-        "phoneNumber"
+        "phoneNumber",
+        "actions"
       ]
     },
     "Dark": {
@@ -254,7 +261,8 @@
         "approvalRole",
         "role.name",
         "email",
-        "phoneNumber"
+        "phoneNumber",
+        "actions"
       ]
     }
   }

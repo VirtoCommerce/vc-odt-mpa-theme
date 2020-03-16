@@ -17,6 +17,14 @@
         :fields="usersList.listConfig.columns"
         no-local-sorting
         @sort-changed="sortChanged">
+        <template v-slot:cell(actions)="row">
+          <font-awesome-layers class="mr-3 btn" @click="editUser(row.item)">
+            <font-awesome-icon :icon="editIcon" size="lg"></font-awesome-icon>
+          </font-awesome-layers>
+          <font-awesome-layers class="btn" @click="confirmDeleteUser(row.item)">
+            <font-awesome-icon :icon="deleteIcon" size="lg"></font-awesome-icon>
+          </font-awesome-layers>
+        </template>
       </b-table>
 
       <div class="d-flex justify-content-between">
@@ -47,13 +55,16 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { LocaleMessages } from "vue-i18n";
 import { namespace } from "vuex-class";
+import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
 import UsersFilter from "@account/components/users-filter/index.vue";
-import { FETCH_USERS, SET_USERS_LIST_CONFIG } from "@account/store/modules/users-list/definitions";
-import { UsersList, UsersListConfig , UsersListFilters } from "@account/store/modules/users-list/types";
+import { FETCH_USERS, SET_USERS_LIST_CONFIG, DELETE_USER } from "@account/store/modules/users-list/definitions";
+import { UsersList, UsersListConfig, UsersListFilters} from "@account/store/modules/users-list/types";
 import { pageSizes, locale } from "@common/constants";
-
+import { User } from "../../../common/api/api-clients";
 
 const usersListModule = namespace("usersListModule");
 
@@ -75,7 +86,14 @@ export default class AccountUsers extends Vue {
   @usersListModule.Action(SET_USERS_LIST_CONFIG)
   private setListConfig!: (listConfig: UsersListConfig) => void;
 
+  @usersListModule.Action(DELETE_USER)
+  private deleteUser!: (userId: string) => void;
+
   pageSizes = pageSizes;
+
+  editIcon = faEdit
+
+  deleteIcon = faTrashAlt;
 
   mounted() {
     this.fetchUsers();
@@ -101,6 +119,23 @@ export default class AccountUsers extends Vue {
     this.setListConfig({ ...this.usersList.listConfig, filters });
   }
 
+  confirmDeleteUser(user: User) {
+    this.$bvModal.msgBoxConfirm(i18n.t('account.users.confirm-delete-modal.message', [ user.userName ]) as string, {
+      size: 'md',
+      buttonSize: 'md',
+      title: i18n.t('account.users.confirm-delete-modal.title') as string,
+      okTitle: i18n.t('account.users.confirm-delete-modal.ok') as string,
+      cancelTitle: i18n.t('account.users.confirm-delete-modal.cancel') as string,
+      footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
+      hideHeaderClose: false,
+      centered: true
+    })
+      .then(value => {
+        if(value) {
+          this.deleteUser(user.id!);
+        }
+      });
+  }
 }
 </script>
 
