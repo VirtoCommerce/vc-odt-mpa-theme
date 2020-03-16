@@ -139,9 +139,10 @@
         "text-below": ""
       },
       "confirm-delete-modal": {
+        "title": "Benutzer löschen",
         "ok": "Ja",
         "cancel": "Nein",
-        "message": "Bitte bestätigen Sie, dass Sie den Benutzer \"{0}\" löschen möchten."
+        "message": "Möchten Sie den Benutzer \"{0}\" wirklich löschen?"
       }
     }
   }

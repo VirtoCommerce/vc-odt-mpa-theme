@@ -124,9 +124,10 @@
         "text-below": ""
       },
       "confirm-delete-modal": {
+        "title": "Delete user",
         "ok": "YES",
         "cancel": "NO",
-        "message": "Please confirm that you want to delete the user \"{0}\"."
+        "message": "Are you sure you want to delete \"{0}\" user?"
       }
     }
   }
