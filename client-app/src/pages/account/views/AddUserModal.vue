@@ -55,7 +55,6 @@
           :class="{ 'is-invalid': $v.user.userName.$error }"
           type="text"
           :placeholder="$t('account.users.add-user.username-placeholder')"
-          aria-describedby="userName-help-block"
           @blur="$v.user.userName.$touch()"></b-form-input>
         <b-form-invalid-feedback v-if="!$v.user.userName.required">
           {{ $t("account.users.add-user.username-required") }}
@@ -68,7 +67,6 @@
           id="role"
           v-model="$v.user.role.$model"
           :class="{ 'is-invalid': $v.user.role.$error }"
-          aria-describedby="role-help-block"
           plain
           @blur.native="$v.user.role.$touch()">
           <template v-slot:first>
@@ -100,7 +98,6 @@
             :type="passwordFieldType"
             :class="{ 'is-invalid': $v.user.password.$error }"
             :placeholder="$t('account.users.add-user.password-placeholder')"
-            aria-describedby="password-help-block"
             @blur="$v.user.password.$touch()"></b-form-input>
           <b-input-group-append is-text>
             <font-awesome-layers @click="switchPasswordVisibility">
@@ -133,7 +130,6 @@
             :type="passwordFieldType"
             :class="{ 'is-invalid': $v.user.confirmPassword.$error }"
             :placeholder="$t('account.users.add-user.confirm-password-placeholder')"
-            aria-describedby="confirmPassword-help-block"
             @blur="$v.user.confirmPassword.$touch()"></b-form-input>
           <b-input-group-append is-text>
             <font-awesome-layers @click="switchPasswordVisibility">
