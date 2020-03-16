@@ -7,34 +7,27 @@
     </div>
     <b-form>
       <b-form-group :label="$t('account.users.add-user.email-label')"
-                    label-for="email"
-                    label-cols-sm="3">
+                    label-for="email">
         <b-form-input
           id="email"
           v-model="$v.user.email.$model"
           type="email"
           :class="{ 'is-invalid': $v.user.email.$error }"
           :placeholder="$t('account.users.add-user.email-placeholder')"
-          aria-describedby="email-help-block"
           @blur="$v.user.email.$touch()"></b-form-input>
-        <b-form-text v-if="!$v.user.email.$dirty" id="email-help-block">
-          {{ $t("account.users.add-user.required-field") }}
-        </b-form-text>
-        <div
-          v-if="!$v.user.email.email"
-          class="invalid-feedback">
+        <b-form-invalid-feedback v-if="!$v.user.email.email">
           {{ $t("account.users.add-user.email-not-valid") }}
-        </div>
-        <div
-          v-if="!$v.user.email.required"
-          class="invalid-feedback">
+        </b-form-invalid-feedback>
+        <b-form-invalid-feedback v-if="!$v.user.email.required">
           {{ $t("account.users.add-user.email-required") }}
-        </div>
+        </b-form-invalid-feedback>
       </b-form-group>
 
-      <b-form-group :label="$t('account.users.add-user.first-name-label')"
-                    label-for="firstName"
-                    label-cols-sm="3">
+      <b-form-group
+        label-for="firstName">
+        <template v-slot:label>
+          {{ $t("account.users.add-user.first-name-label") }} - <span class="font-italic">{{ $t("account.users.add-user.optional") }}</span>
+        </template>
         <b-form-input
           id="firstName"
           v-model="user.firstName"
@@ -42,9 +35,11 @@
           :placeholder="$t('account.users.add-user.first-name-placeholder')"></b-form-input>
       </b-form-group>
 
-      <b-form-group :label="$t('account.users.add-user.last-name-label')"
-                    label-for="lastName"
-                    label-cols-sm="3">
+      <b-form-group
+        label-for="lastName">
+        <template v-slot:label>
+          {{ $t("account.users.add-user.last-name-label") }} - <span class="font-italic">{{ $t("account.users.add-user.optional") }}</span>
+        </template>
         <b-form-input
           id="lastName"
           v-model="user.lastName"
@@ -53,8 +48,7 @@
       </b-form-group>
 
       <b-form-group :label="$t('account.users.add-user.username-label')"
-                    label-for="userName"
-                    label-cols-sm="3">
+                    label-for="userName">
         <b-form-input
           id="userName"
           v-model="$v.user.userName.$model"
@@ -63,19 +57,13 @@
           :placeholder="$t('account.users.add-user.username-placeholder')"
           aria-describedby="userName-help-block"
           @blur="$v.user.userName.$touch()"></b-form-input>
-        <b-form-text v-if="!$v.user.userName.$dirty" id="userName-help-block">
-          {{ $t("account.users.add-user.required-field") }}
-        </b-form-text>
-        <div
-          v-if="!$v.user.userName.required"
-          class="invalid-feedback">
+        <b-form-invalid-feedback v-if="!$v.user.userName.required">
           {{ $t("account.users.add-user.username-required") }}
-        </div>
+        </b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group :label="$t('account.users.add-user.role-label')"
-                    label-for="role"
-                    label-cols-sm="3">
+                    label-for="role">
         <b-form-select
           id="role"
           v-model="$v.user.role.$model"
@@ -98,19 +86,13 @@
             {{ $t("account.users.add-user.business-user") }}
           </b-form-select-option>
         </b-form-select>
-        <b-form-text v-if="!$v.user.role.$dirty" id="role-help-block">
-          {{ $t("account.users.add-user.required-field") }}
-        </b-form-text>
-        <div
-          v-if="!$v.user.role.required"
-          class="invalid-feedback">
+        <b-form-invalid-feedback v-if="!$v.user.role.required">
           {{ $t("account.users.add-user.role-required") }}
-        </div>
+        </b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group :label="$t('account.users.add-user.password-label')"
-                    label-for="password"
-                    label-cols-sm="3">
+                    label-for="password">
         <b-input-group>
           <b-form-input
             id="password"
@@ -126,36 +108,24 @@
               <font-awesome-icon v-if="passwordFieldType === 'text'" :icon="eyeSlashIcon"></font-awesome-icon>
             </font-awesome-layers>
           </b-input-group-append>
-          <div
-            v-if="!$v.user.password.required"
-            class="invalid-feedback">
+          <b-form-invalid-feedback v-if="!$v.user.password.required">
             {{ $t("account.users.add-user.password-required") }}
-          </div>
-          <div
-            v-if="!$v.user.password.minLength"
-            class="invalid-feedback">
+          </b-form-invalid-feedback>
+          <b-form-invalid-feedback v-if="!$v.user.password.minLength">
             {{ $t('account.users.add-user.password-length-error', [$v.user.password.$params.minLength.min]) }}
-          </div>
-          <div
-            v-if="!$v.user.password.containsUppercase && $v.user.password.$model.length >= 1"
-            class="invalid-feedback">
+          </b-form-invalid-feedback>
+          <b-form-invalid-feedback v-if="!$v.user.password.containsUppercase && $v.user.password.$model.length >= 1">
             {{ $t("account.users.add-user.password-uppercase-error") }}
-          </div>
-          <div
-            v-if="!$v.user.password.containsLowercase && $v.user.password.$model.length >= 1"
-            class="invalid-feedback">
+          </b-form-invalid-feedback>
+          <b-form-invalid-feedback v-if="!$v.user.password.containsLowercase && $v.user.password.$model.length >= 1">
             {{ $t("account.users.add-user.password-lowercase-error") }}
-          </div>
+          </b-form-invalid-feedback>
         </b-input-group>
-        <b-form-text v-if="!$v.user.password.$dirty" id="password-help-block">
-          {{ $t("account.users.add-user.required-field") }}
-        </b-form-text>
       </b-form-group>
 
       <b-form-group
         :label="$t('account.users.add-user.confirm-password-label')"
-        label-for="confirmPassword"
-        label-cols-sm="4">
+        label-for="confirmPassword">
         <b-input-group>
           <b-form-input
             id="confirmPassword"
@@ -171,25 +141,16 @@
               <font-awesome-icon v-if="passwordFieldType === 'text'" :icon="eyeSlashIcon"></font-awesome-icon>
             </font-awesome-layers>
           </b-input-group-append>
-          <div
-            v-if="!$v.user.password.$dirty && !$v.user.confirmPassword.required"
-            class="invalid-feedback">
+          <b-form-invalid-feedback v-if="!$v.user.password.$dirty && !$v.user.confirmPassword.required">
             {{ $t("account.users.add-user.confirm-password-password-required") }}
-          </div>
-          <div
-            v-if="$v.user.password.$dirty && !$v.user.confirmPassword.required"
-            class="invalid-feedback">
+          </b-form-invalid-feedback>
+          <b-form-invalid-feedback v-if="$v.user.password.$dirty && !$v.user.confirmPassword.required">
             {{ $t("account.users.add-user.confirm-password-required") }}
-          </div>
-          <div
-            v-if="$v.user.password.$dirty && !$v.user.confirmPassword.sameAsPassword"
-            class="invalid-feedback">
+          </b-form-invalid-feedback>
+          <b-form-invalid-feedback v-if="$v.user.password.$dirty && !$v.user.confirmPassword.sameAsPassword">
             {{ $t("account.users.add-user.confirm-password-not-same") }}
-          </div>
+          </b-form-invalid-feedback>
         </b-input-group>
-        <b-form-text v-if="!$v.user.confirmPassword.$dirty" id="confirmPassword-help-block">
-          {{ $t("account.users.add-user.required-field") }}
-        </b-form-text>
       </b-form-group>
     </b-form>
     <template v-slot:modal-footer>
