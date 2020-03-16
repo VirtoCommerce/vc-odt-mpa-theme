@@ -64,7 +64,7 @@ import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG } from "@account/store/modules/ord
 import { OrdersList, OrdersListConfig, OrdersListFilters } from "@account/store/modules/orders-list/types";
 import { CustomerOrder } from "@common/api/api-clients";
 import { pageSizes, ordersStatuses } from "@common/constants";
-import AccountOrderDetailsModal from "./AccountOrderDetailsModal.vue";
+import AccountOrderDetailsModal from "./account-order-details-modal/index.vue";
 
 const ordersListModule = namespace("ordersListModule");
 

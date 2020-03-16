@@ -31,16 +31,4 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { Prop } from "vue-property-decorator";
-import { CustomerOrder } from "@common/api/api-clients";
-
-@Component
-export default class OrderDetailsTotals extends Vue {
-  @Prop()
-  order!: CustomerOrder;
-
-}
-</script>
+<script lang="ts" src="./order-details-totals"></script>
