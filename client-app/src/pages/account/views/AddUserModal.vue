@@ -170,7 +170,7 @@ import Component from "vue-class-component";
 import { Validation } from "vuelidate"; //Don't remove this import
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { required, email, minLength, sameAs } from "vuelidate/lib/validators";
-import { AddUserForm } from "@account/store/modules/users-list/types";
+import { AddUser } from "@account/models/add-user";
 
 @Component({
   validations: {
@@ -196,25 +196,10 @@ export default class AddUserModal extends Vue {
   eyeIcon = faEye;
   eyeSlashIcon = faEyeSlash;
   passwordFieldType = "password";
-
-  user = {
-    firstName: "",
-    lastName: "",
-    userName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    role: ""
-  };
+  user: AddUser = new AddUser();
 
   resetForm() {
-    this.user.email = "";
-    this.user.firstName = "";
-    this.user.lastName = "";
-    this.user.userName = "";
-    this.user.role = "";
-    this.user.password = "";
-    this.user.confirmPassword = "";
+    this.user = new AddUser();
     this.$nextTick(() => {
       this.$v.$reset();
     });
@@ -226,12 +211,13 @@ export default class AddUserModal extends Vue {
   }
 
   submitForm() {
-    const user: AddUserForm = {
+    const user: AddUser = {
       firstName: this.user.firstName,
       lastName: this.user.lastName,
       email: this.user.email,
       userName: this.user.userName,
       password: this.user.password,
+      confirmPassword: this.user.confirmPassword,
       role: this.user.role
     }
     this.$bvModal.hide("addUserModal");
