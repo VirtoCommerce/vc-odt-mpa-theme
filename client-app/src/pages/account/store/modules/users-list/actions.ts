@@ -3,7 +3,7 @@ import { OrganizationContactsSearchCriteria, OrganizationUserRegistration } from
 import { storeName, locale } from '@common/constants';
 import { accountClient} from '@common/services/api-clients.service';
 import { RootState } from "../../types";
-import { FETCH_USERS, FETCH_USER, SET_USERS_LIST_CONFIG, CLEAR_SELECTED_USER, ADD_USER } from "./definitions";
+import { FETCH_USERS, FETCH_USER, SET_USERS_LIST_CONFIG, CLEAR_SELECTED_USER, ADD_USER, DELETE_USER } from "./definitions";
 import { SET_USERS, SET_USER } from "./mutations"
 import { UsersListState, UsersListConfig } from "./types";
 
@@ -35,6 +35,10 @@ export const actions: ActionTree<UsersListState, RootState> = {
   async [ADD_USER](context, payload: OrganizationUserRegistration) {
     context.commit(FETCH_USERS);
     await accountClient.registerUser(payload, storeName, locale);
+    context.dispatch(FETCH_USERS);
+  },
+  async [DELETE_USER](context, payload: string) {
+    await accountClient.deleteUser(payload, storeName, locale);
     context.dispatch(FETCH_USERS);
   }
 };

@@ -4,8 +4,8 @@ import Loading from 'vue-loading-overlay';
 import "vue-moment";
 import VueRx from "vue-rx";
 import Vuelidate from 'vuelidate';
-import { library, dom } from '@fortawesome/fontawesome-svg-core'
-import { faHeartBroken, faLock, faMeteor } from '@fortawesome/free-solid-svg-icons'
+import { library, dom } from '@fortawesome/fontawesome-svg-core';
+import { faHeartBroken, faLock, faMeteor } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
 import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin } from 'bootstrap-vue'

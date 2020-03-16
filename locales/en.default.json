@@ -106,6 +106,9 @@
       }
     },
     "users": {
+      "no-users": "No users",
+      "enter-keyword": "Enter keyword here",
+      "keyword-search-title": "Search by keyword",
       "grid": {
         "columns": {
           "userName": "Account",
@@ -119,6 +122,12 @@
         },
         "text-above": "",
         "text-below": ""
+      },
+      "confirm-delete-modal": {
+        "title": "Delete user",
+        "ok": "YES",
+        "cancel": "NO",
+        "message": "Are you sure you want to delete \"{0}\" user?"
       },
       "add-user": {
         "title": "New user",
