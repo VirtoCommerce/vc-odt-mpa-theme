@@ -32,6 +32,13 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
       ]
     },
     "Gray": {
@@ -65,6 +72,13 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
       ]
     },
     "Green": {
@@ -98,6 +112,13 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
       ]
     },
     "Red": {
@@ -131,6 +152,13 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
       ]
     },
     "Yellow": {
@@ -164,6 +192,13 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
       ]
     },
     "Cyan": {
@@ -197,6 +232,13 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
       ]
     },
     "Light Gray": {
@@ -230,6 +272,13 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
       ]
     },
     "Dark": {
@@ -263,6 +312,13 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
       ]
     }
   }

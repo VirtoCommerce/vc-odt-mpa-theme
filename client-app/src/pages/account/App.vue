@@ -26,6 +26,14 @@
           {{ $t('account.menu_titles.users') }}
         </router-link>
       </li>
+      <li class="nav-item">
+        <router-link to="payments"
+                     active-class="border-bottom-0 border-primary"
+                     tag="a"
+                     class="nav-link">
+          {{ $t('account.menu_titles.payments') }}
+        </router-link>
+      </li>
     </ul>
     <router-view></router-view>
   </div>

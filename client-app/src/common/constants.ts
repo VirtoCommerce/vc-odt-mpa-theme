@@ -15,3 +15,4 @@ export const ordersStatuses = ["New","Cancelled","Processing","Completed","Pendi
 
 export const ordersGridFields =  window.THEME_SETTINGS.orders_grid_fields as BvTableFieldArray;
 export const usersGridFields =  window.THEME_SETTINGS.users_grid_fields as BvTableFieldArray;
+export const paymentsGridFields = window.THEME_SETTINGS.payments_grid_fields as BvTableFieldArray;

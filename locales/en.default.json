@@ -58,7 +58,8 @@
     "menu_titles": {
       "home": "User Details",
       "orders": "Orders",
-      "users": "Users"
+      "users": "Users",
+      "payments": "Payments"
     },
     "home": {
       "email": "Email",
@@ -162,6 +163,20 @@
         "confirm-password-not-same": "Passwords must be identical",
         "submit": "Submit",
         "add-user": "Add user"
+      }
+    },
+    "payments": {
+      "no-payments": "No payments",
+      "grid": {
+        "columns": {
+          "number": "Payment ID",
+          "sum_formattedAmount": "Amount",
+          "gatewayCode": "Method",
+          "createdDate": "Date",
+          "currency_code": "Currency"
+        },
+        "text-above": "",
+        "text-below": ""
       }
     }
   }
