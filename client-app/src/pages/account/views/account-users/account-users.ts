@@ -1,69 +1,11 @@
-<template>
-  <div class="mt-3">
-    <loading :active.sync="isLoading"></loading>
-    <b-button v-b-modal.addUserModal variant="primary">
-      {{ $t("account.users.add-user.add-user") }}
-    </b-button>
-    <add-user-modal @userAdded="userAdded($event)"></add-user-modal>
-    <edit-user-modal :user="selectedUser" @userChanged="userChanged($event)"></edit-user-modal>
-    <users-filter class="mt-3"
-                  :users-filter="usersList.listConfig.filters"
-                  @filtersChanged="filtersChanged"></users-filter>
-    <div v-if="!isLoading" class="mt-3">
-      <p>{{ $t("account.users.grid.text-above") }}</p>
-      <b-table
-        id="users-table"
-        stacked="md"
-        striped
-        hover
-        :show-empty="true"
-        :empty-text="$t('account.users.no-users')"
-        :items="usersList.users"
-        :fields="usersList.listConfig.columns"
-        no-local-sorting
-        @sort-changed="sortChanged">
-        <template v-slot:cell(actions)="row">
-          <font-awesome-layers class="mr-3 btn" @click="openEditUserModal(row.item)">
-            <font-awesome-icon :icon="editIcon" size="lg"></font-awesome-icon>
-          </font-awesome-layers>
-          <font-awesome-layers class="btn" @click="confirmDeleteUser(row.item)">
-            <font-awesome-icon :icon="deleteIcon" size="lg"></font-awesome-icon>
-          </font-awesome-layers>
-        </template>
-      </b-table>
-
-      <div class="d-flex justify-content-between">
-        <b-pagination
-          :value="usersList.listConfig.pageNumber"
-          aria-controls="users-table"
-          :total-rows="usersList.totalCount"
-          :per-page="usersList.listConfig.pageSize"
-          @change="pageChanged($event)"></b-pagination>
-        <div>
-          <select
-            :value="usersList.listConfig.pageSize"
-            class="form-control"
-            @change="pageSizeChanged($event.target.value)">
-            <option v-for="pageSize in pageSizes"
-                    :key="pageSize"
-                    :value="pageSize">
-              {{ pageSize }}
-            </option>
-          </select>
-        </div>
-      </div>
-      <p>{{ $t("account.users.grid.text-below") }}</p>
-    </div>
-  </div>
-</template>
-
-<script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
 import { namespace } from "vuex-class";
 import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
+import AddUserModal from "@account/components/add-user-modal/index.vue";
+import EditUserModal from '@account/components/edit-user-modal/index.vue';
 import UsersFilter from "@account/components/users-filter/index.vue";
 import { AddUser } from "@account/models/add-user";
 import { FETCH_PROFILE } from "@account/store/modules/profile/definitions";
@@ -71,8 +13,6 @@ import { FETCH_USERS, SET_USERS_LIST_CONFIG, DELETE_USER, ADD_USER, UPDATE_USER 
 import { UsersList, UsersListConfig, UsersListFilters} from "@account/store/modules/users-list/types";
 import { User,OrganizationUserRegistration, UserUpdateInfo } from "@common/api/api-clients";
 import { pageSizes } from "@common/constants";
-import AddUserModal from './AddUserModal.vue';
-import EditUserModal from './EditUserModal.vue';
 
 const usersListModule = namespace("usersListModule");
 const profileModule = namespace('profileModule');
@@ -171,9 +111,9 @@ export default class AccountUsers extends Vue {
   userAdded(newUser: AddUser) {
     if (this.profile.contact?.organizationId) {
       const orgId: string = this.profile.contact.organizationId;
-      const registrUser = new OrganizationUserRegistration();
-      registrUser.init({...newUser, organizationId: orgId });
-      this.addUser(registrUser);
+      const registerUser = new OrganizationUserRegistration();
+      registerUser.init({...newUser, organizationId: orgId });
+      this.addUser(registerUser);
     }
   }
 
@@ -182,4 +122,3 @@ export default class AccountUsers extends Vue {
   }
 
 }
-</script>
