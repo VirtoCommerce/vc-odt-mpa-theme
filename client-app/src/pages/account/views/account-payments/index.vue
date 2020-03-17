@@ -1,6 +1,8 @@
 <template>
   <div class="mt-3">
     <loading :active.sync="isLoading"></loading>
+    <payments-filter :payments-filter="paymentsList.listConfig.filters"
+                     @filtersChanged="filtersChanged"></payments-filter>
     <div v-if="!isLoading" class="mt-3">
       <p>{{ $t("account.payments.grid.text-above") }}</p>
       <b-table

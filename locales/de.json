@@ -182,6 +182,12 @@
     },
     "payments": {
       "no-payments": "Keine Zahlungen",
+      "date-filter": {
+        "from": "Von",
+        "to": "Zu",
+        "reset": "Zurücksetzen",
+        "date-error": "Das Startdatum sollte vor dem Enddatum liegen"
+      },
       "grid": {
         "columns": {
           "number": "Zahlungsnummer",
