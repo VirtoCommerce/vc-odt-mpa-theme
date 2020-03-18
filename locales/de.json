@@ -58,7 +58,8 @@
     "menu_titles": {
       "home": "Nutzerdetails",
       "orders": "Aufträge",
-      "users": "Benutzer"
+      "users": "Benutzer",
+      "invoices": "Rechnungen"
     },
     "home": {
       "email": "Email",
@@ -177,6 +178,21 @@
         "confirm-password-not-same": "Passwörter müssen identisch sein",
         "submit": "Einreichen",
         "add-user": "Add user"
+      }
+    },
+    "invoices": {
+      "no-invoices": "Keine Rechnungen",
+      "grid": {
+        "columns": {
+          "number": "Rechnungsnummer",
+          "status": "Status",
+          "sum_formattedAmount": "Zahlungsbetrag",
+          "gatewayCode": "Bezahlverfahren",
+          "createdDate": "Datum",
+          "currency_code": "Währung"
+        },
+        "text-above": "",
+        "text-below": ""
       }
     }
   }

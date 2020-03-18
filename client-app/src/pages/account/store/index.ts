@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex, { Store, StoreOptions } from "vuex";
+import invoicesListModule from "@account/store/modules/invoices-list";
 import ordersListModule from "@account/store/modules/orders-list";
 import profileModule from "@account/store/modules/profile";
 import usersListModule from "@account/store/modules/users-list";
@@ -17,7 +18,8 @@ const store: StoreOptions<RootState> = {
   modules: {
     ordersListModule,
     profileModule,
-    usersListModule
+    usersListModule,
+    invoicesListModule
   },
   strict: debug
 };

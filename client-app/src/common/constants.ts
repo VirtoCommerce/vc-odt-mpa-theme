@@ -12,6 +12,8 @@ export const baseUrl = window.BASE_URL.replace(`/${storeName}`, "/")
 export const pageSizes = [10, 20, 50, 100]
 export const defaultPageSize = 10;
 export const ordersStatuses = ["New","Cancelled","Processing","Completed","Pending"];
+export const invoicesStatuses = ["New", "Paid"];
 
 export const ordersGridFields =  window.THEME_SETTINGS.orders_grid_fields as BvTableFieldArray;
 export const usersGridFields =  window.THEME_SETTINGS.users_grid_fields as BvTableFieldArray;
+export const invoicesGridFields = window.THEME_SETTINGS.invoices_grid_fields as BvTableFieldArray;
