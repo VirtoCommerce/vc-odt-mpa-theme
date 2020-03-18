@@ -182,6 +182,30 @@
     },
     "invoices": {
       "no-invoices": "Keine Rechnungen",
+      "date-filter": {
+        "from": "Von",
+        "to": "Zu",
+        "reset": "Zurücksetzen",
+        "date-error": "Das Startdatum sollte vor dem Enddatum liegen"
+      },
+      "status-filter": {
+        "filter-by": "Nach Status filtern",
+        "select-all": "Wählen Sie Alle",
+        "all": "Alle"
+      },
+      "datepicker": {
+        "labelPrevYear": "Vorheriges Jahr",
+        "labelPrevMonth": "Vorheriger Monat",
+        "labelCurrentMonth": "Aktueller Monat",
+        "labelNextMonth": "Nächster Monat",
+        "labelNextYear": "Nächstes Jahr",
+        "labelToday": "Heute",
+        "labelSelected": "Ausgewähltes Datum",
+        "labelNoDateSelected": "Kein Datum gewählt",
+        "labelCalendar": "Kalender",
+        "labelNav": "Kalendernavigation",
+        "labelHelp": "Mit den Pfeiltasten durch den Kalender navigieren"
+      },
       "grid": {
         "columns": {
           "number": "Rechnungsnummer",

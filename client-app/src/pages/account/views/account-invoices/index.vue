@@ -1,6 +1,9 @@
 <template>
   <div class="mt-3">
     <loading :active.sync="isLoading"></loading>
+    <invoices-filter :invoices-filter="invoicesList.listConfig.filters"
+                     :available-invoices-statuses="availableInvoicesStatuses"
+                     @filtersChanged="filtersChanged"></invoices-filter>
     <div v-if="!isLoading" class="mt-3">
       <p>{{ $t("account.invoices.grid.text-above") }}</p>
       <b-table
