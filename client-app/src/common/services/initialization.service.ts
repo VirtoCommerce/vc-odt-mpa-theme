@@ -3,11 +3,12 @@ import VueAxios from "vue-axios";
 import Loading from 'vue-loading-overlay';
 import "vue-moment";
 import VueRx from "vue-rx";
-import { library, dom } from '@fortawesome/fontawesome-svg-core'
-import { faHeartBroken, faLock, faMeteor } from '@fortawesome/free-solid-svg-icons'
+import Vuelidate from 'vuelidate';
+import { library, dom } from '@fortawesome/fontawesome-svg-core';
+import { faHeartBroken, faLock, faMeteor } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
-import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin } from 'bootstrap-vue'
+import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin } from 'bootstrap-vue'
 import { baseUrl } from "@common/constants";
 
 export default class InitializationService {
@@ -32,6 +33,7 @@ export default class InitializationService {
     // workaround because of unstable build caused by broken .d.ts
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     Vue.use(require("vue-moment"));
+    Vue.use(Vuelidate);
     Vue.use(ButtonPlugin);
     Vue.use(CollapsePlugin);
     Vue.use(PaginationPlugin);
@@ -44,6 +46,9 @@ export default class InitializationService {
     Vue.use(DropdownPlugin);
     Vue.use(FormCheckboxPlugin);
     Vue.use(FormGroupPlugin);
+    Vue.use(FormPlugin);
+    Vue.use(FormSelectPlugin);
+    Vue.use(InputGroupPlugin);
 
     Vue.component("font-awesome-icon", FontAwesomeIcon);
     Vue.component('font-awesome-layers', FontAwesomeLayers);

@@ -2895,6 +2895,60 @@ export class ApiOrderClient {
      * @param criteria (optional) 
      * @return Success
      */
+    searchPayments(criteria: PaymentSearchCriteria | null | undefined, store: string, language: string): Promise<PaymentSearchResult> {
+        let url_ = this.baseUrl + "/{store}/{language}/storefrontapi/orders/payments/search";
+        if (store === undefined || store === null)
+            throw new Error("The parameter 'store' must be defined.");
+        url_ = url_.replace("{store}", encodeURIComponent("" + store)); 
+        if (language === undefined || language === null)
+            throw new Error("The parameter 'language' must be defined.");
+        url_ = url_.replace("{language}", encodeURIComponent("" + language)); 
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(criteria);
+
+        let options_ = <AxiosRequestConfig>{
+            data: content_,
+            method: "POST",
+            url: url_,
+            headers: {
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            }
+        };
+
+        return this.instance.request(options_).then((_response: AxiosResponse) => {
+            return this.processSearchPayments(_response);
+        });
+    }
+
+    protected processSearchPayments(response: AxiosResponse): Promise<PaymentSearchResult> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = PaymentSearchResult.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<PaymentSearchResult>(<any>null);
+    }
+
+    /**
+     * @param criteria (optional) 
+     * @return Success
+     */
     searchCustomerOrders(criteria: OrderSearchCriteria | null | undefined, store: string, language: string): Promise<CustomerOrderSearchResult> {
         let url_ = this.baseUrl + "/{store}/{language}/storefrontapi/orders/search";
         if (store === undefined || store === null)
@@ -4322,6 +4376,7 @@ export class User implements IUser {
     readonly defaultBillingAddress?: Address | undefined;
     readonly defaultShippingAddress?: Address | undefined;
     readonly addresses?: Address[] | undefined;
+    isFirstTimeBuyer?: boolean | undefined;
     id?: string | undefined;
 
     constructor(data?: IUser) {
@@ -4394,6 +4449,7 @@ export class User implements IUser {
                 for (let item of _data["addresses"])
                     (<any>this).addresses!.push(Address.fromJS(item));
             }
+            this.isFirstTimeBuyer = _data["isFirstTimeBuyer"];
             this.id = _data["id"];
         }
     }
@@ -4466,6 +4522,7 @@ export class User implements IUser {
             for (let item of this.addresses)
                 data["addresses"].push(item.toJSON());
         }
+        data["isFirstTimeBuyer"] = this.isFirstTimeBuyer;
         data["id"] = this.id;
         return data; 
     }
@@ -4511,6 +4568,7 @@ export interface IUser {
     defaultBillingAddress?: Address | undefined;
     defaultShippingAddress?: Address | undefined;
     addresses?: Address[] | undefined;
+    isFirstTimeBuyer?: boolean | undefined;
     id?: string | undefined;
 }
 
@@ -10103,6 +10161,9 @@ export class PaymentIn implements IPaymentIn {
     modifiedDate?: Date | undefined;
     createdBy?: string | undefined;
     modifiedBy?: string | undefined;
+    authorizedDate?: Date | undefined;
+    capturedDate?: Date | undefined;
+    voidedDate?: Date | undefined;
     id?: string | undefined;
     bankCardInfo?: BankCardInfo | undefined;
     billingAddress?: Address | undefined;
@@ -10155,6 +10216,9 @@ export class PaymentIn implements IPaymentIn {
             this.modifiedDate = _data["modifiedDate"] ? new Date(_data["modifiedDate"].toString()) : <any>undefined;
             this.createdBy = _data["createdBy"];
             this.modifiedBy = _data["modifiedBy"];
+            this.authorizedDate = _data["authorizedDate"] ? new Date(_data["authorizedDate"].toString()) : <any>undefined;
+            this.capturedDate = _data["capturedDate"] ? new Date(_data["capturedDate"].toString()) : <any>undefined;
+            this.voidedDate = _data["voidedDate"] ? new Date(_data["voidedDate"].toString()) : <any>undefined;
             this.id = _data["id"];
             this.bankCardInfo = _data["bankCardInfo"] ? BankCardInfo.fromJS(_data["bankCardInfo"]) : <any>undefined;
             this.billingAddress = _data["billingAddress"] ? Address.fromJS(_data["billingAddress"]) : <any>undefined;
@@ -10207,6 +10271,9 @@ export class PaymentIn implements IPaymentIn {
         data["modifiedDate"] = this.modifiedDate ? this.modifiedDate.toISOString() : <any>undefined;
         data["createdBy"] = this.createdBy;
         data["modifiedBy"] = this.modifiedBy;
+        data["authorizedDate"] = this.authorizedDate ? this.authorizedDate.toISOString() : <any>undefined;
+        data["capturedDate"] = this.capturedDate ? this.capturedDate.toISOString() : <any>undefined;
+        data["voidedDate"] = this.voidedDate ? this.voidedDate.toISOString() : <any>undefined;
         data["id"] = this.id;
         data["bankCardInfo"] = this.bankCardInfo ? this.bankCardInfo.toJSON() : <any>undefined;
         data["billingAddress"] = this.billingAddress ? this.billingAddress.toJSON() : <any>undefined;
@@ -10244,6 +10311,9 @@ export interface IPaymentIn {
     modifiedDate?: Date | undefined;
     createdBy?: string | undefined;
     modifiedBy?: string | undefined;
+    authorizedDate?: Date | undefined;
+    capturedDate?: Date | undefined;
+    voidedDate?: Date | undefined;
     id?: string | undefined;
     bankCardInfo?: BankCardInfo | undefined;
     billingAddress?: Address | undefined;
@@ -12231,6 +12301,166 @@ export class ShoppingCartSearchResult implements IShoppingCartSearchResult {
 export interface IShoppingCartSearchResult {
     totalCount?: number | undefined;
     results?: ShoppingCart[] | undefined;
+}
+
+export class PaymentSearchCriteria implements IPaymentSearchCriteria {
+    sort?: string | undefined;
+    keyword?: string | undefined;
+    status?: string | undefined;
+    statuses?: string[] | undefined;
+    storeIds?: string[] | undefined;
+    orderId?: string | undefined;
+    orderNumber?: string | undefined;
+    startDate?: Date | undefined;
+    endDate?: Date | undefined;
+    capturedStartDate?: Date | undefined;
+    capturedEndDate?: Date | undefined;
+    authorizedStartDate?: Date | undefined;
+    authorizedEndDate?: Date | undefined;
+    readonly start?: number | undefined;
+    pageNumber?: number | undefined;
+    pageSize?: number | undefined;
+
+    constructor(data?: IPaymentSearchCriteria) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.sort = _data["sort"];
+            this.keyword = _data["keyword"];
+            this.status = _data["status"];
+            if (Array.isArray(_data["statuses"])) {
+                this.statuses = [] as any;
+                for (let item of _data["statuses"])
+                    this.statuses!.push(item);
+            }
+            if (Array.isArray(_data["storeIds"])) {
+                this.storeIds = [] as any;
+                for (let item of _data["storeIds"])
+                    this.storeIds!.push(item);
+            }
+            this.orderId = _data["orderId"];
+            this.orderNumber = _data["orderNumber"];
+            this.startDate = _data["startDate"] ? new Date(_data["startDate"].toString()) : <any>undefined;
+            this.endDate = _data["endDate"] ? new Date(_data["endDate"].toString()) : <any>undefined;
+            this.capturedStartDate = _data["capturedStartDate"] ? new Date(_data["capturedStartDate"].toString()) : <any>undefined;
+            this.capturedEndDate = _data["capturedEndDate"] ? new Date(_data["capturedEndDate"].toString()) : <any>undefined;
+            this.authorizedStartDate = _data["authorizedStartDate"] ? new Date(_data["authorizedStartDate"].toString()) : <any>undefined;
+            this.authorizedEndDate = _data["authorizedEndDate"] ? new Date(_data["authorizedEndDate"].toString()) : <any>undefined;
+            (<any>this).start = _data["start"];
+            this.pageNumber = _data["pageNumber"];
+            this.pageSize = _data["pageSize"];
+        }
+    }
+
+    static fromJS(data: any): PaymentSearchCriteria {
+        data = typeof data === 'object' ? data : {};
+        let result = new PaymentSearchCriteria();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["sort"] = this.sort;
+        data["keyword"] = this.keyword;
+        data["status"] = this.status;
+        if (Array.isArray(this.statuses)) {
+            data["statuses"] = [];
+            for (let item of this.statuses)
+                data["statuses"].push(item);
+        }
+        if (Array.isArray(this.storeIds)) {
+            data["storeIds"] = [];
+            for (let item of this.storeIds)
+                data["storeIds"].push(item);
+        }
+        data["orderId"] = this.orderId;
+        data["orderNumber"] = this.orderNumber;
+        data["startDate"] = this.startDate ? this.startDate.toISOString() : <any>undefined;
+        data["endDate"] = this.endDate ? this.endDate.toISOString() : <any>undefined;
+        data["capturedStartDate"] = this.capturedStartDate ? this.capturedStartDate.toISOString() : <any>undefined;
+        data["capturedEndDate"] = this.capturedEndDate ? this.capturedEndDate.toISOString() : <any>undefined;
+        data["authorizedStartDate"] = this.authorizedStartDate ? this.authorizedStartDate.toISOString() : <any>undefined;
+        data["authorizedEndDate"] = this.authorizedEndDate ? this.authorizedEndDate.toISOString() : <any>undefined;
+        data["start"] = this.start;
+        data["pageNumber"] = this.pageNumber;
+        data["pageSize"] = this.pageSize;
+        return data; 
+    }
+}
+
+export interface IPaymentSearchCriteria {
+    sort?: string | undefined;
+    keyword?: string | undefined;
+    status?: string | undefined;
+    statuses?: string[] | undefined;
+    storeIds?: string[] | undefined;
+    orderId?: string | undefined;
+    orderNumber?: string | undefined;
+    startDate?: Date | undefined;
+    endDate?: Date | undefined;
+    capturedStartDate?: Date | undefined;
+    capturedEndDate?: Date | undefined;
+    authorizedStartDate?: Date | undefined;
+    authorizedEndDate?: Date | undefined;
+    start?: number | undefined;
+    pageNumber?: number | undefined;
+    pageSize?: number | undefined;
+}
+
+export class PaymentSearchResult implements IPaymentSearchResult {
+    totalCount?: number | undefined;
+    results?: PaymentIn[] | undefined;
+
+    constructor(data?: IPaymentSearchResult) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.totalCount = _data["totalCount"];
+            if (Array.isArray(_data["results"])) {
+                this.results = [] as any;
+                for (let item of _data["results"])
+                    this.results!.push(PaymentIn.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): PaymentSearchResult {
+        data = typeof data === 'object' ? data : {};
+        let result = new PaymentSearchResult();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["totalCount"] = this.totalCount;
+        if (Array.isArray(this.results)) {
+            data["results"] = [];
+            for (let item of this.results)
+                data["results"].push(item.toJSON());
+        }
+        return data; 
+    }
+}
+
+export interface IPaymentSearchResult {
+    totalCount?: number | undefined;
+    results?: PaymentIn[] | undefined;
 }
 
 export class OrderSearchCriteria implements IOrderSearchCriteria {

@@ -9,7 +9,7 @@
       }
     },
     "error": {
-      "client":{
+      "client": {
         "close": "Close",
         "header": "Ooops! Something went wrong",
         "description": "An error occured during execution. Please contact support.",
@@ -54,10 +54,11 @@
     "title": "Access denied",
     "no-access": "You have no permission to view this page. Please, contact to your administrator"
   },
-  "account":{
+  "account": {
     "menu_titles": {
-      "home":"User Details",
-      "orders": "Orders"
+      "home": "User Details",
+      "orders": "Orders",
+      "users": "Users"
     },
     "home": {
       "email": "Email",
@@ -70,15 +71,15 @@
       "reset": "Reset",
       "date-error": "Start date should be earlier than end date",
       "no-orders": "You have no orders placed",
-      "status-filter":{
+      "status-filter": {
         "filter-by": "Filter by status",
         "select-all": "Select All",
         "all": "All"
       },
       "enter-keyword": "Enter keyword here",
       "keyword-search-title": "Search by keyword",
-      "grid":{
-        "columns":{
+      "grid": {
+        "columns": {
           "number": "Order ID",
           "status": "Status",
           "createdDate": "Date",
@@ -102,6 +103,65 @@
         "sku": "SKU:",
         "unit-price": "Unit price:",
         "quantity": "Quantity:"
+      }
+    },
+    "users": {
+      "no-users": "No users",
+      "enter-keyword": "Enter keyword here",
+      "keyword-search-title": "Search by keyword",
+      "edit-user-title": "Edit user",
+      "grid": {
+        "columns": {
+          "userName": "Account",
+          "firstName": "First name",
+          "lastName": "Last name",
+          "approvalRole": "Workflow Role",
+          "role_name": "System Role",
+          "email": "Email",
+          "phoneNumber": "Phone",
+          "actions": "Actions"
+        },
+        "text-above": "",
+        "text-below": ""
+      },
+      "confirm-delete-modal": {
+        "title": "Delete user",
+        "ok": "YES",
+        "cancel": "NO",
+        "message": "Are you sure you want to delete \"{0}\" user?"
+      },
+      "add-user": {
+        "title": "New user",
+        "optional": "Optional",
+        "email-label": "Email",
+        "email-placeholder": "Email",
+        "email-required": "Email is required",
+        "email-not-valid": "Email is not valid",
+        "first-name-label": "First Name",
+        "first-name-placeholder": "First name",
+        "last-name-label": "Last Name",
+        "last-name-placeholder": "Last name",
+        "username-label": "User Name",
+        "username-placeholder": "User Name",
+        "username-required": "User Name is required",
+        "role-label": "Role",
+        "role-default-placeholder": "Please select an option",
+        "account-admin": "Account admin",
+        "business-user": "Business user",
+        "role-required": "User role is required",
+        "password-label": "Password",
+        "password-placeholder": "Password",
+        "password-required": "Password is required",
+        "password-uppercase-error": "Password must have at least one uppercase character",
+        "password-lowercase-error": "Password must have at least one lowercase character",
+        "password-length-error": "Password must have at least {0} letters",
+        "confirm-password-label": "Confirm Password",
+        "confirm-password-placeholder": "Confirm password",
+        "confirm-password-password-required": "Input password first",
+        "confirm-password-required": "Confirm your password",
+        "confirm-password-not-same": "Passwords must be identical",
+        "submit": "Submit",
+        "add-user": "Add user"
       }
     }
   }

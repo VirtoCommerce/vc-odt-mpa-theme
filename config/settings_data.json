@@ -2,11 +2,11 @@
   "current": "Cyan",
   "presets": {
     "Blue": {
-      "color_primary": "#007bff",
-      "color_secondary": "#ff8400",
+      "color_primary": "#1E90FF",
+      "color_secondary": "#4169E1",
       "link_color": "#000000",
-      "pagination_color": "#007bff",
-      "pagination_active_color": "#007bff",
+      "pagination_color": "#1E90FF",
+      "pagination_active_color": "#1E90FF",
       "navbar_links_color": "#fff",
       "copyright": "<p>&copy; 2020</p>",
       "footer_column1_title": "Column 1",
@@ -22,14 +22,24 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber",
+        "actions"
       ]
     },
     "Gray": {
-      "color_primary": "#6c757d",
-      "color_secondary": "#7d746c",
+      "color_primary": "#808080",
+      "color_secondary": "#C0C0C0",
       "link_color": "#000000",
-      "pagination_color": "#6c757d",
-      "pagination_active_color": "#6c757d",
+      "pagination_color": "#808080",
+      "pagination_active_color": "#808080",
       "navbar_links_color": "#fff",
       "copyright": "<p>&copy; 2020</p>",
       "footer_column1_title": "Column 1",
@@ -45,14 +55,24 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber",
+        "actions"
       ]
     },
     "Green": {
-      "color_primary": "#28a745",
-      "color_secondary": "#a72889",
+      "color_primary": "#2E8B57",
+      "color_secondary": "#8FBC8F",
       "link_color": "#000000",
-      "pagination_color": "#28a745",
-      "pagination_active_color": "#28a745",
+      "pagination_color": "#2E8B57",
+      "pagination_active_color": "#2E8B57",
       "navbar_links_color": "#fff",
       "copyright": "<p>&copy; 2020</p>",
       "footer_column1_title": "Column 1",
@@ -68,14 +88,24 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber",
+        "actions"
       ]
     },
     "Red": {
-      "color_primary": "#dc3545",
-      "color_secondary": "#35dccb",
+      "color_primary": "#B22222",
+      "color_secondary": "#CD5C5C",
       "link_color": "#000000",
-      "pagination_color": "#dc3545",
-      "pagination_active_color": "#dc3545",
+      "pagination_color": "#B22222",
+      "pagination_active_color": "#B22222",
       "navbar_links_color": "#fff",
       "copyright": "<p>&copy; 2020</p>",
       "footer_column1_title": "Column 1",
@@ -91,14 +121,24 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber",
+        "actions"
       ]
     },
     "Yellow": {
-      "color_primary": "#ffc107",
-      "color_secondary": "#0745ff",
+      "color_primary": "#999900",
+      "color_secondary": "#EEE8AA",
       "link_color": "#000000",
-      "pagination_color": "#ffc107",
-      "pagination_active_color": "#ffc107",
+      "pagination_color": "#999900",
+      "pagination_active_color": "#999900",
       "navbar_links_color": "#fff",
       "copyright": "<p>&copy; 2020</p>",
       "footer_column1_title": "Column 1",
@@ -114,14 +154,24 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber",
+        "actions"
       ]
     },
     "Cyan": {
-      "color_primary": "#17a2b8",
-      "color_secondary": "#b82c17",
+      "color_primary": "#008B8B",
+      "color_secondary": "#5F9EA0",
       "link_color": "#000000",
-      "pagination_color": "#17a2b8",
-      "pagination_active_color": "#17a2b8",
+      "pagination_color": "#008B8B",
+      "pagination_active_color": "#008B8B",
       "navbar_links_color": "#fff",
       "copyright": "<p>&copy; 2020</p>",
       "footer_column1_title": "Column 1",
@@ -137,15 +187,25 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber",
+        "actions"
       ]
     },
     "Light Gray": {
-      "color_primary": "#f8f9fa",
-      "color_secondary": "#706f6e",
+      "color_primary": "#93a9be",
+      "color_secondary": "#6e7e8d",
       "link_color": "#000000",
-      "pagination_color": "#706f6e",
-      "pagination_active_color": "#706f6e",
-      "navbar_links_color": "#706f6e",
+      "pagination_color": "#6e7e8d",
+      "pagination_active_color": "#6e7e8d",
+      "navbar_links_color": "#6e7e8d",
       "copyright": "<p>&copy; 2020</p>",
       "footer_column1_title": "Column 1",
       "footer_column1_content": "<ul><li>Content 1</li></ul>",
@@ -160,14 +220,24 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber",
+        "actions"
       ]
     },
     "Dark": {
       "color_primary": "#343a40",
-      "color_secondary": "#403a34",
+      "color_secondary": "#686058",
       "link_color": "#000000",
       "pagination_color": "#343a40",
-      "pagination_active_color": "#403a34",
+      "pagination_active_color": "#686058",
       "navbar_links_color": "#fff",
       "copyright": "<p>&copy; 2020</p>",
       "footer_column1_title": "Column 1",
@@ -183,6 +253,16 @@
         { "key": "items.length", "sortable": false },
         { "key": "createdBy", "sortable": true },
         { "key": "total.formattedAmount", "sortable": false }
+      ],
+      "users_grid_fields": [
+        "userName",
+        "firstName",
+        "lastName",
+        "approvalRole",
+        "role.name",
+        "email",
+        "phoneNumber",
+        "actions"
       ]
     }
   }

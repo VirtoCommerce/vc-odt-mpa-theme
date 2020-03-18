@@ -57,7 +57,8 @@
   "account": {
     "menu_titles": {
       "home": "Nutzerdetails",
-      "orders": "Aufträge"
+      "orders": "Aufträge",
+      "users": "Benutzer"
     },
     "home": {
       "email": "Email",
@@ -70,15 +71,15 @@
       "reset": "Zurücksetzen",
       "date-error": "Das Startdatum sollte vor dem Enddatum liegen",
       "no-orders": "Sie haben keine Bestellungen aufgegeben",
-      "status-filter":{
+      "status-filter": {
         "filter-by": "Nach Status filtern",
         "select-all": "Wählen Sie Alle",
         "all": "Alle"
       },
       "enter-keyword": "Suchbegriff eingeben",
       "keyword-search-title": "Über Schlüsselwort suchen",
-      "grid":{
-        "columns":{
+      "grid": {
+        "columns": {
           "number": "Auftragsnummer",
           "status": "Status",
           "createdDate": "Datum",
@@ -115,6 +116,67 @@
         "labelCalendar": "Kalender",
         "labelNav": "Kalendernavigation",
         "labelHelp": "Mit den Pfeiltasten durch den Kalender navigieren"
+      }
+    },
+    "users": {
+      "no-users": "Keine Benutzer",
+      "enter-keyword": "Suchbegriff eingeben",
+      "keyword-search-title": "Über Schlüsselwort suchen",
+      "edit-user-title": "Benutzer bearbeiten",
+      "grid": {
+        "columns": {
+          "userName": "Konto",
+          "firstName": "Vorname",
+          "lastName": "Nachname",
+          "approvalRole": "Workflow-Rolle",
+          "role_name": "Systemrolle",
+          "email": "Email",
+          "phoneNumber": "Telefon",
+          "actions": "Aktionen"
+        },
+        "edit": "Edit",
+        "delete": "Löschen",
+        "text-above": "",
+        "text-below": ""
+      },
+      "confirm-delete-modal": {
+        "title": "Benutzer löschen",
+        "ok": "Ja",
+        "cancel": "Nein",
+        "message": "Möchten Sie den Benutzer \"{0}\" wirklich löschen?"
+      },
+      "add-user": {
+        "title": "Neuer Benutzer",
+        "optional": "Optional",
+        "email-label": "Email",
+        "email-placeholder": "Email",
+        "email-required": "Email ist erforderlich",
+        "email-not-valid": "Email ist ungültig",
+        "first-name-label": "Vorname",
+        "first-name-placeholder": "Vornamen",
+        "last-name-label": "Nachname",
+        "last-name-placeholder": "Nachnamen",
+        "username-label": "Nutzername",
+        "username-placeholder": "Nutzername",
+        "username-required": "Ein Benutzername ist erforderlich",
+        "role-label": "Rolle",
+        "role-default-placeholder": "Bitte wähle eine Option",
+        "account-admin": "Kontoadministrator",
+        "business-user": "Geschäftsbenutzer",
+        "role-required": "Benutzerrolle ist erforderlich",
+        "password-label": "Passwort",
+        "password-placeholder": "Passwort",
+        "password-required": "Passwort wird benötigt",
+        "password-uppercase-error": "Das Passwort muss mindestens ein Großbuchstabe haben",
+        "password-lowercase-error": "Das Passwort muss mindestens ein Kleinbuchstabe enthalten",
+        "password-length-error": "Das Passwort muss mindestens {0} Buchstaben enthalten",
+        "confirm-password-label": "Kennwort bestätigen",
+        "confirm-password-placeholder": "Kennwort bestätigen",
+        "confirm-password-password-required": "Geben Sie zuerst das Passwort ein",
+        "confirm-password-required": "Bestätigen Sie Ihr Passwort",
+        "confirm-password-not-same": "Passwörter müssen identisch sein",
+        "submit": "Einreichen",
+        "add-user": "Add user"
       }
     }
   }
