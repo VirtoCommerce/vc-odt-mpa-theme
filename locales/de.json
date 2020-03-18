@@ -188,12 +188,25 @@
         "reset": "Zurücksetzen",
         "date-error": "Das Startdatum sollte vor dem Enddatum liegen"
       },
+      "datepicker": {
+        "labelPrevYear": "Vorheriges Jahr",
+        "labelPrevMonth": "Vorheriger Monat",
+        "labelCurrentMonth": "Aktueller Monat",
+        "labelNextMonth": "Nächster Monat",
+        "labelNextYear": "Nächstes Jahr",
+        "labelToday": "Heute",
+        "labelSelected": "Ausgewähltes Datum",
+        "labelNoDateSelected": "Kein Datum gewählt",
+        "labelCalendar": "Kalender",
+        "labelNav": "Kalendernavigation",
+        "labelHelp": "Mit den Pfeiltasten durch den Kalender navigieren"
+      },
       "grid": {
         "columns": {
           "number": "Zahlungsnummer",
           "sum_formattedAmount": "Zahlungsbetrag",
           "gatewayCode": "Bezahlverfahren",
-          "createdDate": "Datum",
+          "capturedDate": "Datum",
           "currency_code": "Währung"
         },
         "text-above": "",

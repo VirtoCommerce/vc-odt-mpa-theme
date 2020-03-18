@@ -178,7 +178,7 @@
           "number": "Payment ID",
           "sum_formattedAmount": "Amount",
           "gatewayCode": "Method",
-          "createdDate": "Date",
+          "capturedDate": "Date",
           "currency_code": "Currency"
         },
         "text-above": "",

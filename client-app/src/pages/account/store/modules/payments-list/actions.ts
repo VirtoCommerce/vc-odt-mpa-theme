@@ -17,8 +17,8 @@ export const actions: ActionTree<PaymentsListState, RootState> = {
     searchCriteria.pageSize = context.state.paymentsList.listConfig.pageSize;
     searchCriteria.sort = context.state.paymentsList.listConfig.filters.sort;
     searchCriteria.statuses = context.state.paymentsList.listConfig.filters.statuses;
-    searchCriteria.startDate = context.state.paymentsList.listConfig.filters.startDate;
-    searchCriteria.endDate = context.state.paymentsList.listConfig.filters.endDate;
+    searchCriteria.capturedStartDate = context.state.paymentsList.listConfig.filters.startDate;
+    searchCriteria.capturedEndDate = context.state.paymentsList.listConfig.filters.endDate;
     searchCriteria.keyword = context.state.paymentsList.listConfig.filters.keyword;
     const result = await orderClient.searchPayments(searchCriteria, storeName, locale);
     context.commit(SET_PAYMENTS, result);

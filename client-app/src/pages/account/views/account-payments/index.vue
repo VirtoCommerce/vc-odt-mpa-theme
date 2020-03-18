@@ -16,7 +16,7 @@
         :fields="paymentsList.listConfig.columns"
         no-local-sorting
         @sort-changed="sortChanged">
-        <template v-slot:cell(createdDate)="data">
+        <template v-slot:cell(capturedDate)="data">
           <span>{{ data.value | moment("ddd, DD/MM/YY") }}</span>
         </template>
       </b-table>

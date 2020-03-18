@@ -1,5 +1,5 @@
 import { Module } from "vuex";
-import { defaultPageSize, paymentsGridFields } from '@common/constants';
+import { defaultPageSize, paymentsGridFields, paymentsStatuses } from '@common/constants';
 import { localizeGridColumns } from '@common/services/localization.helper.service';
 import { RootState } from "../../types";
 import { actions } from "./actions";
@@ -17,7 +17,7 @@ export const initialState: PaymentsListState = {
       pageNumber: 1,
       pageSize: defaultPageSize,
       filters: {
-        statuses: [],
+        statuses: paymentsStatuses,
         endDate: undefined,
         startDate: undefined,
         keyword: undefined
