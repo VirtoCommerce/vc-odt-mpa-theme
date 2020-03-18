@@ -20,6 +20,11 @@
         <template v-slot:cell(createdDate)="data">
           <span>{{ data.value | moment("ddd, DD/MM/YY") }}</span>
         </template>
+        <template v-slot:cell(number)="data">
+          <a class="text-primary btn d-inline p-0" @click="getInvoicePdf(data.item.orderId)">
+            {{ data.value }}
+          </a>
+        </template>
       </b-table>
 
       <div class="d-flex justify-content-between">

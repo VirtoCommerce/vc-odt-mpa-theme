@@ -3,7 +3,7 @@ import Component from "vue-class-component";
 import { namespace } from "vuex-class";
 import { BvTableCtxObject } from "bootstrap-vue";
 import InvoicesFilter from "@account/components/invoices-filter/index.vue";
-import { SET_INVOICES_LIST_CONFIG, FETCH_INVOICES } from '@account/store/modules/invoices-list/definitions';
+import { SET_INVOICES_LIST_CONFIG, FETCH_INVOICES, GET_INVOICE_PDF } from '@account/store/modules/invoices-list/definitions';
 import { InvoicesList, InvoicesListConfig, InvoicesListFilters } from '@account/store/modules/invoices-list/types';
 import { pageSizes, invoicesStatuses } from "@common/constants";
 
@@ -26,6 +26,9 @@ export default class AccountInvoices extends Vue {
 
   @invoicesListModule.Action(SET_INVOICES_LIST_CONFIG)
   private setListConfig!: (listConfig: InvoicesListConfig) => void;
+
+  @invoicesListModule.Action(GET_INVOICE_PDF)
+  private getInvoicePdf!: (orderNumber: string) => void;
 
   pageSizes = pageSizes;
 

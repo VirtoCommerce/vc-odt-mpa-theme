@@ -4,6 +4,7 @@ import { FETCH_INVOICES, SET_INVOICES_LIST_CONFIG } from "./definitions";
 import { InvoicesListState, InvoicesListConfig } from "./types";
 
 export const SET_INVOICES = "setInvoices";
+export const SET_INVOICE_PDF = "setInvoicePdf";
 
 //mutations
 export const mutations: MutationTree<InvoicesListState> = {
@@ -19,5 +20,9 @@ export const mutations: MutationTree<InvoicesListState> = {
   },
   [SET_INVOICES_LIST_CONFIG](state, payload: InvoicesListConfig) {
     state.invoicesList.listConfig = payload;
+  },
+  [SET_INVOICE_PDF](state) {
+    state.loaded = true;
+    state.isLoading = false;
   }
 };
