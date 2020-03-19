@@ -33,6 +33,14 @@
         "phoneNumber",
         "actions"
       ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
+      ],
       "payments_grid_fields": [
         "number",
         "sum.formattedAmount",
@@ -72,6 +80,14 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
       ],
       "payments_grid_fields": [
         "number",
@@ -113,6 +129,14 @@
         "phoneNumber",
         "actions"
       ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
+      ],
       "payments_grid_fields": [
         "number",
         "sum.formattedAmount",
@@ -152,6 +176,14 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
       ],
       "payments_grid_fields": [
         "number",
@@ -193,6 +225,14 @@
         "phoneNumber",
         "actions"
       ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
+      ],
       "payments_grid_fields": [
         "number",
         "sum.formattedAmount",
@@ -232,6 +272,14 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
       ],
       "payments_grid_fields": [
         "number",
@@ -273,6 +321,14 @@
         "phoneNumber",
         "actions"
       ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
+      ],
       "payments_grid_fields": [
         "number",
         "sum.formattedAmount",
@@ -312,6 +368,14 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code"
       ],
       "payments_grid_fields": [
         "number",

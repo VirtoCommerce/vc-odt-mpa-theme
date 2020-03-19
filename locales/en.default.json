@@ -59,6 +59,7 @@
       "home": "User Details",
       "orders": "Orders",
       "users": "Users",
+      "invoices": "Invoices",
       "payments": "Payments"
     },
     "home": {
@@ -165,7 +166,32 @@
         "add-user": "Add user"
       }
     },
-    "payments": {
+    "invoices": {
+      "no-invoices": "No data",
+      "date-filter": {
+        "from": "From",
+        "to": "To",
+        "reset": "Reset",
+        "date-error": "Start date should be earlier than end date"
+      },
+      "status-filter": {
+        "title": "Status",
+        "select-all": "Select All",
+        "all": "All"
+      },
+      "grid": {
+        "columns": {
+          "number": "Invoice ID",
+          "status": "Status",
+          "sum_formattedAmount": "Amount",
+          "gatewayCode": "Method",
+          "createdDate": "Date",
+          "currency_code": "Currency"
+        },
+        "text-above": "",
+        "text-below": ""
+      },
+      "payments": {
       "no-payments": "No data",
       "date-filter": {
         "from": "From",

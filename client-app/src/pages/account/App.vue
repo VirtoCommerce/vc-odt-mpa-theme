@@ -27,6 +27,14 @@
         </router-link>
       </li>
       <li class="nav-item">
+        <router-link to="invoices"
+                     active-class="border-bottom-0 border-primary"
+                     tag="a"
+                     class="nav-link">
+          {{ $t('account.menu_titles.invoices') }}
+        </router-link>
+      </li>
+      <li class="nav-item">
         <router-link to="payments"
                      active-class="border-bottom-0 border-primary"
                      tag="a"
