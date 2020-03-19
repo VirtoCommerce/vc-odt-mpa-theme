@@ -36,7 +36,7 @@
       "invoices_grid_fields": [
         "number",
         "status",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "createdDate",
         "currency.code",
@@ -44,7 +44,7 @@
       ],
       "payments_grid_fields": [
         "number",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "capturedDate",
         "currency.code"
@@ -85,7 +85,7 @@
       "invoices_grid_fields": [
         "number",
         "status",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "createdDate",
         "currency.code",
@@ -93,7 +93,7 @@
       ],
       "payments_grid_fields": [
         "number",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "capturedDate",
         "currency.code"
@@ -134,7 +134,7 @@
       "invoices_grid_fields": [
         "number",
         "status",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "createdDate",
         "currency.code",
@@ -142,7 +142,7 @@
       ],
       "payments_grid_fields": [
         "number",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "capturedDate",
         "currency.code"
@@ -183,7 +183,7 @@
       "invoices_grid_fields": [
         "number",
         "status",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "createdDate",
         "currency.code",
@@ -191,7 +191,7 @@
       ],
       "payments_grid_fields": [
         "number",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "capturedDate",
         "currency.code"
@@ -232,7 +232,7 @@
       "invoices_grid_fields": [
         "number",
         "status",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "createdDate",
         "currency.code",
@@ -240,7 +240,7 @@
       ],
       "payments_grid_fields": [
         "number",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "capturedDate",
         "currency.code"
@@ -281,7 +281,7 @@
       "invoices_grid_fields": [
         "number",
         "status",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "createdDate",
         "currency.code",
@@ -289,7 +289,7 @@
       ],
       "payments_grid_fields": [
         "number",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "capturedDate",
         "currency.code"
@@ -330,7 +330,7 @@
       "invoices_grid_fields": [
         "number",
         "status",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "createdDate",
         "currency.code",
@@ -338,7 +338,7 @@
       ],
       "payments_grid_fields": [
         "number",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "capturedDate",
         "currency.code"
@@ -379,7 +379,7 @@
       "invoices_grid_fields": [
         "number",
         "status",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "createdDate",
         "currency.code",
@@ -387,7 +387,7 @@
       ],
       "payments_grid_fields": [
         "number",
-        "sum.formattedAmount",
+        "sum.amount",
         "gatewayCode",
         "capturedDate",
         "currency.code"

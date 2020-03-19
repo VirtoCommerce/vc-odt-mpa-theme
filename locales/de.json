@@ -72,14 +72,13 @@
       "to": "Zu",
       "reset": "Zurücksetzen",
       "date-error": "Das Startdatum sollte vor dem Enddatum liegen",
-      "no-orders": "Sie haben keine Bestellungen aufgegeben",
+      "no-orders": "Keine Daten",
       "status-filter": {
-        "filter-by": "Nach Status filtern",
+        "title": "Status",
         "select-all": "Wählen Sie Alle",
         "all": "Alle"
       },
-      "enter-keyword": "Suchbegriff eingeben",
-      "keyword-search-title": "Über Schlüsselwort suchen",
+      "keyword": "Stichwort",
       "grid": {
         "columns": {
           "number": "Auftragsnummer",
@@ -121,9 +120,8 @@
       }
     },
     "users": {
-      "no-users": "Keine Benutzer",
-      "enter-keyword": "Suchbegriff eingeben",
-      "keyword-search-title": "Über Schlüsselwort suchen",
+      "no-users": "Keine Daten",
+      "keyword": "Stichwort",
       "edit-user-title": "Benutzer bearbeiten",
       "grid": {
         "columns": {
@@ -212,7 +210,7 @@
         "columns": {
           "number": "Rechnungsnummer",
           "status": "Status",
-          "sum_formattedAmount": "Zahlungsbetrag",
+          "sum_amount": "Zahlungsbetrag",
           "gatewayCode": "Bezahlverfahren",
           "createdDate": "Datum",
           "currency_code": "Währung",
@@ -246,7 +244,7 @@
       "grid": {
         "columns": {
           "number": "Zahlungsnummer",
-          "sum_formattedAmount": "Zahlungsbetrag",
+          "sum_amount": "Zahlungsbetrag",
           "gatewayCode": "Bezahlverfahren",
           "capturedDate": "Datum",
           "currency_code": "Währung"

@@ -1,5 +1,5 @@
 import { Module } from "vuex";
-import { defaultPageSize, ordersGridFields } from '@common/constants';
+import { defaultPageSize, ordersGridFields, startPageNumber } from '@common/constants';
 import { localizeGridColumns } from '@common/services/localization.helper.service';
 import { RootState } from "../../types";
 import { actions } from "./actions";
@@ -14,7 +14,7 @@ export const initialState: OrdersListState = {
   ordersList: {
     listConfig: {
       columns: ordersGridFields,
-      pageNumber: 1,
+      pageNumber: startPageNumber,
       pageSize: defaultPageSize,
       filters: {
         statuses: [],

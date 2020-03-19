@@ -72,14 +72,13 @@
       "to": "To",
       "reset": "Reset",
       "date-error": "Start date should be earlier than end date",
-      "no-orders": "You have no orders placed",
+      "no-orders": "No data",
       "status-filter": {
-        "filter-by": "Filter by status",
+        "title": "Status",
         "select-all": "Select All",
         "all": "All"
       },
-      "enter-keyword": "Enter keyword here",
-      "keyword-search-title": "Search by keyword",
+      "keyword": "Keyword",
       "grid": {
         "columns": {
           "number": "Order ID",
@@ -108,9 +107,8 @@
       }
     },
     "users": {
-      "no-users": "No users",
-      "enter-keyword": "Enter keyword here",
-      "keyword-search-title": "Search by keyword",
+      "no-users": "No data",
+      "keyword": "Keyword",
       "edit-user-title": "Edit user",
       "grid": {
         "columns": {
@@ -184,7 +182,7 @@
         "columns": {
           "number": "Invoice ID",
           "status": "Status",
-          "sum_formattedAmount": "Amount",
+          "sum_amount": "Amount",
           "gatewayCode": "Method",
           "createdDate": "Date",
           "currency_code": "Currency",
@@ -205,7 +203,7 @@
       "grid": {
         "columns": {
           "number": "Payment ID",
-          "sum_formattedAmount": "Amount",
+          "sum_amount": "Amount",
           "gatewayCode": "Method",
           "capturedDate": "Date",
           "currency_code": "Currency"
