@@ -9,6 +9,7 @@ import { faHeartBroken, faLock, faMeteor } from '@fortawesome/free-solid-svg-ico
 import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
 import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin } from 'bootstrap-vue'
+import { AuthorizationPlugin } from 'plugins/authorization/authorization.plugin';
 import { baseUrl } from "@common/constants";
 
 export default class InitializationService {
@@ -49,6 +50,10 @@ export default class InitializationService {
     Vue.use(FormPlugin);
     Vue.use(FormSelectPlugin);
     Vue.use(InputGroupPlugin);
+
+
+    //custom plugins
+    Vue.use(AuthorizationPlugin);
 
     Vue.component("font-awesome-icon", FontAwesomeIcon);
     Vue.component('font-awesome-layers', FontAwesomeLayers);

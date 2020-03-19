@@ -1,9 +1,13 @@
 <template>
   <div class="mt-3">
     <loading :active.sync="isLoading"></loading>
-    <b-button v-b-modal.addUserModal variant="primary">
+
+    <b-button v-can="{ user: profile, permissions: $permissions.CanCreateUsers}"
+              v-b-modal.addUserModal
+              variant="primary">
       {{ $t("account.users.add-user.add-user") }}
     </b-button>
+
     <add-user-modal @userAdded="userAdded($event)"></add-user-modal>
     <edit-user-modal :user="selectedUser" @userChanged="userChanged($event)"></edit-user-modal>
     <users-filter class="mt-3"
@@ -23,10 +27,14 @@
         no-local-sorting
         @sort-changed="sortChanged">
         <template v-slot:cell(actions)="row">
-          <font-awesome-layers class="mr-3 btn" @click="openEditUserModal(row.item)">
+          <font-awesome-layers v-if="$can(profile, $permissions.CanEditUsers)"
+                               class="mr-3 btn"
+                               @click="openEditUserModal(row.item)">
             <font-awesome-icon :icon="editIcon" size="lg"></font-awesome-icon>
           </font-awesome-layers>
-          <font-awesome-layers class="btn" @click="confirmDeleteUser(row.item)">
+          <font-awesome-layers v-if="$can(profile, $permissions.CanDeleteUsers)"
+                               class="btn"
+                               @click="confirmDeleteUser(row.item)">
             <font-awesome-icon :icon="deleteIcon" size="lg"></font-awesome-icon>
           </font-awesome-layers>
         </template>
