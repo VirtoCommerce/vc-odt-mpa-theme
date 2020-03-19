@@ -190,8 +190,9 @@
         },
         "text-above": "",
         "text-below": ""
-      },
-      "payments": {
+      }
+    },
+    "payments": {
       "no-payments": "No data",
       "date-filter": {
         "from": "From",

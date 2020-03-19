@@ -181,7 +181,7 @@
         "add-user": "Add user"
       }
     },
-      "invoices": {
+    "invoices": {
       "no-invoices": "Keine Daten",
       "date-filter": {
         "from": "Von",
@@ -218,8 +218,9 @@
         },
         "text-above": "",
         "text-below": ""
-      },
-      "payments": {
+      }
+    },
+    "payments": {
       "no-payments": "Keine Daten",
       "date-filter": {
         "from": "Von",
