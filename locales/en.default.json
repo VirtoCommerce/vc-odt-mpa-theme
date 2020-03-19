@@ -168,6 +168,7 @@
     },
     "invoices": {
       "no-invoices": "No data",
+      "download-invoice": "Download invoice",
       "date-filter": {
         "from": "From",
         "to": "To",
@@ -186,7 +187,8 @@
           "sum_formattedAmount": "Amount",
           "gatewayCode": "Method",
           "createdDate": "Date",
-          "currency_code": "Currency"
+          "currency_code": "Currency",
+          "actions": "Actions"
         },
         "text-above": "",
         "text-below": ""

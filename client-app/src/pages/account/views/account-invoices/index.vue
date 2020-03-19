@@ -20,10 +20,13 @@
         <template v-slot:cell(createdDate)="data">
           <span>{{ data.value | moment("LL") }}</span>
         </template>
-        <template v-slot:cell(number)="data">
-          <a class="text-primary btn d-inline p-0" @click="getInvoicePdf(data.item.orderId)">
-            {{ data.value }}
-          </a>
+        <template v-slot:cell(actions)="row">
+          <font-awesome-layers v-b-tooltip.hover
+                               :title="$t('account.invoices.download-invoice')"
+                               class="btn"
+                               @click="getInvoicePdf(row.item.orderId)">
+            <font-awesome-icon :icon="downloadIcon" size="lg"></font-awesome-icon>
+          </font-awesome-layers>
         </template>
       </b-table>
 

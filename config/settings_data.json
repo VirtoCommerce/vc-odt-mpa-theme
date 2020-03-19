@@ -39,7 +39,8 @@
         "sum.formattedAmount",
         "gatewayCode",
         "createdDate",
-        "currency.code"
+        "currency.code",
+        "actions"
       ],
       "payments_grid_fields": [
         "number",
@@ -87,7 +88,8 @@
         "sum.formattedAmount",
         "gatewayCode",
         "createdDate",
-        "currency.code"
+        "currency.code",
+        "actions"
       ],
       "payments_grid_fields": [
         "number",
@@ -135,7 +137,8 @@
         "sum.formattedAmount",
         "gatewayCode",
         "createdDate",
-        "currency.code"
+        "currency.code",
+        "actions"
       ],
       "payments_grid_fields": [
         "number",
@@ -183,7 +186,8 @@
         "sum.formattedAmount",
         "gatewayCode",
         "createdDate",
-        "currency.code"
+        "currency.code",
+        "actions"
       ],
       "payments_grid_fields": [
         "number",
@@ -231,7 +235,8 @@
         "sum.formattedAmount",
         "gatewayCode",
         "createdDate",
-        "currency.code"
+        "currency.code",
+        "actions"
       ],
       "payments_grid_fields": [
         "number",
@@ -279,7 +284,8 @@
         "sum.formattedAmount",
         "gatewayCode",
         "createdDate",
-        "currency.code"
+        "currency.code",
+        "actions"
       ],
       "payments_grid_fields": [
         "number",
@@ -327,7 +333,8 @@
         "sum.formattedAmount",
         "gatewayCode",
         "createdDate",
-        "currency.code"
+        "currency.code",
+        "actions"
       ],
       "payments_grid_fields": [
         "number",
@@ -375,7 +382,8 @@
         "sum.formattedAmount",
         "gatewayCode",
         "createdDate",
-        "currency.code"
+        "currency.code",
+        "actions"
       ],
       "payments_grid_fields": [
         "number",
