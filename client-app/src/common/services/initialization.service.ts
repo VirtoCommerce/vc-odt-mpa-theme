@@ -8,7 +8,7 @@ import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { faHeartBroken, faLock, faMeteor } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
-import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin } from 'bootstrap-vue'
+import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin, TooltipPlugin } from 'bootstrap-vue'
 import { AuthorizationPlugin } from 'plugins/authorization/authorization.plugin';
 import { baseUrl } from "@common/constants";
 
@@ -50,6 +50,7 @@ export default class InitializationService {
     Vue.use(FormPlugin);
     Vue.use(FormSelectPlugin);
     Vue.use(InputGroupPlugin);
+    Vue.use(TooltipPlugin);
 
 
     //custom plugins

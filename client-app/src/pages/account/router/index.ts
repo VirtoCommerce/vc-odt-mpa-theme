@@ -2,7 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "@account/store";
 import AccountInfo from "@account/views/account-info/index.vue";
+import AccountInvoices from '@account/views/account-invoices/index.vue';
 import AccountOrders from "@account/views/account-orders/index.vue";
+import AccountPayments from '@account/views/account-payments/index.vue';
 import AccountUsers from "@account/views/account-users/index.vue";
 import { User } from '@common/api/api-clients';
 import Permissions from "@common/permissions"
@@ -38,7 +40,14 @@ const routes = [
       } else {
         window.location.assign(`${window.BASE_URL}error/AccessDenied`);
       }
-    }
+  },
+  {
+    path: "/invoices",
+    component: AccountInvoices
+  },
+  {
+    component: AccountPayments
+    path: "/payments",
   }
 ];
 

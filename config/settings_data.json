@@ -32,6 +32,22 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.amount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code",
+        "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.amount",
+        "gatewayCode",
+        "capturedDate",
+        "currency.code"
       ]
     },
     "Gray": {
@@ -65,6 +81,22 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.amount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code",
+        "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.amount",
+        "gatewayCode",
+        "capturedDate",
+        "currency.code"
       ]
     },
     "Green": {
@@ -98,6 +130,22 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.amount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code",
+        "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.amount",
+        "gatewayCode",
+        "capturedDate",
+        "currency.code"
       ]
     },
     "Red": {
@@ -131,6 +179,22 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.amount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code",
+        "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.amount",
+        "gatewayCode",
+        "capturedDate",
+        "currency.code"
       ]
     },
     "Yellow": {
@@ -164,6 +228,22 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.amount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code",
+        "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.amount",
+        "gatewayCode",
+        "capturedDate",
+        "currency.code"
       ]
     },
     "Cyan": {
@@ -197,6 +277,22 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.amount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code",
+        "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.amount",
+        "gatewayCode",
+        "capturedDate",
+        "currency.code"
       ]
     },
     "Light Gray": {
@@ -230,6 +326,22 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.amount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code",
+        "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.amount",
+        "gatewayCode",
+        "capturedDate",
+        "currency.code"
       ]
     },
     "Dark": {
@@ -263,6 +375,22 @@
         "email",
         "phoneNumber",
         "actions"
+      ],
+      "invoices_grid_fields": [
+        "number",
+        "status",
+        "sum.amount",
+        "gatewayCode",
+        "createdDate",
+        "currency.code",
+        "actions"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.amount",
+        "gatewayCode",
+        "capturedDate",
+        "currency.code"
       ]
     }
   }

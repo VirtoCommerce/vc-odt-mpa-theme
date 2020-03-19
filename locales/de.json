@@ -58,7 +58,9 @@
     "menu_titles": {
       "home": "Nutzerdetails",
       "orders": "Aufträge",
-      "users": "Benutzer"
+      "users": "Benutzer",
+      "invoices": "Rechnungen",
+      "payments": "Zahlungen"
     },
     "home": {
       "email": "Email",
@@ -70,14 +72,13 @@
       "to": "Zu",
       "reset": "Zurücksetzen",
       "date-error": "Das Startdatum sollte vor dem Enddatum liegen",
-      "no-orders": "Sie haben keine Bestellungen aufgegeben",
+      "no-orders": "Keine Daten",
       "status-filter": {
-        "filter-by": "Nach Status filtern",
+        "title": "Status",
         "select-all": "Wählen Sie Alle",
         "all": "Alle"
       },
-      "enter-keyword": "Suchbegriff eingeben",
-      "keyword-search-title": "Über Schlüsselwort suchen",
+      "keyword": "Stichwort",
       "grid": {
         "columns": {
           "number": "Auftragsnummer",
@@ -119,9 +120,8 @@
       }
     },
     "users": {
-      "no-users": "Keine Benutzer",
-      "enter-keyword": "Suchbegriff eingeben",
-      "keyword-search-title": "Über Schlüsselwort suchen",
+      "no-users": "Keine Daten",
+      "keyword": "Stichwort",
       "edit-user-title": "Benutzer bearbeiten",
       "grid": {
         "columns": {
@@ -177,6 +177,80 @@
         "confirm-password-not-same": "Passwörter müssen identisch sein",
         "submit": "Einreichen",
         "add-user": "Add user"
+      }
+    },
+    "invoices": {
+      "no-invoices": "Keine Daten",
+      "download-invoice": "Download Rechnung",
+      "date-filter": {
+        "from": "Von",
+        "to": "Zu",
+        "reset": "Zurücksetzen",
+        "date-error": "Das Startdatum sollte vor dem Enddatum liegen"
+      },
+      "status-filter": {
+        "title": "Status",
+        "select-all": "Wählen Sie Alle",
+        "all": "Alle"
+      },
+      "datepicker": {
+        "labelPrevYear": "Vorheriges Jahr",
+        "labelPrevMonth": "Vorheriger Monat",
+        "labelCurrentMonth": "Aktueller Monat",
+        "labelNextMonth": "Nächster Monat",
+        "labelNextYear": "Nächstes Jahr",
+        "labelToday": "Heute",
+        "labelSelected": "Ausgewähltes Datum",
+        "labelNoDateSelected": "Kein Datum gewählt",
+        "labelCalendar": "Kalender",
+        "labelNav": "Kalendernavigation",
+        "labelHelp": "Mit den Pfeiltasten durch den Kalender navigieren"
+      },
+      "grid": {
+        "columns": {
+          "number": "Rechnungsnummer",
+          "status": "Status",
+          "sum_amount": "Zahlungsbetrag",
+          "gatewayCode": "Bezahlverfahren",
+          "createdDate": "Datum",
+          "currency_code": "Währung",
+          "actions": "Aktionen"
+        },
+        "text-above": "",
+        "text-below": ""
+      }
+    },
+    "payments": {
+      "no-payments": "Keine Daten",
+      "date-filter": {
+        "from": "Von",
+        "to": "Zu",
+        "reset": "Zurücksetzen",
+        "date-error": "Das Startdatum sollte vor dem Enddatum liegen"
+      },
+      "datepicker": {
+        "labelPrevYear": "Vorheriges Jahr",
+        "labelPrevMonth": "Vorheriger Monat",
+        "labelCurrentMonth": "Aktueller Monat",
+        "labelNextMonth": "Nächster Monat",
+        "labelNextYear": "Nächstes Jahr",
+        "labelToday": "Heute",
+        "labelSelected": "Ausgewähltes Datum",
+        "labelNoDateSelected": "Kein Datum gewählt",
+        "labelCalendar": "Kalender",
+        "labelNav": "Kalendernavigation",
+        "labelHelp": "Mit den Pfeiltasten durch den Kalender navigieren"
+      },
+      "grid": {
+        "columns": {
+          "number": "Zahlungsnummer",
+          "sum_amount": "Zahlungsbetrag",
+          "gatewayCode": "Bezahlverfahren",
+          "capturedDate": "Datum",
+          "currency_code": "Währung"
+        },
+        "text-above": "",
+        "text-below": ""
       }
     }
   }

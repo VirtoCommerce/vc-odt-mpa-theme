@@ -10164,6 +10164,7 @@ export class PaymentIn implements IPaymentIn {
     authorizedDate?: Date | undefined;
     capturedDate?: Date | undefined;
     voidedDate?: Date | undefined;
+    orderId?: string | undefined;
     id?: string | undefined;
     bankCardInfo?: BankCardInfo | undefined;
     billingAddress?: Address | undefined;
@@ -10219,6 +10220,7 @@ export class PaymentIn implements IPaymentIn {
             this.authorizedDate = _data["authorizedDate"] ? new Date(_data["authorizedDate"].toString()) : <any>undefined;
             this.capturedDate = _data["capturedDate"] ? new Date(_data["capturedDate"].toString()) : <any>undefined;
             this.voidedDate = _data["voidedDate"] ? new Date(_data["voidedDate"].toString()) : <any>undefined;
+            this.orderId = _data["orderId"];
             this.id = _data["id"];
             this.bankCardInfo = _data["bankCardInfo"] ? BankCardInfo.fromJS(_data["bankCardInfo"]) : <any>undefined;
             this.billingAddress = _data["billingAddress"] ? Address.fromJS(_data["billingAddress"]) : <any>undefined;
@@ -10274,6 +10276,7 @@ export class PaymentIn implements IPaymentIn {
         data["authorizedDate"] = this.authorizedDate ? this.authorizedDate.toISOString() : <any>undefined;
         data["capturedDate"] = this.capturedDate ? this.capturedDate.toISOString() : <any>undefined;
         data["voidedDate"] = this.voidedDate ? this.voidedDate.toISOString() : <any>undefined;
+        data["orderId"] = this.orderId;
         data["id"] = this.id;
         data["bankCardInfo"] = this.bankCardInfo ? this.bankCardInfo.toJSON() : <any>undefined;
         data["billingAddress"] = this.billingAddress ? this.billingAddress.toJSON() : <any>undefined;
@@ -10314,6 +10317,7 @@ export interface IPaymentIn {
     authorizedDate?: Date | undefined;
     capturedDate?: Date | undefined;
     voidedDate?: Date | undefined;
+    orderId?: string | undefined;
     id?: string | undefined;
     bankCardInfo?: BankCardInfo | undefined;
     billingAddress?: Address | undefined;
