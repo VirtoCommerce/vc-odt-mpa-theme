@@ -192,23 +192,24 @@
         "text-below": ""
       },
       "payments": {
-      "no-payments": "No data",
-      "date-filter": {
-        "from": "From",
-        "to": "To",
-        "reset": "Reset",
-        "date-error": "Start date should be earlier than end date"
-      },
-      "grid": {
-        "columns": {
-          "number": "Payment ID",
-          "sum_formattedAmount": "Amount",
-          "gatewayCode": "Method",
-          "capturedDate": "Date",
-          "currency_code": "Currency"
+        "no-payments": "No data",
+        "date-filter": {
+          "from": "From",
+          "to": "To",
+          "reset": "Reset",
+          "date-error": "Start date should be earlier than end date"
         },
-        "text-above": "",
-        "text-below": ""
+        "grid": {
+          "columns": {
+            "number": "Payment ID",
+            "sum_formattedAmount": "Amount",
+            "gatewayCode": "Method",
+            "capturedDate": "Date",
+            "currency_code": "Currency"
+          },
+          "text-above": "",
+          "text-below": ""
+        }
       }
     }
   }
