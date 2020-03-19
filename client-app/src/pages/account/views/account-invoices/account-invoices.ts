@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { namespace } from "vuex-class";
+import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { BvTableCtxObject } from "bootstrap-vue";
 import InvoicesFilter from "@account/components/invoices-filter/index.vue";
 import { SET_INVOICES_LIST_CONFIG, FETCH_INVOICES, GET_INVOICE_PDF } from '@account/store/modules/invoices-list/definitions';
@@ -29,6 +30,8 @@ export default class AccountInvoices extends Vue {
 
   @invoicesListModule.Action(GET_INVOICE_PDF)
   private getInvoicePdf!: (orderNumber: string) => void;
+
+  downloadIcon = faSave;
 
   pageSizes = pageSizes;
 

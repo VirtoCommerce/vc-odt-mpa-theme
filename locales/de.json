@@ -183,6 +183,7 @@
     },
     "invoices": {
       "no-invoices": "Keine Daten",
+      "download-invoice": "Download Rechnung",
       "date-filter": {
         "from": "Von",
         "to": "Zu",
@@ -214,7 +215,8 @@
           "sum_formattedAmount": "Zahlungsbetrag",
           "gatewayCode": "Bezahlverfahren",
           "createdDate": "Datum",
-          "currency_code": "Währung"
+          "currency_code": "Währung",
+          "actions": "Aktionen"
         },
         "text-above": "",
         "text-below": ""
