@@ -66,9 +66,9 @@
             @change="selectedStatusesChanged($event)"></b-form-checkbox-group>
         </b-dropdown>
       </div>
-    </div>
-    <div v-if="!isDateValid && isDateValid != null">
-      <span class="text-danger">{{ $t("account.invoices.date-filter.date-error") }}</span>
+      <div v-if="!isDateValid && isDateValid != null" class="col col-sm-12 col-md-12 col-lg-12">
+        <span class="text-danger">{{ $t("account.orders.date-error") }}</span>
+      </div>
     </div>
   </div>
 </template>

@@ -33,9 +33,9 @@
           class="mb-2"
           @input="changeEndDate($event)"></b-form-datepicker>
       </div>
-    </div>
-    <div v-if="!isDateValid && isDateValid != null">
-      <span class="text-danger">{{ $t("account.payments.date-filter.date-error") }}</span>
+      <div v-if="!isDateValid && isDateValid != null" class="col col-sm-12 col-md-12 col-lg-12">
+        <span class="text-danger">{{ $t("account.orders.date-error") }}</span>
+      </div>
     </div>
   </div>
 </template>
