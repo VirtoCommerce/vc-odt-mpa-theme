@@ -166,7 +166,7 @@
       }
     },
     "invoices": {
-      "no-invoices": "No invoices",
+      "no-invoices": "No data",
       "date-filter": {
         "from": "From",
         "to": "To",
@@ -174,13 +174,13 @@
         "date-error": "Start date should be earlier than end date"
       },
       "status-filter": {
-        "filter-by": "Filter by status",
+        "title": "Status",
         "select-all": "Select All",
         "all": "All"
       },
       "grid": {
         "columns": {
-          "number": "Payment ID",
+          "number": "Invoice ID",
           "status": "Status",
           "sum_formattedAmount": "Amount",
           "gatewayCode": "Method",

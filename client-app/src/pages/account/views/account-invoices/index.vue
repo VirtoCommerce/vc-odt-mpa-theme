@@ -18,7 +18,7 @@
         no-local-sorting
         @sort-changed="sortChanged">
         <template v-slot:cell(createdDate)="data">
-          <span>{{ data.value | moment("ddd, DD/MM/YY") }}</span>
+          <span>{{ data.value | moment("MMMM DD, YYYY") }}</span>
         </template>
         <template v-slot:cell(number)="data">
           <a class="text-primary btn d-inline p-0" @click="getInvoicePdf(data.item.orderId)">

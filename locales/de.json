@@ -181,7 +181,7 @@
       }
     },
     "invoices": {
-      "no-invoices": "Keine Rechnungen",
+      "no-invoices": "Keine Daten",
       "date-filter": {
         "from": "Von",
         "to": "Zu",
@@ -189,7 +189,7 @@
         "date-error": "Das Startdatum sollte vor dem Enddatum liegen"
       },
       "status-filter": {
-        "filter-by": "Nach Status filtern",
+        "title": "Status",
         "select-all": "Wählen Sie Alle",
         "all": "Alle"
       },

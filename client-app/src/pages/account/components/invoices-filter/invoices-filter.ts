@@ -40,7 +40,7 @@ export default class InvoicesFilter extends Vue {
   }
 
   mounted() {
-    this.getDatepickerLocalization();
+    this.setDatepickerLocalization();
   }
 
   dateChanged() {
@@ -71,14 +71,14 @@ export default class InvoicesFilter extends Vue {
     this.dateChanged();
   }
 
-  getDatepickerLocalization() {
+  setDatepickerLocalization() {
     typeof i18n.t(`account.invoices.datepicker`) === "string"
       ? (this.datepickerLabels = {})
       : (this.datepickerLabels = i18n.t(`account.invoices.datepicker`));
   }
 
   getCurrentStatusLabel(): TranslateResult {
-    if (this.allStatusesSelected || this.invoicesFilter.statuses.length == 2) {
+    if (this.allStatusesSelected || this.invoicesFilter.statuses.length == this.availableInvoicesStatuses.length) {
       return i18n.t("account.invoices.status-filter.all");
     } else return this.invoicesFilter.statuses[0];
   }

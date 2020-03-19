@@ -33,8 +33,8 @@
           class="mb-2"
           @input="changeEndDate($event)"></b-form-datepicker>
       </div>
-      <div class="d-flex flex-column justify-content-center col-sm-auto col-md-auto col-lg-auto">
-        <label for="dropdown-filters">{{ $t("account.invoices.status-filter.filter-by") }}</label>
+      <div class="d-flex flex-column justify-content-center col-sm-3 col-md-2 col-lg-2">
+        <label for="dropdown-filters">{{ $t("account.invoices.status-filter.title") }}</label>
         <b-dropdown
           id="dropdown-filters"
           class="mb-2"

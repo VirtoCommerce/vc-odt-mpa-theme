@@ -1,5 +1,5 @@
 import { Module } from "vuex";
-import { defaultPageSize, invoicesGridFields, invoicesStatuses } from '@common/constants';
+import { defaultPageSize, invoicesGridFields, invoicesStatuses, startPageNumber } from '@common/constants';
 import { localizeGridColumns } from '@common/services/localization.helper.service';
 import { RootState } from "../../types";
 import { actions } from "./actions";
@@ -14,7 +14,7 @@ export const initialState: InvoicesListState = {
   invoicesList: {
     listConfig: {
       columns: invoicesGridFields,
-      pageNumber: 1,
+      pageNumber: startPageNumber,
       pageSize: defaultPageSize,
       filters: {
         statuses: invoicesStatuses,
