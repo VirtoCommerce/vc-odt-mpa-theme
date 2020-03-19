@@ -59,7 +59,8 @@
       "home": "User Details",
       "orders": "Orders",
       "users": "Users",
-      "invoices": "Invoices"
+      "invoices": "Invoices",
+      "payments": "Payments"
     },
     "home": {
       "email": "Email",
@@ -185,6 +186,25 @@
           "sum_formattedAmount": "Amount",
           "gatewayCode": "Method",
           "createdDate": "Date",
+          "currency_code": "Currency"
+        },
+        "text-above": "",
+        "text-below": ""
+      },
+      "payments": {
+      "no-payments": "No data",
+      "date-filter": {
+        "from": "From",
+        "to": "To",
+        "reset": "Reset",
+        "date-error": "Start date should be earlier than end date"
+      },
+      "grid": {
+        "columns": {
+          "number": "Payment ID",
+          "sum_formattedAmount": "Amount",
+          "gatewayCode": "Method",
+          "capturedDate": "Date",
           "currency_code": "Currency"
         },
         "text-above": "",

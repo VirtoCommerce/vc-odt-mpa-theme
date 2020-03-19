@@ -40,6 +40,13 @@
         "gatewayCode",
         "createdDate",
         "currency.code"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "capturedDate",
+        "currency.code"
       ]
     },
     "Gray": {
@@ -80,6 +87,13 @@
         "sum.formattedAmount",
         "gatewayCode",
         "createdDate",
+        "currency.code"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "capturedDate",
         "currency.code"
       ]
     },
@@ -122,6 +136,13 @@
         "gatewayCode",
         "createdDate",
         "currency.code"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "capturedDate",
+        "currency.code"
       ]
     },
     "Red": {
@@ -162,6 +183,13 @@
         "sum.formattedAmount",
         "gatewayCode",
         "createdDate",
+        "currency.code"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "capturedDate",
         "currency.code"
       ]
     },
@@ -204,6 +232,13 @@
         "gatewayCode",
         "createdDate",
         "currency.code"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "capturedDate",
+        "currency.code"
       ]
     },
     "Cyan": {
@@ -244,6 +279,13 @@
         "sum.formattedAmount",
         "gatewayCode",
         "createdDate",
+        "currency.code"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "capturedDate",
         "currency.code"
       ]
     },
@@ -286,6 +328,13 @@
         "gatewayCode",
         "createdDate",
         "currency.code"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "capturedDate",
+        "currency.code"
       ]
     },
     "Dark": {
@@ -326,6 +375,13 @@
         "sum.formattedAmount",
         "gatewayCode",
         "createdDate",
+        "currency.code"
+      ],
+      "payments_grid_fields": [
+        "number",
+        "sum.formattedAmount",
+        "gatewayCode",
+        "capturedDate",
         "currency.code"
       ]
     }

@@ -59,7 +59,8 @@
       "home": "Nutzerdetails",
       "orders": "Aufträge",
       "users": "Benutzer",
-      "invoices": "Rechnungen"
+      "invoices": "Rechnungen",
+      "payments": "Zahlungen"
     },
     "home": {
       "email": "Email",
@@ -180,7 +181,7 @@
         "add-user": "Add user"
       }
     },
-    "invoices": {
+      "invoices": {
       "no-invoices": "Keine Daten",
       "date-filter": {
         "from": "Von",
@@ -213,6 +214,38 @@
           "sum_formattedAmount": "Zahlungsbetrag",
           "gatewayCode": "Bezahlverfahren",
           "createdDate": "Datum",
+          "currency_code": "Währung"
+        },
+        "text-above": "",
+        "text-below": ""
+      },
+      "payments": {
+      "no-payments": "Keine Daten",
+      "date-filter": {
+        "from": "Von",
+        "to": "Zu",
+        "reset": "Zurücksetzen",
+        "date-error": "Das Startdatum sollte vor dem Enddatum liegen"
+      },
+      "datepicker": {
+        "labelPrevYear": "Vorheriges Jahr",
+        "labelPrevMonth": "Vorheriger Monat",
+        "labelCurrentMonth": "Aktueller Monat",
+        "labelNextMonth": "Nächster Monat",
+        "labelNextYear": "Nächstes Jahr",
+        "labelToday": "Heute",
+        "labelSelected": "Ausgewähltes Datum",
+        "labelNoDateSelected": "Kein Datum gewählt",
+        "labelCalendar": "Kalender",
+        "labelNav": "Kalendernavigation",
+        "labelHelp": "Mit den Pfeiltasten durch den Kalender navigieren"
+      },
+      "grid": {
+        "columns": {
+          "number": "Zahlungsnummer",
+          "sum_formattedAmount": "Zahlungsbetrag",
+          "gatewayCode": "Bezahlverfahren",
+          "capturedDate": "Datum",
           "currency_code": "Währung"
         },
         "text-above": "",

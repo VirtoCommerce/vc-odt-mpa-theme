@@ -1,0 +1,43 @@
+<template>
+  <div v-if="paymentsFilter">
+    <div class="d-flex flex-wrap flex-sm-row flex-column">
+      <div class="col col-sm-6 col-md-5 col-lg-4">
+        <label for="begin-date">{{ $t("account.payments.date-filter.from") }}</label>
+        <b-form-datepicker
+          id="begin-date"
+          :value="paymentsFilter.startDate"
+          value-as-date
+          reset-button
+          :label-reset-button="$t('account.payments.date-filter.reset')"
+          :date-format-options="{ year: 'numeric', month: 'long', day: 'numeric' }"
+          :max="new Date()"
+          :class="{ 'is-invalid': !isDateValid && isDateValid != null }"
+          :locale="locale"
+          v-bind="datepickerLabels"
+          class="mb-2"
+          @input="changeStartDate($event)"></b-form-datepicker>
+      </div>
+      <div class="col col-sm-6 col-md-5 col-lg-4">
+        <label for="end-date">{{ $t("account.payments.date-filter.to") }}</label>
+        <b-form-datepicker
+          id="end-date"
+          :value="paymentsFilter.endDate"
+          value-as-date
+          reset-button
+          :label-reset-button="$t('account.payments.date-filter.reset')"
+          :date-format-options="{ year: 'numeric', month: 'long', day: 'numeric' }"
+          :max="new Date()"
+          :class="{ 'is-invalid': !isDateValid && isDateValid != null }"
+          :locale="locale"
+          v-bind="datepickerLabels"
+          class="mb-2"
+          @input="changeEndDate($event)"></b-form-datepicker>
+      </div>
+    </div>
+    <div v-if="!isDateValid && isDateValid != null">
+      <span class="text-danger">{{ $t("account.payments.date-filter.date-error") }}</span>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" src="./payments-filter.ts"></script>
