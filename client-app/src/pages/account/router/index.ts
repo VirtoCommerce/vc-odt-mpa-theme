@@ -19,7 +19,6 @@ const routes = [
     component: AccountOrders,
     beforeEnter: (to: any, from: any, next: any) => {
       const profile = store.getters["profileModule/profile"];
-      console.log(profile.permissions);
       const authResult = AuthorizationService.checkUserPermissions( profile, Permissions.CanViewOrders);
       if(authResult){
         next();
@@ -33,7 +32,6 @@ const routes = [
     component: AccountUsers,
     beforeEnter: (to: any, from: any, next: any) => {
       const profile = store.getters["profileModule/profile"];
-      console.log(profile.permissions);
       const authResult = AuthorizationService.checkUserPermissions( profile, Permissions.CanViewUsers);
       if(authResult){
         next();
