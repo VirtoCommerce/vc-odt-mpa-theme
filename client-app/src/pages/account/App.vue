@@ -27,7 +27,8 @@
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link to="invoices"
+        <router-link v-if="$can(profile, $permissions.CanViewOrders)"
+                     to="invoices"
                      active-class="border-bottom-0 border-primary"
                      tag="a"
                      class="nav-link">
@@ -35,7 +36,8 @@
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link to="payments"
+        <router-link v-if="$can(profile, $permissions.CanViewOrders)"
+                     to="payments"
                      active-class="border-bottom-0 border-primary"
                      tag="a"
                      class="nav-link">
