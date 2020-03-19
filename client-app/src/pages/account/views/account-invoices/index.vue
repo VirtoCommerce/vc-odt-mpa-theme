@@ -11,6 +11,7 @@
         stacked="md"
         striped
         hover
+        tbody-tr-class="text-break"
         :show-empty="true"
         :empty-text="$t('account.invoices.no-invoices')"
         :items="invoicesList.invoices"
