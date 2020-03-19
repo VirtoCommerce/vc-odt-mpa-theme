@@ -181,7 +181,7 @@
       }
     },
     "payments": {
-      "no-payments": "Keine Zahlungen",
+      "no-payments": "Keine Daten",
       "date-filter": {
         "from": "Von",
         "to": "Zu",

@@ -6,7 +6,7 @@
     <div v-if="!isLoading" class="mt-3">
       <p>{{ $t("account.payments.grid.text-above") }}</p>
       <b-table
-        id="users-table"
+        id="payments-table"
         stacked="md"
         striped
         hover
@@ -17,14 +17,14 @@
         no-local-sorting
         @sort-changed="sortChanged">
         <template v-slot:cell(capturedDate)="data">
-          <span>{{ data.value | moment("ddd, DD/MM/YY") }}</span>
+          <span>{{ data.value | moment("LL") }}</span>
         </template>
       </b-table>
 
       <div class="d-flex justify-content-between">
         <b-pagination
           :value="paymentsList.listConfig.pageNumber"
-          aria-controls="users-table"
+          aria-controls="payments-table"
           :total-rows="paymentsList.totalCount"
           :per-page="paymentsList.listConfig.pageSize"
           @change="pageChanged($event)"></b-pagination>

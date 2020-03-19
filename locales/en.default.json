@@ -166,7 +166,7 @@
       }
     },
     "payments": {
-      "no-payments": "No payments",
+      "no-payments": "No data",
       "date-filter": {
         "from": "From",
         "to": "To",

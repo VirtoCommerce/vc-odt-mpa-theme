@@ -26,7 +26,7 @@ export default class PaymentsFilter extends Vue {
   }
 
   mounted() {
-    this.getDatepickerLocalization();
+    this.setDatepickerLocalization();
   }
 
   dateChanged() {
@@ -57,7 +57,7 @@ export default class PaymentsFilter extends Vue {
     this.dateChanged();
   }
 
-  getDatepickerLocalization() {
+  setDatepickerLocalization() {
     typeof i18n.t(`account.payments.datepicker`) === "string"
       ? (this.datepickerLabels = {})
       : (this.datepickerLabels = i18n.t(`account.payments.datepicker`));
