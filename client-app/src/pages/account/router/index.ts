@@ -40,6 +40,7 @@ const routes = [
       } else {
         window.location.assign(`${window.BASE_URL}error/AccessDenied`);
       }
+    }
   },
   {
     path: "/invoices",
