@@ -21,7 +21,11 @@ const routes = [
       const profile = store.getters["profileModule/profile"];
       console.log(profile.permissions);
       const authResult = AuthorizationService.checkUserPermissions( profile, Permissions.CanViewOrders);
-      next(authResult);
+      if(authResult){
+        next();
+      } else {
+        window.location.assign(`${window.BASE_URL}error/AccessDenied`);
+      }
     }
   },
   {
@@ -31,7 +35,11 @@ const routes = [
       const profile = store.getters["profileModule/profile"];
       console.log(profile.permissions);
       const authResult = AuthorizationService.checkUserPermissions( profile, Permissions.CanViewUsers);
-      next(authResult);
+      if(authResult){
+        next();
+      } else {
+        window.location.assign(`${window.BASE_URL}error/AccessDenied`);
+      }
     }
   }
 ];
