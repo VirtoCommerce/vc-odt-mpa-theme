@@ -10,6 +10,7 @@
         stacked="md"
         striped
         hover
+        tbody-tr-class="text-break"
         :show-empty="true"
         :empty-text="$t('account.payments.no-payments')"
         :items="paymentsList.payments"
