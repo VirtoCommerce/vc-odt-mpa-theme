@@ -22,22 +22,25 @@
         striped
         hover
         :show-empty="true"
+        tbody-tr-class="text-break"
         :empty-text="$t('account.users.no-users')"
         :items="usersList.users"
         :fields="usersList.listConfig.columns"
         no-local-sorting
         @sort-changed="sortChanged">
         <template v-slot:cell(actions)="row">
-          <font-awesome-layers v-if="$can(profile, $permissions.CanEditUsers)"
-                               class="mr-3 btn"
-                               @click="openEditUserModal(row.item)">
-            <font-awesome-icon :icon="editIcon" size="lg"></font-awesome-icon>
-          </font-awesome-layers>
-          <font-awesome-layers v-if="$can(profile, $permissions.CanDeleteUsers)"
-                               class="btn"
-                               @click="confirmDeleteUser(row.item)">
-            <font-awesome-icon :icon="deleteIcon" size="lg"></font-awesome-icon>
-          </font-awesome-layers>
+          <div class="d-flex justify-content-md-around">
+            <font-awesome-layers v-if="$can(profile, $permissions.CanEditUsers)"
+                                 class="mr-3 btn"
+                                 @click="openEditUserModal(row.item)">
+              <font-awesome-icon :icon="editIcon" size="lg"></font-awesome-icon>
+            </font-awesome-layers>
+            <font-awesome-layers v-if="$can(profile, $permissions.CanDeleteUsers)"
+                                 class="btn"
+                                 @click="confirmDeleteUser(row.item)">
+              <font-awesome-icon :icon="deleteIcon" size="lg"></font-awesome-icon>
+            </font-awesome-layers>
+          </div>
         </template>
       </b-table>
 

@@ -3,8 +3,8 @@ import { PaymentSearchCriteria } from '@common/api/api-clients';
 import { storeName, locale } from '@common/constants';
 import { orderClient } from '@common/services/api-clients.service';
 import { RootState } from "../../types";
-import { FETCH_INVOICES, SET_INVOICES_LIST_CONFIG, GET_INVOICE_PDF } from "./definitions";
-import { SET_INVOICES, SET_INVOICE_PDF } from "./mutations"
+import { FETCH_INVOICES, SET_INVOICES_LIST_CONFIG } from "./definitions";
+import { SET_INVOICES } from "./mutations"
 import { InvoicesListState, InvoicesListConfig } from "./types";
 
 
@@ -26,10 +26,5 @@ export const actions: ActionTree<InvoicesListState, RootState> = {
   async [SET_INVOICES_LIST_CONFIG](context , payload: InvoicesListConfig) {
     context.commit(SET_INVOICES_LIST_CONFIG, payload);
     context.dispatch(FETCH_INVOICES);
-  },
-  async [GET_INVOICE_PDF](context, payload: string) {
-    context.commit(FETCH_INVOICES);
-    await orderClient.getInvoicePdf(payload, storeName, locale);
-    context.commit(SET_INVOICE_PDF);
   }
 };
