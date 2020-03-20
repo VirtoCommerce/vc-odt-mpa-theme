@@ -1,43 +1,42 @@
 import { Module } from "vuex";
-import { defaultPageSize, ordersGridFields, startPageNumber } from '@common/constants';
+import { defaultPageSize, invoicesGridFields, invoicesStatuses, startPageNumber } from '@common/constants';
 import { localizeGridColumns } from '@common/services/localization.helper.service';
 import { RootState } from "../../types";
 import { actions } from "./actions";
 import { getters } from "./getters";
 import { mutations } from "./mutations";
-import { OrdersListState } from "./types";
+import { InvoicesListState } from "./types";
 
 
 // initial state
-export const initialState: OrdersListState = {
+export const initialState: InvoicesListState = {
   errors: {},
-  ordersList: {
+  invoicesList: {
     listConfig: {
-      columns: ordersGridFields,
+      columns: invoicesGridFields,
       pageNumber: startPageNumber,
       pageSize: defaultPageSize,
       filters: {
-        statuses: [],
+        statuses: invoicesStatuses,
         endDate: undefined,
         startDate: undefined,
         keyword: undefined
       }
     },
     totalCount: 0,
-    orders: []
+    invoices: []
   },
-  selectedOrder: null,
-  selectedOrderIsLoaded: false,
+  selectedInvoice: null,
   isLoading: false,
   loaded: false
 };
 
-const localizationOrdersGridColumnsNode = "account.orders.grid.columns"
+const localizationInvoicesGridColumnsNode = "account.invoices.grid.columns"
 
 // We need this because bootstrap-vue will directly use labels on stacked table
-initialState.ordersList.listConfig.columns = localizeGridColumns(localizationOrdersGridColumnsNode, initialState.ordersList.listConfig.columns);
+initialState.invoicesList.listConfig.columns = localizeGridColumns(localizationInvoicesGridColumnsNode, initialState.invoicesList.listConfig.columns);
 
-const ordersListModule: Module<OrdersListState, RootState> = {
+const invoicesListModule: Module<InvoicesListState, RootState> = {
   namespaced: true,
   state: initialState,
   getters,
@@ -45,4 +44,4 @@ const ordersListModule: Module<OrdersListState, RootState> = {
   mutations
 };
 
-export default ordersListModule;
+export default invoicesListModule;

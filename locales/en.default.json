@@ -58,7 +58,9 @@
     "menu_titles": {
       "home": "User Details",
       "orders": "Orders",
-      "users": "Users"
+      "users": "Users",
+      "invoices": "Invoices",
+      "payments": "Payments"
     },
     "home": {
       "email": "Email",
@@ -70,14 +72,13 @@
       "to": "To",
       "reset": "Reset",
       "date-error": "Start date should be earlier than end date",
-      "no-orders": "You have no orders placed",
+      "no-orders": "No data",
       "status-filter": {
-        "filter-by": "Filter by status",
+        "title": "Status",
         "select-all": "Select All",
         "all": "All"
       },
-      "enter-keyword": "Enter keyword here",
-      "keyword-search-title": "Search by keyword",
+      "keyword": "Keyword",
       "grid": {
         "columns": {
           "number": "Order ID",
@@ -106,9 +107,8 @@
       }
     },
     "users": {
-      "no-users": "No users",
-      "enter-keyword": "Enter keyword here",
-      "keyword-search-title": "Search by keyword",
+      "no-users": "No data",
+      "keyword": "Keyword",
       "edit-user-title": "Edit user",
       "grid": {
         "columns": {
@@ -162,6 +162,54 @@
         "confirm-password-not-same": "Passwords must be identical",
         "submit": "Submit",
         "add-user": "Add user"
+      }
+    },
+    "invoices": {
+      "no-invoices": "No data",
+      "download-invoice": "Download invoice",
+      "date-filter": {
+        "from": "From",
+        "to": "To",
+        "reset": "Reset",
+        "date-error": "Start date should be earlier than end date"
+      },
+      "status-filter": {
+        "title": "Status",
+        "select-all": "Select All",
+        "all": "All"
+      },
+      "grid": {
+        "columns": {
+          "number": "Invoice ID",
+          "status": "Status",
+          "sum_amount": "Amount",
+          "gatewayCode": "Method",
+          "createdDate": "Date",
+          "currency_code": "Currency",
+          "actions": "Actions"
+        },
+        "text-above": "",
+        "text-below": ""
+      }
+    },
+    "payments": {
+      "no-payments": "No data",
+      "date-filter": {
+        "from": "From",
+        "to": "To",
+        "reset": "Reset",
+        "date-error": "Start date should be earlier than end date"
+      },
+      "grid": {
+        "columns": {
+          "number": "Payment ID",
+          "sum_amount": "Amount",
+          "gatewayCode": "Method",
+          "capturedDate": "Date",
+          "currency_code": "Currency"
+        },
+        "text-above": "",
+        "text-below": ""
       }
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-3">
     <loading :active.sync="isLoading" :z-index="5000"></loading>
     <account-order-details-modal :order-id="selectedOrderId">
     </account-order-details-modal>
@@ -25,7 +25,7 @@
           </a>
         </template>
         <template v-slot:cell(createdDate)="data">
-          <span>{{ data.value | moment("ddd, DD/MM/YY") }}</span>
+          <span>{{ data.value | moment("LL") }}</span>
         </template>
       </b-table>
 

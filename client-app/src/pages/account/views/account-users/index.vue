@@ -1,14 +1,18 @@
 <template>
   <div class="mt-3">
     <loading :active.sync="isLoading"></loading>
-    <b-button v-b-modal.addUserModal variant="primary">
-      {{ $t("account.users.add-user.add-user") }}
-    </b-button>
     <add-user-modal @userAdded="userAdded($event)"></add-user-modal>
     <edit-user-modal :user="selectedUser" @userChanged="userChanged($event)"></edit-user-modal>
-    <users-filter class="mt-3"
-                  :users-filter="usersList.listConfig.filters"
-                  @filtersChanged="filtersChanged"></users-filter>
+    <div class="d-flex flex-wrap flex-sm-row flex-column justify-content-between">
+      <users-filter class="col col-sm-6 col-md-5 col-lg-3"
+                    :users-filter="usersList.listConfig.filters"
+                    @filtersChanged="filtersChanged"></users-filter>
+      <b-button v-b-modal.addUserModal
+                variant="primary"
+                class="col col-sm-auto col-md-auto col-lg-auto align-self-sm-end mt-3">
+        {{ $t("account.users.add-user.add-user") }}
+      </b-button>
+    </div>
     <div v-if="!isLoading" class="mt-3">
       <p>{{ $t("account.users.grid.text-above") }}</p>
       <b-table
