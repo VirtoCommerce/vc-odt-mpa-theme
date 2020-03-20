@@ -6,7 +6,7 @@ import { BvTableCtxObject } from "bootstrap-vue";
 import InvoicesFilter from "@account/components/invoices-filter/index.vue";
 import { SET_INVOICES_LIST_CONFIG, FETCH_INVOICES } from '@account/store/modules/invoices-list/definitions';
 import { InvoicesList, InvoicesListConfig, InvoicesListFilters } from '@account/store/modules/invoices-list/types';
-import { pageSizes, invoicesStatuses } from "@common/constants";
+import { pageSizes, invoicesStatuses, baseUrl, storeName, locale } from "@common/constants";
 
 
 const invoicesListModule = namespace('invoicesListModule');
@@ -60,7 +60,7 @@ export default class AccountInvoices extends Vue {
   }
 
   getInvoicePdf(orderNumber: string) {
-    const url = 'storefrontapi/orders/' + `${orderNumber}` + '/invoice';
+    const url = baseUrl + `/${storeName}/${locale}/storefrontapi/orders/${orderNumber}/invoice`;
     window.open(url, '_blank');
   }
 
