@@ -34,9 +34,8 @@
   <body class="min-vh-100 d-flex flex-column">
     {{ content_for_header }}
     <main class="container flex-grow-1">
-      <div id="initApp">
+      <div id="initApp"></div>
       {{ content_for_layout }}
-      </div>
     </main>
     {% include 'footer' %}
     <script src="{{ 'bundle/dist/js/chunk-vendors.js' | static_asset_url | append_version }}"></script>
