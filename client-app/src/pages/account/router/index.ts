@@ -14,8 +14,8 @@ Vue.use(VueRouter);
 
 
 const beforeEnterWithPermissions = (to: any, from: any, next: any, ...permissions: string[]) => {
-  const profile = store.getters["profileModule/profile"];
-  const authResult = AuthorizationService.checkUserPermissions( profile, ...permissions);
+  // const profile = store.getters["profileModule/profile"];
+  const authResult = AuthorizationService.checkUserPermissions( ...permissions);
   if(authResult){
     next();
   } else {

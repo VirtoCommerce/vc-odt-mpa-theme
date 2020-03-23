@@ -10,7 +10,7 @@
           {{ $t('account.menu_titles.home') }}
         </router-link>
       </li>
-      <li v-if="$can(profile, $permissions.CanViewOrders)" class="nav-item">
+      <li v-if="$can($permissions.CanViewOrders)" class="nav-item">
         <router-link to="orders"
                      active-class="border-bottom-0 border-primary"
                      tag="a"
@@ -18,7 +18,7 @@
           {{ $t('account.menu_titles.orders') }}
         </router-link>
       </li>
-      <li v-if="$can(profile, $permissions.CanViewUsers)" class="nav-item">
+      <li v-if="$can($permissions.CanViewUsers)" class="nav-item">
         <router-link to="users"
                      active-class="border-bottom-0 border-primary"
                      tag="a"
@@ -27,7 +27,7 @@
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link v-if="$can(profile, $permissions.CanViewOrders)"
+        <router-link v-if="$can($permissions.CanViewOrders)"
                      to="invoices"
                      active-class="border-bottom-0 border-primary"
                      tag="a"
@@ -36,7 +36,7 @@
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link v-if="$can(profile, $permissions.CanViewOrders)"
+        <router-link v-if="$can($permissions.CanViewOrders)"
                      to="payments"
                      active-class="border-bottom-0 border-primary"
                      tag="a"
@@ -56,15 +56,15 @@ import { namespace } from "vuex-class";
 import { User } from "@common/api/api-clients";
 
 
-const profileModule = namespace('profileModule');
+// const profileModule = namespace('profileModule');
 
 @Component({
   name: "home"
 })
 export default class App extends Vue {
 
-  @profileModule.Getter('profile')
-  profile!: User;
+  // @profileModule.Getter('profile')
+  // profile!: User;
 
   // todo: remove
   throwError() {

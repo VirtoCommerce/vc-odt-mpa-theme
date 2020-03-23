@@ -7,7 +7,7 @@
       <users-filter class="col col-sm-6 col-md-5 col-lg-3"
                     :users-filter="usersList.listConfig.filters"
                     @filtersChanged="filtersChanged"></users-filter>
-      <b-button v-can="{ user: profile, permissions: $permissions.CanCreateUsers}"
+      <b-button v-can="$permissions.CanCreateUsers"
                 v-b-modal.addUserModal
                 variant="primary"
                 class="col col-sm-auto col-md-auto col-lg-auto align-self-sm-end mt-3">

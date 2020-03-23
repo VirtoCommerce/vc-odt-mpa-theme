@@ -28,12 +28,12 @@ export function AuthorizationPlugin(Vue: typeof _Vue, options?: any): void {
    */
   Vue.directive('can', (el, binding, vnode: VNode) => {
     const behavior = binding.modifiers.disable ? 'disable' : 'hide'
-    let permissions = binding.value.permissions;
+    let permissions = binding.value;
     if(!( permissions instanceof Array )) {
       permissions = [permissions];
     }
-    const profile = binding.value.user;
-    const authResult = AuthorizationService.checkUserPermissions( profile, ...(permissions as Array<string>));
+    // const profile = binding.value.user;
+    const authResult = AuthorizationService.checkUserPermissions( ...(permissions as Array<string>));
     if (!authResult) {
       if (behavior === 'hide') {
         commentNode(el, vnode)
