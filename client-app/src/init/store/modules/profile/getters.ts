@@ -1,5 +1,6 @@
 import { GetterTree } from "vuex";
-import { RootState } from "../../types";
+//import { RootState } from "../../../../pages/account/store/types";
+import { State as RootState } from "@init-app/store/state";
 import { ProfileState } from "./types";
 
 // getters

@@ -53,7 +53,8 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { namespace } from "vuex-class";
-import { User } from "../../common/api/api-clients";
+import { User } from "@common/api/api-clients";
+
 
 const profileModule = namespace('profileModule');
 
@@ -65,6 +66,7 @@ export default class App extends Vue {
   @profileModule.Getter('profile')
   profile!: User;
 
+  // todo: remove
   throwError() {
     throw new Error();
   }

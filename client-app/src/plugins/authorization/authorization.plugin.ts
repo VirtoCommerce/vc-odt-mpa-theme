@@ -1,6 +1,5 @@
 import _Vue from "vue";
 import { VNode } from 'vue/types/umd';
-import { User } from '@common/api/api-clients';
 import StorefrontPermissions from '@common/permissions';
 import AuthorizationService from '@common/services/authorization.service';
 import { commentNode } from './comment-node';
