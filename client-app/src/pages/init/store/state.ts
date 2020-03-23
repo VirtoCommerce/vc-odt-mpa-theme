@@ -1,4 +1,4 @@
-import ErrorInfo from '@init-app/store/types';
+import ErrorInfo from 'pages/init/store/types';
 
 // state type
 export interface State {

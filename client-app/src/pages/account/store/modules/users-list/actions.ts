@@ -1,9 +1,8 @@
 import { ActionTree } from "vuex";
+import { RootState } from 'store/types';
 import { OrganizationContactsSearchCriteria, OrganizationUserRegistration, UserUpdateInfo } from '@common/api/api-clients';
 import { storeName, locale } from '@common/constants';
 import { accountClient} from '@common/services/api-clients.service';
-//import { RootState } from "../../types";
-import { State as RootState } from "@init-app/store/state";
 import { FETCH_USERS, FETCH_USER, SET_USERS_LIST_CONFIG, CLEAR_SELECTED_USER, ADD_USER, DELETE_USER, UPDATE_USER } from "./definitions";
 import { SET_USERS, SET_USER } from "./mutations"
 import { UsersListState, UsersListConfig } from "./types";

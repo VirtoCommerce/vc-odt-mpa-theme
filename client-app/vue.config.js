@@ -1,5 +1,5 @@
 const pages = {
-  init: "src/init/main.ts",
+  init: "src/pages/init/main.ts",
   account: "src/pages/account/main.ts",
   //catalog: "src/pages/catalog/main.ts"
 };

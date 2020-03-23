@@ -30,12 +30,12 @@
         @sort-changed="sortChanged">
         <template v-slot:cell(actions)="row">
           <div class="d-flex justify-content-md-around">
-            <font-awesome-layers v-if="$can(profile, $permissions.CanEditUsers)"
+            <font-awesome-layers v-if="$can($permissions.CanEditUsers)"
                                  class="mr-3 btn"
                                  @click="openEditUserModal(row.item)">
               <font-awesome-icon :icon="editIcon" size="lg"></font-awesome-icon>
             </font-awesome-layers>
-            <font-awesome-layers v-if="$can(profile, $permissions.CanDeleteUsers)"
+            <font-awesome-layers v-if="$can($permissions.CanDeleteUsers)"
                                  class="btn"
                                  @click="confirmDeleteUser(row.item)">
               <font-awesome-icon :icon="deleteIcon" size="lg"></font-awesome-icon>

@@ -1,4 +1,5 @@
 import _Vue from "vue";
+import store from 'pages/init/store';
 import { VNode } from 'vue/types/umd';
 import StorefrontPermissions from '@common/permissions';
 import AuthorizationService from '@common/services/authorization.service';

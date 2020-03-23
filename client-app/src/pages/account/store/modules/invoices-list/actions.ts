@@ -1,9 +1,8 @@
 import { ActionTree } from "vuex";
+import { RootState } from 'store/types';
 import { PaymentSearchCriteria } from '@common/api/api-clients';
 import { storeName, locale } from '@common/constants';
 import { orderClient } from '@common/services/api-clients.service';
-//import { RootState } from "../../types";
-import { State as RootState } from "@init-app/store/state";
 import { FETCH_INVOICES, SET_INVOICES_LIST_CONFIG } from "./definitions";
 import { SET_INVOICES } from "./mutations"
 import { InvoicesListState, InvoicesListConfig } from "./types";

@@ -1,11 +1,12 @@
 import { GetterTree } from "vuex";
+import { State } from "pages/init/store/state";
+import { ReactiveErrorInfo } from 'pages/init/store/types';
 import { interval } from 'rxjs';
 import { map } from "rxjs/operators";
-import { State } from "@init-app/store/state";
-import { ReactiveErrorInfo } from '@init-app/store/types';
+import { RootState } from "store/types";
 
 // getters
-export const getters: GetterTree<State, State> = {
+export const getters: GetterTree<State, RootState> = {
   errors: (state: State): ReactiveErrorInfo[] => {
     return state.errors.map(error => ({
       ...error,

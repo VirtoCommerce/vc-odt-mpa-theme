@@ -1,7 +1,6 @@
 import { GetterTree } from "vuex";
+import { RootState } from 'store/types';
 import { PaymentIn } from "@common/api/api-clients";
-//import { RootState } from "../../types";
-import { State as RootState } from "@init-app/store/state";
 import { PaymentsListState, PaymentsList } from "./types";
 
 // getters

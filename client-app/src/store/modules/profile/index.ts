@@ -1,7 +1,6 @@
 import { Module } from "vuex";
+import { RootState } from "store/types";
 import { User } from '@common/api/api-clients';
-// import { State } from "@init-app/store/types";
-import { State as RootState } from "@init-app/store/state";
 import { actions } from "./actions";
 import { getters } from "./getters";
 import { mutations } from "./mutations";
