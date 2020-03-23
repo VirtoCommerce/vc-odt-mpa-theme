@@ -54,6 +54,19 @@
     "title": "Access denied",
     "no-access": "You have no permission to view this page. Please, contact to your administrator"
   },
+  "collections": {
+    "sorting": {
+      "title": "Sort by",
+      "featured": "Featured",
+      "best_selling": "Best Selling",
+      "az": "Alphabetically, A-Z",
+      "za": "Alphabetically, Z-A",
+      "price_ascending": "Price, low to high",
+      "price_descending": "Price, high to low",
+      "date_descending": "Date, new to old",
+      "date_ascending": "Date, old to new"
+    }
+  },
   "account": {
     "menu_titles": {
       "home": "User Details",

@@ -1,0 +1,74 @@
+{% if settings.collection_sidebar_filters == 'facets' %}
+{% unless product_search_result.aggregations.empty? %}
+
+<div class="grid-uniform">
+    {% for aggregation in product_search_result.aggregations %}
+    {% assign current_tags = current_product_search_criteria.terms %}
+    <div class="grid-item small--one-half medium--one-third">
+        {% capture group_label %}{% if aggregation.field == 'price' %}{{ 'tags.price.label' | t }}{% else %}{{ aggregation.label }}{% endif %}{% endcapture %}
+        <h3>{{ group_label | escape }}</h3>
+        <ul class="advanced-filters">
+            {% for custom_tag in aggregation.items %}
+                {% assign tag_checked = false %}
+                {% for c_tag in current_tags %}
+                    {% if aggregation.field == c_tag.name and custom_tag.value == c_tag.value%}
+                        {% assign tag_checked = true %}
+                        {% break %}
+                    {% endif %}
+                {% endfor %}
+                {% assign tag = custom_tag %}
+                {% include 'tag-label' %}
+                {% if tag_checked  %}
+                    <li class="advanced-filter active-filter" data-group="{{ aggregation.field }}" data-handle="{{ custom_tag.name | handleize }}">
+                        {{ tag_label | link_to_remove_tag custom_tag }}
+                    </li>
+                {% else %}
+                     <li class="advanced-filter" data-group="{{ aggregation.field }}">{{ tag_label | link_to_add_tag custom_tag }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    $(function() {
+      var currentTags = '{{ current_tags }}',
+          filters = $('.advanced-filter'),
+          activeTag,
+          activeHandle;
+
+      filters.each(function() {
+        var el = $(this),
+            group = el.data('group'),
+            isActive = el.hasClass('active-filter');
+      });
+
+      filters.on('click', function(e) {
+        var el = $(this),
+            group = el.data('group'),
+            url = el.find('a').attr('href');
+
+        // Continue as normal if we're clicking on the active link
+        if ( el.hasClass('active-filter') ) {
+          return;
+        }
+
+        // Get active group link (unidentified if there isn't one)
+        activeTag = $('.active-filter[data-group="'+ group +'"]');
+
+        // If a tag from this group is already selected, remove it from the new tag's URL and continue
+        if ( activeTag && activeTag.data('group') === group ) {
+          e.preventDefault();
+          activeHandle = activeTag.data('handle') + '+';
+
+          // Create new URL without the currently active handle
+          url = url.replace(activeHandle, '');
+
+          window.location = url;
+        }
+      });
+    });
+</script>
+{% endunless %}
+{% endif %}

@@ -1,0 +1,73 @@
+{% unless grid_item_width %}
+    {% assign grid_item_width = 'large--one-quarter medium-down--one-half col-lg-3 col-sm-6' %}
+{% endunless %}
+
+{% unless current_collection %}
+    {% assign current_collection = collection %}
+{% endunless %}
+
+{% assign on_sale = false %}
+{% if product.compare_at_price.amount > product.price.actual_price.amount %}
+    {% assign on_sale = true %}
+{% endif %}
+
+{% assign unavailable = false %}
+{% assign sold_out = false %}
+
+{% if product.buyable and product.in_stock != true %}
+    {% assign sold_out = true %}
+{% endif %}
+
+{% if product.buyable != true  %}
+    {% assign unavailable = true %}
+{% endif %}
+
+{% comment %}
+    Select the product image size from settings.
+{% endcomment %}
+{% assign image_size = settings.collection_prod_image_sizes %}
+<div class="mb-4 grid-item {{ grid_item_width }}{% if unavailable %} unavailable{% endif %}{% if sold_out %} sold-out{% endif %}{% if on_sale %} on-sale{% endif %}{% if settings.product_compare_enabled %} comparable{% endif %}">
+    <a href="{{ product.url | absolute_url }}" class="product-grid-item text-decoration-none Click" interactor-arg="{{ product.id }}">
+        <div class="product-grid-image border border-primary mb-3" style="width: 168px;height: 168px;">
+            <div class="product-grid-image--centered">
+                {% include 'badges' %}
+                {% if product.featured_image %}
+                <img ng-src="{{ product.featured_image | img_url: "168x168" }}" fallback-src="{{ product.featured_image | img_url }}" alt="{{ product.featured_image.alt | escape }}" />
+                {% else %}
+                <div class="no-product-image">
+                    <img src="{{ 'images/no-image.svg' | asset_url }}" />
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="product-item--other mb-2">
+            {% if product.available %}
+            <button class="btn btn-secondary AddShopCart flex-grow-1" title="{{ 'products.general.add_to_cart' | t }}" ng-click="addProductToCartById('{{ product.id }}', 1, $event)" ng-controller="productController" interactor-arg="{{ product.id }}">
+                <!-- <span class="icon icon-cart"></span> -->
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+            {% endif %}
+            {% if settings.product_compare_enabled %}
+            <add-to-compare-button custom-class="'vc-compare-button'" product-id="'{{ product.id }}'" button-type="'small'">
+                </<add-to-compare-button>
+            {% endif %}
+        </div>
+        <p>{{ product.title }}</p>
+
+        {% include 'product-price' %}
+
+        <div class="product-item--other">
+            {% comment %}
+            {% if product.variants.size == 1 %}
+            <button class="btn" type="button">{{ 'products.general.add_to_cart' | t }}</button>
+            {% if product.is_quotable %}
+            <button class="btn" type="button">{{ 'products.general.add_to_quote' | t }}</button>
+            {% endif %}
+            {% endif %}
+            {% endcomment %}
+        </div>
+        {% if settings.product_reviews_enable %}
+        <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+        {% endif %}
+    </a>
+</div>

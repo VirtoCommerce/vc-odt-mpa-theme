@@ -1,0 +1,11 @@
+{% if sold_out %}
+    <div class="badge badge--sold-out">
+        <span class="badge-label">{{ 'products.product.sold_out' | t }}</span>
+    </div>
+{% endif %}
+{% if unavailable  %}
+    <div class="badge badge--unavailable">
+        <span class="badge-label">{{ 'products.product.unavailable' | t}}</span>
+    </div>
+{% endif %}
+

@@ -54,6 +54,19 @@
     "title": "Zugriff verweigert",
     "no-access": "Sie haben keine Berechtigung zum Anzeigen dieser Seite. Bitte wenden Sie sich an Ihren Administrator"
   },
+  "collections": {
+    "sorting": {
+      "title": "Sortieren nach",
+      "featured": "Ausgewählt",
+      "best_selling": "Meistverkauft",
+      "az": "Alphabetisch, A-Z",
+      "za": "Alphabetisch, Z-A",
+      "price_ascending": "Preis, niedrig nach hoch",
+      "price_descending": "Preis, hoch nach niedrig",
+      "date_descending": "Datum, neu nach alt",
+      "date_ascending": "Datum, alt nach neu"
+    }
+  },
   "account": {
     "menu_titles": {
       "home": "Nutzerdetails",
