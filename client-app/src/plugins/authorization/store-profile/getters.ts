@@ -10,4 +10,3 @@ export const getters: GetterTree<ProfileState,any> = {
     return state.isLoading;
   }
 };
-

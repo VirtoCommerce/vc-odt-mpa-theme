@@ -5,7 +5,6 @@ import "styles/default.scss";
 import "vue-loading-overlay/dist/vue-loading.css";
 import { ADD_ERROR } from 'pages/init/store/definitions';
 import ErrorInfo from 'pages/init/store/types';
-//import store from "store";
 import InitializationService from '@common/services/initialization.service';
 import App from "@init-app/App.vue";
 import store from './store';
@@ -21,4 +20,3 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount("#initApp");
-

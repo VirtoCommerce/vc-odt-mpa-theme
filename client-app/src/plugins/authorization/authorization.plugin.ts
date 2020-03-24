@@ -1,8 +1,8 @@
 import _Vue from "vue";
-import { Store } from 'vuex';
-import { VNode } from 'vue/types/umd';
-import StorefrontPermissions from '@common/permissions';
-import { commentNode } from './comment-node';
+import { Store } from "vuex";
+import { VNode } from "vue/types/umd";
+import StorefrontPermissions from "@common/permissions";
+import { commentNode } from "./comment-node";
 import profileModule from "./store-profile"
 
 

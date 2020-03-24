@@ -1,10 +1,9 @@
 import Vue from "vue";
 import Vuex, { Store, StoreOptions } from "vuex";
-import { actions } from "pages/init/store/actions";
-import { getters } from "pages/init/store/getters";
-import { mutations } from "pages/init/store/mutations";
-import { state, State } from "pages/init/store/state";
-//import { RootState } from 'store/types';
+import { actions } from "@init-app/store/actions";
+import { getters } from "@init-app/store/getters";
+import { mutations } from "@init-app/store/mutations";
+import { state, State } from "@init-app/store/state";
 
 const debug = process.env.NODE_ENV !== "production";
 
@@ -18,5 +17,3 @@ const store: StoreOptions<State>  = {
 };
 
 export default new Store<State>(store);
-
-

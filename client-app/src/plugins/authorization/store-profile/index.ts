@@ -1,5 +1,4 @@
 import { Module } from "vuex";
-import { RootState } from "@account/store/types";
 import { User } from '@common/api/api-clients';
 import { actions } from "./actions";
 import { getters } from "./getters";
@@ -25,6 +24,3 @@ const profileModule: Module<ProfileState, any> = {
 };
 
 export default profileModule;
-
-
-
