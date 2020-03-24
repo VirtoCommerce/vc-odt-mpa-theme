@@ -1,26 +1,14 @@
 {{ paginator =  collection.products  | paginate 20 }}
-{% comment %}
-{% include 'breadcrumb' %}
-{% endcomment %}
+
 {% assign has_sidebar = false %}
 {% unless product_search_result.aggregations.empty? %}
   {% assign has_sidebar = true %}
 {% endunless %}
 
-<div class="d-flex flex-wrap flex-sm-row flex-column mt-2">
+<div class="d-flex flex-wrap flex-sm-row flex-column mt-3">
     {% if has_sidebar %}
-    <aside class="sidebar grid-item large--one-fifth collection-filters col col-md-2 border-right border-primary" id="collectionFilters">
-        {% comment %}
-        {% include 'collection-sidebar' %}
-        {% endcomment %}
-      <ul>
-        <li>Просто тест</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-      </ul>
+    <aside class="col-md-2 pl-0" id="collectionFilters">
+      {% include 'collection-sidebar' %}
     </aside>
     {% endif %}
 
@@ -30,74 +18,50 @@
         Different markup if description is set
         {% endcomment %}
         {% if collection.description.empty? == false %}
-        <header class="section-header">
-            <h1 class="section-header--title">{{ collection.title }}</h1>
-            <div class="rte rte--header">
+        <div class="row justify-content-between">
+          <header class="col-sm-5">
+            <h1>{{ collection.title }}</h1>
+            <div>
                 {{ collection.description }}
             </div>
         </header>
-        <hr class="hr--offset-left">
-        <div class="section-header">
-            <div class="section-header--right">
+        <div class="col-sm-6">
+            <div class="d-flex flex-wrap justify-content-between">
                 {% include 'collection-sorting' %}
                 {% include 'collection-views' %}
-                {% comment %}
-                {% include 'toggle-filters' %}
-                {% endcomment %}
-
             </div>
         </div>
+        </div>
         {% else %}
-        <header class="section-header d-flex flex-wrap flex-sm-row flex-column justify-content-between mb-4">
-            <h1 class="section-header--title section-header--left">{{ collection.title }}</h1>
-            <div class="section-header--right d-flex flex-wrap justify-content-between">
+        <header class="d-flex flex-wrap flex-sm-row flex-column justify-content-between mb-4">
+            <h1>{{ collection.title }}</h1>
+            <div class="d-flex flex-wrap justify-content-between">
                 {% include 'collection-sorting' %}
                 {% include 'collection-views' %}
-                {% comment %}
-                {% include 'toggle-filters' %}
-                {% endcomment %}
             </div>
         </header>
         {% endif %}
 
-        <div class="grid-uniform row">
+        <div class="row">
             {% for product in collection.products %}
 
             {% if has_sidebar %}
-            {% assign grid_item_width = 'large--one-quarter medium--one-third small--one-half col-lg-3 col-md-4 col-6' %}
+            {% assign grid_item_width = 'col-lg-3 col-md-4 col-6' %}
             {% else %}
-            {% assign grid_item_width = 'large--one-fifth medium--one-third small--one-half col-lg-2 col-md-4 col-6' %}
+            {% assign grid_item_width = 'col-lg-2 col-md-4 col-6' %}
             {% endif %}
             {% include 'product-grid-item' %}
 
             {% endfor %}
         </div>
 
+        {% if paginator.pages > 1 %}
+          <div class="d-flex justify-content-between">
+            {% include 'pagination-custom' %}
+            {% include 'page-size' %}
+          </div>
+        {% endif %}
+
     </div>
 
-    {% if paginator.pages > 1 %}
-    <!-- <div class="grid-item pagination-border-top">
-        <div class="grid"> -->
-            <div class="col-12 grid-item{% if has_sidebar %} large--four-fifths push--large--one-fifth col-md-10 ml-auto{% endif %}">
-                <div class="text-center">
-                    {% include 'pagination-custom' %}
-                </div>
-            </div>
-        <!-- </div>
-    </div> -->
-    {% endif %}
-
 </div>
-
-<script>
-    window.productList = [];
-    {% for product in collection.products %}
-        window.productList.push({
-            id: "{{ product.id }}",
-            catalogId: "{{ product.catalog_id }}",
-			outline: "{{ product.outline }}",
-            categoryId: "{{ product.category_id }}",
-			taxType: "{{ product.tax_type }}"
-        });
-    {% endfor %}
-</script>

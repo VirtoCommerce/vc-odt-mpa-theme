@@ -1,17 +1,16 @@
-{% if settings.collection_sidebar_filters == 'facets' %}
 {% unless product_search_result.aggregations.empty? %}
 
-<div class="grid-uniform">
+<div class="grid-uniform row">
     {% for aggregation in product_search_result.aggregations %}
     {% assign current_tags = current_product_search_criteria.terms %}
-    <div class="grid-item small--one-half medium--one-third">
-        {% capture group_label %}{% if aggregation.field == 'price' %}{{ 'tags.price.label' | t }}{% else %}{{ aggregation.label }}{% endif %}{% endcapture %}
-        <h3>{{ group_label | escape }}</h3>
+    <div class="grid-item small--one-half medium--one-third col-6 col-md-12">
+        {% capture group_label %}{% if aggregation.field == 'price' %}{{ 'collections.tags.price.label' | t }}{% else %}{{ aggregation.label }}{% endif %}{% endcapture %}
+        <h5>{{ group_label | escape }}</h5>
         <ul class="advanced-filters">
             {% for custom_tag in aggregation.items %}
                 {% assign tag_checked = false %}
                 {% for c_tag in current_tags %}
-                    {% if aggregation.field == c_tag.name and custom_tag.value == c_tag.value%}
+                    {% if aggregation.field == c_tag.name and custom_tag.value == c_tag.value %}
                         {% assign tag_checked = true %}
                         {% break %}
                     {% endif %}
@@ -71,4 +70,3 @@
     });
 </script>
 {% endunless %}
-{% endif %}

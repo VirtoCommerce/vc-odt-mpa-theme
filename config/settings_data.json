@@ -15,6 +15,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -64,6 +65,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -113,6 +115,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -162,6 +165,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -211,6 +215,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -260,6 +265,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -309,6 +315,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -358,6 +365,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },

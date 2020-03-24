@@ -65,6 +65,31 @@
       "price_descending": "Preis, hoch nach niedrig",
       "date_descending": "Datum, neu nach alt",
       "date_ascending": "Datum, alt nach neu"
+    },
+    "tags": {
+      "price": {
+        "label": "Preis"
+      },
+      "pricerange": {
+        "less": "Unter {0}",
+        "between": "{0} bis {1}",
+        "greater": "{0} & Über"
+      },
+      "range": {
+        "less": "Unter {0}",
+        "between": "{0} bis {0}",
+        "greater": "{0} & Oben"
+      }
+    }
+  },
+  "products": {
+    "general": {
+      "save_html": "Speichern {0}",
+      "add_to_cart": "In den Einkaufswagen legen"
+    },
+    "product": {
+      "sold_out": "Ausverkauft",
+      "unavailable": "Nicht verfügbar"
     }
   },
   "account": {
