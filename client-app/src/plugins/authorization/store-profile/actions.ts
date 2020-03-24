@@ -1,5 +1,4 @@
 import { ActionTree } from "vuex";
-import { RootState } from "store/types";
 import { UserUpdateInfo } from '@common/api/api-clients';
 import { storeName, locale } from '@common/constants';
 import { accountClient } from '@common/services/api-clients.service';
@@ -24,8 +23,4 @@ export const actions: ActionTree<ProfileState, any> = {
     context.dispatch(FETCH_PROFILE);
   }
 };
-
-// export const createActions: <R>() => ActionTree<ProfileState, R> = () => {
-//   return actions;
-// };
 

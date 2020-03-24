@@ -6,13 +6,13 @@ import AccountOrders from "@account/views/account-orders/index.vue";
 import AccountPayments from '@account/views/account-payments/index.vue';
 import AccountUsers from "@account/views/account-users/index.vue";
 import Permissions from "@common/permissions"
-import AuthorizationService from '@common/services/authorization.service';
+// import AuthorizationService from '@common/services/authorization.service';
 
 Vue.use(VueRouter);
 
 
 const beforeEnterWithPermissions = (to: any, from: any, next: any, ...permissions: string[]) => {
-  const authResult = AuthorizationService.checkUserPermissions( ...permissions);
+  const authResult = Vue.$can( ...permissions);
   if(authResult){
     next();
   } else {

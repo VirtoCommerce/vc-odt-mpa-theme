@@ -1,40 +1,53 @@
 import _Vue from "vue";
 import { Store } from 'vuex';
-import store from 'pages/init/store';
 import { VNode } from 'vue/types/umd';
 import StorefrontPermissions from '@common/permissions';
-import AuthorizationService from '@common/services/authorization.service';
 import { commentNode } from './comment-node';
 import profileModule from "./store-profile"
 
 
 interface AuthorizationPluginOptions<S>{
   store: Store<S>;
+  vuexNamespase?: string;
 }
 
 // export type PluginFunction<T> = (Vue: typeof _Vue, options?: T) => void;
 export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: AuthorizationPluginOptions<S>): void {
 
-
   const store = options!.store;
-
-  store.registerModule("profileModule", profileModule);
+  const namespace = options!.vuexNamespase ? options!.vuexNamespase : "profileModule";
+  store.registerModule(namespace, profileModule);
 
   /**
    * Inject all storefront permissions to Vue instance
    */
   Vue.prototype.$permissions = StorefrontPermissions;
 
+  function checkUserPermissions( ...permissions: string[]): boolean {
+    const user = store.getters[ `${namespace}/profile`];
+    let result = false;
+    if ( !!user.permissions && user.permissions.length ){
+      result = permissions.every(p=> user.permissions!.indexOf(p) > -1 );
+    }
+    return result;
+  }
+
   /**
-   * Check permissions of user in Vue instance
-   *  Component code:  this.$can(profile, 'storefront:user:create', 'storefront:user:edit')
-   *  Template: <b-button v-if="$can(profile, 'storefront:user:create', 'storefront:user:edit')">Add user</b-button>
+   * Check permissions of user within Vue global object
+   *  Component code:  Vue.$can('storefront:user:create', 'storefront:user:edit')
    */
-  Vue.prototype.$can = AuthorizationService.checkUserPermissions;
+  Vue.$can = checkUserPermissions;
+
+  /**
+   * Check permissions of user within Vue instance
+   *  Component code:  this.$can(profile, 'storefront:user:create', 'storefront:user:edit')
+   *  Template: <b-button v-if="$can('storefront:user:create', 'storefront:user:edit')">Add user</b-button>
+   */
+  Vue.prototype.$can = checkUserPermissions;
 
   /**
    * Directive for hide/disable html element.
-   * Usage: <a v-can.disable="{user:user, "storefront:orders:view"}">orders</a>
+   * Usage: <a v-can.disable="storefront:orders:view">orders</a>
    * modifiers: hide - hide element; disable - disable element.
    * default behavior is "Hide"
    */
@@ -45,7 +58,7 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
       permissions = [permissions];
     }
     // const profile = binding.value.user;
-    const authResult = AuthorizationService.checkUserPermissions( ...(permissions as Array<string>));
+    const authResult = Vue.$can( ...(permissions as Array<string>));
     if (!authResult) {
       if (behavior === 'hide') {
         commentNode(el, vnode)

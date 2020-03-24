@@ -1,5 +1,5 @@
 import { Module } from "vuex";
-import { RootState } from 'store/types';
+import { RootState } from '@account/store/types';
 import { defaultPageSize, invoicesGridFields, invoicesStatuses, startPageNumber } from '@common/constants';
 import { localizeGridColumns } from '@common/services/localization.helper.service';
 import { actions } from "./actions";

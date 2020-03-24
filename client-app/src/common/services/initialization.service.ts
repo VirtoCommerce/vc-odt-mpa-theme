@@ -4,13 +4,11 @@ import Loading from 'vue-loading-overlay';
 import "vue-moment";
 import VueRx from "vue-rx";
 import Vuelidate from 'vuelidate';
-import Vuex, { Store } from "vuex";
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { faHeartBroken, faLock, faMeteor } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
-import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin, TooltipPlugin } from 'bootstrap-vue'
-import { AuthorizationPlugin } from 'plugins/authorization/authorization.plugin';
+import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin, TooltipPlugin } from 'bootstrap-vue';
 import { baseUrl } from "@common/constants";
 
 export default class InitializationService {
@@ -52,10 +50,6 @@ export default class InitializationService {
     Vue.use(FormSelectPlugin);
     Vue.use(InputGroupPlugin);
     Vue.use(TooltipPlugin);
-
-
-    //custom plugins
-    Vue.use(AuthorizationPlugin);
 
     Vue.component("font-awesome-icon", FontAwesomeIcon);
     Vue.component('font-awesome-layers', FontAwesomeLayers);

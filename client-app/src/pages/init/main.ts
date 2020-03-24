@@ -6,20 +6,15 @@ import "vue-loading-overlay/dist/vue-loading.css";
 import { ADD_ERROR } from 'pages/init/store/definitions';
 import ErrorInfo from 'pages/init/store/types';
 //import store from "store";
-import { FETCH_PROFILE } from 'store/modules/profile/definitions';
 import InitializationService from '@common/services/initialization.service';
 import App from "@init-app/App.vue";
 import store from './store';
 
 InitializationService.initializeCommon();
 
-
 window.onerror = (message, source, line, column, error) => {
   store.dispatch(ADD_ERROR, new ErrorInfo(message, source, line, column, error));
 };
-
-
-store.dispatch(`profileModule/${FETCH_PROFILE}`).then(() =>{
 
 new Vue({
   i18n,
@@ -27,4 +22,3 @@ new Vue({
   render: h => h(App)
 }).$mount("#initApp");
 
-// });

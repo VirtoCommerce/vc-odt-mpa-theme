@@ -1,5 +1,5 @@
 import { ActionTree } from "vuex";
-import { RootState } from 'store/types';
+import { RootState } from '@account/store/types';
 import { OrganizationContactsSearchCriteria, OrganizationUserRegistration, UserUpdateInfo } from '@common/api/api-clients';
 import { storeName, locale } from '@common/constants';
 import { accountClient} from '@common/services/api-clients.service';
