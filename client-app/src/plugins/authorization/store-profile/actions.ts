@@ -7,7 +7,7 @@ import { FETCH_PROFILE, SET_PROFILE, UPDATE_USER  } from "./definitions";
 import { ProfileState } from "./types";
 
 //actions
-export const actions: ActionTree<ProfileState, RootState> = {
+export const actions: ActionTree<ProfileState, any> = {
   async [FETCH_PROFILE](context) {
     try {
       context.commit(FETCH_PROFILE);
@@ -24,3 +24,8 @@ export const actions: ActionTree<ProfileState, RootState> = {
     context.dispatch(FETCH_PROFILE);
   }
 };
+
+// export const createActions: <R>() => ActionTree<ProfileState, R> = () => {
+//   return actions;
+// };
+

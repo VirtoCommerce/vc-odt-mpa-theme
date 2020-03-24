@@ -1,13 +1,24 @@
 import _Vue from "vue";
+import { Store } from 'vuex';
 import store from 'pages/init/store';
 import { VNode } from 'vue/types/umd';
 import StorefrontPermissions from '@common/permissions';
 import AuthorizationService from '@common/services/authorization.service';
 import { commentNode } from './comment-node';
+import profileModule from "./store-profile"
 
+
+interface AuthorizationPluginOptions<S>{
+  store: Store<S>;
+}
 
 // export type PluginFunction<T> = (Vue: typeof _Vue, options?: T) => void;
-export function AuthorizationPlugin(Vue: typeof _Vue, options?: any): void {
+export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: AuthorizationPluginOptions<S>): void {
+
+
+  const store = options!.store;
+
+  store.registerModule("profileModule", profileModule);
 
   /**
    * Inject all storefront permissions to Vue instance

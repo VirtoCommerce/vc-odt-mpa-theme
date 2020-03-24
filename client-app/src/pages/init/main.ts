@@ -13,14 +13,13 @@ import store from './store';
 
 InitializationService.initializeCommon();
 
-// store.registerModule("initModule", initModule);
 
 window.onerror = (message, source, line, column, error) => {
   store.dispatch(ADD_ERROR, new ErrorInfo(message, source, line, column, error));
 };
 
 
-// store.dispatch(`profileModule/${FETCH_PROFILE}`).then(() =>{
+store.dispatch(`profileModule/${FETCH_PROFILE}`).then(() =>{
 
 new Vue({
   i18n,

@@ -16,7 +16,7 @@ export const initialState: ProfileState = {
 };
 
 
-const profileModule: Module<ProfileState, RootState> = {
+const profileModule: Module<ProfileState, any> = {
   namespaced: true,
   state: initialState,
   getters,
@@ -25,3 +25,6 @@ const profileModule: Module<ProfileState, RootState> = {
 };
 
 export default profileModule;
+
+
+

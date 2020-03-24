@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Vuex, { Store, StoreOptions } from "vuex";
-import profileModule from "store/modules/profile";
 import { RootState } from './types';
 
 
@@ -12,9 +11,6 @@ const store: StoreOptions<RootState> = {
   state: {
     isLoading : false,
     loaded : false
-  },
-  modules: {
-    profileModule
   },
   strict: debug
 };
