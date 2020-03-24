@@ -25,11 +25,11 @@ import { ReactiveErrorInfo } from "@init-app/store/types";
 export default class App extends Vue {
 
   get errors() {
-    return this.$store.getters["initModule/errors"];
+    return this.$store.getters.errors;
   }
 
   removeError(error: ReactiveErrorInfo) {
-    this.$store.dispatch(`initModule/${REMOVE_ERROR}`, error);
+    this.$store.dispatch(REMOVE_ERROR, error);
   }
 }
 </script>

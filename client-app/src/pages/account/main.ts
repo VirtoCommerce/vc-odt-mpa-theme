@@ -18,10 +18,13 @@ store.registerModule("usersListModule", usersListModule);
 store.registerModule("invoicesListModule", invoicesListModule);
 store.registerModule("paymentsListModule", paymentsListModule);
 
-new Vue({
-  i18n,
-  router,
-  store,
-  render: h => h(App)
-}).$mount("#app");
+store.dispatch(`profileModule/${FETCH_PROFILE}`).then(() =>{
 
+  new Vue({
+    i18n,
+    router,
+    store,
+    render: h => h(App)
+  }).$mount("#app");
+
+});
