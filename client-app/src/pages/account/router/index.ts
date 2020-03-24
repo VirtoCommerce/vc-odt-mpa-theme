@@ -14,7 +14,7 @@ const routes = [
     path: "/",
     component: AccountInfo,
     meta: {
-      title: 'Home'
+      title: i18n.t('account.menu_titles.home')
     }
   },
   {
@@ -54,7 +54,8 @@ const router = new VueRouter({
 });
 
 router.beforeEach((toRoute, fromRoute, next) => {
-  window.document.title = toRoute.meta && toRoute.meta.title ? toRoute.meta.title : 'Home';
+  window.document.title = toRoute.meta && toRoute.meta.title ?
+    toRoute.meta.title : i18n.t('account.menu_titles.home');
   next();
 })
 
