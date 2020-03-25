@@ -34,7 +34,7 @@ const routes = [
     component: AccountOrders,
     meta: {
       title: i18n.t('account.menu_titles.orders')
-    }
+    },
     beforeEnter: (to: any, from: any, next: any) => {
       beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
     }
@@ -44,7 +44,7 @@ const routes = [
     component: AccountUsers,
     meta: {
       title: i18n.t('account.menu_titles.users')
-    }
+    },
     beforeEnter: (to: any, from: any, next: any) => {
       beforeEnterWithPermissions(to,from,next, Permissions.CanViewUsers);
     }
@@ -54,7 +54,7 @@ const routes = [
     component: AccountInvoices,
     meta: {
       title: i18n.t('account.menu_titles.invoices')
-    }
+    },
     beforeEnter: (to: any, from: any, next: any) => {
       beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
     }
@@ -64,7 +64,7 @@ const routes = [
     component: AccountPayments,
     meta: {
       title: i18n.t('account.menu_titles.payments')
-    }
+    },
     beforeEnter: (to: any, from: any, next: any) => {
       beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
     }
