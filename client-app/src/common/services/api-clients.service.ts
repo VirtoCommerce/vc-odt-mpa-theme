@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import axios  from 'axios';
 import { ApiAccountClient, ApiCartClient, ApiCatalogClient, ApiOrderClient, ApiPricingClient } from '@common/api/api-clients';
 import { baseUrl } from '@common/constants';
+import axios from "@common/services/axios-instance";
 
 // There is globals instances of api clients fore shared usage.
 // Add here new global instance any api client class if you need.
