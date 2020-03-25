@@ -1,12 +1,39 @@
 {% unless product_search_result.aggregations.empty? %}
 
-<div class="grid-uniform row">
+<div class="row">
+  {% comment %}
+     Products search
+  {% endcomment %}
+  <div class="col-12 input-group mb-3 pl-lg-0 pr-lg-0">
+    <input type="text" class="form-control" placeholder="Search..." aria-label="Search...">
+  </div>
+  {% comment %}
+      Categories filter
+  {% endcomment %}
+  <div class="col-6 col-lg-12">
+    <h5 class="font-weight-bold text-uppercase">
+      Categories
+    </h5>
+    <ul class="list-unstyled">
+      {% for coll in collections %}
+      <li>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" value="{{ coll.url }}" {% if collection.handle == coll.handle %}checked{% endif %} id="{{ coll.title | escape }}" />
+          <label class="custom-control-label" for="{{ coll.title | escape }}">{{ coll.title | escape }} <small>({{coll.all_products_count}})</small></label>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% comment %}
+    Other filters
+  {% endcomment %}
     {% for aggregation in product_search_result.aggregations %}
     {% assign current_tags = current_product_search_criteria.terms %}
-    <div class="grid-item small--one-half medium--one-third col-6 col-md-12">
+    <div class="col-6 col-lg-12">
         {% capture group_label %}{% if aggregation.field == 'price' %}{{ 'collections.tags.price.label' | t }}{% else %}{{ aggregation.label }}{% endif %}{% endcapture %}
-        <h5>{{ group_label | escape }}</h5>
-        <ul class="advanced-filters">
+        <h5 class="font-weight-bold text-uppercase">{{ group_label | escape }}</h5>
+        <ul class="list-unstyled">
             {% for custom_tag in aggregation.items %}
                 {% assign tag_checked = false %}
                 {% for c_tag in current_tags %}
@@ -18,11 +45,23 @@
                 {% assign tag = custom_tag %}
                 {% include 'tag-label' %}
                 {% if tag_checked  %}
-                    <li class="advanced-filter active-filter" data-group="{{ aggregation.field }}" data-handle="{{ custom_tag.name | handleize }}">
+                    <!-- <li class="advanced-filter active-filter" data-group="{{ aggregation.field }}" data-handle="{{ custom_tag.name | handleize }}">
                         {{ tag_label | link_to_remove_tag custom_tag }}
+                    </li> -->
+                    <li>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" value="{{ custom_tag.value }}" checked id="{{ tag_label }}" />
+                        <label class="custom-control-label" for="{{ tag_label }}">{{ tag_label }} <small>({{custom_tag.count}})</small></label>
+                      </div>
                     </li>
                 {% else %}
-                     <li class="advanced-filter" data-group="{{ aggregation.field }}">{{ tag_label | link_to_add_tag custom_tag }}</li>
+                     <!-- <li class="advanced-filter" data-group="{{ aggregation.field }}">{{ tag_label | link_to_add_tag custom_tag }}</li> -->
+                     <li>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" value="{{ custom_tag.value }}" id="{{ tag_label }}" />
+                        <label class="custom-control-label" for="{{ tag_label }}">{{ tag_label }} <small>({{custom_tag.count}})</small></label>
+                      </div>
+                    </li>
                 {% endif %}
             {% endfor %}
         </ul>
@@ -30,7 +69,8 @@
     {% endfor %}
 </div>
 
-<script>
+
+<!-- <script>
     $(function() {
       var currentTags = '{{ current_tags }}',
           filters = $('.advanced-filter'),
@@ -68,5 +108,6 @@
         }
       });
     });
-</script>
+</script> -->
 {% endunless %}
+
