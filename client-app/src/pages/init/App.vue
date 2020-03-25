@@ -12,7 +12,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import Error from "@components/Error.vue";
+import Error from "@components/error.vue";
 import { REMOVE_ERROR } from "@init-app/store/definitions";
 import { ReactiveErrorInfo } from "@init-app/store/types";
 

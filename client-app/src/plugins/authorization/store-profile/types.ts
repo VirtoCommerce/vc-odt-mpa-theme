@@ -1,4 +1,4 @@
-import { User } from '@common/api/api-clients';
+import { User } from "@common/api/api-clients";
 
 // state type
 export interface ProfileState {

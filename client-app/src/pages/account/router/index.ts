@@ -6,8 +6,20 @@ import AccountInvoices from '@account/views/account-invoices/index.vue';
 import AccountOrders from "@account/views/account-orders/index.vue";
 import AccountPayments from '@account/views/account-payments/index.vue';
 import AccountUsers from "@account/views/account-users/index.vue";
+import Permissions from "@common/permissions"
+// import AuthorizationService from '@common/services/authorization.service';
 
 Vue.use(VueRouter);
+
+
+const beforeEnterWithPermissions = (to: any, from: any, next: any, ...permissions: string[]) => {
+  const authResult = Vue.$can( ...permissions);
+  if(authResult){
+    next();
+  } else {
+    window.location.assign(`${window.BASE_URL}error/AccessDenied`);
+  }
+}
 
 const routes = [
   {
@@ -23,12 +35,18 @@ const routes = [
     meta: {
       title: i18n.t('account.menu_titles.orders')
     }
+    beforeEnter: (to: any, from: any, next: any) => {
+      beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
+    }
   },
   {
     path: "/users",
     component: AccountUsers,
     meta: {
       title: i18n.t('account.menu_titles.users')
+    }
+    beforeEnter: (to: any, from: any, next: any) => {
+      beforeEnterWithPermissions(to,from,next, Permissions.CanViewUsers);
     }
   },
   {
@@ -37,12 +55,18 @@ const routes = [
     meta: {
       title: i18n.t('account.menu_titles.invoices')
     }
+    beforeEnter: (to: any, from: any, next: any) => {
+      beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
+    }
   },
   {
     path: "/payments",
     component: AccountPayments,
     meta: {
       title: i18n.t('account.menu_titles.payments')
+    }
+    beforeEnter: (to: any, from: any, next: any) => {
+      beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
     }
   }
 ];
