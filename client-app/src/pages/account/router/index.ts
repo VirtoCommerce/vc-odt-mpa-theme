@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import i18n from "@i18n";
 import AccountInfo from "@account/views/account-info/index.vue";
 import AccountInvoices from '@account/views/account-invoices/index.vue';
 import AccountOrders from "@account/views/account-orders/index.vue";
@@ -23,10 +24,17 @@ const beforeEnterWithPermissions = (to: any, from: any, next: any, ...permission
 const routes = [
   {
     path: "/",
-    component: AccountInfo },
+    component: AccountInfo,
+    meta: {
+      title: i18n.t('account.menu_titles.home')
+    }
+  },
   {
     path: "/orders",
     component: AccountOrders,
+    meta: {
+      title: i18n.t('account.menu_titles.orders')
+    }
     beforeEnter: (to: any, from: any, next: any) => {
       beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
     }
@@ -34,6 +42,9 @@ const routes = [
   {
     path: "/users",
     component: AccountUsers,
+    meta: {
+      title: i18n.t('account.menu_titles.users')
+    }
     beforeEnter: (to: any, from: any, next: any) => {
       beforeEnterWithPermissions(to,from,next, Permissions.CanViewUsers);
     }
@@ -41,6 +52,9 @@ const routes = [
   {
     path: "/invoices",
     component: AccountInvoices,
+    meta: {
+      title: i18n.t('account.menu_titles.invoices')
+    }
     beforeEnter: (to: any, from: any, next: any) => {
       beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
     }
@@ -48,6 +62,9 @@ const routes = [
   {
     path: "/payments",
     component: AccountPayments,
+    meta: {
+      title: i18n.t('account.menu_titles.payments')
+    }
     beforeEnter: (to: any, from: any, next: any) => {
       beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
     }
@@ -59,5 +76,11 @@ const router = new VueRouter({
   base: window.location.pathname,
   routes
 });
+
+router.beforeEach((toRoute, fromRoute, next) => {
+  window.document.title = toRoute.meta && toRoute.meta.title ?
+    toRoute.meta.title : i18n.t('account.menu_titles.home');
+  next();
+})
 
 export default router;
