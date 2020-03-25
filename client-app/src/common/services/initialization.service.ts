@@ -10,6 +10,7 @@ import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome
 import axios from "axios";
 import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin, TooltipPlugin } from 'bootstrap-vue'
 import { baseUrl } from "@common/constants";
+import UrlService from './url.service';
 
 export default class InitializationService {
   static initializeCommon() {
@@ -26,8 +27,23 @@ export default class InitializationService {
 
     Vue.use(VueRx);
 
+    axios.interceptors.response.use(
+      function (response) {
+        return response
+      },
+      function (error) {
+        console.log(error.response.data)
+        if (error.response.data.error.statusCode === 401) {
+          const fullBaseUrl = UrlService.fullBaseUrl;
+          window.location.assign(`${fullBaseUrl}login`);
+        }
+        return Promise.reject(error)
+      });
+
     Vue.use(VueAxios, axios);
     Vue.axios.defaults.baseURL = baseUrl;
+
+
 
     //plugins
     // workaround because of unstable build caused by broken .d.ts
