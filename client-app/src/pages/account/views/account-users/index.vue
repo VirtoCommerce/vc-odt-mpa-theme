@@ -7,7 +7,8 @@
       <users-filter class="col col-sm-6 col-md-5 col-lg-3"
                     :users-filter="usersList.listConfig.filters"
                     @filtersChanged="filtersChanged"></users-filter>
-      <b-button v-b-modal.addUserModal
+      <b-button v-can="$permissions.CanCreateUsers"
+                v-b-modal.addUserModal
                 variant="primary"
                 class="col col-sm-auto col-md-auto col-lg-auto align-self-sm-end mt-3">
         {{ $t("account.users.add-user.add-user") }}
@@ -29,10 +30,14 @@
         @sort-changed="sortChanged">
         <template v-slot:cell(actions)="row">
           <div class="d-flex justify-content-md-around">
-            <font-awesome-layers class="mr-3 btn" @click="openEditUserModal(row.item)">
+            <font-awesome-layers v-if="$can($permissions.CanEditUsers)"
+                                 class="mr-3 btn"
+                                 @click="openEditUserModal(row.item)">
               <font-awesome-icon :icon="editIcon" size="lg"></font-awesome-icon>
             </font-awesome-layers>
-            <font-awesome-layers class="btn" @click="confirmDeleteUser(row.item)">
+            <font-awesome-layers v-if="$can($permissions.CanDeleteUsers)"
+                                 class="btn"
+                                 @click="confirmDeleteUser(row.item)">
               <font-awesome-icon :icon="deleteIcon" size="lg"></font-awesome-icon>
             </font-awesome-layers>
           </div>
