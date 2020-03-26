@@ -44,6 +44,10 @@
       "click_to_log_in": "Please click here to log in"
     }
   },
+  "breadcrumbs": {
+    "home": "Home",
+    "home_link_title": "Back to the frontpage"
+  },
   "404": {
     "not-found": "Page not found"
   },
@@ -88,11 +92,19 @@
   "products": {
     "general": {
       "save_html": "Save {0}",
-      "add_to_cart": "Add to cart"
+      "add_to_cart": "Add to cart",
+      "add_to_quote": "Add to quote"
     },
     "product": {
       "sold_out": "Sold Out",
-      "unavailable": "Unavailable"
+      "unavailable": "Unavailable",
+      "details_tab": "Product details"
+    },
+    "compare_list": {
+      "add_to_compare": "Add to compare"
+    },
+    "list": {
+      "add_to_myList": "Add to list"
     }
   },
   "account": {
