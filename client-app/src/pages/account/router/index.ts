@@ -6,8 +6,8 @@ import AccountInvoices from '@account/views/account-invoices/index.vue';
 import AccountOrders from "@account/views/account-orders/index.vue";
 import AccountPayments from '@account/views/account-payments/index.vue';
 import AccountUsers from "@account/views/account-users/index.vue";
+import { accessDeniedUrl } from '@common/constants';
 import Permissions from "@common/permissions"
-// import AuthorizationService from '@common/services/authorization.service';
 
 Vue.use(VueRouter);
 
@@ -17,7 +17,7 @@ const beforeEnterWithPermissions = (to: any, from: any, next: any, ...permission
   if(authResult){
     next();
   } else {
-    window.location.assign(`${window.BASE_URL}error/AccessDenied`);
+    window.location.assign(accessDeniedUrl);
   }
 }
 
