@@ -7,9 +7,8 @@ import Vuelidate from 'vuelidate';
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { faHeartBroken, faLock, faMeteor } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
-import axios from "axios";
 import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin, TooltipPlugin } from 'bootstrap-vue';
-import { baseUrl } from "@common/constants";
+import axios from "@common/services/axios-instance";
 
 export default class InitializationService {
   static initializeCommon() {
@@ -24,12 +23,10 @@ export default class InitializationService {
       }
     };
 
-    Vue.use(VueRx);
-
-    Vue.use(VueAxios, axios);
-    Vue.axios.defaults.baseURL = baseUrl;
-
     //plugins
+    Vue.use(VueRx);
+    Vue.use(VueAxios, axios);
+
     // workaround because of unstable build caused by broken .d.ts
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     Vue.use(require("vue-moment"));
