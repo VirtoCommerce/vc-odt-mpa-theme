@@ -8,6 +8,10 @@ export const baseUrl = window.BASE_URL.replace(`/${storeName}`, "/")
   .replace(`/${locale}`, "/")
   .replace(/[/]+$/, "");
 
+export const fullBaseUrl = `${baseUrl}/${storeName}/${locale}/`;
+export const loginUrl = `${fullBaseUrl}account/login`;
+export const accessDeniedUrl = `${fullBaseUrl}error/AccessDenied`;
+
 // Other constants can be placed here
 export const pageSizes = [10, 20, 50, 100]
 export const defaultPageSize = 10;

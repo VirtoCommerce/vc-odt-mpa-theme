@@ -1,6 +1,5 @@
 import { Module } from "vuex";
 import { User } from '@common/api/api-clients';
-import { RootState } from "../../types";
 import { actions } from "./actions";
 import { getters } from "./getters";
 import { mutations } from "./mutations";
@@ -16,7 +15,7 @@ export const initialState: ProfileState = {
 };
 
 
-const profileModule: Module<ProfileState, RootState> = {
+const profileModule: Module<ProfileState, any> = {
   namespaced: true,
   state: initialState,
   getters,

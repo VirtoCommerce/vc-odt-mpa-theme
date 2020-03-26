@@ -1,7 +1,7 @@
 import { ActionTree } from "vuex";
-import { ADD_ERROR, REMOVE_ERROR } from "@init-app/store/definitions";
+import { ADD_ERROR, REMOVE_ERROR } from "pages/init/store/definitions";
 import { State } from "@init-app/store/state";
-import ErrorInfo from '@init-app/store/types';
+import ErrorInfo from "@init-app/store/types";
 
 //actions
 export const actions: ActionTree<State, State> = {
