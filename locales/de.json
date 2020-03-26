@@ -67,6 +67,9 @@
       "date_ascending": "Datum, alt nach neu"
     },
     "tags": {
+      "category": {
+        "label": "Kategorie"
+      },
       "price": {
         "label": "Preis"
       },
