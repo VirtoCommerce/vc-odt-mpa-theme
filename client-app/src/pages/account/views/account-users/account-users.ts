@@ -4,11 +4,11 @@ import { namespace } from "vuex-class";
 import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
+import { FETCH_PROFILE } from 'plugins/authorization/store-profile/definitions';
 import AddUserModal from "@account/components/add-user-modal/index.vue";
 import EditUserModal from '@account/components/edit-user-modal/index.vue';
 import UsersFilter from "@account/components/users-filter/index.vue";
 import { AddUser } from "@account/models/add-user";
-import { FETCH_PROFILE } from "@account/store/modules/profile/definitions";
 import { FETCH_USERS, SET_USERS_LIST_CONFIG, DELETE_USER, ADD_USER, UPDATE_USER } from "@account/store/modules/users-list/definitions";
 import { UsersList, UsersListConfig, UsersListFilters} from "@account/store/modules/users-list/types";
 import { User,OrganizationUserRegistration, UserUpdateInfo } from "@common/api/api-clients";
@@ -25,6 +25,7 @@ const profileModule = namespace('profileModule');
   }
 })
 export default class AccountUsers extends Vue {
+
   @usersListModule.Getter("usersList")
   private usersList!: UsersList;
 

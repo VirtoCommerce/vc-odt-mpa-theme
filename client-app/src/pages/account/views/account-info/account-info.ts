@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { namespace } from 'vuex-class';
-import { FETCH_PROFILE, UPDATE_USER } from "@account/store/modules/profile/definitions";
+import { FETCH_PROFILE, UPDATE_USER } from 'plugins/authorization/store-profile/definitions';
 import { User, UserUpdateInfo } from "@common/api/api-clients";
 
 const profileModule = namespace('profileModule');

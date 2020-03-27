@@ -27,7 +27,8 @@
         </div>
       </div>
     </fieldset>
-    <button class="btn btn-primary" @click.prevent="update()">
+    <button class="nav-item btn btn-primary"
+            @click.prevent="update()">
       Update User
     </button>
   </div>

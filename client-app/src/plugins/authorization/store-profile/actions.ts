@@ -1,13 +1,12 @@
 import { ActionTree } from "vuex";
-import { UserUpdateInfo } from '@common/api/api-clients';
-import { storeName, locale } from '@common/constants';
-import { accountClient } from '@common/services/api-clients.service';
-import { RootState } from "../../types";
+import { UserUpdateInfo } from "@common/api/api-clients";
+import { storeName, locale } from "@common/constants";
+import { accountClient } from "@common/services/api-clients.service";
 import { FETCH_PROFILE, SET_PROFILE, UPDATE_USER  } from "./definitions";
 import { ProfileState } from "./types";
 
 //actions
-export const actions: ActionTree<ProfileState, RootState> = {
+export const actions: ActionTree<ProfileState, any> = {
   async [FETCH_PROFILE](context) {
     try {
       context.commit(FETCH_PROFILE);
