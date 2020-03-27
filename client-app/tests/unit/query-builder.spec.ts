@@ -86,7 +86,7 @@ describe("terms: toggle", () => {
     expect(query.toString()).to.be.equalIgnoreCase("terms=Brand%3aDJI");
   });
 
-  it("should add new key and value to tems", () => {
+  it("should add new key and value to terms", () => {
     // Add new value
     searchCriteria.terms?.toggle("price", "600-1000");
     const query = productQueryBuilder.toQuery(searchCriteria);
