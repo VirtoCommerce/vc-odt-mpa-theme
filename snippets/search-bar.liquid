@@ -1,7 +1,7 @@
 {% assign search = current_product_search_criteria %}
 <form autocomplete="off" method="get" class="input-group" role="search" name="formSearch">
     <input type="hidden" name="type" value="product" />
-    <input class="form-control border-right-0 border rounded-left" name="q" value="{{ search.keyword | escape }}" placeholder="{{ 'search_bar.placeholder' | t }}" aria-label="{{ 'search_bar.placeholder' | t }}" />
+    <input class="form-control border-right-0 border rounded-left" name="keyword" value="{{ search.keyword | escape }}" placeholder="{{ 'search_bar.placeholder' | t }}" aria-label="{{ 'search_bar.placeholder' | t }}" />
     <span class="input-group-append">
       <button class="btn btn-outline-secondary border-left-0 border" type="submit">
           <i class="fa fa-search"></i>
