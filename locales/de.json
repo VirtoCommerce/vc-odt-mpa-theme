@@ -48,6 +48,12 @@
     "home": "Startseite",
     "home_link_title": "Zurück zur Startseite"
   },
+  "search_bar": {
+    "placeholder": "Suche"
+  },
+  "search": {
+    "no_results": "Keine Daten gefunden"
+  },
   "404": {
     "not-found": "Seite nicht gefunden"
   },

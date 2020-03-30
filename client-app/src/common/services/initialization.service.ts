@@ -5,7 +5,7 @@ import "vue-moment";
 import VueRx from "vue-rx";
 import Vuelidate from 'vuelidate';
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
-import { faHeartBroken, faLock, faMeteor, faThLarge, faList, faShoppingCart, faCamera, faCalculator, faChartBar, faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHeartBroken, faLock, faMeteor, faThLarge, faList, faShoppingCart, faCamera, faCalculator, faChartBar, faFileAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
 import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin, TooltipPlugin } from 'bootstrap-vue';
 import axios from "@common/services/axios-instance";
@@ -51,7 +51,7 @@ export default class InitializationService {
     Vue.component("font-awesome-icon", FontAwesomeIcon);
     Vue.component('font-awesome-layers', FontAwesomeLayers);
     // Add here icons which you need in liquid
-    library.add(faHeartBroken, faLock, faMeteor, faThLarge, faList, faShoppingCart, faCamera, faCalculator, faChartBar, faFileAlt);
+    library.add(faHeartBroken, faLock, faMeteor, faThLarge, faList, faShoppingCart, faCamera, faCalculator, faChartBar, faFileAlt, faSearch);
     dom.watch();
 
     //global components

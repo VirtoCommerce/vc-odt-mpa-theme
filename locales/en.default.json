@@ -48,6 +48,12 @@
     "home": "Home",
     "home_link_title": "Back to the frontpage"
   },
+  "search_bar": {
+    "placeholder": "Search"
+  },
+  "search": {
+    "no_results": "No data found"
+  },
   "404": {
     "not-found": "Page not found"
   },

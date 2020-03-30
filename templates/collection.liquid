@@ -28,9 +28,6 @@
         <div class="col-sm-6">
             <div class="d-flex flex-wrap justify-content-between">
                 {% include 'collection-sorting' %}
-                {% comment %}
-                {% include 'collection-views' %}
-                {% endcomment %}
             </div>
         </div>
         </div>
@@ -39,14 +36,12 @@
             <h1>{{ collection.title }}</h1>
             <div class="d-flex flex-wrap justify-content-between">
                 {% include 'collection-sorting' %}
-                {% comment %}
-                {% include 'collection-views' %}
-                {% endcomment %}
             </div>
         </header>
         {% endif %}
 
         <div class="row">
+            {% if product_search_result.products.empty? == false %}
             {% for product in collection.products %}
 
             {% if has_sidebar %}
@@ -57,6 +52,10 @@
             {% include 'product-grid-item' %}
 
             {% endfor %}
+
+            {% else %}
+            <p class="col-12">{{ 'search.no_results' | t }}</p>
+            {% endif %}
         </div>
 
         {% if paginator.pages > 1 %}
