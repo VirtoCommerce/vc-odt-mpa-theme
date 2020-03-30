@@ -24,27 +24,33 @@
       </b-form-group>
 
       <b-form-group
+        :label="$t('account.users.add-user.first-name-label')"
         label-for="firstName">
-        <template v-slot:label>
-          {{ $t("account.users.add-user.first-name-label") }} - <span class="font-italic">{{ $t("account.users.add-user.optional") }}</span>
-        </template>
         <b-form-input
           id="firstName"
-          v-model="user.firstName"
+          v-model="$v.user.firstName.$model"
+          :class="{ 'is-invalid': $v.user.firstName.$error }"
           type="text"
-          :placeholder="$t('account.users.add-user.first-name-placeholder')"></b-form-input>
+          :placeholder="$t('account.users.add-user.first-name-placeholder')"
+          @blur="$v.user.firstName.$touch()"></b-form-input>
+        <b-form-invalid-feedback v-if="!$v.user.firstName.required">
+          {{ $t("account.users.add-user.first-name-required") }}
+        </b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group
-        label-for="lastName">
-        <template v-slot:label>
-          {{ $t("account.users.add-user.last-name-label") }} - <span class="font-italic">{{ $t("account.users.add-user.optional") }}</span>
-        </template>
+        label-for="lastName"
+        :label="$t('account.users.add-user.last-name-label')">
         <b-form-input
           id="lastName"
-          v-model="user.lastName"
+          v-model="$v.user.lastName.$model"
+          :class="{ 'is-invalid': $v.user.lastName.$error }"
           type="text"
-          :placeholder="$t('account.users.add-user.last-name-placeholder')"></b-form-input>
+          :placeholder="$t('account.users.add-user.last-name-placeholder')"
+          @blur="$v.user.lastName.$touch()"></b-form-input>
+        <b-form-invalid-feedback v-if="!$v.user.lastName.required">
+          {{ $t("account.users.add-user.last-name-required") }}
+        </b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group :label="$t('account.users.add-user.username-label')"
