@@ -13,10 +13,14 @@ import Permissions from "@common/permissions"
 Vue.use(VueRouter);
 
 // eslint-disable-next-line
-const beforeEnterWithPermissions = (to: any, from: any, next: any, featureName: string, ...permissions: string[]) => {
+const isPermitted = (featureName: string, ...permissions: string[]) => {
   const authorizationResult = Vue.$can(...permissions);
   const isFeatureActiveResult = Vue.$isActive(featureName);
-  if (authorizationResult && isFeatureActiveResult) {
+  return authorizationResult && isFeatureActiveResult;
+}
+
+const accessHandler = (permitted: boolean, next: any) => {
+  if (permitted) {
     next();
   } else {
     window.location.assign(accessDeniedUrl);
@@ -39,7 +43,8 @@ const routes = [
     },
     // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to, from, next, Features.OrderBrowsing, Permissions.CanViewOrders);
+      const permitted = isPermitted(Features.OrderBrowsing, Permissions.CanViewOrders)
+      accessHandler(permitted, next);
     }
   },
   {
@@ -50,7 +55,8 @@ const routes = [
     },
     // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to, from, next, Features.ManageUsers, Permissions.CanViewUsers);
+      const permitted = isPermitted(Features.ManageUsers, Permissions.CanViewUsers);
+      accessHandler(permitted, next);
     }
   },
   {
@@ -61,7 +67,8 @@ const routes = [
     },
     // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to, from, next, Features.InvoiceBrowsing, Permissions.CanViewOrders);
+      const permitted = isPermitted(Features.InvoiceBrowsing, Permissions.CanViewOrders);
+      accessHandler(permitted, next);
     }
   },
   {
@@ -72,7 +79,8 @@ const routes = [
     },
     // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to, from, next, Features.PaymentBrowsing, Permissions.CanViewOrders);
+      const permitted = isPermitted(Features.PaymentBrowsing, Permissions.CanViewOrders);
+      accessHandler(permitted, next);
     }
   }
 ];
