@@ -27,7 +27,7 @@
       window.BASE_URL = `{{ "/" | full_url }}`;
       window.STORE_NAME = "{{ current_store.name }}";
       window.LOCALE = "{{ current_language.culture_name }}";
-      window.LOCALIZATION_MESSAGES = {{ '' | t  }};
+      window.LOCALIZATION_MESSAGES = "{{ '' | t  }}";
       window.THEME_SETTINGS = {{ settings | json }};
     </script>
   </head>
