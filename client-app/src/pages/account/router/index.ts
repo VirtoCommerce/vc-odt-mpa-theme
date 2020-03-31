@@ -13,10 +13,10 @@ import Permissions from "@common/permissions"
 Vue.use(VueRouter);
 
 // eslint-disable-next-line
-const beforeEnterWithPermissions = (to: any, from: any, next: any, serviceName: string, ...permissions: string[]) => {
+const beforeEnterWithPermissions = (to: any, from: any, next: any, featureName: string, ...permissions: string[]) => {
   const authorizationResult = Vue.$can(...permissions);
-  const isServiceActiveResult = Vue.$isActive(serviceName);
-  if (authorizationResult && isServiceActiveResult) {
+  const isFeatureActiveResult = Vue.$isActive(featureName);
+  if (authorizationResult && isFeatureActiveResult) {
     next();
   } else {
     window.location.assign(accessDeniedUrl);

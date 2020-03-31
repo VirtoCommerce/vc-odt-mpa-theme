@@ -8,12 +8,12 @@ declare module 'vue/types/vue' {
     $permissions: StorefrontPermissions;
     $features: Features;
     $can: (...permissions: string[]) => boolean;
-    $isActive: (serviceName: string) => boolean;
+    $isActive: (featureName: string) => boolean;
   }
 
   interface VueConstructor {
     $can: (...permissions: string[]) => boolean;
-    $isActive: (serviceName: string) => boolean;
+    $isActive: (featureName: string) => boolean;
   }
 }
 
