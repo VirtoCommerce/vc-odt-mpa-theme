@@ -3,6 +3,7 @@
     <input type="hidden" name="page" value="{{ search.page_number | escape }}" />
     <input type="hidden" name="page_size" value="{{ search.page_size | escape }}" />
     <input type="hidden" name="sort_by" value="{{ search.sort_by | escape }}" />
+    <input type="hidden" name="terms" value="{{ search.terms | terms_to_string | escape }}" />
     <input class="form-control border-right-0 border rounded-left" name="keyword" value="{{ search.keyword | escape }}" placeholder="{{ 'search_bar.placeholder' | t }}" aria-label="{{ 'search_bar.placeholder' | t }}" />
     <span class="input-group-append">
       <button class="btn btn-outline-secondary border-left-0 border" type="submit">
