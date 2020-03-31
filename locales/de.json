@@ -99,7 +99,8 @@
     "general": {
       "save_html": "Speichern {0}",
       "add_to_cart": "In den Einkaufswagen legen",
-      "add_to_quote": "Zum Zitat hinzufügen"
+      "add_to_quote": "Zum Zitat hinzufügen",
+      "description_tab": "Produktbeschreibung"
     },
     "product": {
       "sold_out": "Ausverkauft",

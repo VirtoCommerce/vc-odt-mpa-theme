@@ -3,6 +3,8 @@
   {% assign has_sidebar = true %}
 {% endunless %}
 
+{% include 'breadcrumb' %}
+
 <div class="row mt-3">
     {% if has_sidebar %}
     <aside class="col-lg-2" id="collectionFilters">
@@ -53,12 +55,11 @@
             {% endif %}
         </div>
 
-        {% if paginator.pages > 1 %}
-          <div class="d-flex justify-content-between">
-            {% include 'pagination-custom' %}
-            {% include 'page-size' %}
-          </div>
-        {% endif %}
+        <div class="d-flex justify-content-between">
+          {% include 'pagination-custom' %}
+          {% include 'page-size' %}
+        </div>
+
 
     </div>
 </div>

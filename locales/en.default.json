@@ -104,7 +104,8 @@
     "product": {
       "sold_out": "Sold Out",
       "unavailable": "Unavailable",
-      "details_tab": "Product details"
+      "details_tab": "Product details",
+      "description_tab": "Product description"
     },
     "compare_list": {
       "add_to_compare": "Add to compare"
