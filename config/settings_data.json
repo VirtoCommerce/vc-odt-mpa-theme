@@ -393,5 +393,140 @@
         "currency.code"
       ]
     }
+  },
+  "services": {
+    "ordersBrowsing": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "paymentBrowsing": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "invoiceBrowsing": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "manageUsers": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "manageRoles": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "contractsInfoBrowsing": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "retrieveReOrdering": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "orderApproval": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "productTextSearch": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "productFiltering": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "productDetailsBrowsing": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "productPriceBrowsing": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "productRecommendation": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "orderDraft": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "whishList": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "submitOrder": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "productInventoryBrowsing": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "manageShipmentDetails": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    },
+    "managePaymentDetails": {
+      "isActive": true,
+      "behavior": {
+        "requires": "",
+        "replaces": ""
+      }
+    }
   }
 }
