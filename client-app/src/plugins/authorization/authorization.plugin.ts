@@ -54,17 +54,17 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
   Vue.directive('can', (el, binding, vnode: VNode) => {
     const behavior = binding.modifiers.disable ? 'disable' : 'hide'
     let permissions = binding.value;
-    if(!( permissions instanceof Array )) {
+    if (!(permissions instanceof Array)) {
       permissions = [permissions];
     }
     // const profile = binding.value.user;
-    const authResult = Vue.$can( ...(permissions as Array<string>));
+    const authResult = Vue.$can(...(permissions as Array<string>));
     if (!authResult) {
       if (behavior === 'hide') {
         commentNode(el, vnode)
       } else if (behavior === 'disable') {
         const inputEl = el as HTMLInputElement;
-        if(inputEl){
+        if (inputEl) {
           inputEl.disabled = true
         }
       }
