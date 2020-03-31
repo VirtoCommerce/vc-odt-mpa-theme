@@ -12,7 +12,7 @@ import Services from "@common/services"
 
 Vue.use(VueRouter);
 
-
+// eslint-disable-next-line
 const beforeEnterWithPermissions = (to: any, from: any, next: any, serviceName: string, ...permissions: string[]) => {
   const authorizationResult = Vue.$can(...permissions);
   const isServiceActiveResult = Vue.$isActive(serviceName);
@@ -37,6 +37,7 @@ const routes = [
     meta: {
       title: i18n.t('account.menu_titles.orders')
     },
+    // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
       beforeEnterWithPermissions(to, from, next, Services.OrderBrowsing, Permissions.CanViewOrders);
     }
@@ -47,6 +48,7 @@ const routes = [
     meta: {
       title: i18n.t('account.menu_titles.users')
     },
+    // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
       beforeEnterWithPermissions(to, from, next, Services.ManageUsers, Permissions.CanViewUsers);
     }
@@ -57,6 +59,7 @@ const routes = [
     meta: {
       title: i18n.t('account.menu_titles.invoices')
     },
+    // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
       beforeEnterWithPermissions(to, from, next, Services.InvoiceBrowsing, Permissions.CanViewOrders);
     }
@@ -67,6 +70,7 @@ const routes = [
     meta: {
       title: i18n.t('account.menu_titles.payments')
     },
+    // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
       beforeEnterWithPermissions(to, from, next, Services.PaymentBrowsing, Permissions.CanViewOrders);
     }
@@ -79,6 +83,7 @@ const router = new VueRouter({
   routes
 });
 
+// eslint-disable-next-line
 router.beforeEach((toRoute, fromRoute, next) => {
   window.document.title = toRoute.meta && toRoute.meta.title ?
     toRoute.meta.title : i18n.t('account.menu_titles.home');

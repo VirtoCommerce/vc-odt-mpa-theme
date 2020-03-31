@@ -7,8 +7,7 @@ import json from '../../../../config/settings_data.json';
 import { commentNode } from "./comment-node";
 import profileModule from "./store-profile"
 
-
-interface AuthorizationPluginOptions<S>{
+interface AuthorizationPluginOptions<S> {
   store: Store<S>;
   vuexNamespase?: string;
 }
@@ -16,7 +15,9 @@ interface AuthorizationPluginOptions<S>{
 // export type PluginFunction<T> = (Vue: typeof _Vue, options?: T) => void;
 export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: AuthorizationPluginOptions<S>): void {
 
+  // eslint-disable-next-line
   const store = options!.store;
+  // eslint-disable-next-line
   const namespace = options!.vuexNamespase ? options!.vuexNamespase : "profileModule";
   store.registerModule(namespace, profileModule);
 
@@ -26,11 +27,12 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
   Vue.prototype.$permissions = StorefrontPermissions;
   Vue.prototype.$services = Services;
 
-  function checkUserPermissions( ...permissions: string[]): boolean {
-    const user = store.getters[ `${namespace}/profile`];
+  function checkUserPermissions(...permissions: string[]): boolean {
+    const user = store.getters[`${namespace}/profile`];
     let result = false;
-    if ( !!user.permissions && user.permissions.length ){
-      result = permissions.every(p=> user.permissions!.indexOf(p) > -1 );
+    if (!!user.permissions && user.permissions.length) {
+      // eslint-disable-next-line
+      result = permissions.every(p => user.permissions!.indexOf(p) > -1);
     }
     return result;
   }
@@ -44,6 +46,7 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
       throw new Error("Services section not specified in the settings file.")
     }
 
+    // eslint-disable-next-line
     const untypedJson = json as any;
 
     const service = untypedJson.services[serviceName];
@@ -64,6 +67,7 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
   Vue.$can = checkUserPermissions;
 
   Vue.$isActive = checkIsActive;
+
   /**
    * Check permissions of user within Vue instance
    *  Component code:  this.$can(profile, 'storefront:user:create', 'storefront:user:edit')
@@ -72,6 +76,7 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
   Vue.prototype.$can = checkUserPermissions;
 
   Vue.prototype.$isActive = checkIsActive;
+
   /**
    * Directive for hide/disable html element.
    * Usage: <a v-can.disable="storefront:orders:view">orders</a>
