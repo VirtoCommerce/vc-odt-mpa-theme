@@ -52,8 +52,6 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { namespace } from "vuex-class";
-
 
 @Component({
   name: "home"
