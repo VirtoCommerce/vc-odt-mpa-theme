@@ -1,12 +1,12 @@
 import Vue from "vue"
 import StorefrontPermissions from "@common/permissions";
-import Services from "@common/services";
+import Features from "@common/features";
 
 declare module 'vue/types/vue' {
 
   interface Vue {
     $permissions: StorefrontPermissions;
-    $services: Services;
+    $features: Features;
     $can: (...permissions: string[]) => boolean;
     $isActive: (serviceName: string) => boolean;
   }

@@ -7,8 +7,8 @@ import AccountOrders from "@account/views/account-orders/index.vue";
 import AccountPayments from '@account/views/account-payments/index.vue';
 import AccountUsers from "@account/views/account-users/index.vue";
 import { accessDeniedUrl } from '@common/constants';
+import Features from "@common/features"
 import Permissions from "@common/permissions"
-import Services from "@common/services"
 
 Vue.use(VueRouter);
 
@@ -39,7 +39,7 @@ const routes = [
     },
     // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to, from, next, Services.OrderBrowsing, Permissions.CanViewOrders);
+      beforeEnterWithPermissions(to, from, next, Features.OrderBrowsing, Permissions.CanViewOrders);
     }
   },
   {
@@ -50,7 +50,7 @@ const routes = [
     },
     // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to, from, next, Services.ManageUsers, Permissions.CanViewUsers);
+      beforeEnterWithPermissions(to, from, next, Features.ManageUsers, Permissions.CanViewUsers);
     }
   },
   {
@@ -61,7 +61,7 @@ const routes = [
     },
     // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to, from, next, Services.InvoiceBrowsing, Permissions.CanViewOrders);
+      beforeEnterWithPermissions(to, from, next, Features.InvoiceBrowsing, Permissions.CanViewOrders);
     }
   },
   {
@@ -72,7 +72,7 @@ const routes = [
     },
     // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to, from, next, Services.PaymentBrowsing, Permissions.CanViewOrders);
+      beforeEnterWithPermissions(to, from, next, Features.PaymentBrowsing, Permissions.CanViewOrders);
     }
   }
 ];

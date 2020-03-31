@@ -1,4 +1,4 @@
-export default class Services {
+export default class Features {
   static OrderBrowsing = "ordersBrowsing";
   static PaymentBrowsing = "paymentBrowsing";
   static InvoiceBrowsing = "invoiceBrowsing";

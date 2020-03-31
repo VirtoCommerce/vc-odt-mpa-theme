@@ -10,7 +10,7 @@
           {{ $t('account.menu_titles.home') }}
         </router-link>
       </li>
-      <li v-if="$can($permissions.CanViewOrders) && $isActive($services.OrderBrowsing)" class="nav-item">
+      <li v-if="$can($permissions.CanViewOrders) && $isActive($features.OrderBrowsing)" class="nav-item">
         <router-link to="orders"
                      active-class="border-bottom-0 border-primary"
                      tag="a"
@@ -18,7 +18,7 @@
           {{ $t('account.menu_titles.orders') }}
         </router-link>
       </li>
-      <li v-if="$can($permissions.CanViewUsers) && $isActive($services.ManageUsers)" class="nav-item">
+      <li v-if="$can($permissions.CanViewUsers) && $isActive($features.ManageUsers)" class="nav-item">
         <router-link to="users"
                      active-class="border-bottom-0 border-primary"
                      tag="a"
@@ -27,7 +27,7 @@
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link v-if="$can($permissions.CanViewOrders) && $isActive($services.InvoiceBrowsing)"
+        <router-link v-if="$can($permissions.CanViewOrders) && $isActive($features.InvoiceBrowsing)"
                      to="invoices"
                      active-class="border-bottom-0 border-primary"
                      tag="a"
@@ -36,7 +36,7 @@
         </router-link>
       </li>
       <li class="nav-item">
-        <router-link v-if="$can($permissions.CanViewOrders) && $isActive($services.PaymentBrowsing)"
+        <router-link v-if="$can($permissions.CanViewOrders) && $isActive($features.PaymentBrowsing)"
                      to="payments"
                      active-class="border-bottom-0 border-primary"
                      tag="a"

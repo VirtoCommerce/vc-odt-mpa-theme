@@ -394,7 +394,7 @@
       ]
     }
   },
-  "services": {
+  "features": {
     "ordersBrowsing": {
       "isActive": true,
       "behavior": {

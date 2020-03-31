@@ -1,8 +1,8 @@
 import _Vue from "vue";
 import { Store } from "vuex";
 import { VNode } from "vue/types/umd";
+import Features from "@common/features";
 import StorefrontPermissions from "@common/permissions";
-import Services from "@common/services";
 import json from '../../../../config/settings_data.json';
 import { commentNode } from "./comment-node";
 import profileModule from "./store-profile"
@@ -25,7 +25,7 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
    * Inject all storefront permissions to Vue instance
    */
   Vue.prototype.$permissions = StorefrontPermissions;
-  Vue.prototype.$services = Services;
+  Vue.prototype.$features = Features;
 
   function checkUserPermissions(...permissions: string[]): boolean {
     const user = store.getters[`${namespace}/profile`];
@@ -37,27 +37,27 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
     return result;
   }
 
-  function checkIsActive(serviceName: string): boolean {
+  function checkIsActive(featureName: string): boolean {
     if (json == null) {
       throw new Error("Couldn't obtain settings file.");
     }
 
-    if (json.services == null) {
-      throw new Error("Services section not specified in the settings file.")
+    if (json.features == null) {
+      throw new Error("Features section not specified in the settings file.")
     }
 
     // eslint-disable-next-line
     const untypedJson = json as any;
 
-    const service = untypedJson.services[serviceName];
-    if (service == null) {
+    const features = untypedJson.features[featureName];
+    if (features == null) {
       return false;
     }
 
     // todo: here should be hard if-else logics
     // todo: implement tests
 
-    return service.isActive;
+    return features.isActive;
   }
 
   /**
