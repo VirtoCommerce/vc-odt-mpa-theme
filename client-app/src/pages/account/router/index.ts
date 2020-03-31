@@ -8,13 +8,15 @@ import AccountPayments from '@account/views/account-payments/index.vue';
 import AccountUsers from "@account/views/account-users/index.vue";
 import { accessDeniedUrl } from '@common/constants';
 import Permissions from "@common/permissions"
+import Services from "@common/services"
 
 Vue.use(VueRouter);
 
 
-const beforeEnterWithPermissions = (to: any, from: any, next: any, ...permissions: string[]) => {
-  const authResult = Vue.$can( ...permissions);
-  if(authResult){
+const beforeEnterWithPermissions = (to: any, from: any, next: any, serviceName: string, ...permissions: string[]) => {
+  const authorizationResult = Vue.$can(...permissions);
+  const isServiceActiveResult = Vue.$isActive(serviceName);
+  if (authorizationResult && isServiceActiveResult) {
     next();
   } else {
     window.location.assign(accessDeniedUrl);
@@ -36,7 +38,7 @@ const routes = [
       title: i18n.t('account.menu_titles.orders')
     },
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
+      beforeEnterWithPermissions(to, from, next, Services.OrderBrowsing, Permissions.CanViewOrders);
     }
   },
   {
@@ -46,7 +48,7 @@ const routes = [
       title: i18n.t('account.menu_titles.users')
     },
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to,from,next, Permissions.CanViewUsers);
+      beforeEnterWithPermissions(to, from, next, Services.ManageUsers, Permissions.CanViewUsers);
     }
   },
   {
@@ -56,7 +58,7 @@ const routes = [
       title: i18n.t('account.menu_titles.invoices')
     },
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
+      beforeEnterWithPermissions(to, from, next, Services.InvoiceBrowsing, Permissions.CanViewOrders);
     }
   },
   {
@@ -66,7 +68,7 @@ const routes = [
       title: i18n.t('account.menu_titles.payments')
     },
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
+      beforeEnterWithPermissions(to, from, next, Services.PaymentBrowsing, Permissions.CanViewOrders);
     }
   }
 ];

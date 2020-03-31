@@ -2,6 +2,8 @@ import _Vue from "vue";
 import { Store } from "vuex";
 import { VNode } from "vue/types/umd";
 import StorefrontPermissions from "@common/permissions";
+import Services from "@common/services";
+import json from '../../../../config/settings_data.json';
 import { commentNode } from "./comment-node";
 import profileModule from "./store-profile"
 
@@ -22,6 +24,7 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
    * Inject all storefront permissions to Vue instance
    */
   Vue.prototype.$permissions = StorefrontPermissions;
+  Vue.prototype.$services = Services;
 
   function checkUserPermissions( ...permissions: string[]): boolean {
     const user = store.getters[ `${namespace}/profile`];
@@ -32,12 +35,35 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
     return result;
   }
 
+  function checkIsActive(serviceName: string): boolean {
+    if (json == null) {
+      throw new Error("Couldn't obtain settings file.");
+    }
+
+    if (json.services == null) {
+      throw new Error("Services section not specified in the settings file.")
+    }
+
+    const untypedJson = json as any;
+
+    const service = untypedJson.services[serviceName];
+    if (service == null) {
+      return false;
+    }
+
+    // todo: here should be hard if-else logics
+    // todo: implement tests
+
+    return service.isActive;
+  }
+
   /**
    * Check permissions of user within Vue global object
    *  Component code:  Vue.$can('storefront:user:create', 'storefront:user:edit')
    */
   Vue.$can = checkUserPermissions;
 
+  Vue.$isActive = checkIsActive;
   /**
    * Check permissions of user within Vue instance
    *  Component code:  this.$can(profile, 'storefront:user:create', 'storefront:user:edit')
@@ -45,6 +71,7 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
    */
   Vue.prototype.$can = checkUserPermissions;
 
+  Vue.prototype.$isActive = checkIsActive;
   /**
    * Directive for hide/disable html element.
    * Usage: <a v-can.disable="storefront:orders:view">orders</a>
