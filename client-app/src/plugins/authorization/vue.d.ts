@@ -2,7 +2,6 @@ import Vue from "vue"
 import StorefrontPermissions from "@common/permissions";
 import Services from "@common/services";
 
-
 declare module 'vue/types/vue' {
 
   interface Vue {
