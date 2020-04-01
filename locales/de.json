@@ -65,6 +65,9 @@
     "no-access": "Sie haben keine Berechtigung zum Anzeigen dieser Seite. Bitte wenden Sie sich an Ihren Administrator"
   },
   "collections": {
+    "filter": {
+      "title": "Filter"
+    },
     "sorting": {
       "title": "Sortieren nach",
       "featured": "Ausgewählt",
