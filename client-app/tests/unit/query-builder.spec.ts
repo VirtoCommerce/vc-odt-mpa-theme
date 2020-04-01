@@ -18,7 +18,7 @@ describe("query builder", () => {
   it("should correctly parse query", () => {
     const query = new URLSearchParams("page=1&page_size=30&keyword=test");
 
-    const searchCriteria = keywordQueryBuilder.fromQuery(query);
+    const searchCriteria = keywordQueryBuilder.parseURLSearchParams(query);
 
     expect(searchCriteria.pageNumber).to.be.equal(1);
     expect(searchCriteria.pageSize).to.be.equal(30);
@@ -28,7 +28,7 @@ describe("query builder", () => {
   it("should correctly parse partial query", () => {
     const query = new URLSearchParams("page_size=30");
 
-    const searchCriteria = keywordQueryBuilder.fromQuery(query);
+    const searchCriteria = keywordQueryBuilder.parseURLSearchParams(query);
 
     expect(searchCriteria.pageNumber).to.be.equal(undefined);
     expect(searchCriteria.pageSize).to.be.equal(30);
@@ -42,7 +42,7 @@ describe("query builder", () => {
       keyword: "test"
     });
 
-    const query = keywordQueryBuilder.toQuery(searchCriteria);
+    const query = keywordQueryBuilder.buildURLSearchParams(searchCriteria);
 
     expect(query.toString()).to.be.equalIgnoreCase("page=1&page_size=30&keyword=test");
   });
@@ -52,7 +52,7 @@ describe("query builder", () => {
       keyword: "test"
     });
 
-    const query = keywordQueryBuilder.toQuery(searchCriteria);
+    const query = keywordQueryBuilder.buildURLSearchParams(searchCriteria);
 
     expect(query.toString()).to.be.equalIgnoreCase("keyword=test");
   });
@@ -64,7 +64,7 @@ describe("terms: parse and build", () => {
   it("should correctly parse sorting and terms", () => {
     const query = new URLSearchParams("sort_by=createddate-descending&terms=Brand%3a3DR%2cDJI%3bprice%3aover-1000");
 
-    const searchCriteria = productQueryBuilder.fromQuery(query);
+    const searchCriteria = productQueryBuilder.parseURLSearchParams(query);
 
     expect(searchCriteria.sortBy).to.be.equal("createddate-descending");
     expect(searchCriteria.termsData?.data).to.have.property("Brand");
@@ -80,7 +80,7 @@ describe("terms: parse and build", () => {
     searchCriteria.termsData.data["Brand"] = ["3DR", "DJI"];
     searchCriteria.termsData.data["price"] = ["over-1000"];
 
-    const query = productQueryBuilder.toQuery(searchCriteria).toString();
+    const query = productQueryBuilder.buildURLSearchParams(searchCriteria).toString();
 
     expect(query).to.be.equalIgnoreCase("sort_by=createddate-descending&terms=Brand%3a3DR%2cDJI%3bprice%3aover-1000");
   });
@@ -95,28 +95,28 @@ describe("terms: toggle", () => {
 
   it("should remove existing value from terms", () => {
     searchCriteria.termsData?.toggle("Brand", "3DR");
-    const query = productQueryBuilder.toQuery(searchCriteria).toString();
+    const query = productQueryBuilder.buildURLSearchParams(searchCriteria).toString();
 
     expect(query).to.be.equalIgnoreCase("terms=Brand%3aDJI%3bprice%3aover-1000");
   });
 
   it("should remove key from terms", () => {
     searchCriteria.termsData?.toggle("price", "over-1000");
-    const query = productQueryBuilder.toQuery(searchCriteria).toString();
+    const query = productQueryBuilder.buildURLSearchParams(searchCriteria).toString();
 
     expect(query).to.be.equalIgnoreCase("terms=Brand%3aDJI");
   });
 
   it("should add new key and value to terms", () => {
     searchCriteria.termsData?.toggle("price", "600-1000");
-    const query = productQueryBuilder.toQuery(searchCriteria).toString();
+    const query = productQueryBuilder.buildURLSearchParams(searchCriteria).toString();
 
     expect(query).to.be.equalIgnoreCase("terms=Brand%3aDJI%3bprice%3a600-1000");
   });
 
   it("should add value to existing key in terms", () => {
     searchCriteria.termsData?.toggle("price", "over-1000");
-    const query = productQueryBuilder.toQuery(searchCriteria).toString();
+    const query = productQueryBuilder.buildURLSearchParams(searchCriteria).toString();
 
     expect(query).to.be.equalIgnoreCase("terms=Brand%3aDJI%3bprice%3a600-1000%2cover-1000");
   });

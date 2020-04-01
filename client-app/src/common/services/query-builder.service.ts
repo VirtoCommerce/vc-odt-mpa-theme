@@ -10,25 +10,25 @@ TSearchQuery extends SearchQuery> {
     private searchQueryType: { new(): TSearchQuery }) {
   }
 
-  toQueryObject(searchCriteria: TSearchCriteria): object {
+  buildQuery(searchCriteria: TSearchCriteria): object {
     return searchCriteria.toSearchQuery(this.searchQueryType).normalize();
   }
 
-  toQuery(searchCriteria: TSearchCriteria): URLSearchParams {
-    return new URLSearchParams(Object.entries(this.toQueryObject(searchCriteria)) as string[][])
+  buildURLSearchParams(searchCriteria: TSearchCriteria): URLSearchParams {
+    return new URLSearchParams(Object.entries(this.buildQuery(searchCriteria)) as string[][])
   }
 
-  fromQueryObject(queryObject: object): TSearchCriteria {
+  parseQuery(queryObject: object): TSearchCriteria {
     const searchQuery = new this.searchQueryType();
     Object.assign(searchQuery, queryObject);
     return searchQuery.toSearchCriteria(this.searchCriteriaType);
   }
 
-  fromQuery(query: URLSearchParams): TSearchCriteria {
+  parseURLSearchParams(query: URLSearchParams): TSearchCriteria {
     const queryObject: { [key: string]: string } = {};
     for (const [key, value] of query.entries()) {
       queryObject[key] = value;
     }
-    return this.fromQueryObject(queryObject);
+    return this.parseQuery(queryObject);
   }
 }
