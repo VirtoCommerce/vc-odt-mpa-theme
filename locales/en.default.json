@@ -44,6 +44,16 @@
       "click_to_log_in": "Please click here to log in"
     }
   },
+  "breadcrumbs": {
+    "home": "Home",
+    "home_link_title": "Back to the frontpage"
+  },
+  "search_bar": {
+    "placeholder": "Search"
+  },
+  "search": {
+    "no_results": "No data found"
+  },
   "404": {
     "not-found": "Page not found"
   },
@@ -53,6 +63,56 @@
   "access-denied": {
     "title": "Access denied",
     "no-access": "You have no permission to view this page. Please, contact to your administrator"
+  },
+  "collections": {
+    "sorting": {
+      "title": "Sort by",
+      "featured": "Featured",
+      "best_selling": "Best Selling",
+      "az": "Alphabetically, A-Z",
+      "za": "Alphabetically, Z-A",
+      "price_ascending": "Price, low to high",
+      "price_descending": "Price, high to low",
+      "date_descending": "Date, new to old",
+      "date_ascending": "Date, old to new"
+    },
+    "tags": {
+      "__outline": {
+        "label": "Category"
+      },
+      "price": {
+        "label": "Price"
+      },
+      "pricerange": {
+        "less": "Under {0}",
+        "between": "{0} to {1}",
+        "greater": "{0} & Above"
+      },
+      "range": {
+        "less": "Under {0}",
+        "between": "{0} to {0}",
+        "greater": "{0} & Up"
+      }
+    }
+  },
+  "products": {
+    "general": {
+      "save_html": "Save {0}",
+      "add_to_cart": "Add to cart",
+      "add_to_quote": "Add to quote"
+    },
+    "product": {
+      "sold_out": "Sold Out",
+      "unavailable": "Unavailable",
+      "details_tab": "Product details",
+      "description_tab": "Product description"
+    },
+    "compare_list": {
+      "add_to_compare": "Add to compare"
+    },
+    "list": {
+      "add_to_myList": "Add to list"
+    }
   },
   "account": {
     "menu_titles": {
