@@ -135,20 +135,7 @@
         <div class="tab-content" id="pills-tabContent">
           {% if product.description == nil %}
             <div class="mb-3 bg-light row justify-content-around tab-pane fade show active" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
-              <div class="pt-2 pb-2">
-                <table class="table table-sm table-borderless mb-0">
-                  <tbody>
-                    {% for property in product.properties %}
-                      {% if property.value %}
-                    <tr>
-                      <td class="text-right w-50"><strong>{{ property.display_name }}</strong></td>
-                      <td>{{ property.value }}</td>
-                    </tr>
-                      {% endif %}
-                    {% endfor %}
-                  </tbody>
-                </table>
-              </div>
+              {% include 'product-properties' %}
             </div>
           {% else %}
             <div class="tab-pane fade show active" itemprop="description" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
@@ -156,20 +143,7 @@
             </div>
             {% if product.properties.size > 1 %}
             <div class="mb-3 bg-light row justify-content-around tab-pane fade" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
-              <div class="pt-2 pb-2">
-                <table class="table table-sm table-borderless mb-0">
-                  <tbody>
-                    {% for property in product.properties %}
-                      {% if property.value %}
-                    <tr>
-                      <td class="text-right w-50"><strong>{{ property.display_name }}</strong></td>
-                      <td>{{ property.value }}</td>
-                    </tr>
-                      {% endif %}
-                    {% endfor %}
-                  </tbody>
-                </table>
-              </div>
+              {% include 'product-properties' %}
             </div>
             {% endif %}
           {% endif %}
