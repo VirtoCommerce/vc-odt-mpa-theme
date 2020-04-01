@@ -65,6 +65,9 @@
     "no-access": "You have no permission to view this page. Please, contact to your administrator"
   },
   "collections": {
+    "filter": {
+      "title": "Filters"
+    },
     "sorting": {
       "title": "Sort by",
       "featured": "Featured",

@@ -1,5 +1,5 @@
 <div class="form-horizontal d-flex justify-content-between">
-  <label for="sortBy" class="d-none d-sm-inline-block col-sm-auto align-self-center m-0">{{ 'collections.sorting.title' | t }}</label>
+  <label for="sortBy" class="d-none d-sm-inline-block col-sm-auto align-self-center m-0 pl-0">{{ 'collections.sorting.title' | t }}</label>
   <select name="sortBy" id="sortBy" onchange="location = this.value;" class="custom-select align-self-center">
     <option value="{{ 'priority-descending;name-ascending' | sort_by_url }}">{{ 'collections.sorting.featured' | t }}</option>
     <option value="{{ 'best-selling' | sort_by_url }}">{{ 'collections.sorting.best_selling' | t }}</option>

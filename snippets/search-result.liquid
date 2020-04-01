@@ -13,31 +13,26 @@
     {% endif %}
 
     <div class="col-12 {% if has_sidebar %}col-lg-10{% endif %}">
-        {% if collection.description.empty? == false %}
-        <div class="row justify-content-between">
-          <header class="col-sm-5">
-            <h1>{{ collection.title }}</h1>
-            <div>
-                {{ collection.description }}
+
+        <header class="d-flex flex-column mb-4">
+            <div class="d-flex flex-wrap flex-lg-row flex-column justify-content-between">
+              <h1>{{ collection.title }}</h1>
+              <div class="d-flex justify-content-between">
+                <div class="d-flex flex-wrap justify-content-between">
+                  {% include 'collection-sorting' %}
+                </div>
+                <button class="d-lg-none btn btn-primary align-self-center" onclick="toggleFiltersSidebar()">{{ 'collections.filter.title' | t }}</button>
+              </div>
             </div>
+
+            {% if page_description.empty? == false %}
+              <div class="mt-2">
+                {{ page_description }}
+              </div>
+            {% endif %}
         </header>
-        <div class="col-sm-6">
-            <div class="d-flex flex-wrap justify-content-between">
-                {% include 'collection-sorting' %}
-            </div>
-        </div>
-        </div>
-        {% else %}
-        <header class="d-flex flex-wrap flex-sm-row flex-column justify-content-between mb-4">
-            <h1>{{ collection.title }}</h1>
-            <div class="d-flex flex-wrap justify-content-between">
-                {% include 'collection-sorting' %}
-            </div>
-        </header>
-        {% endif %}
 
         <div class="row">
-
             {% if product_search_result.products.empty? == false %}
             {% for product in product_search_result.products %}
 
@@ -60,6 +55,12 @@
           {% include 'page-size' %}
         </div>
 
-
     </div>
 </div>
+<script>
+function toggleFiltersSidebar() {
+  var sidebar = document.getElementById("collectionFilters");
+  sidebar.classList.toggle("d-none");
+  sidebar.classList.toggle("d-lg-block");
+}
+</script>
