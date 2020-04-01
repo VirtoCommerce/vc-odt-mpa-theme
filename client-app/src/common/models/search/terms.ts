@@ -4,22 +4,16 @@ export class Terms {
     items: TermsItems = {};
 
     toggle(key: string, value: string) {
-      // if key & value exists
-      if (this.items[key]?.includes(value)){
-        // remove value
-        this.items[key].splice(this.items[key].indexOf(value), 1);
-        // if no more values
-        if (this.items[key].length == 0){
-          // remove key
-          delete this.items[key];
+      if (this.isKeyValueExists(key, value)){
+        this.removeValue(key, value);
+        if (this.hasAnyValue(key)){
+          this.removeKey(key);
         }
       } else {
-        // create array of values if wasn't exist
-        if (!this.items[key]){
+        if (!this.isKeyExists(key)){
           this.items[key] = [];
         }
-        // add value
-        this.items[key].push(value);
+        this.addValue(key, value);
       }
     }
 
@@ -34,5 +28,29 @@ export class Terms {
         return result;
       }, {} as TermsItems) || {};
       return this;
+    }
+
+    private isKeyValueExists(key: string, value: string): boolean {
+      return this.items[key]?.includes(value);
+    }
+
+    private isKeyExists(key: string){
+      return key in this.items;
+    }
+
+    private hasAnyValue(key: string): boolean {
+      return this.items[key].length == 0;
+    }
+
+    private addValue(key: string, value: string){
+      return this.items[key].push(value);
+    }
+
+    private removeKey(key: string) {
+      delete this.items[key];
+    }
+
+    private removeValue(key: string, value: string) {
+      this.items[key].splice(this.items[key].indexOf(value), 1);
     }
 }
