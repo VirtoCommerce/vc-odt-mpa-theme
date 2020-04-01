@@ -1,9 +1,7 @@
 import _Vue from "vue";
 import { Store } from "vuex";
 import { VNode } from "vue/types/umd";
-import Features from "@common/features";
 import StorefrontPermissions from "@common/permissions";
-import json from '../../../../config/settings_data.json';
 import { commentNode } from "./comment-node";
 import profileModule from "./store-profile"
 
@@ -25,7 +23,6 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
    * Inject all storefront permissions to Vue instance
    */
   Vue.prototype.$permissions = StorefrontPermissions;
-  Vue.prototype.$features = Features;
 
   function checkUserPermissions(...permissions: string[]): boolean {
     const user = store.getters[`${namespace}/profile`];
@@ -37,36 +34,11 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
     return result;
   }
 
-  function checkIsActive(featureName: string): boolean {
-    if (json == null) {
-      throw new Error("Couldn't obtain settings file.");
-    }
-
-    if (json.features == null) {
-      throw new Error("Features section not specified in the settings file.")
-    }
-
-    // eslint-disable-next-line
-    const untypedJson = json as any;
-
-    const features = untypedJson.features[featureName];
-    if (features == null) {
-      return false;
-    }
-
-    // todo: here should be hard if-else logics
-    // todo: implement tests
-
-    return features.isActive;
-  }
-
   /**
    * Check permissions of user within Vue global object
    *  Component code:  Vue.$can('storefront:user:create', 'storefront:user:edit')
    */
   Vue.$can = checkUserPermissions;
-
-  Vue.$isActive = checkIsActive;
 
   /**
    * Check permissions of user within Vue instance
@@ -74,8 +46,6 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
    *  Template: <b-button v-if="$can('storefront:user:create', 'storefront:user:edit')">Add user</b-button>
    */
   Vue.prototype.$can = checkUserPermissions;
-
-  Vue.prototype.$isActive = checkIsActive;
 
   /**
    * Directive for hide/disable html element.
