@@ -396,7 +396,7 @@
   },
   "features": {
     "OrdersBrowsing": {
-      "IsActive": false,
+      "IsActive": true,
       "Behavior": {
         "Requires": ["PaymentBrowsing"],
         "Replaces": []
