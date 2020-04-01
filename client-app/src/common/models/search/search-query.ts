@@ -1,13 +1,11 @@
-import { SearchCriteria } from './search-criteria';
+import { ISearchCriteria } from './search-criteria';
 
 /* eslint @typescript-eslint/camelcase: ["error", {properties: "never"}] */
 export class SearchQuery {
-  constructor(
-    public page?: string,
-    public page_size?: string
-  ){}
+  page?: string;
+  page_size?: string;
 
-  toSearchCriteria<TSearchCriteria extends SearchCriteria>(searchCriteriaType: { new(...args: any[]): TSearchCriteria }): TSearchCriteria {
+  toSearchCriteria<TSearchCriteria extends ISearchCriteria>(searchCriteriaType: { new(): TSearchCriteria }): TSearchCriteria {
     const searchCriteria = new searchCriteriaType();
     searchCriteria.pageNumber = this.page ? Number(this.page) : undefined;
     searchCriteria.pageSize = this.page_size ? Number(this.page_size) : undefined;

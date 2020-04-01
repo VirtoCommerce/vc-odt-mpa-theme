@@ -1,24 +1,21 @@
+import { IProductSearchCriteria } from '@common/api/api-clients';
 import { KeywordSearchQuery } from './keyword-search-query';
-import { ProductSearchCriteria } from './product-search-criteria';
-import { Terms } from './terms';
+import './product-search-criteria';
+import { TermsData } from './terms-data';
 
 /* eslint @typescript-eslint/camelcase: ["error", {properties: "never"}] */
 export class ProductSearchQuery extends KeywordSearchQuery {
-  constructor(
-    public page?: string,
-    public page_size?: string,
-    public q?: string,
-    public keyword?: string,
-    public sort_by?: string,
-    public terms?: string
-  ){
-    super(page, page_size, keyword);
-  }
+  page?: string;
+  page_size?: string;
+  q?: string;
+  keyword?: string;
+  sort_by?: string;
+  terms?: string;
 
-  toSearchCriteria<TSearchCriteria extends ProductSearchCriteria>(searchCriteriaType: { new(...args: any[]): TSearchCriteria }): TSearchCriteria {
+  toSearchCriteria<TSearchCriteria extends IProductSearchCriteria>(searchCriteriaType: { new(): TSearchCriteria }): TSearchCriteria {
     const searchCriteria = super.toSearchCriteria(searchCriteriaType);
     searchCriteria.sortBy = this.sort_by;
-    searchCriteria.terms = new Terms().deserialize(this.terms);
+    searchCriteria.termsData = new TermsData().deserialize(this.terms);
     return searchCriteria;
   }
 }

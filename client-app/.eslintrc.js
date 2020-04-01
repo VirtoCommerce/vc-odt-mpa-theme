@@ -58,7 +58,8 @@ module.exports = {
       "alphabetize": {
         "order": "asc"
       }
-    }]
+    }],
+    "no-prototype-builtins": "off"
   },
   parserOptions: {
     parser: "@typescript-eslint/parser"
