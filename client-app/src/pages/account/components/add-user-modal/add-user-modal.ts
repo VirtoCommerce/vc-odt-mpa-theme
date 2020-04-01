@@ -9,6 +9,8 @@ import { AddUser } from "@account/models/add-user";
   validations: {
     user: {
       userName: { required },
+      firstName: { required },
+      lastName: { required },
       email: { required, email },
       role: { required },
       password: {

@@ -1,6 +1,6 @@
 export class AddUser {
-  firstName?: string;
-  lastName?: string;
+  firstName = "";
+  lastName = "";
   email?: string = "";
   userName = "";
   password = "";

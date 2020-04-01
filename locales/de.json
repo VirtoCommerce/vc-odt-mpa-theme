@@ -147,15 +147,16 @@
       },
       "add-user": {
         "title": "Neuer Benutzer",
-        "optional": "Optional",
         "email-label": "Email",
         "email-placeholder": "Email",
         "email-required": "Email ist erforderlich",
         "email-not-valid": "Email ist ungültig",
         "first-name-label": "Vorname",
         "first-name-placeholder": "Vornamen",
+        "first-name-required": "Vorname ist erforderlich",
         "last-name-label": "Nachname",
         "last-name-placeholder": "Nachnamen",
+        "last-name-required": "Nachname ist erforderlich",
         "username-label": "Nutzername",
         "username-placeholder": "Nutzername",
         "username-required": "Ein Benutzername ist erforderlich",
@@ -176,7 +177,7 @@
         "confirm-password-required": "Bestätigen Sie Ihr Passwort",
         "confirm-password-not-same": "Passwörter müssen identisch sein",
         "submit": "Einreichen",
-        "add-user": "Add user"
+        "add-user": "Benutzer hinzufügen"
       }
     },
     "invoices": {
