@@ -1,13 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import i18n from "@i18n";
+import FeatureNames from "plugins/features/featureNames"
 import AccountInfo from "@account/views/account-info/index.vue";
 import AccountInvoices from '@account/views/account-invoices/index.vue';
 import AccountOrders from "@account/views/account-orders/index.vue";
 import AccountPayments from '@account/views/account-payments/index.vue';
 import AccountUsers from "@account/views/account-users/index.vue";
 import { accessDeniedUrl } from '@common/constants';
-import Features from "@common/features"
 import Permissions from "@common/permissions"
 
 Vue.use(VueRouter);
@@ -43,7 +43,7 @@ const routes = [
     },
     // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      const permitted = isPermitted(Features.OrderBrowsing, Permissions.CanViewOrders)
+      const permitted = isPermitted(FeatureNames.OrderBrowsing, Permissions.CanViewOrders)
       accessHandler(permitted, next);
     }
   },
@@ -55,7 +55,7 @@ const routes = [
     },
     // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      const permitted = isPermitted(Features.ManageUsers, Permissions.CanViewUsers);
+      const permitted = isPermitted(FeatureNames.ManageUsers, Permissions.CanViewUsers);
       accessHandler(permitted, next);
     }
   },
@@ -67,7 +67,7 @@ const routes = [
     },
     // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      const permitted = isPermitted(Features.InvoiceBrowsing, Permissions.CanViewOrders);
+      const permitted = isPermitted(FeatureNames.InvoiceBrowsing, Permissions.CanViewOrders);
       accessHandler(permitted, next);
     }
   },
@@ -79,7 +79,7 @@ const routes = [
     },
     // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      const permitted = isPermitted(Features.PaymentBrowsing, Permissions.CanViewOrders);
+      const permitted = isPermitted(FeatureNames.PaymentBrowsing, Permissions.CanViewOrders);
       accessHandler(permitted, next);
     }
   }
