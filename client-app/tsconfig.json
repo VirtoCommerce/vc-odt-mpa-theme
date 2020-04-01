@@ -9,12 +9,14 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
     "sourceMap": true,
     "baseUrl": "src",
     "types": [
       "webpack-env",
       "mocha",
       "chai",
+      "chai-string",
       "webpack",
       "webpack-env"
     ],

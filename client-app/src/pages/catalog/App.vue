@@ -1,5 +1,8 @@
 <template>
-  <h1>Hello world!</h1>
+  <div>
+    <h1>{{ searchCriteria }}</h1>
+    <h2>{{ searchQuery }}</h2>
+  </div>
 </template>
 <script lang="ts">
 import Vue from "vue";
