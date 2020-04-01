@@ -5,8 +5,7 @@ import StorefrontPermissions from "@common/permissions";
 import { commentNode } from "./comment-node";
 import profileModule from "./store-profile"
 
-
-interface AuthorizationPluginOptions<S>{
+interface AuthorizationPluginOptions<S> {
   store: Store<S>;
   vuexNamespase?: string;
 }
@@ -14,7 +13,9 @@ interface AuthorizationPluginOptions<S>{
 // export type PluginFunction<T> = (Vue: typeof _Vue, options?: T) => void;
 export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: AuthorizationPluginOptions<S>): void {
 
+  // eslint-disable-next-line
   const store = options!.store;
+  // eslint-disable-next-line
   const namespace = options!.vuexNamespase ? options!.vuexNamespase : "profileModule";
   store.registerModule(namespace, profileModule);
 
@@ -23,11 +24,12 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
    */
   Vue.prototype.$permissions = StorefrontPermissions;
 
-  function checkUserPermissions( ...permissions: string[]): boolean {
-    const user = store.getters[ `${namespace}/profile`];
+  function checkUserPermissions(...permissions: string[]): boolean {
+    const user = store.getters[`${namespace}/profile`];
     let result = false;
-    if ( !!user.permissions && user.permissions.length ){
-      result = permissions.every(p=> user.permissions!.indexOf(p) > -1 );
+    if (!!user.permissions && user.permissions.length) {
+      // eslint-disable-next-line
+      result = permissions.every(p => user.permissions!.indexOf(p) > -1);
     }
     return result;
   }
@@ -54,17 +56,17 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
   Vue.directive('can', (el, binding, vnode: VNode) => {
     const behavior = binding.modifiers.disable ? 'disable' : 'hide'
     let permissions = binding.value;
-    if(!( permissions instanceof Array )) {
+    if (!(permissions instanceof Array)) {
       permissions = [permissions];
     }
     // const profile = binding.value.user;
-    const authResult = Vue.$can( ...(permissions as Array<string>));
+    const authResult = Vue.$can(...(permissions as Array<string>));
     if (!authResult) {
       if (behavior === 'hide') {
         commentNode(el, vnode)
       } else if (behavior === 'disable') {
         const inputEl = el as HTMLInputElement;
-        if(inputEl){
+        if (inputEl) {
           inputEl.disabled = true
         }
       }
