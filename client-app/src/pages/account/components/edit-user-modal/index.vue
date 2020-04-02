@@ -22,17 +22,27 @@
       <b-form-group :label=" $t('account.users.add-user.first-name-label')" label-for="firstName">
         <b-form-input
           id="firstName"
-          v-model="userInfo.firstName"
+          v-model="$v.userInfo.firstName.$model"
+          :class="{ 'is-invalid': $v.userInfo.firstName.$error }"
           type="text"
-          :placeholder="$t('account.users.add-user.first-name-placeholder')"></b-form-input>
+          :placeholder="$t('account.users.add-user.first-name-placeholder')"
+          @blur="$v.userInfo.firstName.$touch()"></b-form-input>
+        <b-form-invalid-feedback v-if="!$v.userInfo.firstName.required">
+          {{ $t("account.users.add-user.first-name-required") }}
+        </b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group :label=" $t('account.users.add-user.last-name-label')" label-for="lastName">
         <b-form-input
           id="lastName"
-          v-model="userInfo.lastName"
+          v-model="$v.userInfo.lastName.$model"
+          :class="{ 'is-invalid': $v.userInfo.lastName.$error }"
           type="text"
-          :placeholder="$t('account.users.add-user.last-name-placeholder')"></b-form-input>
+          :placeholder="$t('account.users.add-user.last-name-placeholder')"
+          @blur="$v.userInfo.lastName.$touch()"></b-form-input>
+        <b-form-invalid-feedback v-if="!$v.userInfo.lastName.required">
+          {{ $t("account.users.add-user.last-name-required") }}
+        </b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group :label="$t('account.users.add-user.role-label')" label-for="role">
