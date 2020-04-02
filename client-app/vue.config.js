@@ -6,10 +6,9 @@ const pages = {
 
 module.exports = {
   pages,
-
   outputDir: "../assets/static/bundle/dist",
   filenameHashing: false,
-
+  runtimeCompiler: true,
   devServer: {
     proxy: "http://localhost:2083"
   },
