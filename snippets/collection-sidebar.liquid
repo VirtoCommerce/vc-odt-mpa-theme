@@ -1,7 +1,7 @@
 {% unless product_search_result.aggregations.empty? %}
 <div class="row">
 
-  <div class="col-12 input-group mb-3 pl-lg-0 pr-lg-0 mt-2">
+  <div class="col-12 input-group mb-3 pl-lg-0 pr-lg-0 {% if collection.title %}mt-2{% endif %}">
     {% include 'search-bar' %}
   </div>
 
