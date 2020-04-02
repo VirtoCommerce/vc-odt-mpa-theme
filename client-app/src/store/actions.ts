@@ -1,6 +1,6 @@
 //root actions
 import { ActionTree } from 'vuex'
-import { RootState } from '@catalog/store/types'
+import { RootState } from 'store/types'
 
 export const actions: ActionTree<RootState, RootState> = {
   increment(context) {

@@ -1,7 +1,7 @@
 //root mutations
 
-import { ActionTree, MutationTree } from 'vuex'
-import { RootState } from '@catalog/store/types'
+import { MutationTree } from 'vuex'
+import { RootState } from 'store/types'
 
 export const mutations: MutationTree<RootState> = {
   increment(state) {
