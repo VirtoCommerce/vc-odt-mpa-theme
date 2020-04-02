@@ -1,0 +1,12 @@
+﻿<div>
+    <ul class="pagination">
+      {% for pageSize in settings.pageSizes %}
+              {% if paginator.page_size == pageSize %}
+                  <li class="page-item active"><span class="page-link">{{ pageSize }}</span></li>
+              {% else %}
+                  <li class="page-item"><a class="page-link" href="{{ pageSize | page_size_url }}">{{ pageSize }}</a></li>
+              {% endif %}
+      {% endfor %}
+    </ul>
+</div>
+

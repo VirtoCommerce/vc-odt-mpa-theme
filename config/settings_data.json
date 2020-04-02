@@ -15,6 +15,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -64,6 +65,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -113,6 +115,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -162,6 +165,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -211,6 +215,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -260,6 +265,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -309,6 +315,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -358,6 +365,7 @@
       "footer_column2_content": "<ul><li>Content 2</li></ul>",
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "pageSizes": [10, 20, 50, 100],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -392,6 +400,141 @@
         "capturedDate",
         "currency.code"
       ]
+    }
+  },
+  "features": {
+    "OrdersBrowsing": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": ["PaymentBrowsing"],
+        "Replaces": []
+      }
+    },
+    "PaymentBrowsing": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": ["OrdersBrowsing"],
+        "Replaces": []
+      }
+    },
+    "InvoiceBrowsing": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": ["OrdersBrowsing"],
+        "Replaces": []
+      }
+    },
+    "ManageUsers": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "ManageRoles": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "ContractsInfoBrowsing": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "RetrieveReOrdering": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "OrderApproval": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "ProductTextSearch": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "ProductFiltering": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "ProductDetailsBrowsing": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "ProductPriceBrowsing": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "ProductRecommendation": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "OrderDraft": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "WhishList": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "SubmitOrder": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "ProductInventoryBrowsing": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "ManageShipmentDetails": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
+    },
+    "ManagePaymentDetails": {
+      "IsActive": true,
+      "Behavior": {
+        "Requires": [],
+        "Replaces": []
+      }
     }
   }
 }

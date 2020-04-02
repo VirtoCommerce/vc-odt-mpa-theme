@@ -44,6 +44,16 @@
       "click_to_log_in": "Bitte klicken Sie hier, um sich anzumelden"
     }
   },
+  "breadcrumbs": {
+    "home": "Startseite",
+    "home_link_title": "Zurück zur Startseite"
+  },
+  "search_bar": {
+    "placeholder": "Suche"
+  },
+  "search": {
+    "no_results": "Keine Daten gefunden"
+  },
   "404": {
     "not-found": "Seite nicht gefunden"
   },
@@ -53,6 +63,59 @@
   "access-denied": {
     "title": "Zugriff verweigert",
     "no-access": "Sie haben keine Berechtigung zum Anzeigen dieser Seite. Bitte wenden Sie sich an Ihren Administrator"
+  },
+  "collections": {
+    "filter": {
+      "title": "Filter"
+    },
+    "sorting": {
+      "title": "Sortieren nach",
+      "featured": "Ausgewählt",
+      "best_selling": "Meistverkauft",
+      "az": "Alphabetisch, A-Z",
+      "za": "Alphabetisch, Z-A",
+      "price_ascending": "Preis, niedrig nach hoch",
+      "price_descending": "Preis, hoch nach niedrig",
+      "date_descending": "Datum, neu nach alt",
+      "date_ascending": "Datum, alt nach neu"
+    },
+    "tags": {
+      "__outline": {
+        "label": "Kategorie"
+      },
+      "price": {
+        "label": "Preis"
+      },
+      "pricerange": {
+        "less": "Unter {0}",
+        "between": "{0} bis {1}",
+        "greater": "{0} & Über"
+      },
+      "range": {
+        "less": "Unter {0}",
+        "between": "{0} bis {0}",
+        "greater": "{0} & Oben"
+      }
+    }
+  },
+  "products": {
+    "general": {
+      "save_html": "Speichern {0}",
+      "add_to_cart": "In den Einkaufswagen legen",
+      "add_to_quote": "Zum Zitat hinzufügen",
+      "description_tab": "Produktbeschreibung"
+    },
+    "product": {
+      "sold_out": "Ausverkauft",
+      "unavailable": "Nicht verfügbar",
+      "details_tab": "Produktdetails"
+    },
+    "compare_list": {
+      "add_to_compare": "Hinzufügen zum vergleichen"
+    },
+    "list": {
+      "add_to_myList": "Zur Liste hinzufügen"
+    }
   },
   "account": {
     "menu_titles": {
@@ -147,15 +210,16 @@
       },
       "add-user": {
         "title": "Neuer Benutzer",
-        "optional": "Optional",
         "email-label": "Email",
         "email-placeholder": "Email",
         "email-required": "Email ist erforderlich",
         "email-not-valid": "Email ist ungültig",
         "first-name-label": "Vorname",
         "first-name-placeholder": "Vornamen",
+        "first-name-required": "Vorname ist erforderlich",
         "last-name-label": "Nachname",
         "last-name-placeholder": "Nachnamen",
+        "last-name-required": "Nachname ist erforderlich",
         "username-label": "Nutzername",
         "username-placeholder": "Nutzername",
         "username-required": "Ein Benutzername ist erforderlich",
@@ -176,7 +240,7 @@
         "confirm-password-required": "Bestätigen Sie Ihr Passwort",
         "confirm-password-not-same": "Passwörter müssen identisch sein",
         "submit": "Einreichen",
-        "add-user": "Add user"
+        "add-user": "Benutzer hinzufügen"
       }
     },
     "invoices": {

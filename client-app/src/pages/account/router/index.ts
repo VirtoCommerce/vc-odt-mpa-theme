@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import i18n from "@i18n";
+import FeatureNames from "plugins/features/featureNames"
 import AccountInfo from "@account/views/account-info/index.vue";
 import AccountInvoices from '@account/views/account-invoices/index.vue';
 import AccountOrders from "@account/views/account-orders/index.vue";
@@ -11,10 +12,15 @@ import Permissions from "@common/permissions"
 
 Vue.use(VueRouter);
 
+// eslint-disable-next-line
+const isPermitted = (featureName: string, ...permissions: string[]) => {
+  const authorizationResult = Vue.$can(...permissions);
+  const isFeatureActiveResult = Vue.$isActive(featureName);
+  return authorizationResult && isFeatureActiveResult;
+}
 
-const beforeEnterWithPermissions = (to: any, from: any, next: any, ...permissions: string[]) => {
-  const authResult = Vue.$can( ...permissions);
-  if(authResult){
+const accessHandler = (permitted: boolean, next: any) => {
+  if (permitted) {
     next();
   } else {
     window.location.assign(accessDeniedUrl);
@@ -35,8 +41,10 @@ const routes = [
     meta: {
       title: i18n.t('account.menu_titles.orders')
     },
+    // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
+      const permitted = isPermitted(FeatureNames.OrderBrowsing, Permissions.CanViewOrders)
+      accessHandler(permitted, next);
     }
   },
   {
@@ -45,8 +53,10 @@ const routes = [
     meta: {
       title: i18n.t('account.menu_titles.users')
     },
+    // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to,from,next, Permissions.CanViewUsers);
+      const permitted = isPermitted(FeatureNames.ManageUsers, Permissions.CanViewUsers);
+      accessHandler(permitted, next);
     }
   },
   {
@@ -55,8 +65,10 @@ const routes = [
     meta: {
       title: i18n.t('account.menu_titles.invoices')
     },
+    // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
+      const permitted = isPermitted(FeatureNames.InvoiceBrowsing, Permissions.CanViewOrders);
+      accessHandler(permitted, next);
     }
   },
   {
@@ -65,8 +77,10 @@ const routes = [
     meta: {
       title: i18n.t('account.menu_titles.payments')
     },
+    // eslint-disable-next-line
     beforeEnter: (to: any, from: any, next: any) => {
-      beforeEnterWithPermissions(to,from,next, Permissions.CanViewOrders);
+      const permitted = isPermitted(FeatureNames.PaymentBrowsing, Permissions.CanViewOrders);
+      accessHandler(permitted, next);
     }
   }
 ];
@@ -77,6 +91,7 @@ const router = new VueRouter({
   routes
 });
 
+// eslint-disable-next-line
 router.beforeEach((toRoute, fromRoute, next) => {
   window.document.title = toRoute.meta && toRoute.meta.title ?
     toRoute.meta.title : i18n.t('account.menu_titles.home');

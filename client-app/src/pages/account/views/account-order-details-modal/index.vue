@@ -1,6 +1,6 @@
 <template>
   <b-modal id="orderDetailsModal"
-           :visible="orderIsLoaded"
+           :visible="order"
            :no-enforce-focus="true"
            hide-footer
            size="lg"

@@ -1,0 +1,19 @@
+<div class="form-horizontal d-flex justify-content-between">
+  <label for="sortBy" class="d-none d-sm-inline-block col-sm-auto align-self-center m-0 pl-0">{{ 'collections.sorting.title' | t }}</label>
+  <select name="sortBy" id="sortBy" onchange="location = this.value;" class="custom-select align-self-center">
+    <option value="{{ 'priority-descending;name-ascending' | sort_by_url }}">{{ 'collections.sorting.featured' | t }}</option>
+    <option value="{{ 'best-selling' | sort_by_url }}">{{ 'collections.sorting.best_selling' | t }}</option>
+    <option value="{{ 'title-ascending' | sort_by_url }}">{{ 'collections.sorting.az' | t }}</option>
+    <option value="{{ 'title-descending' | sort_by_url }}">{{ 'collections.sorting.za' | t }}</option>
+    <option value="{{ 'price-ascending' | sort_by_url }}">{{ 'collections.sorting.price_ascending' | t }}</option>
+    <option value="{{ 'price-descending' | sort_by_url }}">{{ 'collections.sorting.price_descending' | t }}</option>
+    <option value="{{ 'createddate-descending' | sort_by_url }}">{{ 'collections.sorting.date_descending' | t }}</option>
+    <option value="{{ 'createddate-ascending' | sort_by_url }}">{{ 'collections.sorting.date_ascending' | t }}</option>
+  </select>
+</div>
+
+<script>
+  window.onload = function(){
+    document.getElementById("sortBy").value = '{{ current_product_search_criteria.sort_by | sort_by_url }}';
+  }
+</script>

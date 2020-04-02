@@ -1,0 +1,161 @@
+{% include 'breadcrumb' %}
+
+{% assign on_sale = false %}
+{% if product.compare_at_price.amount > product.price.actual_price.amount %}
+    {% assign on_sale = true %}
+{% endif %}
+
+{% assign unavailable = false %}
+{% assign sold_out = false %}
+
+{% if product.buyable and product.in_stock != true %}
+    {% assign sold_out = true %}
+{% endif %}
+
+{% if product.buyable != true  %}
+    {% assign unavailable = true %}
+{% endif %}
+
+<div class="row mt-3" itemscope itemtype="http://schema.org/Product">
+    <meta itemprop="url" content="{{ product.url | absolute_url}}">
+    <meta itemprop="image" content="{{ product.featured_image.src | img_url }}">
+
+    <div class="col-lg-5 flex-column">
+      <div class="mw-100 mb-5 d-flex justify-content-center">
+        {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+        {% if featured_image %}
+          <img id="productPrimaryImg" class="mw-100" src="{{ featured_image | img_url: "348x348" }}" alt="{{ featured_image.alt | escape }}">
+        {% else %}
+          <div class="d-flex justify-content-center h3">
+            <i class="fas fa-camera fa-10x mw-100"></i>
+          </div>
+        {% endif %}
+      </div>
+      {% if product.images.size > 1 %}
+        <div class="row justify-content-center">
+          {% for image in product.images %}
+            {% capture zoomedImgUrl %}{{ image.url | img_url: "348x348" }}{% endcapture %}
+            {% capture zoomedImgAlt %}{{ image.alt | escape }}{% endcapture %}
+            <figure class="col-4 col-md-3 d-flex justify-content-center">
+              <img src="{{ image.url | img_url: "64x64" }}" onclick="showImage('{{ zoomedImgUrl }}','{{zoomedImgAlt}}')" alt="{{ image.alt | escape }}">
+            </figure>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="col-lg-7">
+        <h3 itemprop="name">{{ product.title }}</h3>
+
+        <div class="mt-4" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+
+            {% assign variant = product.selected_or_first_available_variant %}
+
+            <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+            <meta itemprop="price" content="{{ variant.price | money }}">
+
+            {% include 'product-price' %}
+
+            <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+              <div class="mt-4">
+
+              {% if product.available %}
+                <div class="btn-group">
+                  <button class="btn btn-secondary mb-1" id="addToCart" type="button">
+                    <span class="fas fa-shopping-cart"></span>
+                    <span id="addToCartText">{{ 'products.general.add_to_cart' | t }}</span>
+                  </button>
+                </div>
+              {% endif %}
+
+              {% if unavailable %}
+                <div class="btn-group">
+                  <button class="btn btn-secondary mb-1" id="addToCart" type="button" disabled>
+                    <span class="fas fa-shopping-cart"></span>
+                    <span id="addToCartText">{{ 'products.product.unavailable' | t }}</span>
+                  </button>
+                </div>
+              {% endif %}
+
+              {% if sold_out %}
+                <div class="btn-group">
+                  <button class="btn btn-secondary mb-1" id="addToCart" type="button" disabled>
+                    <span class="fas fa-shopping-cart"></span>
+                    <span id="addToCartText">{{ 'products.product.sold_out' | t }}</span>
+                  </button>
+                </div>
+              {% endif %}
+
+                <div class="btn-group">
+                  <button class="btn btn-secondary mb-1" id="addToQuote" type="button">
+                    <i class="fas fa-calculator"></i>
+                    <span id="addToQuoteText">{{ 'products.general.add_to_quote' | t }}</span>
+                  </button>
+                </div>
+
+                <div class="btn-group">
+                  <button class="btn btn-secondary mb-1" id="addToCompareList" type="button">
+                    <i class="fas fa-chart-bar"></i>
+                    <span id="addToCompareListText">{{ 'products.compare_list.add_to_compare' | t }}</span>
+                  </button>
+                </div>
+
+                <div class="btn-group">
+                  <button class="btn btn-secondary mb-1" id="addToWishlist" type="button">
+                    <i class="fas fa-file-alt"></i>
+                    <span>{{ 'products.list.add_to_myList' | t }}</span>
+                  </button>
+                </div>
+
+              </div>
+
+        </div>
+
+        <hr>
+
+      {% unless product.description == nil and product.properties.size < 1 %}
+        <ul class="nav nav-pills border-bottom border-primary mb-3" id="pills-tab" role="tablist">
+          {% if product.description == nil %}
+            <li class="nav-item">
+              <a class="nav-link active rounded-0 border border-primary border-bottom-0" data-toggle="pill" role="tab" id="pills-details-tab" href="#pills-details" aria-controls="pills-details" aria-selected="false">{{ 'products.product.details_tab' | t }}</a>
+            </li>
+          {% else %}
+            <li class="nav-item mr-2">
+                <a class="nav-link active rounded-0 border border-primary border-bottom-0" data-toggle="pill" role="tab" id="pills-description-tab" href="#pills-description" aria-controls="pills-description" aria-selected="true">{{ 'products.product.description_tab' | t }}</a>
+            </li>
+            {% if product.properties.size > 1 %}
+              <li class="nav-item">
+                <a class="nav-link rounded-0 border border-primary border-bottom-0" data-toggle="pill" role="tab" id="pills-details-tab" href="#pills-details" aria-controls="pills-details" aria-selected="false">{{ 'products.product.details_tab' | t }}</a>
+              </li>
+            {% endif %}
+          {% endif %}
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+          {% if product.description == nil %}
+            <div class="mb-3 bg-light row justify-content-around tab-pane fade show active" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
+              {% include 'product-properties' %}
+            </div>
+          {% else %}
+            <div class="tab-pane fade show active" itemprop="description" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+              {{ product.description }}
+            </div>
+            {% if product.properties.size > 1 %}
+            <div class="mb-3 bg-light row justify-content-around tab-pane fade" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
+              {% include 'product-properties' %}
+            </div>
+            {% endif %}
+          {% endif %}
+        </div>
+      {% endunless %}
+
+    </div>
+</div>
+<script>
+  function showImage(url,alt) {
+    var primaryImg = document.getElementById('productPrimaryImg');
+    primaryImg.src = url;
+    primaryImg.alt = alt;
+  }
+</script>
