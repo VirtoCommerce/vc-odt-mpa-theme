@@ -37,23 +37,12 @@
         <label for="dropdown-filters">{{ $t("account.invoices.status-filter.title") }}</label>
         <b-dropdown
           id="dropdown-filters"
-          class="mb-2"
-          variant="outline-primary"
-          toggle-class="text-left"
-          menu-class="p-2"
-          no-caret
-          @hide="toggleStatusDropdown()"
-          @show="toggleStatusDropdown()">
+          class="mb-2 form-control rounded p-0"
+          variant="outline"
+          toggle-class="d-flex justify-content-between align-items-center"
+          menu-class="p-2">
           <template v-slot:button-content>
-            <div class="d-flex justify-content-between align-items-center">
-              {{ getCurrentStatusLabel() }}
-              <font-awesome-layers v-if="showStatusDropdown">
-                <font-awesome-icon :icon="faAngleUp" size="lg"></font-awesome-icon>
-              </font-awesome-layers>
-              <font-awesome-layers v-if="!showStatusDropdown">
-                <font-awesome-icon :icon="faAngleDown" size="lg"></font-awesome-icon>
-              </font-awesome-layers>
-            </div>
+            {{ getCurrentStatusLabel() }}
           </template>
           <b-form-checkbox v-model="allStatusesSelected" @change="toggleAllStatuses">
             {{ $t("account.invoices.status-filter.select-all") }}
