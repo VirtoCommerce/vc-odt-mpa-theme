@@ -115,18 +115,18 @@
         <hr>
 
       {% unless product.description == nil and product.properties.size < 1 %}
-        <ul class="nav nav-pills border-bottom border-primary mb-3" id="pills-tab" role="tablist">
+        <ul class="nav nav-tabs mb-3 border-primary" id="pills-tab" role="tablist">
           {% if product.description == nil %}
             <li class="nav-item">
-              <a class="nav-link active rounded-0 border border-primary border-bottom-0" data-toggle="pill" role="tab" id="pills-details-tab" href="#pills-details" aria-controls="pills-details" aria-selected="false">{{ 'products.product.details_tab' | t }}</a>
+              <a class="nav-link active" data-toggle="tab" role="tab" id="details-tab" href="#details" aria-controls="details" aria-selected="false">{{ 'products.product.details_tab' | t }}</a>
             </li>
           {% else %}
-            <li class="nav-item mr-2">
-                <a class="nav-link active rounded-0 border border-primary border-bottom-0" data-toggle="pill" role="tab" id="pills-description-tab" href="#pills-description" aria-controls="pills-description" aria-selected="true">{{ 'products.product.description_tab' | t }}</a>
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" role="tab" id="description-tab" href="#description" aria-controls="description" aria-selected="true">{{ 'products.product.description_tab' | t }}</a>
             </li>
             {% if product.properties.size > 1 %}
               <li class="nav-item">
-                <a class="nav-link rounded-0 border border-primary border-bottom-0" data-toggle="pill" role="tab" id="pills-details-tab" href="#pills-details" aria-controls="pills-details" aria-selected="false">{{ 'products.product.details_tab' | t }}</a>
+                <a class="nav-link" data-toggle="tab" role="tab" id="details-tab" href="#details" aria-controls="details" aria-selected="false">{{ 'products.product.details_tab' | t }}</a>
               </li>
             {% endif %}
           {% endif %}
@@ -134,15 +134,15 @@
 
         <div class="tab-content" id="pills-tabContent">
           {% if product.description == nil %}
-            <div class="mb-3 bg-light row justify-content-around tab-pane fade show active" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
+            <div class="mb-3 bg-light row justify-content-around tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
               {% include 'product-properties' %}
             </div>
           {% else %}
-            <div class="tab-pane fade show active" itemprop="description" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+            <div class="tab-pane fade show active" itemprop="description" id="description" role="tabpanel" aria-labelledby="description-tab">
               {{ product.description }}
             </div>
             {% if product.properties.size > 1 %}
-            <div class="mb-3 bg-light row justify-content-around tab-pane fade" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
+            <div class="mb-3 bg-light row justify-content-around tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
               {% include 'product-properties' %}
             </div>
             {% endif %}
