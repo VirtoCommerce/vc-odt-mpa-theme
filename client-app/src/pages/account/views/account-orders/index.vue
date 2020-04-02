@@ -14,6 +14,7 @@
         id="orders-table"
         stacked="md"
         striped
+        borderless
         hover
         :show-empty="true"
         :empty-text="$t('account.orders.no-orders')"

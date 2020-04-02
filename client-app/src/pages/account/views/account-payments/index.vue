@@ -9,6 +9,7 @@
         id="payments-table"
         stacked="md"
         striped
+        borderless
         hover
         tbody-tr-class="text-break"
         :show-empty="true"
