@@ -36,7 +36,7 @@
           {% for image in product.images %}
             {% capture zoomedImgUrl %}{{ image.url | img_url: "348x348" }}{% endcapture %}
             {% capture zoomedImgAlt %}{{ image.alt | escape }}{% endcapture %}
-            <figure class="col-4 col-md-3 d-flex justify-content-center">
+            <figure class="col-4 col-md-3 d-flex justify-content-center btn">
               <img src="{{ image.url | img_url: "64x64" }}" onclick="showImage('{{ zoomedImgUrl }}','{{zoomedImgAlt}}')" alt="{{ image.alt | escape }}">
             </figure>
           {% endfor %}
