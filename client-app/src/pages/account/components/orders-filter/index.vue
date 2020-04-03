@@ -1,11 +1,11 @@
 <template>
-  <div v-if="ordersFilter && availableOrderStatuses">
+  <div v-if="searchCriteria && availableOrderStatuses">
     <div class="d-flex flex-wrap flex-sm-row flex-column align-items-center">
       <div class="col col-sm-6 col-md-5 col-lg-4">
         <label for="begin-date">{{ $t("account.orders.from") }}</label>
         <b-form-datepicker
           id="begin-date"
-          :value="ordersFilter.startDate"
+          :value="searchCriteria.startDate"
           value-as-date
           reset-button
           :label-reset-button="$t('account.orders.reset')"
@@ -21,7 +21,7 @@
         <label for="end-date">{{ $t("account.orders.to") }}</label>
         <b-form-datepicker
           id="end-date"
-          :value="ordersFilter.endDate"
+          :value="searchCriteria.endDate"
           value-as-date
           reset-button
           :label-reset-button="$t('account.orders.reset')"
@@ -40,7 +40,7 @@
           type="text"
           :debounce="1000"
           :placeholder="$t('account.orders.keyword')"
-          :value="ordersFilter.keyword"
+          :value="searchCriteria.keyword"
           @update="changeKeyword($event)"></b-form-input>
       </div>
       <div class="d-flex flex-column justify-content-center col-sm-5 col-md-3 col-lg-2">
@@ -59,7 +59,7 @@
           </b-form-checkbox>
           <b-dropdown-divider></b-dropdown-divider>
           <b-form-checkbox-group
-            :checked="ordersFilter.statuses"
+            :checked="searchCriteria.statuses"
             :options="availableOrderStatuses"
             stacked
             @change="selectedStatusesChanged($event)"></b-form-checkbox-group>

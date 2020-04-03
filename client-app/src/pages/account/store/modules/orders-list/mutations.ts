@@ -1,39 +1,34 @@
 import { MutationTree } from "vuex";
-import { CustomerOrderSearchResult, CustomerOrder } from '@common/api/api-clients';
-import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG, FETCH_ORDER, CLEAR_SELECTED_ORDER } from "./definitions";
-import { OrdersListState, OrdersListConfig } from "./types";
-
-export const SET_ORDERS = "setOrders";
-export const SET_ORDER = "setOrder"
-
+import { fetchMutation, setMutation } from '@account/store/mutations';
+import { CustomerOrderSearchResult, CustomerOrder, OrderSearchCriteria } from '@common/api/api-clients';
+import { FETCH_ORDERS, SET_ORDERS_SEARCH_CRITERIA, FETCH_SELECTED_ORDER, CLEAR_SELECTED_ORDER, SET_ORDERS, SET_SELECTED_ORDER } from "./definitions";
+import { OrdersListState } from "./types";
 
 //mutations
 export const mutations: MutationTree<OrdersListState> = {
+  [SET_ORDERS_SEARCH_CRITERIA](state, payload: OrderSearchCriteria) {
+    state.searchCriteria = payload;
+  },
   [FETCH_ORDERS](state) {
     state.isLoading = true;
     state.loaded = false;
-  },
-  [FETCH_ORDER](state) {
-    state.isLoading = true;
-    state.loaded = false;
+    //fetchMutation(state);
   },
   [SET_ORDERS](state, payload: CustomerOrderSearchResult) {
-    state.ordersList.orders = payload.results  || [];
-    state.ordersList.totalCount = payload.totalCount || 0;
+    state.orders.results = payload.results  || [];
+    state.orders.totalCount = payload.totalCount || 0;
     state.loaded = true;
     state.isLoading = false;
+    //setMutation(state);
   },
-  [SET_ORDERS_LIST_CONFIG](state, payload: OrdersListConfig) {
-    state.ordersList.listConfig = payload;
+  [FETCH_SELECTED_ORDER](state) {
+    fetchMutation(state);
   },
-  [SET_ORDER](state, payload: CustomerOrder) {
+  [SET_SELECTED_ORDER](state, payload: CustomerOrder) {
     state.selectedOrder = payload;
-    state.loaded = true;
-    state.isLoading = false;
-    state.selectedOrderIsLoaded = true;
+    setMutation(state);
   },
   [CLEAR_SELECTED_ORDER](state) {
-    state.selectedOrderIsLoaded = false;
     state.selectedOrder = null;
   }
 };

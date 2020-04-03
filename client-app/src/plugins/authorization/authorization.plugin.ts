@@ -1,6 +1,7 @@
 import _Vue from "vue";
 import { Store } from "vuex";
 import { VNode } from "vue/types/umd";
+import { IUser } from "@common/api/api-clients";
 import StorefrontPermissions from "@common/permissions";
 import { commentNode } from "./comment-node";
 import profileModule from "./store-profile"
@@ -25,8 +26,8 @@ export function AuthorizationPlugin<S>(Vue: typeof _Vue, options?: Authorization
   Vue.prototype.$permissions = StorefrontPermissions;
 
   function checkUserPermissions(...permissions: string[]): boolean {
-    const user = store.getters[`${namespace}/profile`];
-    let result = false;
+    const user = store.getters[`${namespace}/profile`] as IUser;
+    let result = !!user.isAdministrator;
     if (!!user.permissions && user.permissions.length) {
       // eslint-disable-next-line
       result = permissions.every(p => user.permissions!.indexOf(p) > -1);

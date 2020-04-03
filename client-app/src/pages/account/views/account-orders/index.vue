@@ -1,13 +1,14 @@
 <template>
   <div class="mt-3">
+    <span>{{ isLoading }}</span>
     <loading :active.sync="isLoading" :z-index="5000"></loading>
     <account-order-details-modal :order="selectedOrder"
                                  :show-details="true"
                                  :show-order-details="false">
     </account-order-details-modal>
-    <order-filter :orders-filter="ordersList.listConfig.filters"
+    <order-filter :search-criteria="searchCriteria"
                   :available-order-statuses="availableOrderStatuses"
-                  @filtersChanged="filtersChanged"></order-filter>
+                  @searchCriteriaChanged="searchCriteriaChanged"></order-filter>
     <div v-if="!isLoading">
       <p>{{ $t("account.orders.grid.text-above") }}</p>
       <b-table
@@ -18,8 +19,8 @@
         hover
         :show-empty="true"
         :empty-text="$t('account.orders.no-orders')"
-        :items="ordersList.orders"
-        :fields="ordersList.listConfig.columns"
+        :items="orders.results"
+        :fields="columns"
         no-local-sorting
         @sort-changed="sortChanged">
         <template v-slot:cell(number)="data">
@@ -34,14 +35,14 @@
 
       <div class="d-flex justify-content-between">
         <b-pagination
-          :value="ordersList.listConfig.pageNumber"
+          :value="searchCriteria.pageNumber"
           aria-controls="orders-table"
-          :total-rows="ordersList.totalCount"
-          :per-page="ordersList.listConfig.pageSize"
+          :total-rows="orders.totalCount"
+          :per-page="searchCriteria.pageSize"
           @change="pageChanged($event)"></b-pagination>
         <div>
           <select
-            :value="ordersList.listConfig.pageSize"
+            :value="searchCriteria.pageSize"
             class="form-control"
             @change="pageSizeChanged($event.target.value)">
             <option v-for="pageSize in pageSizes"

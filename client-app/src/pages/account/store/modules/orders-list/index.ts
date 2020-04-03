@@ -1,41 +1,32 @@
 import { Module } from "vuex";
-import { RootState } from '@account/store/types';
-import { defaultPageSize, ordersGridFields, startPageNumber } from '@common/constants';
+import { ordersGridFields, startPageNumber, defaultPageSize } from '@common/constants';
 import { localizeGridColumns } from '@common/services/localization.helper.service';
+import { RootState } from "../../types";
 import { actions } from "./actions";
 import { getters } from "./getters";
 import { mutations } from "./mutations";
 import { OrdersListState } from "./types";
 
-
 // initial state
 export const initialState: OrdersListState = {
-  errors: {},
-  ordersList: {
-    listConfig: {
-      columns: ordersGridFields,
-      pageNumber: startPageNumber,
-      pageSize: defaultPageSize,
-      filters: {
-        statuses: [],
-        endDate: undefined,
-        startDate: undefined,
-        keyword: undefined
-      }
-    },
-    totalCount: 0,
-    orders: []
-  },
-  selectedOrder: null,
-  selectedOrderIsLoaded: false,
   isLoading: false,
-  loaded: false
+  loaded: false,
+  errors: null,
+  columns: ordersGridFields,
+  searchCriteria: {
+    pageNumber: startPageNumber,
+    pageSize: defaultPageSize,
+    statuses: []
+  },
+  orders: {
+    totalCount: 0,
+    results: []
+  },
+  selectedOrder: null
 };
 
-const localizationOrdersGridColumnsNode = "account.orders.grid.columns"
-
 // We need this because bootstrap-vue will directly use labels on stacked table
-initialState.ordersList.listConfig.columns = localizeGridColumns(localizationOrdersGridColumnsNode, initialState.ordersList.listConfig.columns);
+initialState.columns = localizeGridColumns("account.orders.grid.columns", initialState.columns);
 
 const ordersListModule: Module<OrdersListState, RootState> = {
   namespaced: true,
