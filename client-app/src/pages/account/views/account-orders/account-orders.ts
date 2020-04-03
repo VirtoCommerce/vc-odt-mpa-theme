@@ -18,6 +18,9 @@ const ordersListModule = namespace("ordersListModule");
   components: {
     AccountOrderDetailsModal,
     OrderFilter
+  },
+  beforeRouteUpdate: function (to: Route) {
+    (this as AccountOrders).routeChanged(to);
   }
 })
 export default class AccountOrders extends Vue {
@@ -53,10 +56,6 @@ export default class AccountOrders extends Vue {
 
   mounted() {
     this.routeChanged(this.$route);
-  }
-
-  beforeRouteUpdate(to: Route, from: Route, next: (to?: RawLocation | false | ((vm: AccountOrders) => any) | void) => void) {
-    this.routeChanged(to);
   }
 
   routeChanged(route: Route) {
