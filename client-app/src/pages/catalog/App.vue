@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h1>{{ searchCriteria }}</h1>
-    <h2>{{ searchQuery }}</h2>
+    <h1>h1</h1>
   </div>
 </template>
+
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";

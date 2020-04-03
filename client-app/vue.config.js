@@ -29,6 +29,19 @@ module.exports = {
   // https://cli.vuejs.org/guide/webpack.html#chaining-advanced
   // https://github.com/neutrinojs/webpack-chain
   chainWebpack(config) {
+
+    config.module
+      .rule("vue")
+      .use("vue-loader")
+      .loader("vue-loader")
+      .tap(options => {
+        // modify the options...
+        options.compilerOptions.preserveWhitespace = true;
+        options.compilerOptions.whitespace = "preserve";
+        return options;
+      });
+
+
     // Configure correct typescript aliases processing
     config.resolve.alias.delete("@");
     config.resolve

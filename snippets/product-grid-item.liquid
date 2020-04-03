@@ -31,12 +31,11 @@
     {% endif %}
     <div class="card-body pb-1">
       {% if product.available %}
-        {% comment %}
-          <button class="btn btn-secondary w-100 d-flex justify-content-center p-2" title="{{ 'products.general.add_to_cart' | t }}">
-                          <i class="fas fa-shopping-cart"></i>
-                      </button>
-        {% endcomment %}
-        <add-to-cart-button product-id={{product.id}}></add-to-cart-button>
+      <div class="app-add-item-to-cart" product-id="{{product.id}}">
+        <button class="btn btn-secondary w-100 d-flex justify-content-center p-2" title="{{ 'products.general.add_to_cart' | t }}" >
+          <i class="fas fa-shopping-cart"></i>
+        </button>
+      </div>
       {% endif %}
       {% if unavailable %}
         <button class="btn btn-secondary w-100 d-flex justify-content-center p-1" title="{{ 'products.general.add_to_cart' | t }}" disabled>
