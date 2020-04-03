@@ -55,6 +55,10 @@ export default class AccountInvoices extends Vue {
     this.setListConfig(listConfig);
   }
 
+  checkActivePageSize(pageSize: number) {
+    return pageSize == this.invoicesList.listConfig.pageSize ? true : false;
+  }
+
   filtersChanged(filters: InvoicesListFilters){
     this.setListConfig({ ...this.invoicesList.listConfig, filters });
   }

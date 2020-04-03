@@ -87,6 +87,10 @@ export default class AccountOrders extends Vue {
     this.$bvModal.show("orderDetailsModal");
   }
 
+  checkActivePageSize(pageSize: number) {
+    return pageSize == this.searchCriteria.pageSize ? true : false;
+  }
+
   searchCriteriaChanged(searchCriteria: IOrderSearchCriteria) {
     const query = this.queryBuilder.buildQuery(new OrderSearchCriteria(searchCriteria));
     this.$router.push({
