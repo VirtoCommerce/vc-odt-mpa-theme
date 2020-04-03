@@ -9,6 +9,7 @@ import { CartState } from "./types";
 // initial state
 export const initialState: CartState = {
   cart: null,
+  cartItemsCount: 0,
   isLoading: false,
   loaded: false
 };

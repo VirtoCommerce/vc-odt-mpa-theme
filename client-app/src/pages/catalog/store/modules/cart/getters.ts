@@ -12,6 +12,6 @@ export const getters: GetterTree<CartState, RootState> = {
     return state.cart;
   },
   itemsQuantity: (state: CartState): number  => {
-    return state.cart? state.cart.itemsQuantity! : 0 ;
+    return state.cartItemsCount;
   }
 };

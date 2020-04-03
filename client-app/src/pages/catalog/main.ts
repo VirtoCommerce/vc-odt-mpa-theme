@@ -12,11 +12,37 @@ store.registerModule("cart", cartModule);
 InitializationService.initializeCommon();
 
 new Vue({
-  //delimiters: [ "${", "}$" ], //it works only into server rendered. It does not inherit by child components
   i18n,
   store,
   components: {
-    AddToCartButton,
-    CartComponent
+    AddToCartButton
   }
 }).$mount("#app");
+
+// const elements = document.getElementsByClassName("add-item-to-cart") as any;
+
+// for(const el of elements){
+//   new Vue({
+//     data: {
+//       productId: 0
+//     },
+//     store,
+//     mounted: function () {
+//       this.productId = +this.$el.attributes.getNamedItem("product-id")!.value;
+//     },
+//     render ( h ) {
+//       return h(AddToCartButton, {
+//         props: {
+//           productId: +this.productId
+//         }
+//       })
+//     }
+//   }).$mount(el, true);
+// }
+
+
+new Vue({
+  i18n,
+  store,
+  render: h => h(CartComponent)
+}).$mount("#cart-app", true);

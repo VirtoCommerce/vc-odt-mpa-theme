@@ -4,6 +4,7 @@ import { FETCH_CART } from "./definitions";
 import { CartState } from "./types";
 
 export const SET_CART = "setCart";
+export const SET_CART_ITEMS_COUNT = "setCartItemsCount";
 
 
 //mutations
@@ -17,5 +18,8 @@ export const mutations: MutationTree<CartState> = {
     state.cart = payload;
     state.loaded = true;
     state.isLoading = false;
+  },
+  [SET_CART_ITEMS_COUNT](state, payload: number){
+    state.cartItemsCount = payload;
   }
 };

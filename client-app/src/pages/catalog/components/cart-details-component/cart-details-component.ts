@@ -1,25 +1,26 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { namespace } from "vuex-class";
-import { FETCH_CART_ITEMS_COUNT } from '@catalog/store/modules/cart/definitions';
+import { FETCH_CART } from '@catalog/store/modules/cart/definitions';
+import { ShoppingCart } from '@common/api/api-clients';
 
 
 const cartModule = namespace("cart");
 
 
 @Component({
-  name: "CartComponent"
+  name: "CartDetailsComponent"
 })
 export default class CartComponent extends Vue {
 
-  @cartModule.Getter("itemsQuantity")
-  itemsQuantity!: number;
+  @cartModule.Getter("cart")
+  cart!: ShoppingCart;
 
-  @cartModule.Action(FETCH_CART_ITEMS_COUNT)
-  fetchItemsQuantity!: () => void;
+  @cartModule.Action(FETCH_CART)
+  fetchCart!: () => void;
 
   mounted(){
-    this.fetchItemsQuantity();
+    this.fetchCart();
   }
 
   onClick() {
