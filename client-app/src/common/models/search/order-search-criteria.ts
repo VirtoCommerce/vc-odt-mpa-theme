@@ -13,8 +13,8 @@ declare module '@common/api/api-clients' {
 OrderSearchCriteria.prototype.toSearchQuery = function<TSearchQuery extends OrderSearchQuery>(searchQueryType: { new(): TSearchQuery }): TSearchQuery {
   const searchQuery = KeywordSearchCriteria.prototype.toSearchQuery.apply<OrderSearchCriteria, { new(): TSearchQuery }[], TSearchQuery>(this, [searchQueryType]);
   searchQuery.sort = this.sort;
-  searchQuery.startDate = moment(this.startDate).format("YYYY-MM-DD");
-  searchQuery.endDate = moment(this.endDate).format("YYYY-MM-DD");
+  searchQuery.startDate = this.startDate ? moment(this.startDate).format("YYYY-MM-DD") : undefined;
+  searchQuery.endDate = this.endDate ? moment(this.endDate).format("YYYY-MM-DD") : undefined;
   searchQuery.statuses = this.statuses?.length ? this.statuses.join(",") : undefined;
   return searchQuery;
 }
