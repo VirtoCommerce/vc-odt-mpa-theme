@@ -1,3 +1,4 @@
+/* eslint-disable-next-line import/default */
 import moment from 'moment';
 import { OrderSearchCriteria } from '@common/api/api-clients';
 import { KeywordSearchCriteria } from './keyword-search-criteria';
