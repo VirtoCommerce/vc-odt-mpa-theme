@@ -1,4 +1,4 @@
-import Vue, { ComponentOptions } from "vue";
+import Vue from "vue";
 import Component from "vue-class-component";
 import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
@@ -19,8 +19,9 @@ const ordersListModule = namespace("ordersListModule");
     AccountOrderDetailsModal,
     OrderFilter
   },
-  beforeRouteUpdate: function (to: Route) {
+  beforeRouteUpdate: function (to: Route, from: Route, next: (to?: RawLocation | false | ((vm: AccountOrders) => any) | void) => void) {
     (this as AccountOrders).routeChanged(to);
+    next();
   }
 })
 export default class AccountOrders extends Vue {
@@ -61,8 +62,8 @@ export default class AccountOrders extends Vue {
   routeChanged(route: Route) {
     const searchCriteria = this.queryBuilder.parseQuery(route.query);
     this.setSearchCriteria({
-      ...searchCriteria,
-      ...this.searchCriteria
+      ...this.searchCriteria,
+      ...searchCriteria
     });
   }
 
@@ -92,6 +93,5 @@ export default class AccountOrders extends Vue {
       ...this.$route,
       query
     });
-    this.setSearchCriteria(searchCriteria);
   }
 }

@@ -16,7 +16,7 @@ export class OrderSearchQuery extends KeywordSearchQuery {
     searchCriteria.sort = this.sort;
     searchCriteria.startDate = this.startDate ? moment(this.startDate).toDate() : undefined;
     searchCriteria.endDate = this.endDate ? moment(this.endDate).add(1, "days").subtract(1, "seconds").toDate() : undefined;
-    searchCriteria.statuses = this.statuses?.split(",");
+    searchCriteria.statuses = this.statuses?.split(",") || [];
     return searchCriteria;
   }
 }
