@@ -4,7 +4,7 @@ import { namespace } from "vuex-class";
 import { BvTableCtxObject } from "bootstrap-vue";
 import OrderFilter from "@account/components/orders-filter/index.vue";
 import { FETCH_ORDERS, SET_ORDERS_SEARCH_CRITERIA, FETCH_SELECTED_ORDER } from "@account/store/modules/orders-list/definitions";
-import { CustomerOrder, ICustomerOrderSearchResult, IOrderSearchCriteria } from "@common/api/api-clients";
+import { CustomerOrder, ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder } from "@common/api/api-clients";
 import { pageSizes, ordersStatuses } from "@common/constants";
 import AccountOrderDetailsModal from "../account-order-details-modal/index.vue";
 
