@@ -1,20 +1,24 @@
 import { GetterTree } from "vuex";
-import { RootState } from '@account/store/types';
-import { CustomerOrder } from "@common/api/api-clients";
-import { OrdersListState, OrdersList } from "./types";
+import { BvTableFieldArray } from 'bootstrap-vue';
+import { ICustomerOrderSearchResult, ICustomerOrder, IOrderSearchCriteria } from "@common/api/api-clients";
+import { RootState } from "../../types";
+import { OrdersListState } from "./types";
 
 // getters
 export const getters: GetterTree<OrdersListState, RootState> = {
   isLoading: (state: OrdersListState): boolean => {
     return state.isLoading;
   },
-  ordersList: (state: OrdersListState): OrdersList => {
-    return state.ordersList;
+  columns: (state: OrdersListState): BvTableFieldArray => {
+    return state.columns;
   },
-  selectedOrder: (state: OrdersListState): CustomerOrder | null => {
+  searchCriteria: (state: OrdersListState): IOrderSearchCriteria => {
+    return state.searchCriteria;
+  },
+  orders: (state: OrdersListState): ICustomerOrderSearchResult => {
+    return state.orders;
+  },
+  selectedOrder: (state: OrdersListState): ICustomerOrder | null => {
     return state.selectedOrder;
-  },
-  orderIsLoaded: (state: OrdersListState): boolean => {
-    return state.selectedOrderIsLoaded;
   }
 };

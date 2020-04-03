@@ -21,7 +21,7 @@ Object.defineProperty(ProductSearchCriteria.prototype, "terms", {
 });
 
 ProductSearchCriteria.prototype.toSearchQuery = function<TSearchQuery extends ProductSearchQuery>(searchQueryType: { new(): TSearchQuery }): TSearchQuery {
-  const searchQuery = KeywordSearchCriteria.prototype.toSearchQuery<TSearchQuery>(searchQueryType);
+  const searchQuery = KeywordSearchCriteria.prototype.toSearchQuery.apply<ProductSearchCriteria, { new(): TSearchQuery }[], TSearchQuery>(this, [searchQueryType]);
   /* eslint-disable-next-line @typescript-eslint/camelcase */
   searchQuery.sort_by = this.sortBy;
   searchQuery.terms = this.termsData?.serialize();

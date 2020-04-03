@@ -31,15 +31,15 @@
     {% endif %}
     <div class="card-body pb-1">
       {% if product.available %}
-        <button class="app-add-item-to-cart btn btn-secondary w-100 d-flex justify-content-center p-2" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}"><i class="fas fa-shopping-cart"></i></button>
+        <button class="app-add-item-to-cart btn btn-primary w-100 d-flex justify-content-center p-2" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}"><i class="fas fa-shopping-cart"></i></button>
       {% endif %}
       {% if unavailable %}
-        <button class="btn btn-secondary w-100 d-flex justify-content-center p-1" title="{{ 'products.general.add_to_cart' | t }}" disabled>
+            <button class="btn btn-outline-primary w-100 d-flex justify-content-center p-1" title="{{ 'products.general.add_to_cart' | t }}" disabled>
           <span class="font-weight-bold text-uppercase">{{ 'products.product.unavailable' | t }}</span>
         </button>
       {% endif %}
       {% if sold_out %}
-        <button class="btn btn-secondary w-100 d-flex justify-content-center p-1" title="{{ 'products.general.add_to_cart' | t }}" disabled>
+            <button class="btn btn-outline-primary w-100 d-flex justify-content-center p-1" title="{{ 'products.general.add_to_cart' | t }}" disabled>
           <span class="font-weight-bold text-uppercase">{{ 'products.product.sold_out' | t }}</span>
         </button>
       {% endif %}

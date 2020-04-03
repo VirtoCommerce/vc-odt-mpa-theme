@@ -19,7 +19,7 @@ export class KeywordSearchCriteria extends SearchCriteria implements IKeywordSea
 
   toSearchQuery<TSearchQuery extends KeywordSearchQuery>(searchQueryType: { new(): TSearchQuery }): TSearchQuery {
     const searchQuery = super.toSearchQuery<TSearchQuery>(searchQueryType);
-    searchQuery.keyword = this.keyword
+    searchQuery.keyword = this.keyword;
     return searchQuery;
   }
 }

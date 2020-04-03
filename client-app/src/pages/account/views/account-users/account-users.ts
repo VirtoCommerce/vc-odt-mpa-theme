@@ -82,6 +82,10 @@ export default class AccountUsers extends Vue {
     this.setListConfig(listConfig);
   }
 
+  checkActivePageSize(pageSize: number) {
+    return pageSize == this.usersList.listConfig.pageSize ? true : false;
+  }
+
   filtersChanged(filters: UsersListFilters) {
     this.setListConfig({ ...this.usersList.listConfig, filters });
   }
