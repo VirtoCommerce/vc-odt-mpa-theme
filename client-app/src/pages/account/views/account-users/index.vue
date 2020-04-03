@@ -53,16 +53,24 @@
           :per-page="usersList.listConfig.pageSize"
           @change="pageChanged($event)"></b-pagination>
         <div>
-          <select
-            :value="usersList.listConfig.pageSize"
-            class="form-control"
-            @change="pageSizeChanged($event.target.value)">
-            <option v-for="pageSize in pageSizes"
-                    :key="pageSize"
-                    :value="pageSize">
+          <b-dropdown
+            id="page-sizes"
+            class="form-control p-0"
+            right
+            variant="outline"
+            menu-class="pt-0 pb-0"
+            toggle-class="d-flex justify-content-between align-items-center">
+            <template v-slot:button-content>
+              {{ usersList.listConfig.pageSize }}
+            </template>
+            <b-dropdown-item v-for="pageSize in pageSizes"
+                             :key="pageSize"
+                             :active="checkActivePageSize(pageSize)"
+                             link-class="pr-0"
+                             @click="pageSizeChanged(pageSize)">
               {{ pageSize }}
-            </option>
-          </select>
+            </b-dropdown-item>
+          </b-dropdown>
         </div>
       </div>
       <p>{{ $t("account.users.grid.text-below") }}</p>

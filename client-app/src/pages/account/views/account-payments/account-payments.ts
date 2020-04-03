@@ -49,6 +49,10 @@ export default class AccountPayments extends Vue {
     this.setListConfig(listConfig);
   }
 
+  checkActivePageSize(pageSize: number) {
+    return pageSize == this.paymentsList.listConfig.pageSize ? true : false;
+  }
+
   filtersChanged(filters: PaymentsListFilters){
     this.setListConfig({ ...this.paymentsList.listConfig, filters });
   }
