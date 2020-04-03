@@ -13,7 +13,8 @@
 </div>
 
 <script>
-  window.onload = function(){
-    document.getElementById("sortBy").value = '{{ current_product_search_criteria.sort_by | sort_by_url }}';
-  }
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var selectElement = document.getElementById("sortBy");
+    selectElement.value = '{{ current_product_search_criteria.sort_by | sort_by_url }}';
+});
 </script>
