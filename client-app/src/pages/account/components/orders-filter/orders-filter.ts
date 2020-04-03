@@ -30,40 +30,38 @@ export default class OrderFilter extends Vue {
     this.getDatepickerLocalization();
   }
 
-  dateChanged() {
-    if (this.searchCriteria.startDate && this.searchCriteria.endDate) {
-      this.isDateValid = this.searchCriteria.startDate <= this.searchCriteria.endDate;
+  dateChanged(startDate?: Date, endDate?: Date) {
+    if (startDate && endDate) {
+      this.isDateValid = startDate <= endDate;
       if (this.isDateValid) {
-        const searchCriteria = { ...this.searchCriteria, startDate: this.searchCriteria.startDate, endDate: this.prepareEndDate() };
+        const searchCriteria = { ...this.searchCriteria, startDate, endDate };
         this.emitChanges(searchCriteria);
       }
     } else {
-      this.searchCriteria.endDate == null && this.searchCriteria.startDate == null ? (this.isDateValid = null) : (this.isDateValid = true);
+      this.isDateValid = endDate != null || startDate != null || null;
       const searchCriteria = {
         ...this.searchCriteria,
-        startDate: this.searchCriteria.startDate,
-        endDate: this.searchCriteria.endDate ? this.prepareEndDate() : undefined
+        startDate,
+        endDate
       };
       this.emitChanges(searchCriteria);
     }
   }
 
   changeStartDate(date: Date) {
-    this.searchCriteria.startDate = date;
-    this.dateChanged();
+    if (this.searchCriteria.startDate?.getTime() !== date.getTime()){
+      this.dateChanged(date, this.searchCriteria.endDate);
+    }
   }
 
   changeEndDate(date: Date) {
-    this.searchCriteria.endDate = date;
-    this.dateChanged();
+    if (this.searchCriteria.endDate?.getTime() !== this.prepareEndDate(date).getTime()) {
+      this.dateChanged(this.searchCriteria.startDate, this.prepareEndDate(date));
+    }
   }
 
   getDatepickerLocalization() {
-    if (i18n.te("account.orders.datepicker")) {
-      this.datepickerLabels = i18n.t("account.orders.datepicker");
-    } else{
-      this.datepickerLabels = {};
-    }
+    this.datepickerLabels = i18n.te("account.orders.datepicker") ? i18n.t("account.orders.datepicker") : {};
   }
 
   getCurrentStatusLabel(): TranslateResult {
@@ -82,23 +80,18 @@ export default class OrderFilter extends Vue {
   }
 
   selectedStatusesChanged(selectedStatuses: string[]) {
-    selectedStatuses.length != this.availableOrderStatuses.length
-      ? (this.allStatusesSelected = false)
-      : (this.allStatusesSelected = true);
+    this.allStatusesSelected = selectedStatuses.length === this.availableOrderStatuses.length;
     const searchCriteria = { ...this.searchCriteria, statuses: selectedStatuses };
     this.emitChanges(searchCriteria);
   }
 
   toggleAllStatuses(checked: boolean) {
-    let searchCriteria: IOrderSearchCriteria;
-    checked
-      ? (searchCriteria = { ...this.searchCriteria, statuses: this.availableOrderStatuses })
-      : (searchCriteria = { ...this.searchCriteria, statuses: [] });
+    const searchCriteria: IOrderSearchCriteria = { ...this.searchCriteria, statuses: checked ? this.availableOrderStatuses : [] };
     this.emitChanges(searchCriteria);
   }
 
-  private prepareEndDate(): Date {
-    return this.$moment(this.searchCriteria.endDate)
+  private prepareEndDate(endDate?: Date): Date {
+    return this.$moment(endDate)
       .add(1, "days")
       .subtract(1, "seconds")
       .toDate();

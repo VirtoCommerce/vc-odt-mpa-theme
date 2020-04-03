@@ -5,10 +5,6 @@ import { TermsData } from './terms-data';
 
 /* eslint @typescript-eslint/camelcase: ["error", {properties: "never"}] */
 export class ProductSearchQuery extends KeywordSearchQuery {
-  page?: string;
-  page_size?: string;
-  q?: string;
-  keyword?: string;
   sort_by?: string;
   terms?: string;
 

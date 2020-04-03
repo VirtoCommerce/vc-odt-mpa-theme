@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "resolveJsonModule": true,
-    "target": "ES5",
+    "target": "es5",
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
@@ -19,7 +19,8 @@
       "chai",
       "chai-string",
       "webpack",
-      "webpack-env"
+      "webpack-env",
+      "moment"
     ],
     "paths": {
       "@i18n": [ "i18n" ],

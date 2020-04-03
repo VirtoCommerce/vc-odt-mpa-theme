@@ -1,3 +1,4 @@
+import { Dictionary } from '../dictionary';
 import { ISearchCriteria } from './search-criteria';
 
 /* eslint @typescript-eslint/camelcase: ["error", {properties: "never"}] */
@@ -12,13 +13,14 @@ export class SearchQuery {
     return searchCriteria;
   }
 
-  normalize<TSearchQuery extends SearchQuery>(): TSearchQuery {
-    const obj = this as any;
-    for (const key of Object.keys(obj)) {
-      if (obj[key] === undefined) {
-        delete obj[key];
+  normalize(): Dictionary<string | (string | null)[] | null | undefined> {
+    const result: Dictionary<string> = {};
+    const searchQuery = this as any;
+    for (const key of Object.keys(searchQuery)) {
+      if (searchQuery[key] !== undefined) {
+        result[key] = searchQuery[key];
       }
     }
-    return obj as TSearchQuery;
+    return result;
   }
 }

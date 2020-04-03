@@ -1,12 +1,16 @@
-import Vue from "vue";
+import Vue, { ComponentOptions } from "vue";
 import Component from "vue-class-component";
+import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
 import { BvTableCtxObject } from "bootstrap-vue";
 import OrderFilter from "@account/components/orders-filter/index.vue";
 import { FETCH_ORDERS, SET_ORDERS_SEARCH_CRITERIA, FETCH_SELECTED_ORDER } from "@account/store/modules/orders-list/definitions";
-import { CustomerOrder, ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder } from "@common/api/api-clients";
+import { CustomerOrder, ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder, OrderSearchCriteria } from "@common/api/api-clients";
 import { pageSizes, ordersStatuses } from "@common/constants";
+import { OrderSearchQuery } from "@common/models/search/order-search-query";
+import { QueryBuilder } from '@common/services/query-builder.service';
 import AccountOrderDetailsModal from "../account-order-details-modal/index.vue";
+import "@common/models/search/order-search-criteria";
 
 const ordersListModule = namespace("ordersListModule");
 
@@ -45,23 +49,37 @@ export default class AccountOrders extends Vue {
 
   availableOrderStatuses = ordersStatuses;
 
+  queryBuilder = new QueryBuilder(OrderSearchCriteria, OrderSearchQuery);
+
   mounted() {
-    this.fetchOrders();
+    this.routeChanged(this.$route);
+  }
+
+  beforeRouteUpdate(to: Route, from: Route, next: (to?: RawLocation | false | ((vm: AccountOrders) => any) | void) => void) {
+    this.routeChanged(to);
+  }
+
+  routeChanged(route: Route) {
+    const searchCriteria = this.queryBuilder.parseQuery(route.query);
+    this.setSearchCriteria({
+      ...searchCriteria,
+      ...this.searchCriteria
+    });
   }
 
   pageChanged(page: number) {
-    this.setSearchCriteria({ ...this.searchCriteria, pageNumber: page });
+    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: page });
   }
 
   pageSizeChanged(pageSize: number) {
-    this.setSearchCriteria({ ...this.searchCriteria, pageNumber: 1, pageSize: pageSize });
+    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: 1, pageSize: pageSize });
   }
 
   sortChanged(ctx: BvTableCtxObject) {
     const sortDirection = ctx.sortDesc ? "desc" : "asc";
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
     const searchCriteria = { ...this.searchCriteria, pageNumber: 1, sort: sortExpression };
-    this.setSearchCriteria(searchCriteria);
+    this.searchCriteriaChanged(searchCriteria);
   }
 
   openOrderDetails(orderId: string) {
@@ -70,6 +88,11 @@ export default class AccountOrders extends Vue {
   }
 
   searchCriteriaChanged(searchCriteria: IOrderSearchCriteria) {
-    this.setSearchCriteria({ ...this.searchCriteria, ...searchCriteria });
+    const query = this.queryBuilder.buildQuery(new OrderSearchCriteria(searchCriteria));
+    this.$router.push({
+      ...this.$route,
+      query
+    });
+    this.setSearchCriteria(searchCriteria);
   }
 }

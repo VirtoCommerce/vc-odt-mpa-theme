@@ -1,6 +1,5 @@
 <template>
   <div class="mt-3">
-    <span>{{ isLoading }}</span>
     <loading :active.sync="isLoading" :z-index="5000"></loading>
     <account-order-details-modal :order="selectedOrder"
                                  :show-details="true"

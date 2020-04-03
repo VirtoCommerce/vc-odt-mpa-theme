@@ -1,3 +1,4 @@
+import { Dictionary } from '@common/models/dictionary';
 import { SearchCriteria } from '../models/search/search-criteria';
 import { SearchQuery } from '../models/search/search-query';
 
@@ -10,7 +11,7 @@ TSearchQuery extends SearchQuery> {
     private searchQueryType: { new(): TSearchQuery }) {
   }
 
-  buildQuery(searchCriteria: TSearchCriteria): object {
+  buildQuery(searchCriteria: TSearchCriteria): Dictionary<string | (string | null)[] | null | undefined> {
     return searchCriteria.toSearchQuery(this.searchQueryType).normalize();
   }
 
@@ -18,7 +19,7 @@ TSearchQuery extends SearchQuery> {
     return new URLSearchParams(Object.entries(this.buildQuery(searchCriteria)) as string[][])
   }
 
-  parseQuery(queryObject: object): TSearchCriteria {
+  parseQuery(queryObject: Dictionary<string | (string | null)[] | null | undefined>): TSearchCriteria {
     const searchQuery = new this.searchQueryType();
     Object.assign(searchQuery, queryObject);
     return searchQuery.toSearchCriteria(this.searchCriteriaType);
