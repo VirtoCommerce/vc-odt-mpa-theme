@@ -1,10 +1,10 @@
 <template>
   <div class="account mb-3 mt-3">
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs border-primary">
       <li class="nav-item">
         <router-link to="/"
                      tag="a"
-                     active-class="border-bottom-0 border-primary"
+                     active-class="active"
                      class="nav-link"
                      exact>
           {{ $t('account.menu_titles.home') }}
@@ -12,7 +12,7 @@
       </li>
       <li v-if="$can($permissions.CanViewOrders) && $isActive($features.OrderBrowsing)" class="nav-item">
         <router-link to="orders"
-                     active-class="border-bottom-0 border-primary"
+                     active-class="active"
                      tag="a"
                      class="nav-link">
           {{ $t('account.menu_titles.orders') }}
@@ -20,27 +20,27 @@
       </li>
       <li v-if="$can($permissions.CanViewUsers) && $isActive($features.ManageUsers)" class="nav-item">
         <router-link to="users"
-                     active-class="border-bottom-0 border-primary"
+                     active-class="active"
                      tag="a"
                      class="nav-link">
           {{ $t('account.menu_titles.users') }}
         </router-link>
       </li>
-      <li class="nav-item">
-        <router-link v-if="$can($permissions.CanViewOrders) && $isActive($features.InvoiceBrowsing)"
-                     to="invoices"
-                     active-class="border-bottom-0 border-primary"
-                     tag="a"
-                     class="nav-link">
+      <li v-if="$can($permissions.CanViewOrders) && $isActive($features.InvoiceBrowsing)" class="nav-item">
+        <router-link
+          to="invoices"
+          active-class="active"
+          tag="a"
+          class="nav-link">
           {{ $t('account.menu_titles.invoices') }}
         </router-link>
       </li>
-      <li class="nav-item">
-        <router-link v-if="$can($permissions.CanViewOrders) && $isActive($features.PaymentBrowsing)"
-                     to="payments"
-                     active-class="border-bottom-0 border-primary"
-                     tag="a"
-                     class="nav-link">
+      <li v-if="$can($permissions.CanViewOrders) && $isActive($features.PaymentBrowsing)" class="nav-item">
+        <router-link
+          to="payments"
+          active-class="active"
+          tag="a"
+          class="nav-link">
           {{ $t('account.menu_titles.payments') }}
         </router-link>
       </li>

@@ -20,6 +20,7 @@
         id="users-table"
         stacked="md"
         striped
+        borderless
         hover
         :show-empty="true"
         tbody-tr-class="text-break"

@@ -1,12 +1,13 @@
 ﻿<div>
-    <ul class="pagination">
-      {% for pageSize in settings.pageSizes %}
-              {% if paginator.page_size == pageSize %}
-                  <li class="page-item active"><span class="page-link">{{ pageSize }}</span></li>
-              {% else %}
-                  <li class="page-item"><a class="page-link" href="{{ pageSize | page_size_url }}">{{ pageSize }}</a></li>
-              {% endif %}
-      {% endfor %}
-    </ul>
+  <select name="pageSize" id="pageSize" onchange="location = this.value;" class="custom-select">
+    {% for pageSize in settings.pageSizes %}
+      <option value="{{ pageSize | page_size_url }}">{{ pageSize }}</option>
+    {% endfor %}
+  </select>
 </div>
+<script>
+  window.onload = function(){
+    document.getElementById("pageSize").value = '{{ current_product_search_criteria.page_size | page_size_url }}';
+  }
+</script>
 

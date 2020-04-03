@@ -9,6 +9,7 @@
       <b-table
         id="invoices-table"
         stacked="md"
+        borderless
         striped
         hover
         tbody-tr-class="text-break"

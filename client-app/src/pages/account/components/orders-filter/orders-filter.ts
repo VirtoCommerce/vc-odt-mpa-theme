@@ -2,7 +2,6 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { LocaleMessages, TranslateResult } from "vue-i18n";
 import { Prop } from "vue-property-decorator";
-import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import i18n from "@i18n";
 import { OrdersListFilters } from "@account/store/modules/orders-list/types";
 import { locale } from "@common/constants";
@@ -26,12 +25,6 @@ export default class OrderFilter extends Vue {
   datepickerLabels: LocaleMessages | {} = {};
 
   locale = locale;
-
-  faAngleUp = faAngleUp;
-
-  faAngleDown = faAngleDown;
-
-  showStatusDropdown = false;
 
   emitChanges(updatedFilters: OrdersListFilters) {
     this.$emit("filtersChanged", updatedFilters);
@@ -104,10 +97,6 @@ export default class OrderFilter extends Vue {
       ? (updatedFilters = { ...this.ordersFilter, statuses: this.availableOrderStatuses })
       : (updatedFilters = { ...this.ordersFilter, statuses: [] });
     this.emitChanges(updatedFilters);
-  }
-
-  toggleStatusDropdown(){
-    this.showStatusDropdown = !this.showStatusDropdown;
   }
 
   private prepareEndDate(): Date {
