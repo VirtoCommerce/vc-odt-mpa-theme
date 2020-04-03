@@ -1,6 +1,6 @@
 import Vue from "vue"
-import StorefrontPermissions from "@common/permissions";
 import FeatureNames from "plugins/features/featureNames";
+import StorefrontPermissions from "@common/permissions";
 
 declare module 'vue/types/vue' {
 
