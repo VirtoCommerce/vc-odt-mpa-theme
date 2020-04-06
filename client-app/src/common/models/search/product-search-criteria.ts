@@ -9,9 +9,10 @@ declare module '@common/api/api-clients' {
     termsData?: TermsData;
   }
 
-  interface ProductSearchCriteria extends IProductSearchCriteria {
+  interface ProductSearchCriteria extends IProductSearchCriteria, KeywordSearchCriteria {
     termsData?: TermsData;
     toSearchQuery<TSearchQuery extends ProductSearchQuery>(searchQueryType: new() => TSearchQuery): TSearchQuery;
+    normalize(): void;
   }
 }
 
@@ -26,4 +27,8 @@ ProductSearchCriteria.prototype.toSearchQuery = function<TSearchQuery extends Pr
   searchQuery.sort_by = this.sortBy;
   searchQuery.terms = this.termsData?.serialize();
   return searchQuery;
+}
+
+ProductSearchCriteria.prototype.normalize = function() {
+  KeywordSearchCriteria.prototype.normalize.apply(this);
 }

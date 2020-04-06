@@ -13,8 +13,12 @@ export class SearchCriteria implements ISearchCriteria {
   constructor(data?: ISearchCriteria) {
     if (data) {
       for (const property in data) {
-        if (data.hasOwnProperty(property))
-          (this as any)[property] = (data as any)[property];
+        if (data.hasOwnProperty(property)) {
+          const value = (data as any)[property];
+          if (value !== undefined) {
+            (this as any)[property] = value;
+          }
+        }
       }
     }
   }
@@ -25,5 +29,14 @@ export class SearchCriteria implements ISearchCriteria {
     /* eslint-disable-next-line @typescript-eslint/camelcase */
     searchQuery.page_size = this.pageSize?.toString();
     return searchQuery;
+  }
+
+  normalize() {
+    const searchCriteria = this as any;
+    for (const key of Object.keys(searchCriteria)) {
+      if (searchCriteria[key] === undefined) {
+        delete searchCriteria[key];
+      }
+    }
   }
 }
