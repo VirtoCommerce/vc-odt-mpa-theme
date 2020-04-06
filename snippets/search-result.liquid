@@ -12,7 +12,7 @@
     </aside>
     {% endif %}
 
-    <div class="col-12 {% if has_sidebar %}col-lg-10{% endif %}">
+    <div class="col-8 {% if has_sidebar %}col-lg-6{% endif %}">
 
         <header class="d-flex flex-column mb-4">
             <div class="d-flex flex-wrap flex-lg-row flex-column justify-content-between">
@@ -36,9 +36,9 @@
             {% for product in product_search_result.products %}
 
             {% if has_sidebar %}
-            {% assign grid_item_width = 'col-lg-3 col-md-4 col-sm-6' %}
+            {% assign grid_item_width = 'col-lg-4 col-md-4 col-sm-6' %}
             {% else %}
-            {% assign grid_item_width = 'col-lg-2 col-md-4 col-sm-6' %}
+            {% assign grid_item_width = 'col-lg-3 col-md-4 col-sm-6' %}
             {% endif %}
             {% include 'product-grid-item' %}
 
@@ -55,6 +55,10 @@
         </div>
 
     </div>
+
+    <aside class="col-lg-2" id="app-cart-sidebar">
+    </aside>
+
 </div>
 <script>
 function toggleFiltersSidebar() {
