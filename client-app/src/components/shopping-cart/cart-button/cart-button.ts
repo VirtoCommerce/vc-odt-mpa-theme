@@ -8,9 +8,9 @@ const cartModule = namespace("cart");
 
 
 @Component({
-  name: "CartComponent"
+  name: "CartButton"
 })
-export default class CartComponent extends Vue {
+export default class CartButton extends Vue {
 
   @cartModule.Getter("itemsQuantity")
   itemsQuantity!: number;
