@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex justify-content-beetween">
     <h5 class="align-self-center">
-      Your order
+      {{ title }}
     </h5>
     <button v-if="cart.itemsCount != 0"
             class="btn btn-link ml-auto px-0"
