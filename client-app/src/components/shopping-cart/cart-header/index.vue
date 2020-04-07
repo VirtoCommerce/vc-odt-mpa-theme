@@ -1,0 +1,18 @@
+<template>
+  <div class="d-flex justify-content-beetween">
+    <h5 class="align-self-center">
+      Your order
+    </h5>
+    <button v-if="cart.itemsCount != 0"
+            class="btn btn-link ml-auto px-0"
+            @click="onClearCartClicked()">
+      {{ $t('shopping-cart.clear-cart') }}
+    </button>
+  </div>
+</template>
+
+<script lang="ts" src="./cart-header.ts"></script>
+
+<style>
+
+</style>
