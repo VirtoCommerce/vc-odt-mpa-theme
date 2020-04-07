@@ -24,4 +24,5 @@ export const ordersGridFields =  window.THEME_SETTINGS.orders_grid_fields as BvT
 export const usersGridFields =  window.THEME_SETTINGS.users_grid_fields as BvTableFieldArray;
 export const invoicesGridFields = window.THEME_SETTINGS.invoices_grid_fields as BvTableFieldArray;
 export const paymentsGridFields = window.THEME_SETTINGS.payments_grid_fields as BvTableFieldArray;
+export const draftsGridFields = window.THEME_SETTINGS.drafts_grid_fields as BvTableFieldArray;
 
