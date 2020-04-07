@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import i18n from "@i18n";
 import FeatureNames from "plugins/features/featureNames"
+import AccountDrafts from '@account/views/account-drafts/index.vue';
 import AccountInfo from "@account/views/account-info/index.vue";
 import AccountInvoices from '@account/views/account-invoices/index.vue';
 import AccountOrders from "@account/views/account-orders/index.vue";
@@ -81,6 +82,13 @@ const routes = [
     beforeEnter: (to: any, from: any, next: any) => {
       const permitted = isPermitted(FeatureNames.PaymentBrowsing, Permissions.CanViewOrders);
       accessHandler(permitted, next);
+    }
+  },
+  {
+    path: "/drafts",
+    component: AccountDrafts,
+    meta: {
+      title: i18n.t('account.menu_titles.drafts')
     }
   }
 ];

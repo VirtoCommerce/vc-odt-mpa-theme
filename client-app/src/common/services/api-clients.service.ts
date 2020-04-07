@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { ApiAccountClient, ApiCartClient, ApiCatalogClient, ApiOrderClient, ApiPricingClient } from '@common/api/api-clients';
+import { ApiAccountClient, ApiCartClient, ApiCatalogClient, ApiOrderClient, ApiPricingClient, ApiListsClient } from '@common/api/api-clients';
 import { baseUrl } from '@common/constants';
 import axios from "@common/services/axios-instance";
 
@@ -10,3 +10,4 @@ export const catalogClient = new ApiCatalogClient(baseUrl, axios);
 export const cartClient = new ApiCartClient(baseUrl, axios);
 export const orderClient = new ApiOrderClient(baseUrl, axios);
 export const pricingClient = new ApiPricingClient(baseUrl, axios);
+export const listClient = new ApiListsClient(baseUrl, axios);

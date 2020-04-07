@@ -59,6 +59,14 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.amount",
+        "total.amount",
+        "currency.code",
+        "actions"
       ]
     },
     "Gray": {
@@ -119,6 +127,14 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.amount",
+        "total.amount",
+        "currency.code",
+        "actions"
       ]
     },
     "Green": {
@@ -179,6 +195,14 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.amount",
+        "total.amount",
+        "currency.code",
+        "actions"
       ]
     },
     "Red": {
@@ -239,6 +263,14 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.amount",
+        "total.amount",
+        "currency.code",
+        "actions"
       ]
     },
     "Yellow": {
@@ -299,6 +331,14 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.amount",
+        "total.amount",
+        "currency.code",
+        "actions"
       ]
     },
     "Cyan": {
@@ -359,6 +399,14 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.amount",
+        "total.amount",
+        "currency.code",
+        "actions"
       ]
     },
     "Light Gray": {
@@ -419,6 +467,14 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.amount",
+        "total.amount",
+        "currency.code",
+        "actions"
       ]
     },
     "Dark": {
@@ -479,6 +535,14 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.amount",
+        "total.amount",
+        "currency.code",
+        "actions"
       ]
     }
   },
