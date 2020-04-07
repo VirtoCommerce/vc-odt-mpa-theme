@@ -38,7 +38,7 @@ export default class OrderFilter extends Vue {
         this.emitChanges(searchCriteria);
       }
     } else {
-      this.isDateValid = !!endDate || !!startDate || null;
+      this.isDateValid = endDate != null || startDate != null || null;
       const searchCriteria = {
         ...this.searchCriteria,
         startDate,
