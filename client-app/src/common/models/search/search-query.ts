@@ -13,7 +13,7 @@ export class SearchQuery {
     return searchCriteria;
   }
 
-  normalize(): Dictionary<string | (string | null)[] | null | undefined> {
+  toDictionary(): Dictionary<string | (string | null)[] | null | undefined> {
     const result: Dictionary<string> = {};
     const searchQuery = this as any;
     for (const key of Object.keys(searchQuery)) {

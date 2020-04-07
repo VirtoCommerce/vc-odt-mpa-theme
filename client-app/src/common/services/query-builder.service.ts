@@ -12,17 +12,19 @@ TSearchQuery extends SearchQuery> {
   }
 
   buildQuery(searchCriteria: TSearchCriteria): Dictionary<string | (string | null)[] | null | undefined> {
-    return searchCriteria.toSearchQuery(this.searchQueryType).normalize();
+    return searchCriteria.toSearchQuery(this.searchQueryType).toDictionary();
   }
 
   buildURLSearchParams(searchCriteria: TSearchCriteria): URLSearchParams {
-    return new URLSearchParams(Object.entries(this.buildQuery(searchCriteria)) as string[][])
+    return new URLSearchParams(Object.entries(this.buildQuery(searchCriteria)) as string[][]);
   }
 
   parseQuery(queryObject: Dictionary<string | (string | null)[] | null | undefined>): TSearchCriteria {
     const searchQuery = new this.searchQueryType();
     Object.assign(searchQuery, queryObject);
-    return searchQuery.toSearchCriteria(this.searchCriteriaType);
+    const searchCriteria = searchQuery.toSearchCriteria(this.searchCriteriaType);
+    searchCriteria.normalize();
+    return searchCriteria;
   }
 
   parseURLSearchParams(query: URLSearchParams): TSearchCriteria {
