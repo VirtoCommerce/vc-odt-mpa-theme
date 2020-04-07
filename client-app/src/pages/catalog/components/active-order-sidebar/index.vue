@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column">
     <cart-header :cart="cart"
-                 :title="$t('shopping-cart.default-title')"
+                 :title="$t('shopping-cart.title')"
                  clear-cart-clicked="confirmClearCart"></cart-header>
     <cart-summary :cart="cart"></cart-summary>
     <button class="btn btn-primary w-100 d-flex justify-content-center p-1 mt-3">

@@ -99,6 +99,7 @@
     }
   },
   "shopping-cart": {
+    "title": "Deine Bestellung",
     "clear-cart": "Alles entfernen",
     "subtotal": "Zwischensumme",
     "shipping": "Shipping",
