@@ -142,7 +142,8 @@
       "orders": "Orders",
       "users": "Users",
       "invoices": "Invoices",
-      "payments": "Payments"
+      "payments": "Payments",
+      "drafts": "Order Drafts"
     },
     "home": {
       "email": "Email",
@@ -290,6 +291,37 @@
           "gatewayCode": "Method",
           "capturedDate": "Date",
           "currency_code": "Currency"
+        },
+        "text-above": "",
+        "text-below": ""
+      }
+    },
+    "drafts": {
+      "no-drafts": "No data",
+      "add-draft": {
+        "add-draft": "Add draft",
+        "title": "New draft",
+        "draft-name-label": "Draft name",
+        "draft-name-placeholder": "Draft name",
+        "draft-name-required": "Draft name is required",
+        "submit": "Submit"
+      },
+      "keyword": "Keyword",
+      "delete-draft": "Delete",
+      "confirm-delete-modal": {
+        "title": "Delete draft",
+        "ok": "YES",
+        "cancel": "NO",
+        "message": "Are you sure you want to delete \"{0}\" draft?"
+      },
+      "grid": {
+        "columns": {
+          "name": "Name",
+          "itemsCount": "# Items",
+          "subTotal_amount": "Subtotal",
+          "total_amount": "Total",
+          "currency_code": "Currency",
+          "actions":"Actions"
         },
         "text-above": "",
         "text-below": ""

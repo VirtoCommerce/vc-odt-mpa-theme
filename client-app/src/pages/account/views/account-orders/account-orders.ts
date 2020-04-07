@@ -2,7 +2,7 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
-import { BvTableCtxObject } from "bootstrap-vue";
+import { BvTableCtxObject, BvTableFieldArray } from "bootstrap-vue";
 import OrderFilter from "@account/components/orders-filter/index.vue";
 import { FETCH_ORDERS, SET_ORDERS_SEARCH_CRITERIA, FETCH_SELECTED_ORDER } from "@account/store/modules/orders-list/definitions";
 import { CustomerOrder, ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder, OrderSearchCriteria } from "@common/api/api-clients";
@@ -29,7 +29,7 @@ export default class AccountOrders extends Vue {
   private isLoading!: boolean;
 
   @ordersListModule.Getter("columns")
-  private columns!: boolean;
+  private columns!: BvTableFieldArray;
 
   @ordersListModule.Getter("searchCriteria")
   private searchCriteria!: IOrderSearchCriteria;

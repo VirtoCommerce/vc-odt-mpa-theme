@@ -142,7 +142,8 @@
       "orders": "Aufträge",
       "users": "Benutzer",
       "invoices": "Rechnungen",
-      "payments": "Zahlungen"
+      "payments": "Zahlungen",
+      "drafts": "Entwürfe bestellen"
     },
     "home": {
       "email": "Email",
@@ -331,6 +332,37 @@
           "gatewayCode": "Bezahlverfahren",
           "capturedDate": "Datum",
           "currency_code": "Währung"
+        },
+        "text-above": "",
+        "text-below": ""
+      }
+    },
+    "drafts": {
+      "no-drafts": "Keine Daten",
+      "add-draft": {
+        "add-draft": "Entwurf hinzufügen",
+        "title": "Neuer Entwurf",
+        "draft-name-label": "Entwurfsname",
+        "draft-name-placeholder": "Entwurfsname",
+        "draft-name-required": "Entwurfsname ist erforderlich",
+        "submit": "Einreichen"
+      },
+      "keyword": "Stichwort",
+      "delete-draft": "Löschen",
+      "confirm-delete-modal": {
+        "title": "Entwurf löschen",
+        "ok": "JA",
+        "cancel": "NEIN",
+        "message": "Möchten Sie den Entwurf \"{0}\" wirklich löschen?"
+      },
+      "grid": {
+        "columns": {
+          "name": "Name",
+          "itemsCount": "# Positionen",
+          "subTotal_amount": "Zwischensumme",
+          "total_amount": "Gesamt",
+          "currency_code": "Währung",
+          "actions":"Aktionen"
         },
         "text-above": "",
         "text-below": ""

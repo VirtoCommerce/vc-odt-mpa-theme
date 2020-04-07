@@ -1,0 +1,20 @@
+import { MutationTree } from "vuex";
+import { fetchAsync, setAsync } from '@account/store/mutations';
+import { CartSearchCriteria, ShoppingCartSearchResult } from '@common/api/api-clients';
+import { FETCH_DRAFTS, SET_DRAFTS_SEARCH_CRITERIA, SET_DRAFTS } from "./definitions";
+import { DraftsListState } from "./types";
+
+//mutations
+export const mutations: MutationTree<DraftsListState> = {
+  [FETCH_DRAFTS](state) {
+    fetchAsync(state);
+  },
+  [SET_DRAFTS](state, payload: ShoppingCartSearchResult) {
+    state.drafts.results = payload.results  || [];
+    state.drafts.totalCount = payload.totalCount || 0;
+    setAsync(state);
+  },
+  [SET_DRAFTS_SEARCH_CRITERIA](state, payload: CartSearchCriteria) {
+    state.searchCriteria = payload;
+  }
+};
