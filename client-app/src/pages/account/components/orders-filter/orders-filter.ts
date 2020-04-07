@@ -48,13 +48,13 @@ export default class OrderFilter extends Vue {
     }
   }
 
-  changeStartDate(date: Date) {
-    if (this.searchCriteria.startDate?.getTime() !== date.getTime()){
+  changeStartDate(date?: Date) {
+    if (this.searchCriteria.startDate?.getTime() !== date?.getTime()){
       this.dateChanged(date, this.searchCriteria.endDate);
     }
   }
 
-  changeEndDate(date: Date) {
+  changeEndDate(date?: Date) {
     if (this.searchCriteria.endDate?.getTime() !== this.prepareEndDate(date).getTime()) {
       this.dateChanged(this.searchCriteria.startDate, this.prepareEndDate(date));
     }
