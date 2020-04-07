@@ -3,13 +3,13 @@
     <div>You have {{ cart.itemsCount }} items in your order</div>
     <div class="mt-1">
       <div class="d-flex">
-        Subtotal <span class="ml-auto font-weight-bold">{{ cart.subTotal.formattedAmount }}</span>
+        {{ $t('shopping-cart.subtotal') }} <span class="ml-auto font-weight-bold">{{ cart.subTotal.formattedAmount }}</span>
       </div>
       <div class="d-flex">
-        Shipping <span class="ml-auto font-weight-bold">{{ cart.shippingTotal.formattedAmount }}</span>
+        {{ $t('shopping-cart.shipping') }} <span class="ml-auto font-weight-bold">{{ cart.shippingTotal.formattedAmount }}</span>
       </div>
       <div class="d-flex">
-        Total <span class="ml-auto font-weight-bold">{{ cart.subTotal.formattedAmount }}</span>
+        {{ $t('shopping-cart.total') }} <span class="ml-auto font-weight-bold">{{ cart.subTotal.formattedAmount }}</span>
       </div>
     </div>
   </div>

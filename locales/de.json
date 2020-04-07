@@ -98,6 +98,24 @@
       }
     }
   },
+  "shopping-cart": {
+    "clear-cart": "Alles entfernen",
+    "subtotal": "Zwischensumme",
+    "shipping": "Shipping",
+    "total": "Versand",
+    "confirm-delete-modal": {
+      "title": "Item löschen",
+      "ok": "JA",
+      "cancel": "NEIN",
+      "message": "Möchten Sie das \"{0}\" Element wirklich löschen?"
+    },
+    "confirm-clear-modal": {
+      "title": "Clear cart",
+      "ok": "JA",
+      "cancel": "NEIN",
+      "message": "Sind Sie sicher, dass Sie den Einkaufswagen räumen möchten?"
+    }
+  },
   "products": {
     "general": {
       "save_html": "Speichern {0}",

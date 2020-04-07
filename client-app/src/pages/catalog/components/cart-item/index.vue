@@ -18,8 +18,6 @@
       <div class="ml-auto">
         {{ item.quantity }}
       </div>
-      <!-- <app-change-product-quantity-active-order [lineItem]="item">
-        </app-change-product-quantity-active-order> -->
     </div>
   </div>
 </template>

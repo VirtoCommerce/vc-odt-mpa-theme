@@ -1,15 +1,8 @@
 <template>
   <div class="d-flex flex-column">
-    <div class="d-flex justify-content-beetween">
-      <h5 class="align-self-center">
-        Your order
-      </h5>
-      <button v-if="cart.itemsCount != 0"
-              class="btn btn-link ml-auto mx-0"
-              @click="confirmClearCart()">
-        Remove all
-      </button>
-    </div>
+    <cart-header :cart="cart"
+                 :title="$t('shopping-cart.default-title')"
+                 clear-cart-clicked="confirmClearCart"></cart-header>
     <cart-summary :cart="cart"></cart-summary>
     <button class="btn btn-primary w-100 d-flex justify-content-center p-1 mt-3">
       Checkout
