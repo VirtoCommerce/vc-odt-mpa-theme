@@ -4,7 +4,7 @@ import { namespace } from "vuex-class";
 import i18n from '@i18n';
 import CartItemsList from "@catalog/components/cart-items-list/index.vue";
 import CartSummary from "@catalog/components/cart-summary/index.vue";
-import { FETCH_CART, DELETE_ITEM_FROM_CART, CHANGE_ITEM_QUANTITY } from "@catalog/store/modules/cart/definitions";
+import { FETCH_CART, DELETE_ITEM_FROM_CART, CHANGE_ITEM_QUANTITY, CLEAR_CART } from "@catalog/store/modules/cart/definitions";
 import { ShoppingCart, CartLineItem } from "@common/api/api-clients";
 
 const cartModule = namespace("cart");
@@ -28,6 +28,9 @@ export default class ActiveOrderSidebar extends Vue {
   @cartModule.Action(DELETE_ITEM_FROM_CART)
   deleteLineItem!: (id: string) => void;
 
+  @cartModule.Action(CLEAR_CART)
+  clearCart!: () => void;
+
   mounted(){
     this.fetchCart();
   }
@@ -50,11 +53,26 @@ export default class ActiveOrderSidebar extends Vue {
       });
   }
 
-  clearCart(){
-    // todo:
+  confirmClearCart(){
+    this.$bvModal.msgBoxConfirm(i18n.t('catalog.active-order.clear-cart-modal.message') as string, {
+      size: 'md',
+      buttonSize: 'md',
+      title: i18n.t('catalog.active-order.clear-cart-modal.title') as string,
+      okTitle: i18n.t('catalog.active-order.clear-cart-modal.ok') as string,
+      cancelTitle: i18n.t('catalog.active-order.clear-cart-modal.cancel') as string,
+      footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
+      hideHeaderClose: false,
+      centered: true
+    })
+      .then(value => {
+        if(value) {
+          this.clearCart();
+        }
+      });
   }
 
   changeQuantity(item: CartLineItem) {
     // todo:
   }
+
 }

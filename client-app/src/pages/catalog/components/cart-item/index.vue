@@ -1,21 +1,23 @@
 <template>
   <div>
-    <div>
+    <div class="d-flex">
       <div>
         <div class="mr-4 mb-2">
           {{ item.product.name }}
         </div>
         <div>SKU: {{ item.product.sku }}</div>
       </div>
-      <font-awesome-layers class="btn" @click="onItemDeleted">
+      <font-awesome-layers class="btn ml-auto" @click="onItemDeleted">
         <font-awesome-icon :icon="deleteIcon" size="lg"></font-awesome-icon>
       </font-awesome-layers>
     </div>
-    <div>
-      <div class="bold">
+    <div class="d-flex">
+      <div class="font-weight-bold">
         {{ item.extendedPrice.formattedAmount }}
       </div>
-      <div>{{ item.quantity }}</div>
+      <div class="ml-auto">
+        {{ item.quantity }}
+      </div>
       <!-- <app-change-product-quantity-active-order [lineItem]="item">
         </app-change-product-quantity-active-order> -->
     </div>

@@ -1,11 +1,14 @@
 <template>
   <div>
-    <cart-item v-for="item in items"
-               :key="item.id"
-               :item="item"
-               @itemDeleted="onItemDeleted"
-               @quantityChanged="onQuantityChanged">
-    </cart-item>
+    <div v-for="item in items"
+         :key="item.id">
+      <cart-item
+        :item="item"
+        @itemDeleted="onItemDeleted"
+        @quantityChanged="onQuantityChanged">
+      </cart-item>
+      <div class="border-top my-3"></div>
+    </div>
   </div>
 </template>
 

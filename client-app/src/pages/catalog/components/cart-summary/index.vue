@@ -1,15 +1,15 @@
 <template>
   <div class="d-flex flex-column">
     <div>You have {{ cart.itemsCount }} items in your order</div>
-    <div>
-      <div>
-        Subtotal <span class="ml-auto">{{ cart.subTotal.formattedAmount }}</span>
+    <div class="mt-1">
+      <div class="d-flex">
+        Subtotal <span class="ml-auto font-weight-bold">{{ cart.subTotal.formattedAmount }}</span>
       </div>
-      <div>
-        Shipping <span class="ml-auto">{{ cart.shippingTotal.formattedAmount }}</span>
+      <div class="d-flex">
+        Shipping <span class="ml-auto font-weight-bold">{{ cart.shippingTotal.formattedAmount }}</span>
       </div>
-      <div>
-        Total <span class="ml-auto">{{ cart.subTotal.formattedAmount }}</span>
+      <div class="d-flex">
+        Total <span class="ml-auto font-weight-bold">{{ cart.subTotal.formattedAmount }}</span>
       </div>
     </div>
   </div>

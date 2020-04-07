@@ -3,7 +3,7 @@ import { RootState } from 'store/types';
 import { AddCartItem } from '@common/api/api-clients';
 import { storeName, locale } from '@common/constants';
 import { cartClient} from '@common/services/api-clients.service';
-import { FETCH_CART, FETCH_CART_ITEMS_COUNT, ADD_ITEM_TO_CART, DELETE_ITEM_FROM_CART } from './definitions';
+import { FETCH_CART, FETCH_CART_ITEMS_COUNT, ADD_ITEM_TO_CART, DELETE_ITEM_FROM_CART, CLEAR_CART } from './definitions';
 import { SET_CART, SET_CART_ITEMS_COUNT } from "./mutations"
 import { CartState } from "./types";
 
@@ -22,14 +22,21 @@ export const actions: ActionTree<CartState, RootState> = {
 
   async [ADD_ITEM_TO_CART](context , payload: AddCartItem) {
     context.commit(FETCH_CART);
-    await cartClient.addItemToCart( payload, storeName, locale );
+    await cartClient.addItemToCart(payload, storeName, locale);
     await context.dispatch(FETCH_CART_ITEMS_COUNT);
     await context.dispatch(FETCH_CART);
   },
   async [DELETE_ITEM_FROM_CART](context, payload: string) {
     context.commit(FETCH_CART);
-    await cartClient.removeCartItem( payload, storeName, locale );
+    await cartClient.removeCartItem(payload, storeName, locale);
+    await context.dispatch(FETCH_CART_ITEMS_COUNT);
+    await context.dispatch(FETCH_CART);
+  },
+  async [CLEAR_CART](context, payload: string) {
+    context.commit(FETCH_CART);
+    await cartClient.clearCart(storeName, locale);
     await context.dispatch(FETCH_CART_ITEMS_COUNT);
     await context.dispatch(FETCH_CART);
   }
+
 };
