@@ -31,7 +31,7 @@
     {% endif %}
     <div class="card-body pb-1">
       {% if product.available %}
-        <button class="app-add-item-to-cart btn btn-primary w-100 d-flex justify-content-center p-2" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}"><i class="fas fa-shopping-cart"></i></button>
+        <button class="app-add-item-to-cart btn btn-outline-primary w-100 d-flex justify-content-center p-2" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}"><i class="fas fa-shopping-cart"></i></button>
       {% endif %}
       {% if unavailable %}
             <button class="btn btn-outline-primary w-100 d-flex justify-content-center p-1" title="{{ 'products.general.add_to_cart' | t }}" disabled>
