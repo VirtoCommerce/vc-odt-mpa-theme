@@ -4,8 +4,8 @@
          :key="item.id">
       <cart-item
         :item="item"
-        @itemDeleted="onItemDeleted"
-        @quantityChanged="onQuantityChanged">
+        @item-deleted="onItemDeleted"
+        @quantity-changed="onQuantityChanged">
       </cart-item>
       <div class="border-top my-3"></div>
     </div>
