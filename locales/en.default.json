@@ -99,6 +99,7 @@
     }
   },
   "shopping-cart": {
+    "title": "Your order",
     "clear-cart": "Remove all",
     "subtotal": "Subtotal",
     "shipping": "Shipping",
