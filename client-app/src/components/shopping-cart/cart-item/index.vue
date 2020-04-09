@@ -3,9 +3,9 @@
     <div class="d-flex">
       <div>
         <div class="mr-4 mb-2">
-          {{ item.product.name }}
+          {{ item.name }}
         </div>
-        <div>SKU: {{ item.product.sku }}</div>
+        <div>SKU: {{ item.sku }}</div>
       </div>
       <font-awesome-layers class="btn ml-auto" @click="onItemDeleted">
         <font-awesome-icon :icon="deleteIcon" size="lg"></font-awesome-icon>
@@ -16,7 +16,7 @@
         {{ item.extendedPrice.formattedAmount }}
       </div>
       <div class="ml-auto">
-        {{ item.quantity }}
+        <change-item-quantity :quantity="item.quantity" @quantity-changed="quantityChanged"></change-item-quantity>
       </div>
     </div>
   </div>
