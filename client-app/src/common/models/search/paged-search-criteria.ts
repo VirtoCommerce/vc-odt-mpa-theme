@@ -1,16 +1,16 @@
-import { SearchQuery } from './search-query';
+import { PagedSearchQuery } from '@common/models/search/paged-search-query';
 
 /* eslint-disable-next-line @typescript-eslint/interface-name-prefix */
-export interface ISearchCriteria {
+export interface IPagedSearchCriteria {
   pageNumber?: number;
   pageSize?: number;
 }
 
-export class SearchCriteria implements ISearchCriteria {
+export class PagedSearchCriteria implements IPagedSearchCriteria {
   pageNumber?: number;
   pageSize?: number;
 
-  constructor(data?: ISearchCriteria) {
+  constructor(data?: IPagedSearchCriteria) {
     if (data) {
       for (const property in data) {
         if (data.hasOwnProperty(property)) {
@@ -23,7 +23,7 @@ export class SearchCriteria implements ISearchCriteria {
     }
   }
 
-  toSearchQuery<TSearchQuery extends SearchQuery>(searchQueryType: { new(): TSearchQuery }): TSearchQuery {
+  toSearchQuery<TSearchQuery extends PagedSearchQuery>(searchQueryType: { new(): TSearchQuery }): TSearchQuery {
     const searchQuery = new searchQueryType();
     searchQuery.page = this.pageNumber?.toString();
     /* eslint-disable-next-line @typescript-eslint/camelcase */

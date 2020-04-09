@@ -1,17 +1,15 @@
 /* eslint-disable-next-line import/default */
 import moment from 'moment';
-import { IOrderSearchCriteria } from '@common/api/api-clients';
-import { KeywordSearchQuery } from './keyword-search-query';
-import './product-search-criteria';
+import { KeywordSearchQuery } from '@common/models/search/keyword-search-query';
+import { IOrderOperationSearchCriteria } from '@common/models/search/order-operation-search-criteria';
 
-/* eslint @typescript-eslint/camelcase: ["error", {properties: "never"}] */
-export class OrderSearchQuery extends KeywordSearchQuery {
-  sort?: string;
+export class OrderOperationSearchQuery extends KeywordSearchQuery {
   startDate?: string;
   endDate?: string;
   statuses?: string;
+  sort?: string;
 
-  toSearchCriteria<TSearchCriteria extends IOrderSearchCriteria>(searchCriteriaType: { new(): TSearchCriteria }): TSearchCriteria {
+  toSearchCriteria<TSearchCriteria extends IOrderOperationSearchCriteria>(searchCriteriaType: { new(): TSearchCriteria }): TSearchCriteria {
     const searchCriteria = super.toSearchCriteria(searchCriteriaType);
     searchCriteria.sort = this.sort;
     searchCriteria.startDate = this.startDate ? moment(this.startDate).toDate() : undefined;

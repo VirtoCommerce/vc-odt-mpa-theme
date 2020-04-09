@@ -3,17 +3,13 @@ import Component from "vue-class-component";
 import { LocaleMessages } from "vue-i18n";
 import { Prop } from "vue-property-decorator";
 import i18n from "@i18n";
-import { PaymentsListFilters } from "@account/store/modules/payments-list/types";
+import { IPaymentSearchCriteria } from '@common/api/api-clients';
 import { locale } from "@common/constants";
 
 @Component
 export default class PaymentsFilter extends Vue {
   @Prop()
-  paymentsFilter!: PaymentsListFilters;
-
-  startDate: Date | undefined = undefined;
-
-  endDate: Date | undefined = undefined;
+  searchCriteria!: IPaymentSearchCriteria;
 
   isDateValid: boolean | null = null;
 
@@ -21,52 +17,49 @@ export default class PaymentsFilter extends Vue {
 
   locale = locale;
 
-  emitChanges(updatedFilters: PaymentsListFilters) {
-    this.$emit("filtersChanged", updatedFilters);
+  emitChanges(searchCriteria: IPaymentSearchCriteria) {
+    this.$emit("searchCriteriaChanged", searchCriteria);
   }
 
   mounted() {
     this.setDatepickerLocalization();
   }
 
-  dateChanged() {
-    if (this.startDate && this.endDate) {
-      this.isDateValid = this.startDate <= this.endDate;
+  dateChanged(startDate?: Date, endDate?: Date) {
+    if (startDate && endDate) {
+      this.isDateValid = startDate <= endDate;
       if (this.isDateValid) {
-        const updatedFilters = { ...this.paymentsFilter, startDate: this.startDate, endDate: this.prepareEndDate() };
-        this.emitChanges(updatedFilters);
+        const searchCriteria = { ...this.searchCriteria, startDate, endDate };
+        this.emitChanges(searchCriteria);
       }
     } else {
-      this.endDate == null && this.startDate == null ? (this.isDateValid = null) : (this.isDateValid = true);
-      const updatedFilters = {
-        ...this.paymentsFilter,
-        startDate: this.startDate,
-        endDate: this.endDate ? this.prepareEndDate() : undefined
+      this.isDateValid = endDate != null || startDate != null || null;
+      const searchCriteria = {
+        ...this.searchCriteria,
+        startDate,
+        endDate
       };
-      this.emitChanges(updatedFilters);
+      this.emitChanges(searchCriteria);
     }
   }
 
-  changeStartDate(date: Date) {
-    this.startDate = date;
-    this.dateChanged();
+  changeStartDate(date?: Date) {
+    if (this.searchCriteria.startDate?.getTime() !== date?.getTime()){
+      this.dateChanged(date, this.searchCriteria.endDate);
+    }
   }
 
-  changeEndDate(date: Date) {
-    this.endDate = date;
-    this.dateChanged();
+  changeEndDate(date?: Date) {
+    if (this.searchCriteria.endDate?.getTime() !== this.prepareEndDate(date)?.getTime()) {
+      this.dateChanged(this.searchCriteria.startDate, this.prepareEndDate(date));
+    }
   }
 
   setDatepickerLocalization() {
-    typeof i18n.t(`account.payments.datepicker`) === "string"
-      ? (this.datepickerLabels = {})
-      : (this.datepickerLabels = i18n.t(`account.payments.datepicker`));
+    this.datepickerLabels = i18n.te("account.payments.datepicker") ? i18n.t("account.payments.datepicker") : {};
   }
 
-  private prepareEndDate(): Date {
-    return this.$moment(this.endDate)
-      .add(1, "days")
-      .subtract(1, "seconds")
-      .toDate();
+  private prepareEndDate(endDate?: Date): Date | undefined {
+    return endDate != null ? this.$moment(endDate).add(1, "days").subtract(1, "seconds").toDate() : endDate;
   }
 }

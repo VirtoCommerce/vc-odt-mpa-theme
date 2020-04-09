@@ -1,23 +1,20 @@
 import { MutationTree } from "vuex";
-import { PaymentSearchResult } from '@common/api/api-clients';
-import { FETCH_PAYMENTS, SET_PAYMENTS_LIST_CONFIG } from "./definitions";
-import { PaymentsListState, PaymentsListConfig } from "./types";
-
-export const SET_PAYMENTS = "setPayments";
+import { FETCH_PAYMENTS, SET_PAYMENTS_SEARCH_CRITERIA, SET_PAYMENTS } from "@account/store/modules/payments-list/definitions";
+import { PaymentsListState } from "@account/store/modules/payments-list/types";
+import { fetchAsync, setAsync } from '@account/store/mutations';
+import { PaymentSearchResult, PaymentSearchCriteria } from '@common/api/api-clients';
 
 //mutations
 export const mutations: MutationTree<PaymentsListState> = {
+  [SET_PAYMENTS_SEARCH_CRITERIA](state, payload: PaymentSearchCriteria) {
+    state.searchCriteria = payload;
+  },
   [FETCH_PAYMENTS](state) {
-    state.isLoading = true;
-    state.loaded = false;
+    fetchAsync(state);
   },
   [SET_PAYMENTS](state, payload: PaymentSearchResult) {
-    state.paymentsList.payments = payload.results  || [];
-    state.paymentsList.totalCount = payload.totalCount || 0;
-    state.loaded = true;
-    state.isLoading = false;
+    state.payments.results = payload.results  || [];
+    state.payments.totalCount = payload.totalCount || 0;
+    setAsync(state);
   },
-  [SET_PAYMENTS_LIST_CONFIG](state, payload: PaymentsListConfig) {
-    state.paymentsList.listConfig = payload;
-  }
 };

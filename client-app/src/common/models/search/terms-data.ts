@@ -1,5 +1,5 @@
 import { Term } from '@common/api/api-clients';
-import { TermsDictionary } from './terms-dictionary';
+import { TermsDictionary } from '@common/models/search/terms-dictionary';
 
 export class TermsData {
     data: TermsDictionary = {};

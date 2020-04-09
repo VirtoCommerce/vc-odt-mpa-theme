@@ -8,7 +8,7 @@
     <order-filter :search-criteria="searchCriteria"
                   :available-order-statuses="availableOrderStatuses"
                   @searchCriteriaChanged="searchCriteriaChanged"></order-filter>
-    <div v-if="!isLoading">
+    <div v-if="!isLoading" class="mt-3">
       <p>{{ $t("account.orders.grid.text-above") }}</p>
       <b-table
         id="orders-table"
@@ -16,6 +16,7 @@
         striped
         borderless
         hover
+        tbody-tr-class="text-break"
         :show-empty="true"
         :empty-text="$t('account.orders.no-orders')"
         :items="orders.results"

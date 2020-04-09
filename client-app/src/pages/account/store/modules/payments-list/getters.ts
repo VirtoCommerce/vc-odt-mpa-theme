@@ -1,20 +1,21 @@
 import { GetterTree } from "vuex";
+import { BvTableFieldArray } from 'bootstrap-vue';
+import { PaymentsListState } from "@account/store/modules/payments-list/types";
 import { RootState } from '@account/store/types';
-import { PaymentIn } from "@common/api/api-clients";
-import { PaymentsListState, PaymentsList } from "./types";
+import { IPaymentSearchCriteria, IPaymentSearchResult } from '@common/api/api-clients';
 
 // getters
 export const getters: GetterTree<PaymentsListState, RootState> = {
   isLoading: (state: PaymentsListState): boolean => {
     return state.isLoading;
   },
-  paymentsList: (state: PaymentsListState): PaymentsList => {
-    return state.paymentsList;
+  columns: (state: PaymentsListState): BvTableFieldArray => {
+    return state.columns;
   },
-  selectedPayment: (state: PaymentsListState): PaymentIn | null => {
-    return state.selectedPayment;
+  searchCriteria: (state: PaymentsListState): IPaymentSearchCriteria => {
+    return state.searchCriteria;
   },
-  activeKeyword: (state: PaymentsListState): string | undefined => {
-    return state.paymentsList.listConfig.filters.keyword;
+  payments: (state: PaymentsListState): IPaymentSearchResult => {
+    return state.payments;
   }
 };

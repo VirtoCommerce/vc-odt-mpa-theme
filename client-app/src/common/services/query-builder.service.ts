@@ -1,10 +1,10 @@
 import { Dictionary } from '@common/models/dictionary';
-import { SearchCriteria } from '../models/search/search-criteria';
-import { SearchQuery } from '../models/search/search-query';
+import { PagedSearchCriteria } from '@common/models/search/paged-search-criteria';
+import { PagedSearchQuery } from '@common/models/search/paged-search-query';
 
 export class QueryBuilder<
-TSearchCriteria extends SearchCriteria,
-TSearchQuery extends SearchQuery> {
+TSearchCriteria extends PagedSearchCriteria,
+TSearchQuery extends PagedSearchQuery> {
 
   constructor(
     private searchCriteriaType: { new(): TSearchCriteria },
