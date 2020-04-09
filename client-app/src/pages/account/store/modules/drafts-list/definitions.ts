@@ -5,3 +5,5 @@ export const ADD_DRAFT = "addDraft";
 export const DELETE_DRAFT = "deleteDraft";
 export const SET_SELECTED_DRAFT = "setSelectedDraft";
 export const DELETE_ITEM_FROM_DRAFT = "deleteItemFromDraft";
+export const CLEAR_DRAFT = "clearDraft";
+export const CHANGE_DRAFT_ITEM_QUANTITY = "changeDraftItemQuantity";

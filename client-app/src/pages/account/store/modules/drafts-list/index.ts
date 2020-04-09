@@ -16,8 +16,8 @@ export const initialState: DraftsListState = {
   columns: draftsGridFields,
   searchCriteria: {
     pageNumber: startPageNumber,
-    pageSize: defaultPageSize
-    // type: orderDraftType
+    pageSize: defaultPageSize,
+    type: orderDraftType
   },
   drafts: {
     totalCount: 0,

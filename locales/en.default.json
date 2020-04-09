@@ -298,7 +298,6 @@
     },
     "drafts": {
       "no-drafts": "No data",
-      "no-draft-selected": "No order draft selected",
       "empty-draft": "This order draft is empty",
       "add-draft": {
         "add-draft": "Add draft",
@@ -316,6 +315,12 @@
         "cancel": "NO",
         "message": "Are you sure you want to delete \"{0}\" draft?"
       },
+      "confirm-clear-modal": {
+        "title": "Clear draft",
+        "ok": "YES",
+        "cancel": "NO",
+        "message": "Are you sure you want to clear this draft?"
+      },
       "grid": {
         "columns": {
           "name": "Name",
@@ -323,7 +328,7 @@
           "subTotal_amount": "Subtotal",
           "total_amount": "Total",
           "currency_code": "Currency",
-          "actions":"Actions"
+          "actions": "Actions"
         },
         "text-above": "",
         "text-below": ""

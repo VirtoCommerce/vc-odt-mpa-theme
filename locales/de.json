@@ -339,7 +339,6 @@
     },
     "drafts": {
       "no-drafts": "Keine Daten",
-      "no-draft-selected": "Kein Bestellentwurf ausgewählt",
       "empty-draft": "Dieser Auftragsentwurf ist leer",
       "add-draft": {
         "add-draft": "Entwurf hinzufügen",
@@ -357,6 +356,12 @@
         "cancel": "NEIN",
         "message": "Möchten Sie den Entwurf \"{0}\" wirklich löschen?"
       },
+      "confirm-clear-modal": {
+        "title": "Clear löschen",
+        "ok": "JA",
+        "cancel": "NEIN",
+        "message": "Sind Sie sicher, dass Sie diesen Entwurf löschen möchten?"
+      },
       "grid": {
         "columns": {
           "name": "Name",
@@ -364,7 +369,7 @@
           "subTotal_amount": "Zwischensumme",
           "total_amount": "Gesamt",
           "currency_code": "Währung",
-          "actions":"Aktionen"
+          "actions": "Aktionen"
         },
         "text-above": "",
         "text-below": ""

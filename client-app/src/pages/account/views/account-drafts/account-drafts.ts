@@ -8,10 +8,12 @@ import CartItemsList from "components/shopping-cart/cart-items-list/index.vue";
 import AddDraftModal from "@account/components/add-draft-modal/index.vue";
 import DraftsFilter from "@account/components/drafts-filter/index.vue";
 import { AddDraft } from "@account/models/add-draft";
+import { ChangeListItem } from '@account/models/change-list-item';
 import { DeleteDraftLineItem } from '@account/models/delete-draft-line-item';
-import { FETCH_DRAFTS, SET_DRAFTS_SEARCH_CRITERIA, ADD_DRAFT, DELETE_DRAFT, SET_SELECTED_DRAFT, DELETE_ITEM_FROM_DRAFT } from "@account/store/modules/drafts-list/definitions";
-import { ICartSearchCriteria, IShoppingCartSearchResult, CartSearchCriteria, ShoppingCart, IShoppingCart, CartLineItem, AddCartItem } from "@common/api/api-clients";
-import { pageSizes } from "@common/constants";
+import { FETCH_DRAFTS, SET_DRAFTS_SEARCH_CRITERIA, ADD_DRAFT, DELETE_DRAFT, SET_SELECTED_DRAFT, DELETE_ITEM_FROM_DRAFT, CLEAR_DRAFT, CHANGE_DRAFT_ITEM_QUANTITY } from "@account/store/modules/drafts-list/definitions";
+import { ICartSearchCriteria, IShoppingCartSearchResult, CartSearchCriteria, ShoppingCart, IShoppingCart, CartLineItem, AddCartItem, ChangeCartItemQty } from "@common/api/api-clients";
+import { pageSizes, locale, storeName } from "@common/constants";
+import { listClient } from '@common/services/api-clients.service';
 import { QueryBuilder } from "@common/services/query-builder.service";
 
 const draftsListModule = namespace("draftsListModule");
@@ -61,6 +63,12 @@ export default class AccountDrafts extends Vue {
 
   @draftsListModule.Action(DELETE_ITEM_FROM_DRAFT)
   private deleteDraftLineItem!: (draftLineItem: DeleteDraftLineItem) => void;
+
+  @draftsListModule.Action(CLEAR_DRAFT)
+  private clearDraft!: (draft: IShoppingCart) => void;
+
+  @draftsListModule.Action(CHANGE_DRAFT_ITEM_QUANTITY)
+  private changeDraftItemQuantity!: (payload: ChangeListItem) => void;
 
   pageSizes = pageSizes;
 
@@ -134,14 +142,36 @@ export default class AccountDrafts extends Vue {
     })
       .then(value => {
         if(value) {
-          const itemPayload = new DeleteDraftLineItem(item.id!, this.selectedDraft.name!, this.selectedDraft.type!);
-          this.deleteDraftLineItem(itemPayload);
+          const payload = new DeleteDraftLineItem(item.id!, this.selectedDraft.name!, this.selectedDraft.type!);
+          this.deleteDraftLineItem(payload);
         }
       });
   }
 
-  changeQuantity(item: CartLineItem) {
-    // todo:
+  confirmClearDraft(){
+    this.$bvModal.msgBoxConfirm(i18n.t('account.drafts.confirm-clear-modal.message') as string, {
+      size: 'md',
+      buttonSize: 'md',
+      title: i18n.t('account.drafts.confirm-clear-modal.title') as string,
+      okTitle: i18n.t('account.drafts.confirm-clear-modal.ok') as string,
+      cancelTitle: i18n.t('account.drafts.confirm-clear-modal.cancel') as string,
+      footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
+      hideHeaderClose: false,
+      centered: true
+    })
+      .then(value => {
+        if(value) {
+          this.clearDraft(this.selectedDraft);
+        }
+      });
+  }
+
+  changeQuantity(item: CartLineItem, quantity: number) {
+    const changeItemQty = new ChangeCartItemQty();
+    changeItemQty.lineItemId = item.id;
+    changeItemQty.quantity = quantity;
+    const payload = new ChangeListItem(this.selectedDraft.name!, this.selectedDraft.type, changeItemQty);
+    this.changeDraftItemQuantity(payload);
   }
 
   showDraftDetails(draft: ShoppingCart){
@@ -160,4 +190,17 @@ export default class AccountDrafts extends Vue {
   //     query
   //   });
   // }
+
+  addLineItemsToList1(){
+    const item1 = new AddCartItem();
+    item1.init({productId: "4ed55441810a47da88a483e5a1ee4e94", quantity: 1 });
+    listClient.addItemToList(item1, storeName, locale);
+  }
+
+  addLineItemsToList2(){
+    const item2 = new AddCartItem();
+    item2.init({productId: "ac8da6c50cef42ad97d6f1effe2abaee", quantity: 1 });
+    listClient.addItemToList(item2, storeName, locale);
+  }
+
 }

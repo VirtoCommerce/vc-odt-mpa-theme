@@ -1,26 +1,21 @@
 <template>
   <div class="mt-3">
-    <loading :active.sync="isLoading"></loading>
+    <loading :active.sync="isLoading" :z-index="5000"></loading>
     <b-sidebar id="draft-details"
                v-model="showDraftDetailsSidebar"
                body-class="pl-3 pr-3"
                right
                shadow>
-      <div v-if="!selectedDraft" class="d-flex flex-column">
-        <span class="align-self-center">
-          {{ $t("account.drafts.no-draft-selected") }}
-        </span>
-      </div>
       <div v-if="selectedDraft">
         <div v-if="selectedDraft.items.length > 0">
           <cart-header
             :cart="selectedDraft"
             :title="selectedDraft.name"
-            clear-cart-clicked="confirmClearCart"></cart-header>
+            @clear-cart-clicked="confirmClearDraft"></cart-header>
           <cart-items-list
             :items="selectedDraft.items"
-            @itemDeleted="confirmDeleteItem"
-            @quantityChanged="changeQuantity">
+            @item-deleted="confirmDeleteItem"
+            @quantity-changed="changeQuantity">
           </cart-items-list>
           <div class="d-flex justify-content-center">
             <button class="btn btn-outline-primary w-75 mb-3">
@@ -103,6 +98,16 @@
       </div>
       <p>{{ $t("account.drafts.grid.text-below") }}</p>
     </div>
+    <b-button
+      variant="outline-primary"
+      @click="addLineItemsToList1">
+      (test)AddItem1
+    </b-button>
+    <b-button
+      variant="outline-primary"
+      @click="addLineItemsToList2">
+      (test)AddItem2
+    </b-button>
   </div>
 </template>
 
