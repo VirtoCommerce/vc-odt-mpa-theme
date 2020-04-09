@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-beetween">
-    <h5 class="align-self-center">
+    <h5 class="align-self-center m-0">
       {{ title }}
     </h5>
     <button v-if="cart.itemsCount != 0"
