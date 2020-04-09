@@ -298,6 +298,8 @@
     },
     "drafts": {
       "no-drafts": "No data",
+      "no-draft-selected": "No order draft selected",
+      "empty-draft": "This order draft is empty",
       "add-draft": {
         "add-draft": "Add draft",
         "title": "New draft",
@@ -306,7 +308,7 @@
         "draft-name-required": "Draft name is required",
         "submit": "Submit"
       },
-      "keyword": "Keyword",
+      "name-search": "Name",
       "delete-draft": "Delete",
       "confirm-delete-modal": {
         "title": "Delete draft",

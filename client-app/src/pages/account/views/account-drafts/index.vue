@@ -1,6 +1,38 @@
 <template>
   <div class="mt-3">
     <loading :active.sync="isLoading"></loading>
+    <b-sidebar id="draft-details"
+               v-model="showDraftDetailsSidebar"
+               body-class="pl-3 pr-3"
+               right
+               shadow>
+      <div v-if="!selectedDraft" class="d-flex flex-column">
+        <span class="align-self-center">
+          {{ $t("account.drafts.no-draft-selected") }}
+        </span>
+      </div>
+      <div v-if="selectedDraft">
+        <div v-if="selectedDraft.items.length > 0">
+          <cart-header
+            :cart="selectedDraft"
+            :title="selectedDraft.name"
+            clear-cart-clicked="confirmClearCart"></cart-header>
+          <cart-items-list
+            :items="selectedDraft.items"
+            @itemDeleted="confirmDeleteItem"
+            @quantityChanged="changeQuantity">
+          </cart-items-list>
+          <div class="d-flex justify-content-center">
+            <button class="btn btn-outline-primary w-75 mb-3">
+              Checkout
+            </button>
+          </div>
+        </div>
+        <div v-if="selectedDraft.items.length == 0" class="d-flex flex-column">
+          <span class="align-self-center">{{ $t("account.drafts.empty-draft") }}</span>
+        </div>
+      </div>
+    </b-sidebar>
     <add-draft-modal @draftAdded="draftAdded($event)"></add-draft-modal>
     <div class="d-flex flex-wrap flex-sm-row flex-column justify-content-between">
       <drafts-filter
@@ -16,38 +48,34 @@
     </div>
     <div v-if="!isLoading" class="mt-3">
       <p>{{ $t("account.drafts.grid.text-above") }}</p>
-      <div class="d-flex mb-4">
-        <b-table
-          id="drafts-table"
-          class="col-md-8 mr-auto mb-0"
-          stacked="md"
-          striped
-          borderless
-          selectable
-          hover
-          :select-mode="'single'"
-          selected-variant="primary"
-          :show-empty="true"
-          tbody-tr-class="text-break"
-          :empty-text="$t('account.drafts.no-drafts')"
-          :items="drafts.results"
-          :fields="columns"
-          no-local-sorting
-          @row-clicked="showDraftDetails">
-          <template v-slot:cell(actions)="row">
-            <u
-              class="btn d-inline p-0"
-              @click="confirmDeleteDraft(row.item)">{{ $t("account.drafts.delete-draft") }}</u>
-          </template>
-        </b-table>
-        <div class="d-none d-md-block col-md-3 border">
-          Sidebar
-        </div>
-      </div>
+      <b-table
+        id="drafts-table"
+        stacked="md"
+        striped
+        borderless
+        selectable
+        hover
+        :select-mode="'single'"
+        selected-variant="primary"
+        :show-empty="true"
+        tbody-tr-class="text-break"
+        :empty-text="$t('account.drafts.no-drafts')"
+        :items="drafts.results"
+        :fields="columns"
+        aria-controls="draft-details"
+        :aria-expanded="showDraftDetailsSidebar"
+        no-local-sorting
+        @row-clicked="showDraftDetails">
+        <template v-slot:cell(actions)="row">
+          <u
+            class="btn d-inline p-0"
+            @click="confirmDeleteDraft(row.item)">{{ $t("account.drafts.delete-draft") }}</u>
+        </template>
+      </b-table>
       <div class="d-flex justify-content-between">
         <b-pagination
           :value="searchCriteria.pageNumber"
-          aria-controls="users-table"
+          aria-controls="drafts-table"
           :total-rows="drafts.totalCount"
           :per-page="searchCriteria.pageSize"
           @change="pageChanged($event)"></b-pagination>

@@ -1,4 +1,8 @@
 export class AddDraft {
-  listName = "";
-  type = "orderDraft";
+  listName: string;
+  type: string;
+  constructor(listName = "", type = "orderDraft") {
+    this.listName = listName;
+    this.type = type;
+  }
 }

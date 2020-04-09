@@ -339,6 +339,8 @@
     },
     "drafts": {
       "no-drafts": "Keine Daten",
+      "no-draft-selected": "Kein Bestellentwurf ausgewählt",
+      "empty-draft": "Dieser Auftragsentwurf ist leer",
       "add-draft": {
         "add-draft": "Entwurf hinzufügen",
         "title": "Neuer Entwurf",
@@ -347,7 +349,7 @@
         "draft-name-required": "Entwurfsname ist erforderlich",
         "submit": "Einreichen"
       },
-      "keyword": "Stichwort",
+      "name-search": "Name",
       "delete-draft": "Löschen",
       "confirm-delete-modal": {
         "title": "Entwurf löschen",

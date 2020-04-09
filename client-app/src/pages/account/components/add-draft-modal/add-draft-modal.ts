@@ -22,8 +22,7 @@ export default class AddDraftModal extends Vue {
   }
 
   submitForm() {
-    const draft = new AddDraft();
-    draft.listName = this.draft.listName;
+    const draft = new AddDraft(this.draft.listName);
     this.$bvModal.hide("addDraftModal");
     this.$emit("draftAdded", draft);
   }

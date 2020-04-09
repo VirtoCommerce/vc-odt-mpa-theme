@@ -7,7 +7,7 @@ import Vuelidate from 'vuelidate';
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { faHeartBroken, faLock, faMeteor, faThLarge, faList, faShoppingCart, faCamera, faCalculator, faChartBar, faFileAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
-import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin, TooltipPlugin } from 'bootstrap-vue';
+import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin, TooltipPlugin, SidebarPlugin } from 'bootstrap-vue';
 import axios from "@common/services/axios-instance";
 
 export default class InitializationService {
@@ -47,6 +47,7 @@ export default class InitializationService {
     Vue.use(FormSelectPlugin);
     Vue.use(InputGroupPlugin);
     Vue.use(TooltipPlugin);
+    Vue.use(SidebarPlugin);
 
     Vue.component("font-awesome-icon", FontAwesomeIcon);
     Vue.component('font-awesome-layers', FontAwesomeLayers);
