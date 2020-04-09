@@ -6,7 +6,7 @@ import CartHeader from "components/shopping-cart/cart-header/index.vue";
 import CartItemsList from "components/shopping-cart/cart-items-list/index.vue";
 import CartSummary from "components/shopping-cart/cart-summary/index.vue";
 import { FETCH_CART, DELETE_ITEM_FROM_CART, CHANGE_ITEM_QUANTITY, CLEAR_CART } from "@catalog/store/modules/cart/definitions";
-import { ShoppingCart, CartLineItem } from "@common/api/api-clients";
+import { ShoppingCart, CartLineItem, ChangeCartItemQty } from "@common/api/api-clients";
 
 const cartModule = namespace("cart");
 
@@ -29,6 +29,9 @@ export default class ActiveOrderSidebar extends Vue {
 
   @cartModule.Action(DELETE_ITEM_FROM_CART)
   deleteLineItem!: (id: string) => void;
+
+  @cartModule.Action(CHANGE_ITEM_QUANTITY)
+  changeLineItemQuantity!: (payload: ChangeCartItemQty) => void;
 
   @cartModule.Action(CLEAR_CART)
   clearCart!: () => void;
@@ -73,8 +76,14 @@ export default class ActiveOrderSidebar extends Vue {
       });
   }
 
-  changeQuantity(item: CartLineItem) {
+  changeQuantity(item: CartLineItem, quantity: number) {
     // todo:
+    console.log(quantity);
+    const changeItemQty = new ChangeCartItemQty();
+    changeItemQty.lineItemId = item.id;
+    changeItemQty.quantity = quantity;
+    this.changeLineItemQuantity(changeItemQty)
+
   }
 
 }

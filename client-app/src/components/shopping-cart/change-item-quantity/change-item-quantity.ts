@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { Prop, Emit } from "vue-property-decorator";
-import { faPlusSquare, faMinusSquare } from '@fortawesome/free-regular-svg-icons';
+import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 
 @Component({
@@ -11,28 +11,30 @@ export default class ChangeItemQuantity extends Vue {
   @Prop()
   quantity!: number;
 
-  // @Prop()
-  // max!: number;
+  model = 0;
 
-  plusIcon = faPlusSquare;
-  minusIcon = faMinusSquare;
+  mounted (){
+    this.model = this.quantity;
+  }
+
+  plusIcon = faPlusCircle;
+  minusIcon = faMinusCircle;
 
   increment() {
-    this.quantity++;
-    this.onQuantityChanged(this.quantity);
+    this.model++;
+    this.onQuantityChanged(this.model);
   }
 
   decrement() {
-    if(this.quantity > 0) {
-      this.quantity--;
-      this.onQuantityChanged(this.quantity);
+    if(this.model > 1) {
+      this.model--;
+      this.onQuantityChanged(this.model);
     }
   }
 
-
   textChanged(value: string) {
-    this.quantity = +value;
-    this.onQuantityChanged(this.quantity);
+    this.model = +value;
+    this.onQuantityChanged(this.model);
   }
 
   keydown(event: any) {
@@ -44,5 +46,4 @@ export default class ChangeItemQuantity extends Vue {
   onQuantityChanged(value: number) {
     this.$emit("quantity-changed", value);
   }
-
 }

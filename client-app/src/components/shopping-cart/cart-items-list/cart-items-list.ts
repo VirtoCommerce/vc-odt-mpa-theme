@@ -19,8 +19,8 @@ export default class CartItemsList extends Vue {
     this.$emit("item-deleted", item);
   }
 
-  onQuantityChanged(item: CartLineItem) {
-    this.$emit("quantity-changed", item);
+  onQuantityChanged(item: CartLineItem, quantity: number) {
+    this.$emit("quantity-changed", item, quantity);
   }
 
 }

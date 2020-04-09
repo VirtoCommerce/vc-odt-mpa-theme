@@ -22,9 +22,12 @@ export default class CartItem extends Vue {
     this.$emit("item-deleted", this.item);
   }
 
-  onQuantityChanged() {
-    this.$emit("quantity-changed", this.item);
+  onQuantityChanged(quantity: number) {
+    this.$emit("quantity-changed", this.item, quantity);
   }
 
+  quantityChanged(quantity: number) {
+    this.onQuantityChanged(quantity);
+  }
 
 }
