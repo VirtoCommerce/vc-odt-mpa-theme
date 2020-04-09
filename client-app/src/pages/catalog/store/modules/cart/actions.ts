@@ -1,9 +1,9 @@
 import { ActionTree } from "vuex";
 import { RootState } from 'store/types';
-import { AddCartItem } from '@common/api/api-clients';
+import { AddCartItem, ChangeCartItemQty } from '@common/api/api-clients';
 import { storeName, locale } from '@common/constants';
 import { cartClient} from '@common/services/api-clients.service';
-import { FETCH_CART, FETCH_CART_ITEMS_COUNT, ADD_ITEM_TO_CART, DELETE_ITEM_FROM_CART, CLEAR_CART } from './definitions';
+import { FETCH_CART, FETCH_CART_ITEMS_COUNT, ADD_ITEM_TO_CART, DELETE_ITEM_FROM_CART, CLEAR_CART, CHANGE_ITEM_QUANTITY } from './definitions';
 import { SET_CART, SET_CART_ITEMS_COUNT } from "./mutations"
 import { CartState } from "./types";
 
@@ -23,6 +23,12 @@ export const actions: ActionTree<CartState, RootState> = {
   async [ADD_ITEM_TO_CART](context , payload: AddCartItem) {
     context.commit(FETCH_CART);
     await cartClient.addItemToCart(payload, storeName, locale);
+    await context.dispatch(FETCH_CART_ITEMS_COUNT);
+    await context.dispatch(FETCH_CART);
+  },
+  async [CHANGE_ITEM_QUANTITY](context , payload: ChangeCartItemQty) {
+    context.commit(FETCH_CART);
+    await cartClient.changeCartItem(payload, storeName, locale);
     await context.dispatch(FETCH_CART_ITEMS_COUNT);
     await context.dispatch(FETCH_CART);
   },

@@ -1,17 +1,17 @@
 <template>
-  <div class="d-flex jsutify-content-center">
-    <font-awesome-layers class="btn text-primary" @click="decrement()">
+  <div class="d-flex align-content-strach">
+    <button class="btn btn-sm text-primary" @click="decrement()">
       <font-awesome-icon :icon="minusIcon" size="lg"></font-awesome-icon>
-    </font-awesome-layers>
+    </button>
     <input type="text"
            OnlyNumber="true"
-           class="control"
-           :value="quantity"
+           class="form-control form-control-sm text-right"
+           :value="model"
            @blur="textChanged($event.target.value)"
-           @keydown="onKeydown($event)">
-    <font-awesome-layers class="btn text-primary" @click="increment()">
+           @keyup.enter="textChanged($event.target.value)">
+    <button class="btn btn-sm text-primary" @click="increment()">
       <font-awesome-icon :icon="plusIcon" size="lg"></font-awesome-icon>
-    </font-awesome-layers>
+    </button>
   </div>
 </template>
 
