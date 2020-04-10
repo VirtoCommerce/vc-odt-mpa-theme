@@ -1,38 +1,30 @@
 import { MutationTree } from "vuex";
-import { UserSearchResult, User } from '@common/api/api-clients';
-import { FETCH_USERS, SET_USERS_LIST_CONFIG, FETCH_USER, CLEAR_SELECTED_USER } from "./definitions";
-import { UsersListState, UsersListConfig } from "./types";
-
-export const SET_USERS = "setUsers";
-export const SET_USER = "setUser";
+import { fetchAsync, setAsync } from '@account/store/mutations';
+import { UserSearchResult, User, OrganizationContactsSearchCriteria } from '@common/api/api-clients';
+import { FETCH_USERS, CLEAR_SELECTED_USER, SET_USERS_SEARCH_CRITERIA, FETCH_SELECTED_USER, SET_SELECTED_USER, SET_USERS } from "./definitions";
+import { UsersListState } from "./types";
 
 //mutations
 export const mutations: MutationTree<UsersListState> = {
-  [FETCH_USERS](state) {
-    state.isLoading = true;
-    state.loaded = false;
+  [SET_USERS_SEARCH_CRITERIA](state, payload: OrganizationContactsSearchCriteria) {
+    state.searchCriteria = payload;
   },
-  [FETCH_USER](state) {
-    state.isLoading = true;
-    state.loaded = false;
+  [FETCH_USERS](state) {
+    fetchAsync(state);
   },
   [SET_USERS](state, payload: UserSearchResult) {
-    state.usersList.users = payload.results  || [];
-    state.usersList.totalCount = payload.totalCount || 0;
-    state.loaded = true;
-    state.isLoading = false;
+    state.users.results = payload.results  || [];
+    state.users.totalCount = payload.totalCount || 0;
+    setAsync(state);
   },
-  [SET_USERS_LIST_CONFIG](state, payload: UsersListConfig) {
-    state.usersList.listConfig = payload;
+  [FETCH_SELECTED_USER](state) {
+    fetchAsync(state);
   },
-  [SET_USER](state, payload: User) {
+  [SET_SELECTED_USER](state, payload: User) {
     state.selectedUser = payload;
-    state.loaded = true;
-    state.isLoading = false;
-    state.selectedUserIsLoaded = true;
+    setAsync(state);
   },
   [CLEAR_SELECTED_USER](state) {
-    state.selectedUserIsLoaded = false;
     state.selectedUser = null;
   }
 };

@@ -1,23 +1,24 @@
 import { GetterTree } from "vuex";
+import { BvTableFieldArray } from 'bootstrap-vue';
+import { UsersListState } from "@account/store/modules/users-list/types";
 import { RootState } from '@account/store/types';
-import { User } from "@common/api/api-clients";
-import { UsersListState, UsersList } from "./types";
+import { User, IOrganizationContactsSearchCriteria, IUserSearchResult, IUser } from "@common/api/api-clients";
 
 // getters
 export const getters: GetterTree<UsersListState, RootState> = {
   isLoading: (state: UsersListState): boolean => {
     return state.isLoading;
   },
-  usersList: (state: UsersListState): UsersList => {
-    return state.usersList;
+  columns: (state: UsersListState): BvTableFieldArray => {
+    return state.columns;
   },
-  selectedUser: (state: UsersListState): User | null => {
+  searchCriteria: (state: UsersListState): IOrganizationContactsSearchCriteria => {
+    return state.searchCriteria;
+  },
+  users: (state: UsersListState): IUserSearchResult => {
+    return state.users;
+  },
+  selectedUser: (state: UsersListState): IUser | null => {
     return state.selectedUser;
-  },
-  userIsLoaded: (state: UsersListState): boolean => {
-    return state.selectedUserIsLoaded;
-  },
-  activeKeyword: (state: UsersListState): string | undefined => {
-    return state.usersList.listConfig.filters.keyword;
   }
 };

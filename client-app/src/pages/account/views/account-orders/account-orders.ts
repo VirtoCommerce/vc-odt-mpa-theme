@@ -41,7 +41,7 @@ export default class AccountOrders extends Vue {
   private orders!: ICustomerOrderSearchResult;
 
   @ordersListModule.Getter("selectedOrder")
-  private selectedOrder!: CustomerOrder;
+  private selectedOrder: ICustomerOrder | null = null;
 
   @ordersListModule.Action(FETCH_SELECTED_ORDER)
   private fetchSelectedOrder!: (orderId: string) => ICustomerOrder;

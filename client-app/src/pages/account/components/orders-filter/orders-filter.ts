@@ -85,8 +85,8 @@ export default class OrderFilter extends Vue {
     this.emitChanges(searchCriteria);
   }
 
-  changeKeyword(value: string) {
-    const searchCriteria = { ...this.searchCriteria, keyword: value };
+  changeKeyword(keyword: string) {
+    const searchCriteria = { ...this.searchCriteria, keyword };
     this.emitChanges(searchCriteria);
   }
 
