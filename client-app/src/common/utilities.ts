@@ -1,7 +1,7 @@
 import { Dictionary } from '@common/models/dictionary';
 
-export function safeInvoke<T, R>(arg: T | undefined, callback: (arg: T) => R): R | undefined {
-  return arg !== undefined ? callback(arg) : undefined;
+export function safeInvoke<T, R>(arg: T | null | undefined, callback: (arg: T) => R): R | undefined {
+  return arg != null ? callback(arg) : undefined;
 }
 
 export function toDictionary(obj: any): Dictionary<string | (string | null)[] | null | undefined> {
