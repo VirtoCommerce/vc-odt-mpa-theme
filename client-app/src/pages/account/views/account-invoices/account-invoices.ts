@@ -19,7 +19,7 @@ const invoicesListModule = namespace('invoicesListModule');
     InvoicesFilter
   },
   beforeRouteUpdate: function (to: Route, from: Route, next: (to?: RawLocation | false | ((vm: AccountInvoices) => any) | void) => void) {
-    (this as AccountInvoices).routeChanged(to);
+    (this as AccountInvoices).buildSearchCriteria(to);
     next();
   }
 })
@@ -48,13 +48,13 @@ export default class AccountInvoices extends Vue {
   queryBuilder = new QueryBuilder(PaymentSearchCriteria, PaymentSearchQuery);
 
   mounted() {
-    this.routeChanged(this.$route);
+    this.buildSearchCriteria(this.$route, this.searchCriteria);
   }
 
-  routeChanged(route: Route) {
+  buildSearchCriteria(route: Route, initialSearchCriteria?: IPaymentSearchCriteria) {
     const searchCriteria = this.queryBuilder.parseQuery(route.query);
     this.setSearchCriteria({
-      ...this.searchCriteria,
+      ...initialSearchCriteria,
       ...searchCriteria
     });
   }

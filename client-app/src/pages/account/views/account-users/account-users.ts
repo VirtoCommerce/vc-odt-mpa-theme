@@ -26,7 +26,7 @@ const profileModule = namespace('profileModule');
     EditUserModal
   },
   beforeRouteUpdate: function (to: Route, from: Route, next: (to?: RawLocation | false | ((vm: AccountUsers) => any) | void) => void) {
-    (this as AccountUsers).routeChanged(to);
+    (this as AccountUsers).buildSearchCriteria(to);
     next();
   }
 })
@@ -76,13 +76,13 @@ export default class AccountUsers extends Vue {
 
   mounted() {
     this.fetchProfile();
-    this.routeChanged(this.$route);
+    this.buildSearchCriteria(this.$route, this.searchCriteria);
   }
 
-  routeChanged(route: Route) {
+  buildSearchCriteria(route: Route, initialSearchCriteria?: IOrganizationContactsSearchCriteria) {
     const searchCriteria = this.queryBuilder.parseQuery(route.query);
     this.setSearchCriteria({
-      ...this.searchCriteria,
+      ...initialSearchCriteria,
       ...searchCriteria
     });
   }

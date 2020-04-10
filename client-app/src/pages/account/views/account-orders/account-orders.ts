@@ -20,7 +20,7 @@ const ordersListModule = namespace("ordersListModule");
     OrderFilter
   },
   beforeRouteUpdate: function (to: Route, from: Route, next: (to?: RawLocation | false | ((vm: AccountOrders) => any) | void) => void) {
-    (this as AccountOrders).routeChanged(to);
+    (this as AccountOrders).buildSearchCriteria(to);
     next();
   }
 })
@@ -53,13 +53,13 @@ export default class AccountOrders extends Vue {
   queryBuilder = new QueryBuilder(OrderSearchCriteria, OrderSearchQuery);
 
   mounted() {
-    this.routeChanged(this.$route);
+    this.buildSearchCriteria(this.$route, this.searchCriteria);
   }
 
-  routeChanged(route: Route) {
+  buildSearchCriteria(route: Route, initialSearchCriteria?: IOrderSearchCriteria) {
     const searchCriteria = this.queryBuilder.parseQuery(route.query);
     this.setSearchCriteria({
-      ...this.searchCriteria,
+      ...initialSearchCriteria,
       ...searchCriteria
     });
   }

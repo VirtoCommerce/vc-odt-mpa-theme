@@ -18,7 +18,7 @@ const paymentsListModule = namespace('paymentsListModule');
     PaymentsFilter
   },
   beforeRouteUpdate: function (to: Route, from: Route, next: (to?: RawLocation | false | ((vm: AccountPayments) => any) | void) => void) {
-    (this as AccountPayments).routeChanged(to);
+    (this as AccountPayments).buildSearchCriteria(to);
     next();
   }
 })
@@ -43,13 +43,13 @@ export default class AccountPayments extends Vue {
   queryBuilder = new QueryBuilder(PaymentSearchCriteria, PaymentSearchQuery);
 
   mounted() {
-    this.routeChanged(this.$route);
+    this.buildSearchCriteria(this.$route, this.searchCriteria);
   }
 
-  routeChanged(route: Route) {
+  buildSearchCriteria(route: Route, initialSearchCriteria?: IPaymentSearchCriteria) {
     const searchCriteria = this.queryBuilder.parseQuery(route.query);
     this.setSearchCriteria({
-      ...this.searchCriteria,
+      ...initialSearchCriteria,
       ...searchCriteria
     });
   }
