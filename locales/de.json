@@ -348,7 +348,8 @@
         "draft-name-required": "Entwurfsname ist erforderlich",
         "submit": "Einreichen"
       },
-      "name-search": "Name",
+      "search-label": "Suche",
+      "search-placeholder": "Name",
       "delete-draft": "Löschen",
       "confirm-delete-modal": {
         "title": "Entwurf löschen",
