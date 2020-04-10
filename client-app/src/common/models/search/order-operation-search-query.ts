@@ -2,6 +2,7 @@
 import moment from 'moment';
 import { KeywordSearchQuery } from '@common/models/search/keyword-search-query';
 import { IOrderOperationSearchCriteria } from '@common/models/search/order-operation-search-criteria';
+import { safeInvoke } from '@common/utilities';
 
 export class OrderOperationSearchQuery extends KeywordSearchQuery {
   startDate?: string;
@@ -12,8 +13,8 @@ export class OrderOperationSearchQuery extends KeywordSearchQuery {
   toSearchCriteria<TSearchCriteria extends IOrderOperationSearchCriteria>(searchCriteriaType: { new(): TSearchCriteria }): TSearchCriteria {
     const searchCriteria = super.toSearchCriteria(searchCriteriaType);
     searchCriteria.sort = this.sort;
-    searchCriteria.startDate = this.startDate ? moment(this.startDate).toDate() : undefined;
-    searchCriteria.endDate = this.endDate ? moment(this.endDate).add(1, "days").subtract(1, "seconds").toDate() : undefined;
+    searchCriteria.startDate = safeInvoke(this.startDate, startDate => moment(startDate).toDate());
+    searchCriteria.endDate = safeInvoke(this.endDate, endDate => moment(endDate).add(1, "days").subtract(1, "seconds").toDate());
     searchCriteria.statuses = this.statuses?.split(",") || [];
     return searchCriteria;
   }
