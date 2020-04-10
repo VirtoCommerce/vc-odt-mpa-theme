@@ -1,5 +1,6 @@
 import { Dictionary } from '@common/models/dictionary';
 import { IPagedSearchCriteria } from '@common/models/search/paged-search-criteria';
+import { safeInvoke } from '@common/utilities';
 
 /* eslint @typescript-eslint/camelcase: ["error", {properties: "never"}] */
 export class PagedSearchQuery {
@@ -8,8 +9,8 @@ export class PagedSearchQuery {
 
   toSearchCriteria<TSearchCriteria extends IPagedSearchCriteria>(searchCriteriaType: { new(): TSearchCriteria }): TSearchCriteria {
     const searchCriteria = new searchCriteriaType();
-    searchCriteria.pageNumber = this.page ? Number(this.page) : undefined;
-    searchCriteria.pageSize = this.page_size ? Number(this.page_size) : undefined;
+    searchCriteria.pageNumber = safeInvoke(this.page, page => Number(page));
+    searchCriteria.pageSize = safeInvoke(this.page_size, page_size => Number(page_size));
     return searchCriteria;
   }
 
