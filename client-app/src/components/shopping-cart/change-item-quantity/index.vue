@@ -7,6 +7,7 @@
            OnlyNumber="true"
            class="form-control form-control-sm text-right"
            :value="model"
+           @keydown="keydown($event)"
            @blur="textChanged($event.target.value)"
            @keyup.enter="textChanged($event.target.value)">
     <button class="btn btn-sm text-primary" @click="increment()">
