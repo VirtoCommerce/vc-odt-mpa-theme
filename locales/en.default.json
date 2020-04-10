@@ -298,6 +298,7 @@
     },
     "drafts": {
       "no-drafts": "No data",
+      "empty-draft": "This order draft is empty",
       "add-draft": {
         "add-draft": "Add draft",
         "title": "New draft",
@@ -306,13 +307,19 @@
         "draft-name-required": "Draft name is required",
         "submit": "Submit"
       },
-      "keyword": "Keyword",
+      "name-search": "Name",
       "delete-draft": "Delete",
       "confirm-delete-modal": {
         "title": "Delete draft",
         "ok": "YES",
         "cancel": "NO",
         "message": "Are you sure you want to delete \"{0}\" draft?"
+      },
+      "confirm-clear-modal": {
+        "title": "Clear draft",
+        "ok": "YES",
+        "cancel": "NO",
+        "message": "Are you sure you want to clear this draft?"
       },
       "grid": {
         "columns": {
@@ -321,7 +328,7 @@
           "subTotal_amount": "Subtotal",
           "total_amount": "Total",
           "currency_code": "Currency",
-          "actions":"Actions"
+          "actions": "Actions"
         },
         "text-above": "",
         "text-below": ""

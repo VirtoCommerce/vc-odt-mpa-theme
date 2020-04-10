@@ -3,12 +3,12 @@
   <div v-if="searchCriteria">
     <div class="d-flex flex-wrap flex-sm-row flex-column">
       <div class="flex-grow-1 mr-sm-2">
-        <label for="keyword-search">{{ $t("account.drafts.keyword") }}</label>
+        <label for="keyword-search">{{ $t("account.drafts.name-search") }}</label>
         <b-form-input
           id="keyword-search"
           type="text"
           :debounce="1000"
-          :placeholder="$t('account.drafts.keyword')"
+          :placeholder="$t('account.drafts.name-search')"
           :value="searchCriteria.name"
           @update="changeKeyword($event)"></b-form-input>
       </div>

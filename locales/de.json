@@ -339,6 +339,7 @@
     },
     "drafts": {
       "no-drafts": "Keine Daten",
+      "empty-draft": "Dieser Auftragsentwurf ist leer",
       "add-draft": {
         "add-draft": "Entwurf hinzufügen",
         "title": "Neuer Entwurf",
@@ -347,13 +348,19 @@
         "draft-name-required": "Entwurfsname ist erforderlich",
         "submit": "Einreichen"
       },
-      "keyword": "Stichwort",
+      "name-search": "Name",
       "delete-draft": "Löschen",
       "confirm-delete-modal": {
         "title": "Entwurf löschen",
         "ok": "JA",
         "cancel": "NEIN",
         "message": "Möchten Sie den Entwurf \"{0}\" wirklich löschen?"
+      },
+      "confirm-clear-modal": {
+        "title": "Clear löschen",
+        "ok": "JA",
+        "cancel": "NEIN",
+        "message": "Sind Sie sicher, dass Sie diesen Entwurf löschen möchten?"
       },
       "grid": {
         "columns": {
@@ -362,7 +369,7 @@
           "subTotal_amount": "Zwischensumme",
           "total_amount": "Gesamt",
           "currency_code": "Währung",
-          "actions":"Aktionen"
+          "actions": "Aktionen"
         },
         "text-above": "",
         "text-below": ""

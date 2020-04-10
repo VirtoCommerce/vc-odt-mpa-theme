@@ -1,6 +1,6 @@
 import { Module } from "vuex";
 import { RootState } from '@account/store/types';
-import { defaultPageSize, draftsGridFields, startPageNumber } from '@common/constants';
+import { defaultPageSize, draftsGridFields, startPageNumber, orderDraftType } from '@common/constants';
 import { localizeGridColumns } from '@common/services/localization.helper.service';
 import { actions } from "./actions";
 import { getters } from "./getters";
@@ -16,7 +16,8 @@ export const initialState: DraftsListState = {
   columns: draftsGridFields,
   searchCriteria: {
     pageNumber: startPageNumber,
-    pageSize: defaultPageSize
+    pageSize: defaultPageSize,
+    type: orderDraftType
   },
   drafts: {
     totalCount: 0,
@@ -25,7 +26,7 @@ export const initialState: DraftsListState = {
   selectedDraft: null
 };
 
-const localizationdraftsGridColumnsNode = "account.drafts.grid.columns"
+const localizationdraftsGridColumnsNode = "account.drafts.grid.columns";
 
 // We need this because bootstrap-vue will directly use labels on stacked table
 initialState.columns = localizeGridColumns(localizationdraftsGridColumnsNode, initialState.columns);

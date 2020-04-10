@@ -2610,6 +2610,113 @@ export class ApiListsClient {
     }
 
     /**
+     * @param changeQty (optional) 
+     * @return Success
+     */
+    changeListItem(listName: string, type: string, changeQty: ChangeCartItemQty | null | undefined, store: string, language: string): Promise<void> {
+        let url_ = this.baseUrl + "/{store}/{language}/storefrontapi/lists/{listName}/{type}/items";
+        if (listName === undefined || listName === null)
+            throw new Error("The parameter 'listName' must be defined.");
+        url_ = url_.replace("{listName}", encodeURIComponent("" + listName)); 
+        if (type === undefined || type === null)
+            throw new Error("The parameter 'type' must be defined.");
+        url_ = url_.replace("{type}", encodeURIComponent("" + type)); 
+        if (store === undefined || store === null)
+            throw new Error("The parameter 'store' must be defined.");
+        url_ = url_.replace("{store}", encodeURIComponent("" + store)); 
+        if (language === undefined || language === null)
+            throw new Error("The parameter 'language' must be defined.");
+        url_ = url_.replace("{language}", encodeURIComponent("" + language)); 
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(changeQty);
+
+        let options_ = <AxiosRequestConfig>{
+            data: content_,
+            method: "PUT",
+            url: url_,
+            headers: {
+                "Content-Type": "application/json", 
+            }
+        };
+
+        return this.instance.request(options_).then((_response: AxiosResponse) => {
+            return this.processChangeListItem(_response);
+        });
+    }
+
+    protected processChangeListItem(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
+     * @return Success
+     */
+    clearList(listName: string, type: string, store: string, language: string): Promise<void> {
+        let url_ = this.baseUrl + "/{store}/{language}/storefrontapi/lists/{listName}/{type}/clear";
+        if (listName === undefined || listName === null)
+            throw new Error("The parameter 'listName' must be defined.");
+        url_ = url_.replace("{listName}", encodeURIComponent("" + listName)); 
+        if (type === undefined || type === null)
+            throw new Error("The parameter 'type' must be defined.");
+        url_ = url_.replace("{type}", encodeURIComponent("" + type)); 
+        if (store === undefined || store === null)
+            throw new Error("The parameter 'store' must be defined.");
+        url_ = url_.replace("{store}", encodeURIComponent("" + store)); 
+        if (language === undefined || language === null)
+            throw new Error("The parameter 'language' must be defined.");
+        url_ = url_.replace("{language}", encodeURIComponent("" + language)); 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ = <AxiosRequestConfig>{
+            method: "POST",
+            url: url_,
+            headers: {
+            }
+        };
+
+        return this.instance.request(options_).then((_response: AxiosResponse) => {
+            return this.processClearList(_response);
+        });
+    }
+
+    protected processClearList(response: AxiosResponse): Promise<void> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            return Promise.resolve<void>(<any>null);
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<void>(<any>null);
+    }
+
+    /**
      * @param searchCriteria (optional) 
      * @return Success
      */
@@ -8433,6 +8540,7 @@ export class SettingEntry implements ISettingEntry {
     arrayValues?: string[] | undefined;
     title?: string | undefined;
     description?: string | undefined;
+    readonly indexKey?: string | undefined;
 
     constructor(data?: ISettingEntry) {
         if (data) {
@@ -8462,6 +8570,7 @@ export class SettingEntry implements ISettingEntry {
             }
             this.title = _data["title"];
             this.description = _data["description"];
+            (<any>this).indexKey = _data["indexKey"];
         }
     }
 
@@ -8491,6 +8600,7 @@ export class SettingEntry implements ISettingEntry {
         }
         data["title"] = this.title;
         data["description"] = this.description;
+        data["indexKey"] = this.indexKey;
         return data; 
     }
 }
@@ -8505,6 +8615,7 @@ export interface ISettingEntry {
     arrayValues?: string[] | undefined;
     title?: string | undefined;
     description?: string | undefined;
+    indexKey?: string | undefined;
 }
 
 export class Vendor implements IVendor {
