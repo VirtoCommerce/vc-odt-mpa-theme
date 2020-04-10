@@ -28,7 +28,7 @@ export class OrderOperationSearchCriteria extends KeywordSearchCriteria implemen
       searchQuery.sort = this.sort;
       searchQuery.startDate = safeInvoke(this.startDate, startDate => moment(startDate).format(isoDateFormat));
       searchQuery.endDate = safeInvoke(this.endDate, endDate => moment(endDate).format(isoDateFormat));
-      searchQuery.statuses = this.statuses?.join(",");
+      searchQuery.statuses = safeInvoke(this.statuses, statuses => statuses.join(","));
       return searchQuery;
     }
 }
