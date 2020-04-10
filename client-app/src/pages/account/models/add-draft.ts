@@ -1,7 +1,9 @@
+import { orderDraftType } from '@common/constants';
+
 export class AddDraft {
   listName: string;
   type: string;
-  constructor(listName = "", type = "orderDraft") {
+  constructor(listName = "", type = orderDraftType) {
     this.listName = listName;
     this.type = type;
   }
