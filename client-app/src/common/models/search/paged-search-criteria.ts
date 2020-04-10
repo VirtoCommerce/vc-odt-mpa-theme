@@ -11,13 +11,15 @@ export class PagedSearchCriteria implements IPagedSearchCriteria {
   pageSize?: number;
 
   constructor(data?: IPagedSearchCriteria) {
-    if (data) {
-      for (const property in data) {
-        if (data.hasOwnProperty(property)) {
-          const value = (data as any)[property];
-          if (value !== undefined) {
-            (this as any)[property] = value;
-          }
+    if (data === undefined) {
+      return;
+    }
+
+    for (const property in data) {
+      if (data.hasOwnProperty(property)) {
+        const value = (data as any)[property];
+        if (value !== undefined) {
+          (this as any)[property] = value;
         }
       }
     }
