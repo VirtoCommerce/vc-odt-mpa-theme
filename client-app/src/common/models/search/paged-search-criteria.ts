@@ -17,12 +17,11 @@ export class PagedSearchCriteria implements IPagedSearchCriteria {
 
     for (const property in data) {
       if (data.hasOwnProperty(property)) {
-        const value = (data as any)[property];
-        if (value !== undefined) {
-          (this as any)[property] = value;
-        }
+        (this as any)[property] = (data as any)[property];
       }
     }
+
+    this.normalize();
   }
 
   toSearchQuery<TSearchQuery extends PagedSearchQuery>(searchQueryType: { new(): TSearchQuery }): TSearchQuery {
