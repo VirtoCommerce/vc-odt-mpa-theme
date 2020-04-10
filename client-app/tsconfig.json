@@ -28,6 +28,8 @@
       "@components/*": [ "components/*" ],
       "@init-app/*": [ "pages/init/*" ],
       "@account/*": [ "pages/account/*" ],
+      "@history/*": [ "pages/history/*" ],
+      "@admin/*": [ "pages/admin/*" ],
       "@catalog/*": [ "pages/catalog/*" ]
     },
     "lib": [
