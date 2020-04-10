@@ -12,7 +12,7 @@ import UsersFilter from "@account/components/users-filter/index.vue";
 import { AddUser } from "@account/models/add-user";
 import { DELETE_USER, ADD_USER, UPDATE_USER, SET_USERS_SEARCH_CRITERIA, FETCH_SELECTED_USER } from "@account/store/modules/users-list/definitions";
 import { User,OrganizationUserRegistration, UserUpdateInfo, IOrganizationContactsSearchCriteria, IUserSearchResult, IUser, OrganizationContactsSearchCriteria } from "@common/api/api-clients";
-import { pageSizes } from "@common/constants";
+import { pageSizes, sortDescending, sortAscending } from "@common/constants";
 import { OrganizationContactsSearchQuery } from '@common/models/search/extensions/organization-contacts-search-query';
 import { QueryBuilder } from '@common/services/query-builder.service';
 
@@ -96,7 +96,7 @@ export default class AccountUsers extends Vue {
   }
 
   sortChanged(ctx: BvTableCtxObject) {
-    const sortDirection = ctx.sortDesc ? "desc" : "asc";
+    const sortDirection = ctx.sortDesc ? sortDescending : sortAscending;
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
     const searchCriteria = { ...this.searchCriteria, pageNumber: 1, sort: sortExpression };
     this.searchCriteriaChanged(searchCriteria);

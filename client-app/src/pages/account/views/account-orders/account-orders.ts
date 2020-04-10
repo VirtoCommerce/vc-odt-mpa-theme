@@ -6,7 +6,7 @@ import { BvTableCtxObject } from "bootstrap-vue";
 import OrderFilter from "@account/components/orders-filter/index.vue";
 import { SET_ORDERS_SEARCH_CRITERIA, FETCH_SELECTED_ORDER } from "@account/store/modules/orders-list/definitions";
 import { CustomerOrder, ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder, OrderSearchCriteria } from "@common/api/api-clients";
-import { pageSizes, ordersStatuses } from "@common/constants";
+import { pageSizes, ordersStatuses, sortDescending, sortAscending } from "@common/constants";
 import { OrderSearchQuery } from "@common/models/search/extensions/order-search-query";
 import { QueryBuilder } from '@common/services/query-builder.service';
 import AccountOrderDetailsModal from "../account-order-details-modal/index.vue";
@@ -73,7 +73,7 @@ export default class AccountOrders extends Vue {
   }
 
   sortChanged(ctx: BvTableCtxObject) {
-    const sortDirection = ctx.sortDesc ? "desc" : "asc";
+    const sortDirection = ctx.sortDesc ? sortDescending : sortAscending;
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
     const searchCriteria = { ...this.searchCriteria, pageNumber: 1, sort: sortExpression };
     this.searchCriteriaChanged(searchCriteria);

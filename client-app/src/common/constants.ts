@@ -15,14 +15,17 @@ export const accessDeniedUrl = `${fullBaseUrl}error/AccessDenied`;
 // General variables
 export const isoDateFormat = "YYYY-MM-DD";
 
-// Other constants can be placed here
+// Search
 export const pageSizes = [10, 20, 50, 100]
 export const defaultPageSize = 10;
 export const startPageNumber = 1;
 export const ordersStatuses = ["New","Cancelled","Processing","Completed","Pending"];
 export const invoicesStatuses = ["New", "Paid"];
 export const paymentsStatuses = ["Paid"];
+export const sortAscending = "asc";
+export const sortDescending = "desc";
 
+// Grids
 export const ordersGridFields =  window.THEME_SETTINGS.orders_grid_fields as BvTableFieldArray;
 export const usersGridFields =  window.THEME_SETTINGS.users_grid_fields as BvTableFieldArray;
 export const invoicesGridFields = window.THEME_SETTINGS.invoices_grid_fields as BvTableFieldArray;

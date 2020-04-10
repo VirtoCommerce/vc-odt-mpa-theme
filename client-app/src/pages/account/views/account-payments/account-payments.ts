@@ -6,7 +6,7 @@ import { BvTableCtxObject } from "bootstrap-vue";
 import PaymentsFilter from "@account/components/payments-filter/index.vue";
 import { SET_PAYMENTS_SEARCH_CRITERIA } from '@account/store/modules/payments-list/definitions';
 import { IPaymentSearchCriteria, IPaymentSearchResult, PaymentSearchCriteria } from '@common/api/api-clients';
-import { pageSizes } from "@common/constants";
+import { pageSizes, sortDescending, sortAscending } from "@common/constants";
 import { PaymentSearchQuery } from '@common/models/search/extensions/payment-search-query';
 import { QueryBuilder } from '@common/services/query-builder.service';
 import "@common/models/search/extensions/payment-search-criteria";
@@ -63,7 +63,7 @@ export default class AccountPayments extends Vue {
   }
 
   sortChanged(ctx: BvTableCtxObject) {
-    const sortDirection = ctx.sortDesc ? "desc" : "asc";
+    const sortDirection = ctx.sortDesc ? sortDescending : sortAscending;
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
     const searchCriteria = { ...this.searchCriteria, pageNumber: 1, sort: sortExpression };
     this.searchCriteriaChanged(searchCriteria);
