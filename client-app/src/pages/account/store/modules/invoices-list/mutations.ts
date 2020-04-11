@@ -1,5 +1,5 @@
 import { MutationTree } from "vuex";
-import { PaymentSearchResult } from '@common/api/api-clients';
+import { PaymentSearchResult } from "@common/api/api-clients";
 import { FETCH_INVOICES, SET_INVOICES_LIST_CONFIG } from "./definitions";
 import { InvoicesListState, InvoicesListConfig } from "./types";
 

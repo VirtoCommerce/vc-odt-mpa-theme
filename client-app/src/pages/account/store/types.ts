@@ -5,4 +5,3 @@ export interface AsyncState {
   errors: object | null;
 }
 
-export type RootState = AsyncState

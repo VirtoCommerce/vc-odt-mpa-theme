@@ -30,8 +30,14 @@
       </div>
     {% endif %}
     <div class="card-body pb-1">
+      <div class="form-row">
       {% if product.available %}
-        <button class="app-add-item-to-cart btn btn-outline-primary w-100 d-flex justify-content-center p-2" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}"><i class="fas fa-shopping-cart"></i></button>
+      <div class="col">
+        <button class="app-add-item-to-cart btn btn-outline-primary col d-flex justify-content-center p-1" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}"><i class="fas fa-shopping-cart"></i></button>
+      </div>
+      <div class="col">
+          <button class="app-add-item-to-draft btn btn-outline-primary col d-flex justify-content-center p-1" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}"><i class="fas fa-list"></i></button>
+      </div>
       {% endif %}
       {% if unavailable %}
             <button class="btn btn-outline-primary w-100 d-flex justify-content-center p-1" title="{{ 'products.general.add_to_cart' | t }}" disabled>
@@ -43,6 +49,7 @@
           <span class="font-weight-bold text-uppercase">{{ 'products.product.sold_out' | t }}</span>
         </button>
       {% endif %}
+    </div>
       <p class="mt-1">{{ product.title }}</p>
     </div>
     <div class="card-footer bg-white border-0">

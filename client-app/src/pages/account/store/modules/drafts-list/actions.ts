@@ -1,9 +1,9 @@
 import { ActionTree } from "vuex";
-import { RootState } from '@account/store/types';
-import { CartSearchCriteria, IShoppingCart, ChangeCartItemQty } from '@common/api/api-clients';
-import { storeName, locale } from '@common/constants';
-import { listClient } from '@common/services/api-clients.service';
-import { FETCH_DRAFTS, SET_DRAFTS_SEARCH_CRITERIA, ADD_DRAFT, SET_DRAFTS, DELETE_DRAFT, SET_SELECTED_DRAFT, DELETE_ITEM_FROM_DRAFT, CLEAR_DRAFT, CHANGE_DRAFT_ITEM_QUANTITY } from "./definitions";
+import { RootState } from "store/types";
+import { CartSearchCriteria, IShoppingCart, ChangeCartItemQty, AddCartItem } from "@common/api/api-clients";
+import { storeName, locale } from "@common/constants";
+import { listClient } from "@common/services/api-clients.service";
+import { FETCH_DRAFTS, SET_DRAFTS_SEARCH_CRITERIA, ADD_DRAFT, SET_DRAFTS, DELETE_DRAFT, SET_SELECTED_DRAFT, DELETE_ITEM_FROM_DRAFT, CLEAR_DRAFT, CHANGE_DRAFT_ITEM_QUANTITY, ADD_ITEM_TO_DRAFT } from "./definitions";
 import { DraftsListState } from "./types";
 
 
@@ -49,6 +49,11 @@ export const actions: ActionTree<DraftsListState, RootState> = {
     await listClient.getListByName(listName, type, storeName, locale).then(list => {
       context.dispatch(SET_SELECTED_DRAFT, list);
     });
+    context.dispatch(FETCH_DRAFTS);
+  },
+  async [ADD_ITEM_TO_DRAFT](context, addCartItem: AddCartItem ){
+    context.commit(FETCH_DRAFTS);
+    await listClient.addItemToList(addCartItem, storeName, locale);
     context.dispatch(FETCH_DRAFTS);
   },
   [SET_SELECTED_DRAFT](context, payload: IShoppingCart) {

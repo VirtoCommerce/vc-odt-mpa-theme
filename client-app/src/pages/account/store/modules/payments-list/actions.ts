@@ -1,5 +1,5 @@
 import { ActionTree } from "vuex";
-import { RootState } from '@account/store/types';
+import { RootState } from "store/types";
 import { PaymentSearchCriteria } from '@common/api/api-clients';
 import { storeName, locale } from '@common/constants';
 import { orderClient } from '@common/services/api-clients.service';

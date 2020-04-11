@@ -1,11 +1,11 @@
 import { Module } from "vuex";
-import { RootState } from '@account/store/types';
-import { defaultPageSize, usersGridFields, startPageNumber } from '@common/constants';
-import { localizeGridColumns } from '@common/services/localization.helper.service';
+import { RootState } from "store/types";
+import { defaultPageSize, usersGridFields, startPageNumber } from "@common/constants";
+import { localizeGridColumns } from "@common/services/localization.helper.service";
 import { actions } from "./actions";
 import { getters } from "./getters";
 import { mutations } from "./mutations";
-import { UsersListState } from './types';
+import { UsersListState } from "./types";
 
 
 // initial state

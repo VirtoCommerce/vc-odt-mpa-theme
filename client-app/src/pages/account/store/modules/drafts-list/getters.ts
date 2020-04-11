@@ -1,7 +1,7 @@
 import { GetterTree } from "vuex";
-import { BvTableFieldArray } from 'bootstrap-vue';
-import { RootState } from '@account/store/types';
-import { IShoppingCartSearchResult, ICartSearchCriteria, IShoppingCart } from '@common/api/api-clients';
+import { BvTableFieldArray } from "bootstrap-vue";
+import { RootState } from "store/types";
+import { IShoppingCartSearchResult, ICartSearchCriteria, IShoppingCart } from "@common/api/api-clients";
 import { DraftsListState } from "./types";
 
 // getters
