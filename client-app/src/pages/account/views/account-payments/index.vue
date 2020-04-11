@@ -1,8 +1,8 @@
 <template>
   <div class="mt-3">
     <loading :active.sync="isLoading"></loading>
-    <payments-filter :payments-filter="paymentsList.listConfig.filters"
-                     @filtersChanged="filtersChanged"></payments-filter>
+    <payments-filter :search-criteria="searchCriteria"
+                     @searchCriteriaChanged="searchCriteriaChanged"></payments-filter>
     <div v-if="!isLoading" class="mt-3">
       <p>{{ $t("account.payments.grid.text-above") }}</p>
       <b-table
@@ -14,8 +14,8 @@
         tbody-tr-class="text-break"
         :show-empty="true"
         :empty-text="$t('account.payments.no-payments')"
-        :items="paymentsList.payments"
-        :fields="paymentsList.listConfig.columns"
+        :items="payments.results"
+        :fields="columns"
         no-local-sorting
         @sort-changed="sortChanged">
         <template v-slot:cell(capturedDate)="data">
@@ -25,10 +25,10 @@
 
       <div class="d-flex justify-content-between">
         <b-pagination
-          :value="paymentsList.listConfig.pageNumber"
+          :value="searchCriteria.pageNumber"
           aria-controls="payments-table"
-          :total-rows="paymentsList.totalCount"
-          :per-page="paymentsList.listConfig.pageSize"
+          :total-rows="payments.totalCount"
+          :per-page="searchCriteria.pageSize"
           @change="pageChanged($event)"></b-pagination>
         <div>
           <b-dropdown
@@ -39,7 +39,7 @@
             menu-class="pt-0 pb-0"
             toggle-class="d-flex justify-content-between align-items-center">
             <template v-slot:button-content>
-              {{ paymentsList.listConfig.pageSize }}
+              {{ searchCriteria.pageSize }}
             </template>
             <b-dropdown-item v-for="pageSize in pageSizes"
                              :key="pageSize"

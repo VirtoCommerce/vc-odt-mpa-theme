@@ -1,11 +1,11 @@
 <template>
-  <div v-if="paymentsFilter">
-    <div class="d-flex flex-wrap flex-sm-row flex-column">
+  <div v-if="searchCriteria">
+    <div class="row flex-sm-row flex-column">
       <div class="col col-sm-6 col-md-5 col-lg-4">
         <label for="begin-date">{{ $t("account.payments.date-filter.from") }}</label>
         <b-form-datepicker
           id="begin-date"
-          :value="paymentsFilter.startDate"
+          :value="searchCriteria.startDate"
           value-as-date
           reset-button
           :label-reset-button="$t('account.payments.date-filter.reset')"
@@ -21,7 +21,7 @@
         <label for="end-date">{{ $t("account.payments.date-filter.to") }}</label>
         <b-form-datepicker
           id="end-date"
-          :value="paymentsFilter.endDate"
+          :value="searchCriteria.endDate"
           value-as-date
           reset-button
           :label-reset-button="$t('account.payments.date-filter.reset')"
@@ -34,7 +34,7 @@
           @input="changeEndDate($event)"></b-form-datepicker>
       </div>
       <div v-if="!isDateValid && isDateValid != null" class="col col-sm-12 col-md-12 col-lg-12">
-        <span class="text-danger">{{ $t("account.orders.date-error") }}</span>
+        <span class="text-danger">{{ $t("account.payments.date-filter.date-error") }}</span>
       </div>
     </div>
   </div>

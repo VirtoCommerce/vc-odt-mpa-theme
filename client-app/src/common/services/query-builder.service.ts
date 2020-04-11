@@ -1,10 +1,11 @@
 import { Dictionary } from '@common/models/dictionary';
-import { SearchCriteria } from '../models/search/search-criteria';
-import { SearchQuery } from '../models/search/search-query';
+import { PagedSearchCriteria } from '@common/models/search/paged-search-criteria';
+import { PagedSearchQuery } from '@common/models/search/paged-search-query';
+import { toDictionary } from '@common/utilities';
 
 export class QueryBuilder<
-TSearchCriteria extends SearchCriteria,
-TSearchQuery extends SearchQuery> {
+TSearchCriteria extends PagedSearchCriteria,
+TSearchQuery extends PagedSearchQuery> {
 
   constructor(
     private searchCriteriaType: { new(): TSearchCriteria },
@@ -12,7 +13,7 @@ TSearchQuery extends SearchQuery> {
   }
 
   buildQuery(searchCriteria: TSearchCriteria): Dictionary<string | (string | null)[] | null | undefined> {
-    return searchCriteria.toSearchQuery(this.searchQueryType).toDictionary();
+    return toDictionary(searchCriteria.toSearchQuery(this.searchQueryType));
   }
 
   buildURLSearchParams(searchCriteria: TSearchCriteria): URLSearchParams {

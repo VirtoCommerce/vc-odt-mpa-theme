@@ -27,7 +27,7 @@ export default class OrderFilter extends Vue {
   }
 
   mounted() {
-    this.getDatepickerLocalization();
+    this.setDatepickerLocalization();
   }
 
   dateChanged(startDate?: Date, endDate?: Date) {
@@ -55,12 +55,12 @@ export default class OrderFilter extends Vue {
   }
 
   changeEndDate(date?: Date) {
-    if (this.searchCriteria.endDate?.getTime() !== this.prepareEndDate(date).getTime()) {
+    if (this.searchCriteria.endDate?.getTime() !== this.prepareEndDate(date)?.getTime()) {
       this.dateChanged(this.searchCriteria.startDate, this.prepareEndDate(date));
     }
   }
 
-  getDatepickerLocalization() {
+  setDatepickerLocalization() {
     this.datepickerLabels = i18n.te("account.orders.datepicker") ? i18n.t("account.orders.datepicker") : {};
   }
 
@@ -74,11 +74,6 @@ export default class OrderFilter extends Vue {
     }
   }
 
-  changeKeyword(value: string) {
-    const searchCriteria = { ...this.searchCriteria, keyword: value };
-    this.emitChanges(searchCriteria);
-  }
-
   selectedStatusesChanged(selectedStatuses: string[]) {
     this.allStatusesSelected = selectedStatuses.length === this.availableOrderStatuses.length;
     const searchCriteria = { ...this.searchCriteria, statuses: selectedStatuses };
@@ -90,10 +85,12 @@ export default class OrderFilter extends Vue {
     this.emitChanges(searchCriteria);
   }
 
-  private prepareEndDate(endDate?: Date): Date {
-    return this.$moment(endDate)
-      .add(1, "days")
-      .subtract(1, "seconds")
-      .toDate();
+  changeKeyword(keyword: string) {
+    const searchCriteria = { ...this.searchCriteria, keyword };
+    this.emitChanges(searchCriteria);
+  }
+
+  private prepareEndDate(endDate?: Date): Date | undefined {
+    return endDate != null ? this.$moment(endDate).add(1, "days").subtract(1, "seconds").toDate() : endDate;
   }
 }

@@ -1,16 +1,12 @@
-import { KeywordSearchQuery } from './keyword-search-query';
-import { SearchCriteria } from './search-criteria';
+import { KeywordSearchQuery } from '@common/models/search/keyword-search-query';
+import { PagedSearchCriteria, IPagedSearchCriteria } from '@common/models/search/paged-search-criteria';
 
 /* eslint-disable-next-line @typescript-eslint/interface-name-prefix */
-export interface IKeywordSearchCriteria {
-  pageNumber?: number;
-  pageSize?: number;
+export interface IKeywordSearchCriteria extends IPagedSearchCriteria {
   keyword?: string;
 }
 
-export class KeywordSearchCriteria extends SearchCriteria implements IKeywordSearchCriteria {
-  pageNumber?: number;
-  pageSize?: number;
+export class KeywordSearchCriteria extends PagedSearchCriteria implements IKeywordSearchCriteria {
   keyword?: string;
 
   constructor(data?: IKeywordSearchCriteria) {

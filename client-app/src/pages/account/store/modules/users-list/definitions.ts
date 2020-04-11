@@ -1,8 +1,11 @@
-export const FETCH_USERS = "fetchUsers";
-export const FETCH_USER = "fetchUser";
+export const SET_USERS_SEARCH_CRITERIA = "setUsersSearchCriteria";
 
-export const SET_USERS_LIST_CONFIG = "setOrdersListConfig";
-export const CLEAR_SELECTED_USER = "clearSelectedOrder";
+export const FETCH_USERS = "fetchUsers";
+export const SET_USERS = "setUsers";
+
+export const FETCH_SELECTED_USER = "fetchSelectedUser";
+export const SET_SELECTED_USER = "setSelectedUser";
+export const CLEAR_SELECTED_USER = "clearSelectedUser";
 
 export const ADD_USER = "addUser";
 export const DELETE_USER = "removeUser";
