@@ -1,6 +1,6 @@
 import { GetterTree } from "vuex";
-import { RootState } from "store/types";
 import { BvTableFieldArray } from 'bootstrap-vue';
+import { RootState } from "store/types";
 import { PaymentsListState } from "@account/store/modules/payments-list/types";
 import { IPaymentSearchCriteria, IPaymentSearchResult } from '@common/api/api-clients';
 

@@ -29,6 +29,6 @@ import Component from "vue-class-component";
 
 @Component({
 })
-export default class App extends Vue {
+export default class AccountAdmin extends Vue {
 }
 </script>

@@ -1,6 +1,6 @@
 import { GetterTree } from "vuex";
-import { RootState } from "store/types";
 import { BvTableFieldArray } from 'bootstrap-vue';
+import { RootState } from "store/types";
 import { UsersListState } from "@account/store/modules/users-list/types";
 import { User, IOrganizationContactsSearchCriteria, IUserSearchResult, IUser } from "@common/api/api-clients";
 

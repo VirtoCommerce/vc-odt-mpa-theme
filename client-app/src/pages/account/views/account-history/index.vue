@@ -29,6 +29,15 @@
           {{ $t('account.menu_titles.payments') }}
         </router-link>
       </li>
+      <li class="nav-item">
+        <router-link
+          to="drafts"
+          active-class="active"
+          tag="a"
+          class="nav-link">
+          {{ $t('account.menu_titles.drafts') }}
+        </router-link>
+      </li>
     </ul>
     <router-view></router-view>
   </div>
@@ -40,6 +49,6 @@ import Component from "vue-class-component";
 
 @Component({
 })
-export default class App extends Vue {
+export default class AccountHistory extends Vue {
 }
 </script>
