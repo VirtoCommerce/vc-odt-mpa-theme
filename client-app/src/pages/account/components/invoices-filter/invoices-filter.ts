@@ -3,97 +3,89 @@ import Component from "vue-class-component";
 import { LocaleMessages, TranslateResult } from "vue-i18n";
 import { Prop } from "vue-property-decorator";
 import i18n from "@i18n";
-import { InvoicesListFilters } from "@account/store/modules/invoices-list/types";
+import { IPaymentSearchCriteria } from '@common/api/api-clients';
 import { locale } from "@common/constants";
 
 @Component
 export default class InvoicesFilter extends Vue {
   @Prop()
-  invoicesFilter!: InvoicesListFilters;
+  searchCriteria!: IPaymentSearchCriteria;
 
   @Prop()
   availableInvoicesStatuses!: string[];
 
-  startDate: Date | undefined = undefined;
-
-  endDate: Date | undefined = undefined;
-
-  isDateValid: boolean | null = null;
-
   allStatusesSelected = false;
 
-  selectedStatuses: string[] = [];
+  isDateValid: boolean | null = null;
 
   datepickerLabels: LocaleMessages | {} = {};
 
   locale = locale;
 
-  emitChanges(updatedFilters: InvoicesListFilters) {
-    this.$emit("filtersChanged", updatedFilters);
+  emitChanges(searchCriteria: IPaymentSearchCriteria) {
+    this.$emit("searchCriteriaChanged", searchCriteria);
   }
 
   mounted() {
     this.setDatepickerLocalization();
   }
 
-  dateChanged() {
-    if (this.startDate && this.endDate) {
-      this.isDateValid = this.startDate <= this.endDate;
+  dateChanged(startDate?: Date, endDate?: Date) {
+    if (startDate && endDate) {
+      this.isDateValid = startDate <= endDate;
       if (this.isDateValid) {
-        const updatedFilters = { ...this.invoicesFilter, startDate: this.startDate, endDate: this.prepareEndDate() };
-        this.emitChanges(updatedFilters);
+        const searchCriteria = { ...this.searchCriteria, startDate, endDate };
+        this.emitChanges(searchCriteria);
       }
     } else {
-      this.endDate == null && this.startDate == null ? (this.isDateValid = null) : (this.isDateValid = true);
-      const updatedFilters = {
-        ...this.invoicesFilter,
-        startDate: this.startDate,
-        endDate: this.endDate ? this.prepareEndDate() : undefined
+      this.isDateValid = endDate != null || startDate != null || null;
+      const searchCriteria = {
+        ...this.searchCriteria,
+        startDate,
+        endDate
       };
-      this.emitChanges(updatedFilters);
+      this.emitChanges(searchCriteria);
     }
   }
 
-  changeStartDate(date: Date) {
-    this.startDate = date;
-    this.dateChanged();
+  changeStartDate(date?: Date) {
+    if (this.searchCriteria.startDate?.getTime() !== date?.getTime()){
+      this.dateChanged(date, this.searchCriteria.endDate);
+    }
   }
 
-  changeEndDate(date: Date) {
-    this.endDate = date;
-    this.dateChanged();
+  changeEndDate(date?: Date) {
+    if (this.searchCriteria.endDate?.getTime() !== this.prepareEndDate(date)?.getTime()) {
+      this.dateChanged(this.searchCriteria.startDate, this.prepareEndDate(date));
+    }
   }
 
   setDatepickerLocalization() {
-    typeof i18n.t(`account.invoices.datepicker`) === "string"
-      ? (this.datepickerLabels = {})
-      : (this.datepickerLabels = i18n.t(`account.invoices.datepicker`));
+    this.datepickerLabels = i18n.te("account.invoices.datepicker") ? i18n.t("account.invoices.datepicker") : {};
   }
 
   getCurrentStatusLabel(): TranslateResult {
-    if (this.allStatusesSelected || this.invoicesFilter.statuses.length == this.availableInvoicesStatuses.length) {
+    if (this.allStatusesSelected || !this.searchCriteria.statuses?.length) {
       return i18n.t("account.invoices.status-filter.all");
-    } else return this.invoicesFilter.statuses[0];
+    } else {
+      if (this.searchCriteria.statuses.length == 1) {
+        return this.searchCriteria.statuses[0];
+      } else return "...";
+    }
   }
 
   selectedStatusesChanged(selectedStatuses: string[]) {
-    selectedStatuses.length != this.availableInvoicesStatuses.length
-      ? (this.allStatusesSelected = false)
-      : (this.allStatusesSelected = true);
-    const updatedFilters = { ...this.invoicesFilter, statuses: selectedStatuses };
-    this.emitChanges(updatedFilters);
+    this.allStatusesSelected = selectedStatuses.length === this.availableInvoicesStatuses.length;
+    const searchCriteria = { ...this.searchCriteria, statuses: selectedStatuses };
+    this.emitChanges(searchCriteria);
   }
 
   toggleAllStatuses(checked: boolean) {
-    const updatedFilters = { ...this.invoicesFilter, statuses: this.availableInvoicesStatuses };
-    checked ? (this.selectedStatuses = this.availableInvoicesStatuses) : (this.selectedStatuses = []);
-    this.emitChanges(updatedFilters);
+    const searchCriteria: IPaymentSearchCriteria = { ...this.searchCriteria, statuses: checked ? this.availableInvoicesStatuses : [] };
+    this.emitChanges(searchCriteria);
   }
 
-  private prepareEndDate(): Date {
-    return this.$moment(this.endDate)
-      .add(1, "days")
-      .subtract(1, "seconds")
-      .toDate();
+  private prepareEndDate(endDate?: Date): Date | undefined {
+    return endDate != null ? this.$moment(endDate).add(1, "days").subtract(1, "seconds").toDate() : endDate;
   }
 }

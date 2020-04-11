@@ -1,20 +1,21 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { Prop } from "vue-property-decorator";
-import { UsersListFilters } from '@account/store/modules/users-list/types';
+import { IOrganizationContactsSearchCriteria } from '@common/api/api-clients';
 
 @Component
 export default class UsersFilter extends Vue {
-  @Prop()
-  usersFilter!: UsersListFilters;
 
-  emitChanges(updatedFilters: UsersListFilters) {
-    this.$emit("filtersChanged", updatedFilters);
+  @Prop()
+  searchCriteria!: IOrganizationContactsSearchCriteria;
+
+  emitChanges(searchCriteria: IOrganizationContactsSearchCriteria) {
+    this.$emit("searchCriteriaChanged", searchCriteria);
   }
 
-  changeKeyword(value: string) {
-    const updatedFilters = { ...this.usersFilter, keyword: value };
-    this.emitChanges(updatedFilters);
+  changeKeyword(keyword: string) {
+    const searchCriteria = { ...this.searchCriteria, keyword };
+    this.emitChanges(searchCriteria);
   }
 
 }

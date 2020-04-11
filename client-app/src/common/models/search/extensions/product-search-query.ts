@@ -1,7 +1,7 @@
 import { IProductSearchCriteria } from '@common/api/api-clients';
-import { KeywordSearchQuery } from './keyword-search-query';
-import './product-search-criteria';
-import { TermsData } from './terms-data';
+import { KeywordSearchQuery } from '@common/models/search/keyword-search-query';
+import '@common/models/search/extensions/product-search-criteria';
+import { TermsData } from '@common/models/search/terms-data';
 
 /* eslint @typescript-eslint/camelcase: ["error", {properties: "never"}] */
 export class ProductSearchQuery extends KeywordSearchQuery {

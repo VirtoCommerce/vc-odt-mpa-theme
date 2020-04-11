@@ -7,34 +7,27 @@ import { getters } from "./getters";
 import { mutations } from "./mutations";
 import { UsersListState } from "./types";
 
-
 // initial state
 export const initialState: UsersListState = {
-  errors: {},
-  usersList: {
-    listConfig: {
-      columns: usersGridFields,
-      pageNumber: startPageNumber,
-      pageSize: defaultPageSize,
-      filters: {
-      }
-    },
-    totalCount: 0,
-    users: []
-  },
-  selectedUser: null,
-  selectedUserIsLoaded: false,
   isLoading: false,
-  loaded: false
+  loaded: false,
+  errors: null,
+  columns: usersGridFields,
+  searchCriteria: {
+    pageNumber: startPageNumber,
+    pageSize: defaultPageSize
+  },
+  users: {
+    totalCount: 0,
+    results: []
+  },
+  selectedUser: null
 };
 
-
-const localizationUsersGridColumnsNode = "account.users.grid.columns"
-
 // We need this because bootstrap-vue will directly use labels on stacked table
-initialState.usersList.listConfig.columns = localizeGridColumns(localizationUsersGridColumnsNode, initialState.usersList.listConfig.columns);
+initialState.columns = localizeGridColumns("account.users.grid.columns", initialState.columns);
 
-const usersListModule: Module<UsersListState, RootState> = {
+const ordersListModule: Module<UsersListState, RootState> = {
   namespaced: true,
   state: initialState,
   getters,
@@ -42,4 +35,5 @@ const usersListModule: Module<UsersListState, RootState> = {
   mutations
 };
 
-export default usersListModule;
+export default ordersListModule;
+

@@ -1,6 +1,6 @@
 <template>
   <div v-if="searchCriteria && availableOrderStatuses">
-    <div class="d-flex flex-wrap flex-sm-row flex-column align-items-center">
+    <div class="row flex-sm-row flex-column align-items-center">
       <div class="col col-sm-6 col-md-5 col-lg-4">
         <label for="begin-date">{{ $t("account.orders.from") }}</label>
         <b-form-datepicker

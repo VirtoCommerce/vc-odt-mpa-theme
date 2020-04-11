@@ -1,6 +1,5 @@
-
 <template>
-  <div v-if="usersFilter">
+  <div v-if="searchCriteria">
     <div class="d-flex flex-wrap flex-sm-row flex-column">
       <div class="flex-grow-1 mr-sm-2">
         <label for="keyword-search">{{ $t("account.users.keyword") }}</label>
@@ -9,7 +8,7 @@
           type="text"
           :debounce="1000"
           :placeholder="$t('account.users.keyword')"
-          :value="usersFilter.keyword"
+          :value="searchCriteria.keyword"
           @update="changeKeyword($event)"></b-form-input>
       </div>
     </div>

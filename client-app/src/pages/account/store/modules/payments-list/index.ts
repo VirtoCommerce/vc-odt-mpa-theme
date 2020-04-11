@@ -7,34 +7,25 @@ import { getters } from "./getters";
 import { mutations } from "./mutations";
 import { PaymentsListState } from "./types";
 
-
 // initial state
 export const initialState: PaymentsListState = {
-  errors: {},
-  paymentsList: {
-    listConfig: {
-      columns: paymentsGridFields,
-      pageNumber: startPageNumber,
-      pageSize: defaultPageSize,
-      filters: {
-        statuses: paymentsStatuses,
-        endDate: undefined,
-        startDate: undefined,
-        keyword: undefined
-      }
-    },
-    totalCount: 0,
-    payments: []
-  },
-  selectedPayment: null,
   isLoading: false,
-  loaded: false
+  loaded: false,
+  errors: null,
+  columns: paymentsGridFields,
+  searchCriteria: {
+    pageNumber: startPageNumber,
+    pageSize: defaultPageSize,
+    statuses: [],
+  },
+  payments: {
+    totalCount: 0,
+    results: []
+  }
 };
 
-const localizationPaymentsGridColumnsNode = "account.payments.grid.columns"
-
 // We need this because bootstrap-vue will directly use labels on stacked table
-initialState.paymentsList.listConfig.columns = localizeGridColumns(localizationPaymentsGridColumnsNode, initialState.paymentsList.listConfig.columns);
+initialState.columns = localizeGridColumns("account.payments.grid.columns", initialState.columns);
 
 const paymentsListModule: Module<PaymentsListState, RootState> = {
   namespaced: true,

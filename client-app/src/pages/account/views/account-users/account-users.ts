@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
 import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import i18n from "@i18n";
@@ -9,10 +10,11 @@ import AddUserModal from "@account/components/add-user-modal/index.vue";
 import EditUserModal from '@account/components/edit-user-modal/index.vue';
 import UsersFilter from "@account/components/users-filter/index.vue";
 import { AddUser } from "@account/models/add-user";
-import { FETCH_USERS, SET_USERS_LIST_CONFIG, DELETE_USER, ADD_USER, UPDATE_USER } from "@account/store/modules/users-list/definitions";
-import { UsersList, UsersListConfig, UsersListFilters} from "@account/store/modules/users-list/types";
-import { User,OrganizationUserRegistration, UserUpdateInfo } from "@common/api/api-clients";
-import { pageSizes } from "@common/constants";
+import { DELETE_USER, ADD_USER, UPDATE_USER, SET_USERS_SEARCH_CRITERIA, FETCH_SELECTED_USER } from "@account/store/modules/users-list/definitions";
+import { User,OrganizationUserRegistration, UserUpdateInfo, IOrganizationContactsSearchCriteria, IUserSearchResult, IUser, OrganizationContactsSearchCriteria } from "@common/api/api-clients";
+import { pageSizes, sortDescending, sortAscending } from "@common/constants";
+import { OrganizationContactsSearchQuery } from '@common/models/search/extensions/organization-contacts-search-query';
+import { QueryBuilder } from '@common/services/query-builder.service';
 
 const usersListModule = namespace("usersListModule");
 const profileModule = namespace('profileModule');
@@ -22,27 +24,33 @@ const profileModule = namespace('profileModule');
     AddUserModal,
     UsersFilter,
     EditUserModal
+  },
+  beforeRouteUpdate: function (to: Route, from: Route, next: (to?: RawLocation | false | ((vm: AccountUsers) => any) | void) => void) {
+    (this as AccountUsers).buildSearchCriteria(to);
+    next();
   }
 })
 export default class AccountUsers extends Vue {
-
-  @usersListModule.Getter("usersList")
-  private usersList!: UsersList;
-
   @usersListModule.Getter("isLoading")
   private isLoading!: boolean;
 
-  @profileModule.Getter('profile')
-  profile!: User;
+  @usersListModule.Getter("columns")
+  private columns!: boolean;
 
-  @profileModule.Action(FETCH_PROFILE)
-  fetchProfile!: () => void;
+  @usersListModule.Getter("searchCriteria")
+  private searchCriteria!: IOrganizationContactsSearchCriteria;
 
-  @usersListModule.Action(FETCH_USERS)
-  private fetchUsers!: () => UsersList;
+  @usersListModule.Action(SET_USERS_SEARCH_CRITERIA)
+  private setSearchCriteria!: (searchCriteria: IOrganizationContactsSearchCriteria) => void;
 
-  @usersListModule.Action(SET_USERS_LIST_CONFIG)
-  private setListConfig!: (listConfig: UsersListConfig) => void;
+  @usersListModule.Getter("users")
+  private users!: IUserSearchResult;
+
+  @usersListModule.Getter("selectedUser")
+  private selectedUser!: IUser | null;
+
+  @usersListModule.Action(FETCH_SELECTED_USER)
+  private fetchSelectedUser!: (userId: string) => IUser;
 
   @usersListModule.Action(ADD_USER)
   private addUser!: (user: OrganizationUserRegistration) => void;
@@ -53,46 +61,75 @@ export default class AccountUsers extends Vue {
   @usersListModule.Action(UPDATE_USER)
   private updateUser!: (user: UserUpdateInfo) => void;
 
+  @profileModule.Getter('profile')
+  profile!: User;
+
+  @profileModule.Action(FETCH_PROFILE)
+  fetchProfile!: () => void;
+
   pageSizes = pageSizes;
 
-  editIcon = faEdit
-
+  editIcon = faEdit;
   deleteIcon = faTrashAlt;
 
-  selectedUser: User | null  = null;
+  queryBuilder = new QueryBuilder(OrganizationContactsSearchCriteria, OrganizationContactsSearchQuery);
 
   mounted() {
     this.fetchProfile();
-    this.fetchUsers();
+    this.buildSearchCriteria(this.$route, this.searchCriteria);
   }
 
-  pageChanged(page: number) {
-    this.setListConfig({ ...this.usersList.listConfig, pageNumber: page });
+  buildSearchCriteria(route: Route, initialSearchCriteria?: IOrganizationContactsSearchCriteria) {
+    const searchCriteria = this.queryBuilder.parseQuery(route.query);
+    this.setSearchCriteria({
+      ...initialSearchCriteria,
+      ...searchCriteria
+    });
+  }
+
+  pageChanged(pageNumber: number) {
+    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber });
   }
 
   pageSizeChanged(pageSize: number) {
-    this.setListConfig({ ...this.usersList.listConfig, pageNumber: 1, pageSize: pageSize });
+    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: 1, pageSize });
   }
 
   sortChanged(ctx: BvTableCtxObject) {
-    const sortDirection = ctx.sortDesc ? "desc" : "asc";
+    const sortDirection = ctx.sortDesc ? sortDescending : sortAscending;
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
-    const listConfig = { ...this.usersList.listConfig, pageNumber: 1 };
-    listConfig.filters = { ...this.usersList.listConfig.filters, sort: sortExpression };
-    this.setListConfig(listConfig);
+    const searchCriteria = { ...this.searchCriteria, pageNumber: 1, sort: sortExpression };
+    this.searchCriteriaChanged(searchCriteria);
   }
 
   checkActivePageSize(pageSize: number) {
-    return pageSize == this.usersList.listConfig.pageSize ? true : false;
+    return pageSize == this.searchCriteria.pageSize ? true : false;
   }
 
-  filtersChanged(filters: UsersListFilters) {
-    this.setListConfig({ ...this.usersList.listConfig, filters });
+  searchCriteriaChanged(searchCriteria: IOrganizationContactsSearchCriteria) {
+    const query = this.queryBuilder.buildQuery(new OrganizationContactsSearchCriteria(searchCriteria));
+    this.$router.push({
+      ...this.$route,
+      query
+    });
   }
 
   openEditUserModal(user: User) {
     this.selectedUser = user;
     this.$bvModal.show("editUserModal");
+  }
+
+  userAdded(newUser: AddUser) {
+    if (this.profile.contact?.organizationId) {
+      const orgId: string = this.profile.contact.organizationId;
+      const registerUser = new OrganizationUserRegistration();
+      registerUser.init({...newUser, organizationId: orgId });
+      this.addUser(registerUser);
+    }
+  }
+
+  userChanged(updatedUser: UserUpdateInfo) {
+    this.updateUser(updatedUser);
   }
 
   confirmDeleteUser(user: User) {
@@ -111,19 +148,6 @@ export default class AccountUsers extends Vue {
           this.deleteUser(user.id!);
         }
       });
-  }
-
-  userAdded(newUser: AddUser) {
-    if (this.profile.contact?.organizationId) {
-      const orgId: string = this.profile.contact.organizationId;
-      const registerUser = new OrganizationUserRegistration();
-      registerUser.init({...newUser, organizationId: orgId });
-      this.addUser(registerUser);
-    }
-  }
-
-  userChanged(updatedUser: UserUpdateInfo) {
-    this.updateUser(updatedUser);
   }
 
 }

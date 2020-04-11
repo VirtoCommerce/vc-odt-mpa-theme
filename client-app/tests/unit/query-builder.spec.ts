@@ -3,10 +3,10 @@ import "chai-string";
 import { ProductSearchCriteria } from '@common/api/api-clients';
 import { KeywordSearchCriteria } from '@common/models/search/keyword-search-criteria';
 import { KeywordSearchQuery } from '@common/models/search/keyword-search-query';
-import { ProductSearchQuery } from '@common/models/search/product-search-query';
+import { ProductSearchQuery } from '@common/models/search/extensions/product-search-query';
 import { TermsData } from '@common/models/search/terms-data';
 import { QueryBuilder } from "@common/services/query-builder.service";
-import '@common/models/search/product-search-criteria';
+import '@common/models/search/extensions/product-search-criteria';
 
 // workaround because of unstable build caused by broken .d.ts
 // eslint-disable-next-line @typescript-eslint/no-var-requires

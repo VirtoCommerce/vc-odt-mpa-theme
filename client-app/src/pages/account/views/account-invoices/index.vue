@@ -1,22 +1,22 @@
 <template>
   <div class="mt-3">
     <loading :active.sync="isLoading"></loading>
-    <invoices-filter :invoices-filter="invoicesList.listConfig.filters"
+    <invoices-filter :search-criteria="searchCriteria"
                      :available-invoices-statuses="availableInvoicesStatuses"
-                     @filtersChanged="filtersChanged"></invoices-filter>
+                     @searchCriteriaChanged="searchCriteriaChanged"></invoices-filter>
     <div v-if="!isLoading" class="mt-3">
       <p>{{ $t("account.invoices.grid.text-above") }}</p>
       <b-table
         id="invoices-table"
         stacked="md"
-        borderless
         striped
+        borderless
         hover
         tbody-tr-class="text-break"
         :show-empty="true"
         :empty-text="$t('account.invoices.no-invoices')"
-        :items="invoicesList.invoices"
-        :fields="invoicesList.listConfig.columns"
+        :items="invoices.results"
+        :fields="columns"
         no-local-sorting
         @sort-changed="sortChanged">
         <template v-slot:cell(createdDate)="data">
@@ -34,10 +34,10 @@
 
       <div class="d-flex justify-content-between">
         <b-pagination
-          :value="invoicesList.listConfig.pageNumber"
+          :value="searchCriteria.pageNumber"
           aria-controls="invoices-table"
-          :total-rows="invoicesList.totalCount"
-          :per-page="invoicesList.listConfig.pageSize"
+          :total-rows="invoices.totalCount"
+          :per-page="searchCriteria.pageSize"
           @change="pageChanged($event)"></b-pagination>
         <div>
           <b-dropdown
@@ -48,7 +48,7 @@
             menu-class="pt-0 pb-0"
             toggle-class="d-flex justify-content-between align-items-center">
             <template v-slot:button-content>
-              {{ invoicesList.listConfig.pageSize }}
+              {{ searchCriteria.pageSize }}
             </template>
             <b-dropdown-item v-for="pageSize in pageSizes"
                              :key="pageSize"

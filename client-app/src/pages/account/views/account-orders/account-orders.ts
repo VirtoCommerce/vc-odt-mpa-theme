@@ -4,13 +4,13 @@ import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
 import { BvTableCtxObject, BvTableFieldArray } from "bootstrap-vue";
 import OrderFilter from "@account/components/orders-filter/index.vue";
-import { FETCH_ORDERS, SET_ORDERS_SEARCH_CRITERIA, FETCH_SELECTED_ORDER } from "@account/store/modules/orders-list/definitions";
+import { SET_ORDERS_SEARCH_CRITERIA, FETCH_SELECTED_ORDER } from "@account/store/modules/orders-list/definitions";
 import { CustomerOrder, ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder, OrderSearchCriteria } from "@common/api/api-clients";
-import { pageSizes, ordersStatuses } from "@common/constants";
-import { OrderSearchQuery } from "@common/models/search/order-search-query";
+import { pageSizes, ordersStatuses, sortDescending, sortAscending } from "@common/constants";
+import { OrderSearchQuery } from "@common/models/search/extensions/order-search-query";
 import { QueryBuilder } from '@common/services/query-builder.service';
 import AccountOrderDetailsModal from "../account-order-details-modal/index.vue";
-import "@common/models/search/order-search-criteria";
+import "@common/models/search/extensions/order-search-criteria";
 
 const ordersListModule = namespace("ordersListModule");
 
@@ -20,7 +20,7 @@ const ordersListModule = namespace("ordersListModule");
     OrderFilter
   },
   beforeRouteUpdate: function (to: Route, from: Route, next: (to?: RawLocation | false | ((vm: AccountOrders) => any) | void) => void) {
-    (this as AccountOrders).routeChanged(to);
+    (this as AccountOrders).buildSearchCriteria(to);
     next();
   }
 })
@@ -37,14 +37,11 @@ export default class AccountOrders extends Vue {
   @ordersListModule.Action(SET_ORDERS_SEARCH_CRITERIA)
   private setSearchCriteria!: (searchCriteria: IOrderSearchCriteria) => void;
 
-  @ordersListModule.Action(FETCH_ORDERS)
-  private fetchOrders!: () => ICustomerOrderSearchResult;
-
   @ordersListModule.Getter("orders")
   private orders!: ICustomerOrderSearchResult;
 
   @ordersListModule.Getter("selectedOrder")
-  private selectedOrder!: CustomerOrder;
+  private selectedOrder!: ICustomerOrder | null;
 
   @ordersListModule.Action(FETCH_SELECTED_ORDER)
   private fetchSelectedOrder!: (orderId: string) => ICustomerOrder;
@@ -56,35 +53,30 @@ export default class AccountOrders extends Vue {
   queryBuilder = new QueryBuilder(OrderSearchCriteria, OrderSearchQuery);
 
   mounted() {
-    this.routeChanged(this.$route);
+    this.buildSearchCriteria(this.$route, this.searchCriteria);
   }
 
-  routeChanged(route: Route) {
+  buildSearchCriteria(route: Route, initialSearchCriteria?: IOrderSearchCriteria) {
     const searchCriteria = this.queryBuilder.parseQuery(route.query);
     this.setSearchCriteria({
-      ...this.searchCriteria,
+      ...initialSearchCriteria,
       ...searchCriteria
     });
   }
 
-  pageChanged(page: number) {
-    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: page });
+  pageChanged(pageNumber: number) {
+    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber });
   }
 
   pageSizeChanged(pageSize: number) {
-    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: 1, pageSize: pageSize });
+    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: 1, pageSize });
   }
 
   sortChanged(ctx: BvTableCtxObject) {
-    const sortDirection = ctx.sortDesc ? "desc" : "asc";
+    const sortDirection = ctx.sortDesc ? sortDescending : sortAscending;
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
     const searchCriteria = { ...this.searchCriteria, pageNumber: 1, sort: sortExpression };
     this.searchCriteriaChanged(searchCriteria);
-  }
-
-  openOrderDetails(orderId: string) {
-    this.fetchSelectedOrder(orderId);
-    this.$bvModal.show("orderDetailsModal");
   }
 
   checkActivePageSize(pageSize: number) {
@@ -97,5 +89,10 @@ export default class AccountOrders extends Vue {
       ...this.$route,
       query
     });
+  }
+
+  openOrderDetails(orderId: string) {
+    this.fetchSelectedOrder(orderId);
+    this.$bvModal.show("orderDetailsModal");
   }
 }
