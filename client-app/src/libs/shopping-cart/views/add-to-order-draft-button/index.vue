@@ -5,7 +5,7 @@
                 right
                 variant="outline-primary">
       <template v-slot:button-content>
-        <i class="fas fa-list"></i>
+        <i class="fas fa-file-alt"></i>
       </template>
 
       <b-dropdown-form inline>
