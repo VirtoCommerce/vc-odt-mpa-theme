@@ -1,4 +1,4 @@
-import { AsyncState } from './types';
+import { AsyncState } from '../models/asyncState';
 
 export function fetchAsync(state: AsyncState) {
   state.isLoading = true;

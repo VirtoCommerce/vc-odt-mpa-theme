@@ -1,6 +1,6 @@
 import { BvTableFieldArray } from "bootstrap-vue";
 import { IOrganizationContactsSearchCriteria, IUserSearchResult, IUser } from "@common/api/api-clients";
-import { AsyncState } from '@account/store/types';
+import { AsyncState } from '@common/models/asyncState';
 
 // state type
 export interface UsersListState extends AsyncState {

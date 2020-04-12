@@ -1,5 +1,5 @@
 import { BvTableFieldArray } from "bootstrap-vue";
-import { AsyncState } from "@account/store/types";
+import { AsyncState } from "@common/models/asyncState";
 import { ICartSearchCriteria, IShoppingCart, IShoppingCartSearchResult } from "@common/api/api-clients";
 
 // state type
