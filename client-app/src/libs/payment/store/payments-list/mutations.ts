@@ -1,6 +1,6 @@
 import { MutationTree } from "vuex";
-import { FETCH_PAYMENTS, SET_PAYMENTS_SEARCH_CRITERIA, SET_PAYMENTS } from "@account/store/modules/payments-list/definitions";
-import { PaymentsListState } from "@account/store/modules/payments-list/types";
+import { FETCH_PAYMENTS, SET_PAYMENTS_SEARCH_CRITERIA, SET_PAYMENTS } from "libs/payment/store/payments-list/definitions";
+import { PaymentsListState } from "libs/payment/store/payments-list/types";
 import { fetchAsync, setAsync } from '@account/store/mutations';
 import { PaymentSearchResult, PaymentSearchCriteria } from '@common/api/api-clients';
 
