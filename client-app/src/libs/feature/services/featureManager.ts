@@ -1,5 +1,5 @@
-import json from '../../../../config/settings_data.json';
-import { Feature } from './feature';
+import json from '../../../../../config/settings_data.json';
+import { Feature } from '../models/feature';
 
 export function isActive(featureName: string) {
   if (json == null) {

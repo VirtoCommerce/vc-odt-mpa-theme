@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import i18n from "@i18n";
-import FeatureNames from "plugins/features/featureNames"
+import Permissions from "libs/authorization/constants/permissions"
+import FeatureNames from "libs/feature/constants/featureNames"
 import Admin from '@account/views/account-admin/index.vue';
 import AccountDrafts from '@account/views/account-drafts/index.vue';
 import History from '@account/views/account-history/index.vue';
@@ -11,7 +12,6 @@ import AccountOrders from "@account/views/account-orders/index.vue";
 import AccountPayments from '@account/views/account-payments/index.vue';
 import AccountUsers from "@account/views/account-users/index.vue";
 import { accessDeniedUrl } from '@common/constants';
-import Permissions from "@common/permissions"
 
 Vue.use(VueRouter);
 

@@ -1,10 +1,10 @@
 import _Vue from "vue";
 import { Store } from "vuex";
+import StorefrontPermissions from "libs/authorization/constants/permissions";
 import { VNode } from "vue/types/umd";
 import { IUser } from "@common/api/api-clients";
-import StorefrontPermissions from "@common/permissions";
-import { commentNode } from "./comment-node";
-import profileModule from "./store-profile"
+import { commentNode } from "../../../common/helpers/comment-node";
+import profileModule from "../store/profile"
 
 interface AuthorizationPluginOptions<S> {
   store: Store<S>;

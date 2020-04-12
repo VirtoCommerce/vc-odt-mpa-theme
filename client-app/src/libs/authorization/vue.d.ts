@@ -1,5 +1,5 @@
 import Vue from "vue"
-import StorefrontPermissions from "@common/permissions";
+import StorefrontPermissions from "libs/authorization/constants/permissions";
 
 declare module 'vue/types/vue' {
 

@@ -1,5 +1,5 @@
 import Vue from "vue"
-import FeatureNames from "plugins/features/featureNames";
+import FeatureNames from "libs/feature/constants/featureNames";
 
 declare module 'vue/types/vue' {
 

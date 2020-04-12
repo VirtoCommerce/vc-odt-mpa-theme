@@ -1,6 +1,6 @@
 import _Vue from "vue";
-import { isActive } from "plugins/features/featureManager";
-import FeatureNames from "plugins/features/featureNames";
+import FeatureNames from "libs/feature/constants/featureNames";
+import { isActive } from "libs/feature/services/featureManager";
 
 // export type PluginFunction<T> = (Vue: typeof _Vue, options?: T) => void;
 export function FeaturesPlugin<S>(Vue: typeof _Vue): void {
