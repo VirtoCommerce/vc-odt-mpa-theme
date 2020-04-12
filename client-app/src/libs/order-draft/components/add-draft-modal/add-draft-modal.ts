@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { Validation } from "vuelidate"; //Don't remove this import
+import { AddDraft } from "libs/order-draft/models/add-draft";
 import { required } from "vuelidate/lib/validators";
-import { AddDraft } from "@account/models/add-draft";
 
 @Component({
   validations: {

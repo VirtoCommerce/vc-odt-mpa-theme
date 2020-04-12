@@ -1,6 +1,7 @@
 import Vue from "vue";
 import i18n from "@i18n";
 import invoicesListModule from "libs/invoice/store/invoices-list";
+import draftsListModule from "libs/order-draft/store/drafts-list";
 import ordersListModule from "libs/order/store/orders-list";
 import paymentsListModule from "libs/payment/store/payments-list";
 import usersListModule from "libs/user/store/users-list";
@@ -10,7 +11,6 @@ import { FeaturesPlugin } from 'plugins/features/features.plugin';
 import store from "store";
 import App from "@account/App.vue";
 import router from "@account/router";
-import draftsListModule from "@account/store/modules/drafts-list";
 import InitializationService from "@common/services/initialization.service";
 
 InitializationService.initializeCommon();

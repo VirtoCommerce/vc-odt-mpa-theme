@@ -1,12 +1,12 @@
 import Vue from "vue";
 import i18n from "@i18n";
+import draftsListModule from "libs/order-draft/store/drafts-list"
+import { SET_DRAFTS_SEARCH_CRITERIA } from 'libs/order-draft/store/drafts-list/definitions';
 import cartModule from "libs/shopping-cart/store/cart";
 import AddToCartButton from "libs/shopping-cart/views/add-to-cart-button/index.vue";
 import AddToDraftButton from "libs/shopping-cart/views/add-to-order-draft-button/index.vue";
 import CartButton from "libs/shopping-cart/views/cart-button/index.vue";
 import store from "store";
-import draftsListModule from "@account/store/modules/drafts-list"
-import { SET_DRAFTS_SEARCH_CRITERIA } from '@account/store/modules/drafts-list/definitions';
 import { CartSearchCriteria } from "@common/api/api-clients";
 import { orderDraftType, startPageNumber } from "@common/constants";
 import InitializationService from "@common/services/initialization.service";
