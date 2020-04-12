@@ -1,7 +1,7 @@
 import { ActionTree } from "vuex";
+import { FETCH_USERS, ADD_USER, DELETE_USER, UPDATE_USER, SET_USERS_SEARCH_CRITERIA, FETCH_SELECTED_USER, CLEAR_SELECTED_USER, SET_USERS, SET_SELECTED_USER } from "libs/user/store/users-list/definitions";
+import { UsersListState } from "libs/user/store/users-list/types";
 import { RootState } from "store/types";
-import { FETCH_USERS, ADD_USER, DELETE_USER, UPDATE_USER, SET_USERS_SEARCH_CRITERIA, FETCH_SELECTED_USER, CLEAR_SELECTED_USER, SET_USERS, SET_SELECTED_USER } from "@account/store/modules/users-list/definitions";
-import { UsersListState } from "@account/store/modules/users-list/types";
 import { OrganizationContactsSearchCriteria, OrganizationUserRegistration, UserUpdateInfo } from '@common/api/api-clients';
 import { storeName, locale } from '@common/constants';
 import { accountClient} from '@common/services/api-clients.service';

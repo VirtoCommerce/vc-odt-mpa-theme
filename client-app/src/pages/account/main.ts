@@ -1,5 +1,6 @@
 import Vue from "vue";
 import i18n from "@i18n";
+import usersListModule from "libs/user/store/users-list";
 import { AuthorizationPlugin } from "plugins/authorization/authorization.plugin";
 import { FETCH_PROFILE } from "plugins/authorization/store-profile/definitions";
 import { FeaturesPlugin } from 'plugins/features/features.plugin';
@@ -10,7 +11,6 @@ import draftsListModule from "@account/store/modules/drafts-list";
 import invoicesListModule from "@account/store/modules/invoices-list";
 import ordersListModule from "@account/store/modules/orders-list";
 import paymentsListModule from "@account/store/modules/payments-list";
-import usersListModule from "@account/store/modules/users-list";
 import InitializationService from "@common/services/initialization.service";
 
 InitializationService.initializeCommon();
