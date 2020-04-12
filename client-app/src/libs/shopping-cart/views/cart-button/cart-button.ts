@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { namespace } from "vuex-class";
-import { FETCH_CART_ITEMS_COUNT } from '@catalog/store/modules/cart/definitions';
+import { FETCH_CART_ITEMS_COUNT } from 'libs/shopping-cart/store/cart/definitions';
 
 
 const cartModule = namespace("cart");
@@ -23,6 +23,6 @@ export default class CartButton extends Vue {
   }
 
   onClick() {
-    // todo: open Cart Details page
+    // todo: open Cart Details page or Popup Sidebar or emit some event
   }
 }

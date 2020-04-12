@@ -2,10 +2,10 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { namespace } from "vuex-class";
 import i18n from '@i18n';
-import CartHeader from "components/shopping-cart/cart-header/index.vue";
-import CartItemsList from "components/shopping-cart/cart-items-list/index.vue";
-import CartSummary from "components/shopping-cart/cart-summary/index.vue";
-import { FETCH_CART, DELETE_ITEM_FROM_CART, CHANGE_ITEM_QUANTITY, CLEAR_CART } from "@catalog/store/modules/cart/definitions";
+import CartHeader from "libs/shopping-cart/components/cart-header/index.vue";
+import CartItemsList from "libs/shopping-cart/components/cart-items-list/index.vue";
+import CartSummary from "libs/shopping-cart/components/cart-summary/index.vue";
+import { FETCH_CART, DELETE_ITEM_FROM_CART, CHANGE_ITEM_QUANTITY, CLEAR_CART } from "libs/shopping-cart/store/cart/definitions";
 import { ShoppingCart, CartLineItem, ChangeCartItemQty } from "@common/api/api-clients";
 
 const cartModule = namespace("cart");

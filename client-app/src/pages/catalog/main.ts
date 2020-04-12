@@ -1,16 +1,16 @@
 import Vue from "vue";
 import i18n from "@i18n";
-import AddToCartButton from "components/shopping-cart/add-to-cart-button/index.vue";
-import CartButton from "components/shopping-cart/cart-button/index.vue";
+import cartModule from "libs/shopping-cart/store/cart";
+import AddToCartButton from "libs/shopping-cart/views/add-to-cart-button/index.vue";
+import AddToDraftButton from "libs/shopping-cart/views/add-to-order-draft-button/index.vue";
+import CartButton from "libs/shopping-cart/views/cart-button/index.vue";
 import store from "store";
 import draftsListModule from "@account/store/modules/drafts-list"
-import { FETCH_DRAFTS, SET_DRAFTS_SEARCH_CRITERIA } from '@account/store/modules/drafts-list/definitions';
+import { SET_DRAFTS_SEARCH_CRITERIA } from '@account/store/modules/drafts-list/definitions';
 import { CartSearchCriteria } from "@common/api/api-clients";
 import { orderDraftType, startPageNumber } from "@common/constants";
 import InitializationService from "@common/services/initialization.service";
-import AddToDraftButton from "@components/shopping-cart/add-to-order-draft-button/index.vue";
-import ActiveOrderSidebar from './components/active-order-sidebar/index.vue';
-import cartModule from "./store/modules/cart";
+import ActiveOrderSidebar from './views/active-order-sidebar/index.vue';
 
 
 store.registerModule("cart", cartModule);
