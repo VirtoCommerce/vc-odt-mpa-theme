@@ -1,10 +1,11 @@
 <template>
   <div class="mt-3">
     <loading :active.sync="isLoading" :z-index="5000"></loading>
-    <account-order-details-modal :order="selectedOrder"
-                                 :show-details="true"
-                                 :show-order-details="false">
-    </account-order-details-modal>
+    <order-details-modal :order="selectedOrder"
+                         :show-details="true"
+                         :show-order-details="false"
+                         @hide="orderDetailsModalHided()">
+    </order-details-modal>
     <order-filter :search-criteria="searchCriteria"
                   :available-order-statuses="availableOrderStatuses"
                   @searchCriteriaChanged="searchCriteriaChanged"></order-filter>

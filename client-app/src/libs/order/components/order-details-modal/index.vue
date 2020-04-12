@@ -1,10 +1,10 @@
 <template>
   <b-modal id="orderDetailsModal"
-           :visible="order"
+           :visible="!!order"
            :no-enforce-focus="true"
            hide-footer
            size="lg"
-           @hide="hideModal()">
+           @hide="onHide">
     <div slot="modal-title">
       {{ $t("account.orders.order-details.title") }}
     </div>
@@ -26,7 +26,7 @@
         </b-card-header>
         <b-collapse
           id="accordion-1"
-          v-model="showDetails"
+          :value="showDetails"
           visible
           accordion="my-accordion"
           role="tabpanel">
@@ -53,7 +53,7 @@
         </b-card-header>
         <b-collapse v-if="order"
                     id="accordion-2"
-                    v-model="showOrderDetails"
+                    :value="showOrderDetails"
                     accordion="my-accordion"
                     role="tabpanel">
           <b-card-body v-for="item in order.items" :key="item.id">
@@ -65,4 +65,4 @@
   </b-modal>
 </template>
 
-<script lang="ts" src="./account-order-details-modal"></script>
+<script lang="ts" src="./order-details-modal"></script>
