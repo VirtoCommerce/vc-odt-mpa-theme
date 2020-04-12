@@ -1,7 +1,7 @@
 import { ActionTree } from "vuex";
+import { FETCH_INVOICES, SET_INVOICES_SEARCH_CRITERIA, SET_INVOICES } from "libs/invoice/store/invoices-list/definitions";
+import { InvoicesListState } from "libs/invoice/store/invoices-list/types";
 import { RootState } from "store/types";
-import { FETCH_INVOICES, SET_INVOICES_SEARCH_CRITERIA, SET_INVOICES } from "@account/store/modules/invoices-list/definitions";
-import { InvoicesListState } from "@account/store/modules/invoices-list/types";
 import { PaymentSearchCriteria } from '@common/api/api-clients';
 import { storeName, locale } from '@common/constants';
 import { orderClient } from '@common/services/api-clients.service';
