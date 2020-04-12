@@ -307,7 +307,8 @@
         "draft-name-required": "Draft name is required",
         "submit": "Submit"
       },
-      "name-search": "Name",
+      "search-label": "Search",
+      "search-placeholder": "Name",
       "delete-draft": "Delete",
       "confirm-delete-modal": {
         "title": "Delete draft",
