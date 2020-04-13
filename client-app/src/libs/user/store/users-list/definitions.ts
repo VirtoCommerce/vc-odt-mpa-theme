@@ -10,3 +10,5 @@ export const CLEAR_SELECTED_USER = "clearSelectedUser";
 export const ADD_USER = "addUser";
 export const DELETE_USER = "removeUser";
 export const UPDATE_USER = "updateUser";
+export const SUSPEND_USER = "suspendUser";
+export const UNSUSPEND_USER = "unsuspendUser";
