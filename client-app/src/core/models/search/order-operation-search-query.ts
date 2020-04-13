@@ -1,8 +1,8 @@
-/* eslint-disable-next-line import/default */
-import { safeInvoke } from 'core/helpers/utilities';
 import { KeywordSearchQuery } from 'core/models/search/keyword-search-query';
 import { IOrderOperationSearchCriteria } from 'core/models/search/order-operation-search-criteria';
+/* eslint-disable-next-line import/default */
 import moment from 'moment';
+import { safeInvoke } from '@core/utilities/utilities';
 
 export class OrderOperationSearchQuery extends KeywordSearchQuery {
   startDate?: string;
