@@ -1,6 +1,6 @@
 import { MutationTree } from "vuex";
 import { CustomerOrderSearchResult, CustomerOrder, OrderSearchCriteria } from "core/api/api-clients";
-import { fetchAsync, setAsync } from "core/helpers/async-state";
+import { fetchAsync, setAsync } from "@core/utilities/async-state";
 import { FETCH_ORDERS, SET_ORDERS_SEARCH_CRITERIA, FETCH_SELECTED_ORDER, CLEAR_SELECTED_ORDER, SET_ORDERS, SET_SELECTED_ORDER } from "./definitions";
 import { OrdersListState } from "./types";
 

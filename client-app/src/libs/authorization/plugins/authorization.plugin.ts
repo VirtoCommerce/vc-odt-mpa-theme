@@ -3,7 +3,7 @@ import { Store } from "vuex";
 import { IUser } from "core/api/api-clients";
 import StorefrontPermissions from "libs/authorization/constants/permissions";
 import { VNode } from "vue/types/umd";
-import { commentNode } from "../../../core/helpers/comment-node";
+import { commentNode } from "../../../core/utilities/comment-node";
 import profileModule from "../store/profile"
 
 interface AuthorizationPluginOptions<S> {

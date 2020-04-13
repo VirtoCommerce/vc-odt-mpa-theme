@@ -1,5 +1,5 @@
-import { safeInvoke } from 'core/helpers/utilities';
 import { IPagedSearchCriteria } from 'core/models/search/paged-search-criteria';
+import { safeInvoke } from '@core/utilities/utilities';
 
 /* eslint @typescript-eslint/camelcase: ["error", {properties: "never"}] */
 export class PagedSearchQuery {

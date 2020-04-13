@@ -1,7 +1,7 @@
 import { ProductSearchCriteria } from 'core/api/api-clients';
+import { ProductSearchQuery } from 'core/models/search/extensions/product-search-query';
 import { KeywordSearchCriteria, IKeywordSearchCriteria } from 'core/models/search/keyword-search-criteria';
 import { TermsData } from 'core/models/search/terms-data';
-import { ProductSearchQuery } from 'core/models/search/extensions/product-search-query';
 
 declare module '@core/api/api-clients' {
   /* eslint-disable-next-line @typescript-eslint/interface-name-prefix */

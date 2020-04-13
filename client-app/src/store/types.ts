@@ -1,3 +1,3 @@
 // root state  type
-export interface RootState {
-}
+/* eslint-disable-next-line @typescript-eslint/no-empty-interface */
+export interface RootState {}
