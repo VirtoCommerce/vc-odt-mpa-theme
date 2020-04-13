@@ -77,13 +77,10 @@ export default class ActiveOrderSidebar extends Vue {
   }
 
   changeQuantity(item: CartLineItem, quantity: number) {
-    // todo:
-    console.log(quantity);
     const changeItemQty = new ChangeCartItemQty();
     changeItemQty.lineItemId = item.id;
     changeItemQty.quantity = quantity;
     this.changeLineItemQuantity(changeItemQty)
-
   }
 
 }
