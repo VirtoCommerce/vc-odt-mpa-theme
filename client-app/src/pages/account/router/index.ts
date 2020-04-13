@@ -1,16 +1,17 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Admin from '@admin/index.vue';
-import History from '@history/index.vue';
 import i18n from "@i18n";
-import FeatureNames from "plugins/features/featureNames"
+import { accessDeniedUrl } from 'core/constants';
+import Permissions from "libs/authorization/constants/permissions"
+import FeatureNames from "libs/feature/constants/featureNames"
+import Admin from '@account/views/account-admin/index.vue';
+import AccountDrafts from '@account/views/account-drafts/index.vue';
+import History from '@account/views/account-history/index.vue';
 import AccountInfo from "@account/views/account-info/index.vue";
 import AccountInvoices from '@account/views/account-invoices/index.vue';
 import AccountOrders from "@account/views/account-orders/index.vue";
 import AccountPayments from '@account/views/account-payments/index.vue';
 import AccountUsers from "@account/views/account-users/index.vue";
-import { accessDeniedUrl } from '@common/constants';
-import Permissions from "@common/permissions"
 
 Vue.use(VueRouter);
 
@@ -72,6 +73,13 @@ const routes = [
         beforeEnter: (to: any, from: any, next: any) => {
           const permitted = isPermitted(FeatureNames.PaymentBrowsing, Permissions.CanViewOrders);
           accessHandler(permitted, next);
+        }
+      },
+      {
+        path: "/drafts",
+        component: AccountDrafts,
+        meta: {
+          title: i18n.t('account.menu_titles.drafts')
         }
       }
     ]

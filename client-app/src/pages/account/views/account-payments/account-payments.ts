@@ -3,13 +3,13 @@ import Component from "vue-class-component";
 import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
 import { BvTableCtxObject } from "bootstrap-vue";
-import PaymentsFilter from "@account/components/payments-filter/index.vue";
-import { SET_PAYMENTS_SEARCH_CRITERIA } from '@account/store/modules/payments-list/definitions';
-import { IPaymentSearchCriteria, IPaymentSearchResult, PaymentSearchCriteria } from '@common/api/api-clients';
-import { pageSizes, sortDescending, sortAscending } from "@common/constants";
-import { PaymentSearchQuery } from '@common/models/search/extensions/payment-search-query';
-import { QueryBuilder } from '@common/services/query-builder.service';
-import "@common/models/search/extensions/payment-search-criteria";
+import { IPaymentSearchCriteria, IPaymentSearchResult, PaymentSearchCriteria } from 'core/api/api-clients';
+import { pageSizes, sortDescending, sortAscending } from "core/constants";
+import { PaymentSearchQuery } from 'core/models/search/extensions/payment-search-query';
+import { QueryBuilder } from 'core/services/query-builder.service';
+import PaymentsFilter from "libs/payment/components/payments-filter/index.vue";
+import { SET_PAYMENTS_SEARCH_CRITERIA } from 'libs/payment/store/payments-list/definitions';
+import "core/models/search/extensions/payment-search-criteria";
 
 const paymentsListModule = namespace('paymentsListModule');
 

@@ -5,16 +5,16 @@ import { namespace } from "vuex-class";
 import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
-import { FETCH_PROFILE } from 'plugins/authorization/store-profile/definitions';
-import AddUserModal from "@account/components/add-user-modal/index.vue";
-import EditUserModal from '@account/components/edit-user-modal/index.vue';
-import UsersFilter from "@account/components/users-filter/index.vue";
-import { AddUser } from "@account/models/add-user";
-import { DELETE_USER, ADD_USER, UPDATE_USER, SET_USERS_SEARCH_CRITERIA, FETCH_SELECTED_USER } from "@account/store/modules/users-list/definitions";
-import { User,OrganizationUserRegistration, UserUpdateInfo, IOrganizationContactsSearchCriteria, IUserSearchResult, IUser, OrganizationContactsSearchCriteria } from "@common/api/api-clients";
-import { pageSizes, sortDescending, sortAscending } from "@common/constants";
-import { OrganizationContactsSearchQuery } from '@common/models/search/extensions/organization-contacts-search-query';
-import { QueryBuilder } from '@common/services/query-builder.service';
+import { User,OrganizationUserRegistration, UserUpdateInfo, IOrganizationContactsSearchCriteria, IUserSearchResult, IUser, OrganizationContactsSearchCriteria } from "core/api/api-clients";
+import { pageSizes, sortDescending, sortAscending } from "core/constants";
+import { OrganizationContactsSearchQuery } from 'core/models/search/extensions/organization-contacts-search-query';
+import { QueryBuilder } from 'core/services/query-builder.service';
+import { FETCH_PROFILE } from 'libs/authorization/store/profile/definitions';
+import AddUserModal from "libs/user/components/add-user-modal/index.vue";
+import EditUserModal from 'libs/user/components/edit-user-modal/index.vue';
+import UsersFilter from "libs/user/components/users-filter/index.vue";
+import { AddUser } from "libs/user/models/add-user";
+import { DELETE_USER, ADD_USER, UPDATE_USER, SET_USERS_SEARCH_CRITERIA, FETCH_SELECTED_USER } from "libs/user/store/users-list/definitions";
 
 const usersListModule = namespace("usersListModule");
 const profileModule = namespace('profileModule');
@@ -115,7 +115,7 @@ export default class AccountUsers extends Vue {
   }
 
   openEditUserModal(user: User) {
-    this.selectedUser = user;
+    this.fetchSelectedUser(user.id!);
     this.$bvModal.show("editUserModal");
   }
 

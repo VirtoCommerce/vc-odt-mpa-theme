@@ -4,15 +4,15 @@
 {% endunless %}
 
 {% include 'breadcrumb' %}
-
 <div class="row mt-3">
+
     {% if has_sidebar %}
     <aside class="col-lg-2" id="collectionFilters">
       {% include 'collection-sidebar' %}
     </aside>
     {% endif %}
 
-    <div class="col-12 {% if has_sidebar %}col-lg-10{% endif %}">
+    <div class="col-9 {% if has_sidebar %}col-lg-7{% endif %}">
 
         <header class="d-flex flex-column mb-4">
             <div class="d-flex flex-wrap flex-lg-row flex-column justify-content-between">
@@ -24,7 +24,6 @@
                 <button class="d-lg-none btn btn-primary align-self-center" onclick="toggleFiltersSidebar()">{{ 'collections.filter.title' | t }}</button>
               </div>
             </div>
-
             {% if page_description.empty? == false %}
               <div class="mt-2">
                 {{ page_description }}
@@ -37,9 +36,9 @@
             {% for product in product_search_result.products %}
 
             {% if has_sidebar %}
-            {% assign grid_item_width = 'col-lg-3 col-md-4 col-sm-6' %}
+            {% assign grid_item_width = 'col-lg-4 col-md-4 col-sm-6' %}
             {% else %}
-            {% assign grid_item_width = 'col-lg-2 col-md-4 col-sm-6' %}
+            {% assign grid_item_width = 'col-lg-3 col-md-4 col-sm-6' %}
             {% endif %}
             {% include 'product-grid-item' %}
 
@@ -56,6 +55,11 @@
         </div>
 
     </div>
+
+    <aside class="col-lg-3">
+      <div id="app-cart-sidebar"></div>
+    </aside>
+
 </div>
 <script>
 function toggleFiltersSidebar() {

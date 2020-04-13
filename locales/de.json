@@ -98,6 +98,25 @@
       }
     }
   },
+  "shopping-cart": {
+    "title": "Deine Bestellung",
+    "clear-cart": "Alles entfernen",
+    "subtotal": "Zwischensumme",
+    "shipping": "Shipping",
+    "total": "Versand",
+    "confirm-delete-modal": {
+      "title": "Item löschen",
+      "ok": "JA",
+      "cancel": "NEIN",
+      "message": "Möchten Sie das \"{0}\" Element wirklich löschen?"
+    },
+    "confirm-clear-modal": {
+      "title": "Clear cart",
+      "ok": "JA",
+      "cancel": "NEIN",
+      "message": "Sind Sie sicher, dass Sie den Einkaufswagen räumen möchten?"
+    }
+  },
   "products": {
     "general": {
       "save_html": "Speichern {0}",
@@ -123,7 +142,8 @@
       "orders": "Aufträge",
       "users": "Benutzer",
       "invoices": "Rechnungen",
-      "payments": "Zahlungen"
+      "payments": "Zahlungen",
+      "drafts": "Entwürfe bestellen"
     },
     "home": {
       "email": "Email",
@@ -312,6 +332,45 @@
           "gatewayCode": "Bezahlverfahren",
           "capturedDate": "Datum",
           "currency_code": "Währung"
+        },
+        "text-above": "",
+        "text-below": ""
+      }
+    },
+    "drafts": {
+      "no-drafts": "Keine Daten",
+      "empty-draft": "Dieser Auftragsentwurf ist leer",
+      "add-draft": {
+        "add-draft": "Entwurf hinzufügen",
+        "title": "Neuer Entwurf",
+        "draft-name-label": "Entwurfsname",
+        "draft-name-placeholder": "Entwurfsname",
+        "draft-name-required": "Entwurfsname ist erforderlich",
+        "submit": "Einreichen"
+      },
+      "search-label": "Suche",
+      "search-placeholder": "Name",
+      "delete-draft": "Löschen",
+      "confirm-delete-modal": {
+        "title": "Entwurf löschen",
+        "ok": "JA",
+        "cancel": "NEIN",
+        "message": "Möchten Sie den Entwurf \"{0}\" wirklich löschen?"
+      },
+      "confirm-clear-modal": {
+        "title": "Clear löschen",
+        "ok": "JA",
+        "cancel": "NEIN",
+        "message": "Sind Sie sicher, dass Sie diesen Entwurf löschen möchten?"
+      },
+      "grid": {
+        "columns": {
+          "name": "Name",
+          "itemsCount": "# Positionen",
+          "subTotal_amount": "Zwischensumme",
+          "total_amount": "Gesamt",
+          "currency_code": "Währung",
+          "actions": "Aktionen"
         },
         "text-above": "",
         "text-below": ""

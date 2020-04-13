@@ -12,14 +12,14 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import Error from "@components/Error.vue";
+import ErrorInfo from "libs/error-handling/components/error-info.vue";
 import { REMOVE_ERROR } from "@init-app/store/definitions";
 import { ReactiveErrorInfo } from "@init-app/store/types";
 
 @Component({
   name: "InitApp",
   components: {
-    Error
+    ErrorInfo
   }
 })
 export default class App extends Vue {

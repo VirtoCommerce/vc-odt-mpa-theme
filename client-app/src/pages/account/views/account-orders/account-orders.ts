@@ -2,21 +2,21 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
-import { BvTableCtxObject } from "bootstrap-vue";
-import OrderFilter from "@account/components/orders-filter/index.vue";
-import { SET_ORDERS_SEARCH_CRITERIA, FETCH_SELECTED_ORDER } from "@account/store/modules/orders-list/definitions";
-import { CustomerOrder, ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder, OrderSearchCriteria } from "@common/api/api-clients";
-import { pageSizes, ordersStatuses, sortDescending, sortAscending } from "@common/constants";
-import { OrderSearchQuery } from "@common/models/search/extensions/order-search-query";
-import { QueryBuilder } from '@common/services/query-builder.service';
-import AccountOrderDetailsModal from "../account-order-details-modal/index.vue";
-import "@common/models/search/extensions/order-search-criteria";
+import { BvTableCtxObject, BvTableFieldArray } from "bootstrap-vue";
+import { CustomerOrder, ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder, OrderSearchCriteria } from "core/api/api-clients";
+import { pageSizes, ordersStatuses, sortDescending, sortAscending } from "core/constants";
+import { OrderSearchQuery } from "core/models/search/extensions/order-search-query";
+import { QueryBuilder } from 'core/services/query-builder.service';
+import OrderDetailsModal from "libs/order/components/order-details-modal/index.vue";
+import OrderFilter from "libs/order/components/orders-filter/index.vue";
+import { SET_ORDERS_SEARCH_CRITERIA, FETCH_SELECTED_ORDER, CLEAR_SELECTED_ORDER } from "libs/order/store/orders-list/definitions";
+import "core/models/search/extensions/order-search-criteria";
 
 const ordersListModule = namespace("ordersListModule");
 
 @Component({
   components: {
-    AccountOrderDetailsModal,
+    OrderDetailsModal,
     OrderFilter
   },
   beforeRouteUpdate: function (to: Route, from: Route, next: (to?: RawLocation | false | ((vm: AccountOrders) => any) | void) => void) {
@@ -29,7 +29,7 @@ export default class AccountOrders extends Vue {
   private isLoading!: boolean;
 
   @ordersListModule.Getter("columns")
-  private columns!: boolean;
+  private columns!: BvTableFieldArray;
 
   @ordersListModule.Getter("searchCriteria")
   private searchCriteria!: IOrderSearchCriteria;
@@ -46,6 +46,9 @@ export default class AccountOrders extends Vue {
   @ordersListModule.Action(FETCH_SELECTED_ORDER)
   private fetchSelectedOrder!: (orderId: string) => ICustomerOrder;
 
+  @ordersListModule.Action(CLEAR_SELECTED_ORDER)
+  private clearSelectedOrder!: () => void;
+
   pageSizes = pageSizes;
 
   availableOrderStatuses = ordersStatuses;
@@ -54,6 +57,10 @@ export default class AccountOrders extends Vue {
 
   mounted() {
     this.buildSearchCriteria(this.$route, this.searchCriteria);
+  }
+
+  orderDetailsModalHided() {
+    this.clearSelectedOrder();
   }
 
   buildSearchCriteria(route: Route, initialSearchCriteria?: IOrderSearchCriteria) {

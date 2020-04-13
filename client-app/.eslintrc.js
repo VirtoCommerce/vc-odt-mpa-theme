@@ -48,7 +48,7 @@ module.exports = {
           "position": "before"
         },
         {
-          "pattern": "{i18n,@common/**,@components/**,@init-app/**,@account/**,@catalog/**}",
+          "pattern": "{i18n,@core/**,@components/**,@init-app/**,@account/**,@catalog/**}",
           "group": "unknown",
           "position": "after"
         }

@@ -24,12 +24,10 @@
     ],
     "paths": {
       "@i18n": [ "i18n" ],
-      "@common/*": [ "common/*" ],
+      "@core/*": [ "core/*" ],
       "@components/*": [ "components/*" ],
       "@init-app/*": [ "pages/init/*" ],
       "@account/*": [ "pages/account/*" ],
-      "@history/*": [ "pages/history/*" ],
-      "@admin/*": [ "pages/admin/*" ],
       "@catalog/*": [ "pages/catalog/*" ]
     },
     "lib": [

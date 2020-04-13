@@ -4,13 +4,13 @@ import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { BvTableCtxObject } from "bootstrap-vue";
-import InvoicesFilter from "@account/components/invoices-filter/index.vue";
-import { SET_INVOICES_SEARCH_CRITERIA } from '@account/store/modules/invoices-list/definitions';
-import { IPaymentSearchCriteria, IPaymentSearchResult, PaymentSearchCriteria } from '@common/api/api-clients';
-import { pageSizes, invoicesStatuses, baseUrl, storeName, locale, sortDescending, sortAscending } from "@common/constants";
-import { PaymentSearchQuery } from '@common/models/search/extensions/payment-search-query';
-import { QueryBuilder } from '@common/services/query-builder.service';
-import "@common/models/search/extensions/payment-search-criteria";
+import { IPaymentSearchCriteria, IPaymentSearchResult, PaymentSearchCriteria } from 'core/api/api-clients';
+import { pageSizes, invoicesStatuses, baseUrl, storeName, locale, sortDescending, sortAscending } from "core/constants";
+import { PaymentSearchQuery } from 'core/models/search/extensions/payment-search-query';
+import { QueryBuilder } from 'core/services/query-builder.service';
+import InvoicesFilter from "libs/invoice/components/invoices-filter/index.vue";
+import { SET_INVOICES_SEARCH_CRITERIA } from 'libs/invoice/store/invoices-list/definitions';
+import "core/models/search/extensions/payment-search-criteria";
 
 const invoicesListModule = namespace('invoicesListModule');
 
