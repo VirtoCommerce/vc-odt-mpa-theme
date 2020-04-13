@@ -43,7 +43,7 @@
             <u
               id="delete-draft"
               class="btn d-inline p-0"
-              @click="confirmDeleteDraft(row.item)">{{ $t("account.drafts.delete-draft") }}</u>
+              @click.stop="confirmDeleteDraft(row.item)">{{ $t("account.drafts.delete-draft") }}</u>
           </template>
         </b-table>
         <div class="d-flex justify-content-between">
