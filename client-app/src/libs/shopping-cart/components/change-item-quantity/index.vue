@@ -5,7 +5,7 @@
     </button>
     <input type="text"
            OnlyNumber="true"
-           class="form-control form-control-sm text-right"
+           class="form-control form-control-sm text-center"
            :value="model"
            @keydown="keydown($event)"
            @blur="textChanged($event.target.value)"
