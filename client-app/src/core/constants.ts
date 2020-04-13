@@ -25,6 +25,7 @@ export const paymentsStatuses = ["Paid"];
 export const orderDraftType = "orderDraft";
 export const sortAscending = "asc";
 export const sortDescending = "desc";
+export const dropdownMaxItems = 100;
 
 // Grids
 export const ordersGridFields =  window.THEME_SETTINGS.orders_grid_fields as BvTableFieldArray;

@@ -1,7 +1,7 @@
 import Vue from "vue";
 import i18n from "@i18n";
 import { CartSearchCriteria } from "core/api/api-clients";
-import { orderDraftType, startPageNumber } from "core/constants";
+import { orderDraftType, startPageNumber, dropdownMaxItems } from "core/constants";
 import InitializationService from "core/services/initialization.service";
 import draftsListModule from "libs/order-draft/store/drafts-list"
 import { SET_DRAFTS_SEARCH_CRITERIA } from 'libs/order-draft/store/drafts-list/definitions';
@@ -52,7 +52,7 @@ new Vue({
 
 const criteria = new CartSearchCriteria();
 criteria.pageNumber = startPageNumber;
-criteria.pageSize = Number.MAX_SAFE_INTEGER;
+criteria.pageSize = dropdownMaxItems;
 criteria.type = orderDraftType;
 store.dispatch(`draftsListModule/${SET_DRAFTS_SEARCH_CRITERIA}`, criteria);
 
