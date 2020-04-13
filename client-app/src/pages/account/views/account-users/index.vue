@@ -10,7 +10,7 @@
       <div class="col col-sm-auto col-md-auto col-lg-auto align-self-sm-end mt-3">
         <b-button v-can="$permissions.CanCreateUsers"
                   v-b-modal.addUserModal
-                  variant="primary">
+                  variant="outline-primary">
           {{ $t("account.users.add-user.add-user") }}
         </b-button>
       </div>
