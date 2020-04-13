@@ -44,9 +44,9 @@ import { Subscription } from "rxjs";
 import { ReactiveErrorInfo } from "@init-app/store/types";
 
 @Component({
-  name: "InitApp"
+  name: "ErrorInfo"
 })
-export default class App extends Vue {
+export default class ErrorInfo extends Vue {
   faCaretRight = faCaretRight;
   faCaretDown = faCaretDown;
 
