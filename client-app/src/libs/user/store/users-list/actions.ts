@@ -1,10 +1,10 @@
 import { ActionTree } from "vuex";
+import { OrganizationContactsSearchCriteria, OrganizationUserRegistration, UserUpdateInfo } from 'core/api/api-clients';
+import { storeName, locale } from 'core/constants';
+import { accountClient} from 'core/services/api-clients.service';
 import { FETCH_USERS, ADD_USER, DELETE_USER, UPDATE_USER, SET_USERS_SEARCH_CRITERIA, FETCH_SELECTED_USER, CLEAR_SELECTED_USER, SET_USERS, SET_SELECTED_USER } from "libs/user/store/users-list/definitions";
 import { UsersListState } from "libs/user/store/users-list/types";
 import { RootState } from "store/types";
-import { OrganizationContactsSearchCriteria, OrganizationUserRegistration, UserUpdateInfo } from '@common/api/api-clients';
-import { storeName, locale } from '@common/constants';
-import { accountClient} from '@common/services/api-clients.service';
 
 //actions
 export const actions: ActionTree<UsersListState, RootState> = {

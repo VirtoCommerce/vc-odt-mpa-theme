@@ -3,9 +3,9 @@ import Component from "vue-class-component";
 import { Prop } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { ShoppingCartSearchResult, AddCartItem, ShoppingCart } from "core/api/api-clients";
 import { AddDraft } from "libs/order-draft/models/add-draft";
 import { ADD_DRAFT, ADD_ITEM_TO_DRAFT } from "libs/order-draft/store/drafts-list/definitions";
-import { ShoppingCartSearchResult, AddCartItem, ShoppingCart } from "@common/api/api-clients";
 
 const draftModule = namespace("draftsListModule");
 

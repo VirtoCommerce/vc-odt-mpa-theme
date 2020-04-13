@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { Prop } from "vue-property-decorator";
-import { IOrganizationContactsSearchCriteria } from '@common/api/api-clients';
+import { IOrganizationContactsSearchCriteria } from 'core/api/api-clients';
 
 @Component
 export default class UsersFilter extends Vue {

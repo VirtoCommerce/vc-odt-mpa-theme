@@ -1,5 +1,5 @@
-import { ChangeCartItemQty } from '@common/api/api-clients';
-import { orderDraftType } from '@common/constants';
+import { ChangeCartItemQty } from 'core/api/api-clients';
+import { orderDraftType } from 'core/constants';
 
 export class ChangeListItem {
   listName: string;

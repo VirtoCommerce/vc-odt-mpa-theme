@@ -1,7 +1,7 @@
 import { ActionTree } from "vuex";
-import { UserUpdateInfo } from "@common/api/api-clients";
-import { storeName, locale } from "@common/constants";
-import { accountClient } from "@common/services/api-clients.service";
+import { UserUpdateInfo } from "core/api/api-clients";
+import { storeName, locale } from "core/constants";
+import { accountClient } from "core/services/api-clients.service";
 import { FETCH_PROFILE, SET_PROFILE, UPDATE_USER  } from "./definitions";
 import { ProfileState } from "./types";
 

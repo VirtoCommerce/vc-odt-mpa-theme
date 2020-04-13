@@ -1,5 +1,5 @@
 import axios from "axios";
-import { baseUrl, loginUrl, accessDeniedUrl } from '@common/constants';
+import { baseUrl, loginUrl, accessDeniedUrl } from 'core/constants';
 
 const axiosInstance = axios.create();
 

@@ -1,6 +1,6 @@
 import { BvTableFieldArray } from "bootstrap-vue";
-import { AsyncState } from '@common/models/asyncState';
-import { IOrderSearchCriteria, ICustomerOrderSearchResult, ICustomerOrder } from "@common/api/api-clients";
+import { AsyncState } from 'core/models/asyncState';
+import { IOrderSearchCriteria, ICustomerOrderSearchResult, ICustomerOrder } from "core/api/api-clients";
 
 // state type
 export interface OrdersListState extends AsyncState {

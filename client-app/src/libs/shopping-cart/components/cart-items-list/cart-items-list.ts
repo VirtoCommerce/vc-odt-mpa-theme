@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { Prop, Emit } from "vue-property-decorator";
+import { CartLineItem } from 'core/api/api-clients';
 import CartItem from "libs/shopping-cart/components/cart-item/index.vue";
-import { CartLineItem } from '@common/api/api-clients';
 
 
 @Component({

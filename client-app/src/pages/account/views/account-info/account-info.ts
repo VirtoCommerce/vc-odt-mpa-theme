@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { namespace } from 'vuex-class';
+import { User, UserUpdateInfo } from "core/api/api-clients";
 import { FETCH_PROFILE, UPDATE_USER } from 'libs/authorization/store/profile/definitions';
-import { User, UserUpdateInfo } from "@common/api/api-clients";
 
 const profileModule = namespace('profileModule');
 

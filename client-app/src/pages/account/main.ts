@@ -1,5 +1,6 @@
 import Vue from "vue";
 import i18n from "@i18n";
+import InitializationService from "core/services/initialization.service";
 import { AuthorizationPlugin } from "libs/authorization/plugins/authorization.plugin";
 import { FETCH_PROFILE } from "libs/authorization/store/profile/definitions";
 import { FeaturesPlugin } from 'libs/feature/plugins/features.plugin';
@@ -11,7 +12,6 @@ import usersListModule from "libs/user/store/users-list";
 import store from "store";
 import App from "@account/App.vue";
 import router from "@account/router";
-import InitializationService from "@common/services/initialization.service";
 
 InitializationService.initializeCommon();
 

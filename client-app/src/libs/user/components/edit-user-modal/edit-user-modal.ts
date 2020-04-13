@@ -2,8 +2,8 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { Prop, Watch } from "vue-property-decorator";
 import { Validation } from "vuelidate"; //Don't remove this import
+import { User, UserUpdateInfo } from "core/api/api-clients";
 import { email, required } from "vuelidate/lib/validators";
-import { User, UserUpdateInfo } from "@common/api/api-clients";
 
 @Component({
   validations: {

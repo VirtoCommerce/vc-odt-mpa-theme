@@ -1,4 +1,4 @@
-import { Dictionary } from '@common/models/dictionary';
+import { Dictionary } from 'core/models/dictionary';
 
 export function safeInvoke<T, R>(arg: T | null | undefined, callback: (arg: T) => R): R | undefined {
   return arg != null ? callback(arg) : undefined;

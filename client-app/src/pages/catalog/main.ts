@@ -1,5 +1,8 @@
 import Vue from "vue";
 import i18n from "@i18n";
+import { CartSearchCriteria } from "core/api/api-clients";
+import { orderDraftType, startPageNumber } from "core/constants";
+import InitializationService from "core/services/initialization.service";
 import draftsListModule from "libs/order-draft/store/drafts-list"
 import { SET_DRAFTS_SEARCH_CRITERIA } from 'libs/order-draft/store/drafts-list/definitions';
 import cartModule from "libs/shopping-cart/store/cart";
@@ -7,9 +10,6 @@ import AddToCartButton from "libs/shopping-cart/views/add-to-cart-button/index.v
 import AddToDraftButton from "libs/shopping-cart/views/add-to-order-draft-button/index.vue";
 import CartButton from "libs/shopping-cart/views/cart-button/index.vue";
 import store from "store";
-import { CartSearchCriteria } from "@common/api/api-clients";
-import { orderDraftType, startPageNumber } from "@common/constants";
-import InitializationService from "@common/services/initialization.service";
 import ActiveOrderSidebar from './views/active-order-sidebar/index.vue';
 
 

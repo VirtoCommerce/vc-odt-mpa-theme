@@ -1,8 +1,8 @@
 import { ActionTree } from "vuex";
+import { OrderSearchCriteria } from "core/api/api-clients";
+import { storeName, locale } from "core/constants";
+import { orderClient} from "core/services/api-clients.service";
 import { RootState } from "store/types";
-import { OrderSearchCriteria } from "@common/api/api-clients";
-import { storeName, locale } from "@common/constants";
-import { orderClient} from "@common/services/api-clients.service";
 import { FETCH_ORDERS, FETCH_SELECTED_ORDER, SET_ORDERS_SEARCH_CRITERIA, CLEAR_SELECTED_ORDER, SET_ORDERS, SET_SELECTED_ORDER } from "./definitions";
 import { OrdersListState } from "./types";
 

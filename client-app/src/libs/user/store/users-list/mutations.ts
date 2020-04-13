@@ -1,6 +1,6 @@
 import { MutationTree } from "vuex";
-import { UserSearchResult, User, OrganizationContactsSearchCriteria } from '@common/api/api-clients';
-import { fetchAsync, setAsync } from '@common/helpers/async-state';
+import { UserSearchResult, User, OrganizationContactsSearchCriteria } from 'core/api/api-clients';
+import { fetchAsync, setAsync } from 'core/helpers/async-state';
 import { FETCH_USERS, CLEAR_SELECTED_USER, SET_USERS_SEARCH_CRITERIA, FETCH_SELECTED_USER, SET_SELECTED_USER, SET_USERS } from "./definitions";
 import { UsersListState } from "./types";
 

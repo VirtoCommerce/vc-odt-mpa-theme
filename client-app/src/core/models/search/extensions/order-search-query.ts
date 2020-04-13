@@ -1,7 +1,7 @@
 /* eslint-disable-next-line import/default */
-import { IOrderSearchCriteria } from '@common/api/api-clients';
-import '@common/models/search/extensions/order-search-criteria';
-import { OrderOperationSearchQuery } from '@common/models/search/order-operation-search-query';
+import { IOrderSearchCriteria } from 'core/api/api-clients';
+import 'core/models/search/extensions/order-search-criteria';
+import { OrderOperationSearchQuery } from 'core/models/search/order-operation-search-query';
 
 export class OrderSearchQuery extends OrderOperationSearchQuery {
   toSearchCriteria<TSearchCriteria extends IOrderSearchCriteria>(searchCriteriaType: { new(): TSearchCriteria }): TSearchCriteria {

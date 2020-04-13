@@ -8,7 +8,7 @@ import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { faHeartBroken, faLock, faMeteor, faThLarge, faList, faShoppingCart, faCamera, faCalculator, faChartBar, faFileAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
 import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin, TooltipPlugin, SidebarPlugin, OverlayPlugin } from 'bootstrap-vue';
-import axios from "@common/services/axios-instance";
+import axios from "core/services/axios-instance";
 
 export default class InitializationService {
   static initializeCommon() {

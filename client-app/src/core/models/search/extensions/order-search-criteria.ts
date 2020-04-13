@@ -1,8 +1,8 @@
-import { OrderSearchCriteria } from '@common/api/api-clients';
-import { OrderSearchQuery } from '@common/models/search/extensions/order-search-query';
-import { OrderOperationSearchCriteria } from '@common/models/search/order-operation-search-criteria';
+import { OrderSearchCriteria } from 'core/api/api-clients';
+import { OrderSearchQuery } from 'core/models/search/extensions/order-search-query';
+import { OrderOperationSearchCriteria } from 'core/models/search/order-operation-search-criteria';
 
-declare module '@common/api/api-clients' {
+declare module '@core/api/api-clients' {
   interface OrderSearchCriteria extends OrderOperationSearchCriteria {
     toSearchQuery<TSearchQuery extends OrderSearchQuery>(searchQueryType: new() => TSearchQuery): TSearchQuery;
     normalize(): void;

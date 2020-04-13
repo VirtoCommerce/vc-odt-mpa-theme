@@ -1,4 +1,4 @@
-import { PagedSearchQuery } from '@common/models/search/paged-search-query';
+import { PagedSearchQuery } from 'core/models/search/paged-search-query';
 
 /* eslint-disable-next-line @typescript-eslint/interface-name-prefix */
 export interface IPagedSearchCriteria {

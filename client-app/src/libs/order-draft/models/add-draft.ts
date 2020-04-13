@@ -1,4 +1,4 @@
-import { orderDraftType } from '@common/constants';
+import { orderDraftType } from 'core/constants';
 
 export class AddDraft {
   listName: string;

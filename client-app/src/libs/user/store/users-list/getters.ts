@@ -1,8 +1,8 @@
 import { GetterTree } from "vuex";
 import { BvTableFieldArray } from 'bootstrap-vue';
+import { User, IOrganizationContactsSearchCriteria, IUserSearchResult, IUser } from "core/api/api-clients";
 import { UsersListState } from "libs/user/store/users-list/types";
 import { RootState } from "store/types";
-import { User, IOrganizationContactsSearchCriteria, IUserSearchResult, IUser } from "@common/api/api-clients";
 
 // getters
 export const getters: GetterTree<UsersListState, RootState> = {

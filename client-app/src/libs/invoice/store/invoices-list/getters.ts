@@ -1,8 +1,8 @@
 import { GetterTree } from "vuex";
 import { BvTableFieldArray } from 'bootstrap-vue';
+import { IPaymentSearchCriteria, IPaymentSearchResult } from "core/api/api-clients";
 import { InvoicesListState } from "libs/invoice/store/invoices-list/types";
 import { RootState } from "store/types";
-import { IPaymentSearchCriteria, IPaymentSearchResult } from "@common/api/api-clients";
 
 // getters
 export const getters: GetterTree<InvoicesListState, RootState> = {

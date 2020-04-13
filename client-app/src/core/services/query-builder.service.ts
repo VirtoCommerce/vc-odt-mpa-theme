@@ -1,7 +1,7 @@
-import { toDictionary } from '@common/helpers/utilities';
-import { Dictionary } from '@common/models/dictionary';
-import { PagedSearchCriteria } from '@common/models/search/paged-search-criteria';
-import { PagedSearchQuery } from '@common/models/search/paged-search-query';
+import { toDictionary } from 'core/helpers/utilities';
+import { Dictionary } from 'core/models/dictionary';
+import { PagedSearchCriteria } from 'core/models/search/paged-search-criteria';
+import { PagedSearchQuery } from 'core/models/search/paged-search-query';
 
 export class QueryBuilder<
 TSearchCriteria extends PagedSearchCriteria,

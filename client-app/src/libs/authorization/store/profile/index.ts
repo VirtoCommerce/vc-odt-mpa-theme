@@ -1,5 +1,5 @@
 import { Module } from "vuex";
-import { User } from '@common/api/api-clients';
+import { User } from 'core/api/api-clients';
 import { actions } from "./actions";
 import { getters } from "./getters";
 import { mutations } from "./mutations";

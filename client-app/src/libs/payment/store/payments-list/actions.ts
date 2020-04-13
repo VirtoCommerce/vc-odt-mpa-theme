@@ -1,10 +1,10 @@
 import { ActionTree } from "vuex";
+import { PaymentSearchCriteria } from 'core/api/api-clients';
+import { storeName, locale } from 'core/constants';
+import { orderClient } from 'core/services/api-clients.service';
 import { FETCH_PAYMENTS, SET_PAYMENTS_SEARCH_CRITERIA, SET_PAYMENTS } from "libs/payment/store/payments-list/definitions";
 import { PaymentsListState } from "libs/payment/store/payments-list/types";
 import { RootState } from "store/types";
-import { PaymentSearchCriteria } from '@common/api/api-clients';
-import { storeName, locale } from '@common/constants';
-import { orderClient } from '@common/services/api-clients.service';
 
 //actions
 export const actions: ActionTree<PaymentsListState, RootState> = {

@@ -2,8 +2,8 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { Prop } from "vue-property-decorator";
 import { namespace } from "vuex-class";
+import { AddCartItem } from 'core/api/api-clients';
 import { ADD_ITEM_TO_CART } from 'libs/shopping-cart/store/cart/definitions';
-import { AddCartItem } from '@common/api/api-clients';
 
 const cartModule = namespace("cart");
 

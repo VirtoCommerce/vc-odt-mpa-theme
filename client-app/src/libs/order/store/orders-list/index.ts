@@ -1,7 +1,7 @@
 import { Module } from "vuex";
+import { ordersGridFields, startPageNumber, defaultPageSize } from 'core/constants';
+import { localizeGridColumns } from 'core/services/localization.helper.service';
 import { RootState } from "store/types";
-import { ordersGridFields, startPageNumber, defaultPageSize } from '@common/constants';
-import { localizeGridColumns } from '@common/services/localization.helper.service';
 import { actions } from "./actions";
 import { getters } from "./getters";
 import { mutations } from "./mutations";

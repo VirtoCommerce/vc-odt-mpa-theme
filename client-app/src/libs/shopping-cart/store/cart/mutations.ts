@@ -1,5 +1,5 @@
 import { MutationTree } from "vuex";
-import { ShoppingCart } from '@common/api/api-clients';
+import { ShoppingCart } from 'core/api/api-clients';
 import { FETCH_CART } from "./definitions";
 import { CartState } from "./types";
 

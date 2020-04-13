@@ -3,14 +3,14 @@ import Component from "vue-class-component";
 import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
 import { BvTableCtxObject, BvTableFieldArray } from "bootstrap-vue";
+import { CustomerOrder, ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder, OrderSearchCriteria } from "core/api/api-clients";
+import { pageSizes, ordersStatuses, sortDescending, sortAscending } from "core/constants";
+import { OrderSearchQuery } from "core/models/search/extensions/order-search-query";
+import { QueryBuilder } from 'core/services/query-builder.service';
 import OrderDetailsModal from "libs/order/components/order-details-modal/index.vue";
 import OrderFilter from "libs/order/components/orders-filter/index.vue";
 import { SET_ORDERS_SEARCH_CRITERIA, FETCH_SELECTED_ORDER, CLEAR_SELECTED_ORDER } from "libs/order/store/orders-list/definitions";
-import { CustomerOrder, ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder, OrderSearchCriteria } from "@common/api/api-clients";
-import { pageSizes, ordersStatuses, sortDescending, sortAscending } from "@common/constants";
-import { OrderSearchQuery } from "@common/models/search/extensions/order-search-query";
-import { QueryBuilder } from '@common/services/query-builder.service';
-import "@common/models/search/extensions/order-search-criteria";
+import "core/models/search/extensions/order-search-criteria";
 
 const ordersListModule = namespace("ordersListModule");
 

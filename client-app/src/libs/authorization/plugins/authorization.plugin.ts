@@ -1,9 +1,9 @@
 import _Vue from "vue";
 import { Store } from "vuex";
+import { IUser } from "core/api/api-clients";
 import StorefrontPermissions from "libs/authorization/constants/permissions";
 import { VNode } from "vue/types/umd";
-import { IUser } from "@common/api/api-clients";
-import { commentNode } from "../../../common/helpers/comment-node";
+import { commentNode } from "../../../core/helpers/comment-node";
 import profileModule from "../store/profile"
 
 interface AuthorizationPluginOptions<S> {

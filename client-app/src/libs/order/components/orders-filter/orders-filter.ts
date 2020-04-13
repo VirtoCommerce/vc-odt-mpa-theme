@@ -3,8 +3,8 @@ import Component from "vue-class-component";
 import { LocaleMessages, TranslateResult } from "vue-i18n";
 import { Prop } from "vue-property-decorator";
 import i18n from "@i18n";
-import { IOrderSearchCriteria } from '@common/api/api-clients';
-import { locale } from "@common/constants";
+import { IOrderSearchCriteria } from 'core/api/api-clients';
+import { locale } from "core/constants";
 
 @Component
 export default class OrderFilter extends Vue {

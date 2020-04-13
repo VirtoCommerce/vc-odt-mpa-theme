@@ -1,6 +1,6 @@
 import { GetterTree } from "vuex";
+import { ShoppingCart } from "core/api/api-clients";
 import { RootState } from 'store/types';
-import { ShoppingCart } from "@common/api/api-clients";
 import {  CartState } from "./types";
 
 // getters

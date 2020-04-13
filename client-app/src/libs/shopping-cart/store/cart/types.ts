@@ -1,5 +1,5 @@
 import { BvTableFieldArray } from "bootstrap-vue";
-import { ShoppingCart } from "@common/api/api-clients";
+import { ShoppingCart } from "core/api/api-clients";
 
 // state type
 export interface CartState {

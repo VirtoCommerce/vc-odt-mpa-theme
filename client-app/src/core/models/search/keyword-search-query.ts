@@ -1,5 +1,5 @@
-import { IKeywordSearchCriteria } from '@common/models/search/keyword-search-criteria';
-import { PagedSearchQuery } from '@common/models/search/paged-search-query';
+import { IKeywordSearchCriteria } from 'core/models/search/keyword-search-criteria';
+import { PagedSearchQuery } from 'core/models/search/paged-search-query';
 
 /* eslint @typescript-eslint/camelcase: ["error", {properties: "never"}] */
 export class KeywordSearchQuery extends PagedSearchQuery {

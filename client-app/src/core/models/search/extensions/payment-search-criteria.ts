@@ -1,8 +1,8 @@
-import { PaymentSearchCriteria } from '@common/api/api-clients';
-import { PaymentSearchQuery } from '@common/models/search/extensions/payment-search-query';
-import { OrderOperationSearchCriteria } from '@common/models/search/order-operation-search-criteria';
+import { PaymentSearchCriteria } from 'core/api/api-clients';
+import { PaymentSearchQuery } from 'core/models/search/extensions/payment-search-query';
+import { OrderOperationSearchCriteria } from 'core/models/search/order-operation-search-criteria';
 
-declare module '@common/api/api-clients' {
+declare module '@core/api/api-clients' {
   interface PaymentSearchCriteria extends OrderOperationSearchCriteria {
     toSearchQuery<TSearchQuery extends PaymentSearchQuery>(searchQueryType: new() => TSearchQuery): TSearchQuery;
     normalize(): void;
