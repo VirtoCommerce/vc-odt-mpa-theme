@@ -107,12 +107,16 @@ export default class AccountDrafts extends Vue {
     })
       .then(value => {
         if(value) {
-          this.deleteDraft([draft.id!])
+          this.showDraftDetailsSidebar = false;
+          this.deleteDraft([draft.id!]);
         }
       });
   }
 
-  showDraftDetails(draft: ShoppingCart){
+  showDraftDetails(draft: ShoppingCart, index: number, event: MouseEvent){
+    if ((event.target as HTMLElement).id == 'delete-draft') {
+      return
+    }
     this.selectDraft(draft);
     this.showDraftDetailsSidebar = true;
   }

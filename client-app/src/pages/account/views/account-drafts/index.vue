@@ -41,6 +41,7 @@
           @row-clicked="showDraftDetails">
           <template v-slot:cell(actions)="row">
             <u
+              id="delete-draft"
               class="btn d-inline p-0"
               @click="confirmDeleteDraft(row.item)">{{ $t("account.drafts.delete-draft") }}</u>
           </template>
