@@ -13,5 +13,7 @@ export const getters: GetterTree<CartState, RootState> = {
   },
   itemsQuantity: (state: CartState): number  => {
     return state.cartItemsCount;
-  }
+  },
+  sidebarVisible: (state: CartState): boolean => state.sidebarVisible
+
 };

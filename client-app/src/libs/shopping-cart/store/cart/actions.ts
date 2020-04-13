@@ -3,8 +3,8 @@ import { AddCartItem, ChangeCartItemQty } from 'core/api/api-clients';
 import { storeName, locale } from 'core/constants';
 import { cartClient} from 'core/services/api-clients.service';
 import { RootState } from 'store/types';
-import { FETCH_CART, FETCH_CART_ITEMS_COUNT, ADD_ITEM_TO_CART, DELETE_ITEM_FROM_CART, CLEAR_CART, CHANGE_ITEM_QUANTITY } from './definitions';
-import { SET_CART, SET_CART_ITEMS_COUNT } from "./mutations"
+import { FETCH_CART, FETCH_CART_ITEMS_COUNT, ADD_ITEM_TO_CART, DELETE_ITEM_FROM_CART, CLEAR_CART, CHANGE_ITEM_QUANTITY, SHOW_CART_SIDEBAR, HIDE_CART_SIDEBAR } from './definitions';
+import { SET_CART, SET_CART_ITEMS_COUNT, SET_SIDEBAR_VISIBLE } from "./mutations"
 import { CartState } from "./types";
 
 
@@ -43,6 +43,11 @@ export const actions: ActionTree<CartState, RootState> = {
     await cartClient.clearCart(storeName, locale);
     await context.dispatch(FETCH_CART_ITEMS_COUNT);
     await context.dispatch(FETCH_CART);
+  },
+  [SHOW_CART_SIDEBAR](context){
+    context.commit(SET_SIDEBAR_VISIBLE, true);
+  },
+  [HIDE_CART_SIDEBAR](context){
+    context.commit(SET_SIDEBAR_VISIBLE, false);
   }
-
 };
