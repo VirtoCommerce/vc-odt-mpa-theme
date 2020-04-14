@@ -29,6 +29,10 @@
       "password": "Password",
       "username": "Username"
     },
+    "account_lock": {
+      "title": "Locked out",
+      "text": "This account has been locked out, please try again later."
+    },
     "recover_password": {
       "title": "Recover your password",
       "email": "Email",
@@ -212,6 +216,18 @@
         "ok": "YES",
         "cancel": "NO",
         "message": "Are you sure you want to delete \"{0}\" user?"
+      },
+      "confirm-suspend-modal": {
+        "title": "Suspend user",
+        "ok": "YES",
+        "cancel": "NO",
+        "message": "Are you sure you want to suspend \"{0}\" user?"
+      },
+      "confirm-unsuspend-modal": {
+        "title": "Unsuspend user",
+        "ok": "YES",
+        "cancel": "NO",
+        "message": "Are you sure you want to unsuspend \"{0}\" user?"
       },
       "add-user": {
         "title": "New user",

@@ -38,7 +38,7 @@
             <div class="d-flex justify-content-md-around">
               <font-awesome-layers
                 v-if="$can($permissions.CanEditUsers)"
-                class="mr-3 btn"
+                class="btn"
                 @click="openEditUserModal(row.item)">
                 <font-awesome-icon :icon="editIcon" size="lg"></font-awesome-icon>
               </font-awesome-layers>
@@ -47,6 +47,18 @@
                 class="btn"
                 @click="confirmDeleteUser(row.item)">
                 <font-awesome-icon :icon="deleteIcon" size="lg"></font-awesome-icon>
+              </font-awesome-layers>
+              <font-awesome-layers
+                v-if="!row.item.isLockedOut"
+                class="btn"
+                @click="changeUserSuspensionStatus(row.item, true)">
+                <font-awesome-icon :icon="suspendIcon" size="lg"></font-awesome-icon>
+              </font-awesome-layers>
+              <font-awesome-layers
+                v-if="row.item.isLockedOut"
+                class="btn"
+                @click="changeUserSuspensionStatus(row.item, false)">
+                <font-awesome-icon :icon="unsuspendIcon" size="lg"></font-awesome-icon>
               </font-awesome-layers>
             </div>
           </template>
