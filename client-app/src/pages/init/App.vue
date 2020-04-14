@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Error v-for="(error, index) in errors"
-           :id="'error-'+index"
-           :key="error.timestamp"
-           :index="index"
-           :error-info="error"
-           @close="removeError(error)">
-    </Error>
+    <error-info v-for="(error, index) in errors"
+                :id="'error-'+index"
+                :key="error.timestamp"
+                :index="index"
+                :error-info="error"
+                @close="removeError(error)">
+    </error-info>
   </div>
 </template>
 <script lang="ts">
