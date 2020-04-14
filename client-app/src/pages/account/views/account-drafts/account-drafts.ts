@@ -7,7 +7,7 @@ import { BvTableFieldArray } from "bootstrap-vue";
 import AddDraftModal from "libs/order-draft/components/add-draft-modal/index.vue";
 import DraftsFilter from "libs/order-draft/components/drafts-filter/index.vue";
 import { AddDraft } from "libs/order-draft/models/add-draft";
-import { FETCH_DRAFTS, SET_DRAFTS_SEARCH_CRITERIA, ADD_DRAFT, DELETE_DRAFT, SET_SELECTED_DRAFT } from "libs/order-draft/store/drafts-list/definitions";
+import { SET_DRAFTS_SEARCH_CRITERIA, ADD_DRAFT, DELETE_DRAFT, SET_SELECTED_DRAFT } from "libs/order-draft/store/drafts-list/definitions";
 import DraftDetailsSidebar from '@account/views/account-drafts/draft-details-sidebar/index.vue';
 import { ICartSearchCriteria, IShoppingCartSearchResult, CartSearchCriteria, ShoppingCart, IShoppingCart } from "@core/api/api-clients";
 import { pageSizes } from "@core/constants";
@@ -110,8 +110,8 @@ export default class AccountDrafts extends Vue {
     this.addDraft(newDraft);
   }
 
-  confirmDeleteDraft(draft: ShoppingCart) {
-    this.$bvModal.msgBoxConfirm(i18n.t('account.drafts.confirm-delete-modal.message', [ draft.name ]) as string, {
+  async confirmDeleteDraft(draft: ShoppingCart) {
+    const value = await this.$bvModal.msgBoxConfirm(i18n.t('account.drafts.confirm-delete-modal.message', [ draft.name ]) as string, {
       size: 'md',
       buttonSize: 'md',
       title: i18n.t('account.drafts.confirm-delete-modal.title') as string,
@@ -120,13 +120,11 @@ export default class AccountDrafts extends Vue {
       footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
       hideHeaderClose: false,
       centered: true
-    })
-      .then(value => {
-        if(value) {
-          this.showDraftDetailsSidebar = false;
-          this.deleteDraft([draft.id!]);
-        }
-      });
+    });
+    if(value) {
+      this.showDraftDetailsSidebar = false;
+      this.deleteDraft([draft.id!]);
+    }
   }
 
 }
