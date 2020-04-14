@@ -6,7 +6,8 @@
       "logged_in": {
         "on_behalf": "Logged in on behalf of",
         "as": "Logged in as"
-      }
+      },
+      "home": "Home"
     },
     "error": {
       "client": {
