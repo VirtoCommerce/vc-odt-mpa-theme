@@ -8,7 +8,7 @@ export function commentNode(el: any, vnode: any) {
   const comment = document.createComment(' ')
 
   Object.defineProperty(comment, 'setAttribute', {
-    value: () => undefined,
+    value: () => undefined
   })
 
   vnode.text = ' '

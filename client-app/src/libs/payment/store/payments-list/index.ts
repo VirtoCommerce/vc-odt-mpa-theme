@@ -16,7 +16,7 @@ export const initialState: PaymentsListState = {
   searchCriteria: {
     pageNumber: startPageNumber,
     pageSize: defaultPageSize,
-    statuses: [],
+    statuses: []
   },
   payments: {
     totalCount: 0,

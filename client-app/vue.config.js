@@ -9,6 +9,24 @@ module.exports = {
   outputDir: "../assets/static/bundle/dist",
   filenameHashing: false,
   runtimeCompiler: true,
+  transpileDependencies: [    
+    "@fortawesome/fontawesome-svg-core",
+    "@fortawesome/free-regular-svg-icons",
+    "@fortawesome/free-solid-svg-icons",
+    "@fortawesome/vue-fontawesome",
+    "axios",
+    "bootstrap-vue",
+    "rxjs",
+    "vue-axios",
+    "vue-i18n",
+    "vue-loading-overlay",
+    "vue-moment",
+    "vue-router",
+    "vue-rx",
+    "vuelidate",
+    "vuex",
+    "vuex-class"
+  ],
   devServer: {
     proxy: "http://localhost:2083"
   },

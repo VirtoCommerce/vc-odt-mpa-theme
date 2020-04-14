@@ -59,7 +59,9 @@ module.exports = {
         "order": "asc"
       }
     }],
-    "no-prototype-builtins": "off"
+    "no-prototype-builtins": "off",
+    "comma-dangle": ["error", "never"],
+    "quote-props": ["error", "as-needed", { "keywords": true, "unnecessary": true }]
   },
   parserOptions: {
     parser: "@typescript-eslint/parser"

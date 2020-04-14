@@ -1,13 +1,13 @@
-import Vue from 'vue';
+import Vue from "vue";
 import VueAxios from "vue-axios";
-import Loading from 'vue-loading-overlay';
+import Loading from "vue-loading-overlay";
 import "vue-moment";
 import VueRx from "vue-rx";
-import Vuelidate from 'vuelidate';
-import { library, dom } from '@fortawesome/fontawesome-svg-core';
-import { faHeartBroken, faLock, faMeteor, faThLarge, faList, faShoppingCart, faCamera, faCalculator, faChartBar, faFileAlt, faSearch, faUnlock } from '@fortawesome/free-solid-svg-icons';
+import Vuelidate from "vuelidate";
+import { library, dom } from "@fortawesome/fontawesome-svg-core";
+import { faHeartBroken, faLock, faMeteor, faThLarge, faList, faShoppingCart, faCamera, faCalculator, faChartBar, faFileAlt, faSearch, faUnlock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
-import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin, TooltipPlugin, SidebarPlugin, OverlayPlugin } from 'bootstrap-vue';
+import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin, TooltipPlugin, SidebarPlugin, OverlayPlugin } from "bootstrap-vue";
 import axios from "core/services/axios-instance";
 
 export default class InitializationService {
