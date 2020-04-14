@@ -383,9 +383,8 @@
         "columns": {
           "name": "Name",
           "itemsCount": "# Positionen",
-          "subTotal_amount": "Zwischensumme",
-          "total_amount": "Gesamt",
-          "currency_code": "Währung",
+          "subTotal_formattedAmount": "Zwischensumme",
+          "total_formattedAmount": "Gesamt",
           "actions": "Aktionen"
         },
         "text-above": "",
