@@ -342,9 +342,8 @@
         "columns": {
           "name": "Name",
           "itemsCount": "# Items",
-          "subTotal_amount": "Subtotal",
-          "total_amount": "Total",
-          "currency_code": "Currency",
+          "subTotal_formattedAmount": "Subtotal",
+          "total_formattedAmount": "Total",
           "actions": "Actions"
         },
         "text-above": "",
