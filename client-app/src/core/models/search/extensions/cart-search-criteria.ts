@@ -1,4 +1,4 @@
-import {  CartSearchCriteria } from 'core/api/api-clients';
+import { CartSearchCriteria } from 'core/api/api-clients';
 import { CartSearchQuery } from 'core/models/search/extensions/cart-search-query';
 import { KeywordSearchCriteria } from 'core/models/search/keyword-search-criteria';
 
