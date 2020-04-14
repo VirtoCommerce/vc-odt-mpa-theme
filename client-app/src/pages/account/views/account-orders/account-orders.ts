@@ -3,7 +3,7 @@ import Component from "vue-class-component";
 import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
 import { BvTableCtxObject, BvTableFieldArray } from "bootstrap-vue";
-import { CustomerOrder, ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder, OrderSearchCriteria } from "core/api/api-clients";
+import { ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder, OrderSearchCriteria } from "core/api/api-clients";
 import { pageSizes, ordersStatuses, sortDescending, sortAscending } from "core/constants";
 import { OrderSearchQuery } from "core/models/search/extensions/order-search-query";
 import { QueryBuilder } from 'core/services/query-builder.service';

@@ -6,6 +6,9 @@ import { DraftsListState } from "./types";
 
 //mutations
 export const mutations: MutationTree<DraftsListState> = {
+  [SET_DRAFTS_SEARCH_CRITERIA](state, payload: CartSearchCriteria) {
+    state.searchCriteria = payload;
+  },
   [FETCH_DRAFTS](state) {
     fetchAsync(state);
   },
@@ -13,9 +16,6 @@ export const mutations: MutationTree<DraftsListState> = {
     state.drafts.results = payload.results  || [];
     state.drafts.totalCount = payload.totalCount || 0;
     setAsync(state);
-  },
-  [SET_DRAFTS_SEARCH_CRITERIA](state, payload: CartSearchCriteria) {
-    state.searchCriteria = payload;
   },
   [SET_SELECTED_DRAFT](state, payload: IShoppingCart) {
     state.selectedDraft = payload;

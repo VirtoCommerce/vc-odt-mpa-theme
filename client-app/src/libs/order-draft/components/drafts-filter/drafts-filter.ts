@@ -15,8 +15,8 @@ export default class DraftsFilter extends Vue {
     this.$emit("searchCriteriaChanged", searchCriteria);
   }
 
-  changeKeyword(value: string) {
-    const searchCriteria = { ...this.searchCriteria, name: value };
+  changeKeyword(keyword: string) {
+    const searchCriteria = { ...this.searchCriteria, keyword };
     this.emitChanges(searchCriteria);
   }
 
