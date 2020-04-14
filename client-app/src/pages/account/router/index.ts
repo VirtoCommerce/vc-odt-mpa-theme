@@ -46,7 +46,7 @@ const routes = [
         beforeEnter: (to: any, from: any, next: any) => {
           const permitted = isPermitted(FeatureNames.OrderBrowsing, Permissions.CanViewOrders)
           accessHandler(permitted, next);
-        },
+        }
       },
       {
         path: '/invoices',
@@ -103,7 +103,7 @@ const routes = [
         meta: {
           title: i18n.t('account.menu_titles.details')
         }
-      },
+      }
     ]
   },
   {

@@ -11,5 +11,5 @@ export const getters: GetterTree<State, State> = {
       ...error,
       timestamp$: interval(1000).pipe(map(() => error.timestamp))
     }));
-  },
+  }
 };

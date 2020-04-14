@@ -9,7 +9,7 @@ Vue.use(Vuex);
 
 const store: StoreOptions<RootState> = {
   state: {},
-  strict: debug,
+  strict: debug
 };
 
 export default new Store<RootState>(store);

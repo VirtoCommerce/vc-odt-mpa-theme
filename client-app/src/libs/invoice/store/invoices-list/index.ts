@@ -16,7 +16,7 @@ export const initialState: InvoicesListState = {
   searchCriteria: {
     pageNumber: startPageNumber,
     pageSize: defaultPageSize,
-    statuses: [],
+    statuses: []
   },
   invoices: {
     totalCount: 0,
