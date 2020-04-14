@@ -7,7 +7,7 @@
                      active-class="active"
                      class="nav-link"
                      exact>
-          {{ $t('account.menu_titles.home') }}
+          {{ $t('account.menu_titles.details') }}
         </router-link>
       </li>
       <li v-if="$can($permissions.CanViewUsers) && $isActive($features.ManageUsers)" class="nav-item">

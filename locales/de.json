@@ -142,14 +142,16 @@
   },
   "account": {
     "menu_titles": {
-      "home": "Nutzerdetails",
+      "details": "Nutzerdetails",
+      "history": "Historie",
+      "admin": "Verwaltung",
       "orders": "Aufträge",
       "users": "Benutzer",
       "invoices": "Rechnungen",
       "payments": "Zahlungen",
       "drafts": "Entwürfe bestellen"
     },
-    "home": {
+    "details": {
       "email": "Email",
       "user_name": "Nutzername",
       "phone": "Telefon"

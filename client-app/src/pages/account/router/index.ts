@@ -5,9 +5,9 @@ import { accessDeniedUrl } from 'core/constants';
 import Permissions from "libs/authorization/constants/permissions"
 import FeatureNames from "libs/feature/constants/featureNames"
 import Admin from '@account/views/account-admin/index.vue';
+import AccountInfo from "@account/views/account-details/index.vue";
 import AccountDrafts from '@account/views/account-drafts/index.vue';
 import History from '@account/views/account-history/index.vue';
-import AccountInfo from "@account/views/account-info/index.vue";
 import AccountInvoices from '@account/views/account-invoices/index.vue';
 import AccountOrders from "@account/views/account-orders/index.vue";
 import AccountPayments from '@account/views/account-payments/index.vue';
@@ -36,7 +36,7 @@ const routes = [
     component: History,
     redirect: '/orders',
     meta: {
-      title: i18n.t('account.menu_titles.payments')
+      title: i18n.t('account.menu_titles.history')
     },
     children: [
       {
@@ -89,7 +89,7 @@ const routes = [
     component: Admin,
     redirect: '/users',
     meta: {
-      title: i18n.t('account.menu_titles.payments')
+      title: i18n.t('account.menu_titles.admin')
     },
     children: [
       {
@@ -107,10 +107,14 @@ const routes = [
         path: '/details',
         component: AccountInfo,
         meta: {
-          title: i18n.t('account.menu_titles.home')
+          title: i18n.t('account.menu_titles.details')
         }
       },
     ]
+  },
+  {
+    path: "/",
+    redirect: "/details"
   }
 ];
 
@@ -123,7 +127,7 @@ const router = new VueRouter({
 // eslint-disable-next-line
 router.beforeEach((toRoute, fromRoute, next) => {
   window.document.title = toRoute.meta && toRoute.meta.title ?
-    toRoute.meta.title : i18n.t('account.menu_titles.home');
+    toRoute.meta.title : i18n.t('account.menu_titles.details');
   next();
 })
 
