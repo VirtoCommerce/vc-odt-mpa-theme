@@ -35,9 +35,6 @@ const routes = [
     path: "/history",
     component: History,
     redirect: '/orders',
-    meta: {
-      title: i18n.t('account.menu_titles.history')
-    },
     children: [
       {
         path: '/orders',
@@ -88,9 +85,6 @@ const routes = [
     path: "/admin",
     component: Admin,
     redirect: '/users',
-    meta: {
-      title: i18n.t('account.menu_titles.admin')
-    },
     children: [
       {
         path: '/users',

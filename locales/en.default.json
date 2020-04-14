@@ -143,8 +143,6 @@
   "account": {
     "menu_titles": {
       "details": "User Details",
-      "history": "History",
-      "admin": "Administration",
       "orders": "Orders",
       "users": "Users",
       "invoices": "Invoices",
