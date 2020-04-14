@@ -6,7 +6,8 @@
       "logged_in": {
         "on_behalf": "Eingeloggt im Namen von",
         "as": "Angemeldet als"
-      }
+      },
+      "home": "Startseite"
     },
     "error": {
       "client": {
