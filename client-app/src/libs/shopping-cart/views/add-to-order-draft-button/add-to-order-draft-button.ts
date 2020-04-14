@@ -4,19 +4,24 @@ import { Prop } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { ShoppingCartSearchResult, AddCartItem, ShoppingCart } from "core/api/api-clients";
+import AddDraftModal from "libs/order-draft/components/add-draft-modal/index.vue";
 import { AddDraft } from "libs/order-draft/models/add-draft";
 import { ADD_DRAFT, ADD_ITEM_TO_DRAFT } from "libs/order-draft/store/drafts-list/definitions";
 
 const draftModule = namespace("draftsListModule");
 
 @Component({
-  name: "AddToDraftButton"
+  name: "AddToDraftButton",
+  components: {
+    AddDraftModal
+  }
 })
 export default class AddToDraftButton extends Vue {
 
   plusIcon = faPlusCircle;
 
-  newDraftName = "";
+  @draftModule.Getter("isLoading")
+  isLoading!: boolean;
 
   @Prop()
   productId!: string;
@@ -31,15 +36,13 @@ export default class AddToDraftButton extends Vue {
   addItemToDraft!: (criteria: AddCartItem) => void;
 
 
-  async addToNewDraft() {
+  async addToNewDraft(newDraft: AddDraft) {
     (this.$refs.dropdown as any).hide();
-    const addNewDraft = new AddDraft();
-    addNewDraft.listName = this.newDraftName;
-    await this.addNewDraft(addNewDraft);
+    await this.addNewDraft(newDraft);
     const addItemToDraft = new AddCartItem();
-    addItemToDraft.type = addNewDraft.type;
+    addItemToDraft.type = newDraft.type;
     addItemToDraft.productId = this.productId;
-    addItemToDraft.listName = addNewDraft.listName;
+    addItemToDraft.listName = newDraft.listName;
     addItemToDraft.quantity = 1;
     await this.addItemToDraft(addItemToDraft);
   }
