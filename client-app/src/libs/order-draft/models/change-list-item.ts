@@ -1,7 +1,7 @@
 import { ChangeCartItemQty } from 'core/api/api-clients';
 
 export class ChangeListItem {
-    constructor(
+  constructor(
         public listName: string,
         public changeQty: ChangeCartItemQty | null | undefined) {
   }

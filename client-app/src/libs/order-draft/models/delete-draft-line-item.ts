@@ -1,5 +1,5 @@
 export class DeleteDraftLineItem {
-    constructor(
+  constructor(
         public lineItemId: string,
         public listName: string) {
   }

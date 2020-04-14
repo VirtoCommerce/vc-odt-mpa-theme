@@ -44,19 +44,19 @@ export const actions: ActionTree<DraftsListState, RootState> = {
     context.dispatch(FETCH_DRAFTS);
   },
   async [CHANGE_DRAFT_ITEM_QUANTITY](context, { listName, changeQty }: { listName: string; changeQty: ChangeCartItemQty | null | undefined }) {
-      context.commit(FETCH_DRAFTS);
-      await listClient.changeListItem(listName, orderDraftType, changeQty, storeName, locale);
-      await listClient.getListByName(listName, orderDraftType, storeName, locale).then(list => {
-          context.dispatch(SET_SELECTED_DRAFT, list);
-      });
-      context.dispatch(FETCH_DRAFTS);
+    context.commit(FETCH_DRAFTS);
+    await listClient.changeListItem(listName, orderDraftType, changeQty, storeName, locale);
+    await listClient.getListByName(listName, orderDraftType, storeName, locale).then(list => {
+      context.dispatch(SET_SELECTED_DRAFT, list);
+    });
+    context.dispatch(FETCH_DRAFTS);
   },
   async [DELETE_ITEM_FROM_DRAFT](context, { lineItemId, listName }: { lineItemId: string; listName: string }) {
-      context.commit(FETCH_DRAFTS);
-      await listClient.removeItemFromList(lineItemId, listName, orderDraftType, storeName, locale);
-      await listClient.getListByName(listName, orderDraftType, storeName, locale).then(list => {
-          context.dispatch(SET_SELECTED_DRAFT, list);
-      });
-      context.dispatch(FETCH_DRAFTS);
+    context.commit(FETCH_DRAFTS);
+    await listClient.removeItemFromList(lineItemId, listName, orderDraftType, storeName, locale);
+    await listClient.getListByName(listName, orderDraftType, storeName, locale).then(list => {
+      context.dispatch(SET_SELECTED_DRAFT, list);
+    });
+    context.dispatch(FETCH_DRAFTS);
   },
 };

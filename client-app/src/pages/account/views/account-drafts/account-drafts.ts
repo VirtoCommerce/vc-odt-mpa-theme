@@ -106,7 +106,7 @@ export default class AccountDrafts extends Vue {
   }
 
   draftAdded(draftName: string) {
-      this.addDraft(draftName);
+    this.addDraft(draftName);
   }
 
   async confirmDeleteDraft(draft: ShoppingCart) {
