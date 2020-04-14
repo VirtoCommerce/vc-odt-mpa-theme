@@ -16,5 +16,5 @@ export const mutations: MutationTree<PaymentsListState> = {
     state.payments.results = payload.results  || [];
     state.payments.totalCount = payload.totalCount || 0;
     setAsync(state);
-  },
+  }
 };

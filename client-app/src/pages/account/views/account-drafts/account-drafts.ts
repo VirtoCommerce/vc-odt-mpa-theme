@@ -74,7 +74,7 @@ export default class AccountDrafts extends Vue {
   pageChanged(page: number) {
     this.setSearchCriteria({
       ...this.searchCriteria,
-      pageNumber: page,
+      pageNumber: page
     });
   }
 
@@ -82,7 +82,7 @@ export default class AccountDrafts extends Vue {
     this.setSearchCriteria({
       ...this.searchCriteria,
       pageNumber: 1,
-      pageSize: pageSize,
+      pageSize: pageSize
     });
   }
 
