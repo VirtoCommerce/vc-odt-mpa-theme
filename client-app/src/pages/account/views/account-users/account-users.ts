@@ -159,38 +159,21 @@ export default class AccountUsers extends Vue {
       });
   }
 
-  confirmSuspendUser(user: User) {
-    this.$bvModal.msgBoxConfirm(i18n.t('account.users.confirm-suspend-modal.message', [ user.userName ]) as string, {
+  changeUserSuspensionStatus(user: User, suspend: boolean) {
+    const localizationType = (suspend == true) ? 'suspend' : 'unsuspend';
+    this.$bvModal.msgBoxConfirm(i18n.t(`account.users.confirm-${localizationType}-modal.message`, [ user.userName ]) as string, {
       size: 'md',
       buttonSize: 'md',
-      title: i18n.t('account.users.confirm-suspend-modal.title') as string,
-      okTitle: i18n.t('account.users.confirm-suspend-modal.ok') as string,
-      cancelTitle: i18n.t('account.users.confirm-suspend-modal.cancel') as string,
+      title: i18n.t(`account.users.confirm-${localizationType}-modal.title`) as string,
+      okTitle: i18n.t(`account.users.confirm-${localizationType}-modal.ok`) as string,
+      cancelTitle: i18n.t(`account.users.confirm-${localizationType}-modal.cancel`) as string,
       footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
       hideHeaderClose: false,
       centered: true
     })
       .then(value => {
         if(value) {
-          this.suspendUser(user.id!);
-        }
-      });
-  }
-
-  confirmUnsuspendUser(user: User) {
-    this.$bvModal.msgBoxConfirm(i18n.t('account.users.confirm-unsuspend-modal.message', [ user.userName ]) as string, {
-      size: 'md',
-      buttonSize: 'md',
-      title: i18n.t('account.users.confirm-unsuspend-modal.title') as string,
-      okTitle: i18n.t('account.users.confirm-unsuspend-modal.ok') as string,
-      cancelTitle: i18n.t('account.users.confirm-unsuspend-modal.cancel') as string,
-      footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
-      hideHeaderClose: false,
-      centered: true
-    })
-      .then(value => {
-        if(value) {
-          this.unsuspendUser(user.id!);
+          suspend ? this.suspendUser(user.id!) : this.unsuspendUser(user.id!);
         }
       });
   }

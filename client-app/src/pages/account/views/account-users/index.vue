@@ -51,13 +51,13 @@
               <font-awesome-layers
                 v-if="!row.item.isLockedOut"
                 class="btn"
-                @click="confirmSuspendUser(row.item)">
+                @click="changeUserSuspensionStatus(row.item, true)">
                 <font-awesome-icon :icon="suspendIcon" size="lg"></font-awesome-icon>
               </font-awesome-layers>
               <font-awesome-layers
                 v-if="row.item.isLockedOut"
                 class="btn"
-                @click="confirmUnsuspendUser(row.item)">
+                @click="changeUserSuspensionStatus(row.item, false)">
                 <font-awesome-icon :icon="unsuspendIcon" size="lg"></font-awesome-icon>
               </font-awesome-layers>
             </div>
