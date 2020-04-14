@@ -7,7 +7,7 @@
       <fieldset>
         <div class="form-row form-group">
           <div class="col-md">
-            <label for="login">{{ $t("account.home.user_name") }}</label>
+            <label for="login">{{ $t("account.details.user_name") }}</label>
             <input id="login"
                    v-model="profile.userName"
                    type="text"
@@ -15,14 +15,14 @@
                    readonly>
           </div>
           <div class="col-md">
-            <label for="email">{{ $t("account.home.email") }}</label>
+            <label for="email">{{ $t("account.details.email") }}</label>
             <input id="email"
                    v-model="profile.email"
                    type="email"
                    class="form-control">
           </div>
           <div class="col-md">
-            <label for="phone">{{ $t("account.home.phone") }}</label>
+            <label for="phone">{{ $t("account.details.phone") }}</label>
             <input id="phone"
                    v-model="profile.phoneNumber"
                    type="text"
@@ -38,4 +38,4 @@
   </div>
 </template>
 
-<script lang="ts" src="./account-info"></script>
+<script lang="ts" src="./account-details"></script>

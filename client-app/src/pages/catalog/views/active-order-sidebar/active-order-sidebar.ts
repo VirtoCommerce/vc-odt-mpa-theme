@@ -1,12 +1,13 @@
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Prop } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import i18n from '@i18n';
 import { ShoppingCart, CartLineItem, ChangeCartItemQty } from "core/api/api-clients";
 import CartHeader from "libs/shopping-cart/components/cart-header/index.vue";
 import CartItemsList from "libs/shopping-cart/components/cart-items-list/index.vue";
 import CartSummary from "libs/shopping-cart/components/cart-summary/index.vue";
-import { FETCH_CART, DELETE_ITEM_FROM_CART, CHANGE_ITEM_QUANTITY, CLEAR_CART } from "libs/shopping-cart/store/cart/definitions";
+import { FETCH_CART, DELETE_ITEM_FROM_CART, CHANGE_ITEM_QUANTITY, CLEAR_CART, HIDE_CART_SIDEBAR } from "libs/shopping-cart/store/cart/definitions";
 
 const cartModule = namespace("cart");
 
@@ -20,6 +21,15 @@ const cartModule = namespace("cart");
   }
 })
 export default class ActiveOrderSidebar extends Vue {
+
+  @cartModule.Getter("sidebarVisible")
+  visible!: boolean;
+
+  @cartModule.Action(HIDE_CART_SIDEBAR)
+  hideCartSidebar!: () => void;
+
+  @cartModule.Getter("isLoading")
+  private isLoading!: boolean;
 
   @cartModule.Getter("cart")
   cart!: ShoppingCart;
@@ -82,5 +92,10 @@ export default class ActiveOrderSidebar extends Vue {
     changeItemQty.quantity = quantity;
     this.changeLineItemQuantity(changeItemQty)
   }
+
+  hide() {
+    this.hideCartSidebar();
+  }
+
 
 }

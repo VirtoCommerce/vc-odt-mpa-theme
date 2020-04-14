@@ -11,12 +11,12 @@
         label-for="draftName">
         <b-form-input
           id="draftName"
-          v-model="$v.draft.listName.$model"
-          :class="{ 'is-invalid': $v.draft.listName.$error }"
+          v-model="$v.draftName.$model"
+          :class="{ 'is-invalid': $v.draftName.$error }"
           type="text"
           :placeholder="$t('account.drafts.add-draft.draft-name-placeholder')"
-          @blur="$v.draft.listName.$touch()"></b-form-input>
-        <b-form-invalid-feedback v-if="!$v.draft.listName.required">
+          @blur="$v.draftName.$touch()"></b-form-input>
+        <b-form-invalid-feedback v-if="!$v.draftName.required">
           {{ $t("account.drafts.add-draft.draft-name-required") }}
         </b-form-invalid-feedback>
       </b-form-group>
@@ -24,7 +24,7 @@
     <template v-slot:modal-footer>
       <b-button
         variant="outline-primary"
-        :disabled="$v.draft.$invalid"
+        :disabled="$v.$invalid"
         @click="submitForm">
         {{ $t("account.drafts.add-draft.submit") }}
       </b-button>

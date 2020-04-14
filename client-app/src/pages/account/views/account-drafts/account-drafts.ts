@@ -6,7 +6,6 @@ import i18n from "@i18n";
 import { BvTableFieldArray } from "bootstrap-vue";
 import AddDraftModal from "libs/order-draft/components/add-draft-modal/index.vue";
 import DraftsFilter from "libs/order-draft/components/drafts-filter/index.vue";
-import { AddDraft } from "libs/order-draft/models/add-draft";
 import { SET_DRAFTS_SEARCH_CRITERIA, ADD_DRAFT, DELETE_DRAFT, SET_SELECTED_DRAFT } from "libs/order-draft/store/drafts-list/definitions";
 import DraftDetailsSidebar from '@account/views/account-drafts/draft-details-sidebar/index.vue';
 import { ICartSearchCriteria, IShoppingCartSearchResult, CartSearchCriteria, ShoppingCart, IShoppingCart } from "@core/api/api-clients";
@@ -47,7 +46,7 @@ export default class AccountDrafts extends Vue {
   private selectDraft!: (draft: IShoppingCart) => void;
 
   @draftsListModule.Action(ADD_DRAFT)
-  private addDraft!: (draft: AddDraft) => void;
+  private addDraft!: (draftName: string) => void;
 
   @draftsListModule.Action(DELETE_DRAFT)
   private deleteDraft!: (draftId: string[]) => void;
@@ -106,8 +105,8 @@ export default class AccountDrafts extends Vue {
     this.showDraftDetailsSidebar = false;
   }
 
-  draftAdded(newDraft: AddDraft) {
-    this.addDraft(newDraft);
+  draftAdded(draftName: string) {
+      this.addDraft(draftName);
   }
 
   async confirmDeleteDraft(draft: ShoppingCart) {

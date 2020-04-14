@@ -11,7 +11,9 @@ export const initialState: CartState = {
   cart: null,
   cartItemsCount: 0,
   isLoading: false,
-  loaded: false
+  loaded: false,
+  sidebarVisible: false,
+  errors: []
 };
 
 
