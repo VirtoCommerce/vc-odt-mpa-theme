@@ -1,4 +1,3 @@
-
 <template>
   <div v-if="searchCriteria">
     <div class="d-flex flex-wrap flex-sm-row flex-column">
@@ -11,7 +10,7 @@
             type="text"
             :debounce="1000"
             :placeholder="$t('account.drafts.search-placeholder')"
-            :value="searchCriteria.name"
+            :value="searchCriteria.keyword"
             @update="changeKeyword($event)"></b-form-input>
           <b-input-group-append>
             <span class="input-group-text bg-white text-primary">

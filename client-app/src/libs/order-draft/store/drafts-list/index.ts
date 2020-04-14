@@ -7,7 +7,6 @@ import { getters } from "./getters";
 import { mutations } from "./mutations";
 import { DraftsListState } from "./types";
 
-
 // initial state
 export const initialState: DraftsListState = {
   isLoading: false,

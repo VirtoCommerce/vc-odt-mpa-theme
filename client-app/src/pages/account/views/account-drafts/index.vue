@@ -6,7 +6,7 @@
       <drafts-filter
         class="col col-sm-6 col-md-5 col-lg-3"
         :search-criteria="searchCriteria"
-        @searchCriteriaChanged="filtersChanges($event)"></drafts-filter>
+        @searchCriteriaChanged="searchCriteriaChanged"></drafts-filter>
       <div class="col col-sm-auto col-md-auto col-lg-auto align-self-sm-end mt-3">
         <b-button
           v-b-modal.addDraftModal
