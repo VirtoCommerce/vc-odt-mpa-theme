@@ -3,6 +3,7 @@ import Component from "vue-class-component";
 import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
 import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faLock, faUnlock } from '@fortawesome/free-solid-svg-icons';
 import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
 import { User,OrganizationUserRegistration, UserUpdateInfo, IOrganizationContactsSearchCriteria, IUserSearchResult, IUser, OrganizationContactsSearchCriteria } from "core/api/api-clients";
@@ -14,7 +15,7 @@ import AddUserModal from "libs/user/components/add-user-modal/index.vue";
 import EditUserModal from 'libs/user/components/edit-user-modal/index.vue';
 import UsersFilter from "libs/user/components/users-filter/index.vue";
 import { AddUser } from "libs/user/models/add-user";
-import { DELETE_USER, ADD_USER, UPDATE_USER, SET_USERS_SEARCH_CRITERIA, FETCH_SELECTED_USER } from "libs/user/store/users-list/definitions";
+import { DELETE_USER, ADD_USER, UPDATE_USER, SET_USERS_SEARCH_CRITERIA, FETCH_SELECTED_USER, SUSPEND_USER, UNSUSPEND_USER } from "libs/user/store/users-list/definitions";
 
 const usersListModule = namespace("usersListModule");
 const profileModule = namespace('profileModule');
@@ -61,6 +62,12 @@ export default class AccountUsers extends Vue {
   @usersListModule.Action(UPDATE_USER)
   private updateUser!: (user: UserUpdateInfo) => void;
 
+  @usersListModule.Action(SUSPEND_USER)
+  private suspendUser!: (userId: string) => void;
+
+  @usersListModule.Action(UNSUSPEND_USER)
+  private unsuspendUser!: (userId: string) => void;
+
   @profileModule.Getter('profile')
   profile!: User;
 
@@ -71,6 +78,8 @@ export default class AccountUsers extends Vue {
 
   editIcon = faEdit;
   deleteIcon = faTrashAlt;
+  suspendIcon = faLock;
+  unsuspendIcon = faUnlock;
 
   queryBuilder = new QueryBuilder(OrganizationContactsSearchCriteria, OrganizationContactsSearchQuery);
 
@@ -132,8 +141,8 @@ export default class AccountUsers extends Vue {
     this.updateUser(updatedUser);
   }
 
-  confirmDeleteUser(user: User) {
-    this.$bvModal.msgBoxConfirm(i18n.t('account.users.confirm-delete-modal.message', [ user.userName ]) as string, {
+  async confirmDeleteUser(user: User) {
+    const value = await this.$bvModal.msgBoxConfirm(i18n.t('account.users.confirm-delete-modal.message', [ user.userName ]) as string, {
       size: 'md',
       buttonSize: 'md',
       title: i18n.t('account.users.confirm-delete-modal.title') as string,
@@ -142,12 +151,31 @@ export default class AccountUsers extends Vue {
       footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
       hideHeaderClose: false,
       centered: true
-    })
-      .then(value => {
-        if(value) {
-          this.deleteUser(user.id!);
-        }
-      });
+    });
+    if(value) {
+      this.deleteUser(user.id!);
+    }
+  }
+
+  async changeUserSuspensionStatus(user: User, suspend: boolean) {
+    const localizationType = (suspend == true) ? 'suspend' : 'unsuspend';
+    const value = await this.$bvModal.msgBoxConfirm(i18n.t(`account.users.confirm-${localizationType}-modal.message`, [ user.userName ]) as string, {
+      size: 'md',
+      buttonSize: 'md',
+      title: i18n.t(`account.users.confirm-${localizationType}-modal.title`) as string,
+      okTitle: i18n.t(`account.users.confirm-${localizationType}-modal.ok`) as string,
+      cancelTitle: i18n.t(`account.users.confirm-${localizationType}-modal.cancel`) as string,
+      footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
+      hideHeaderClose: false,
+      centered: true
+    });
+    if(value) {
+      if (suspend) {
+        this.suspendUser(user.id!);
+      } else {
+        this.unsuspendUser(user.id!);
+      }
+    }
   }
 
 }

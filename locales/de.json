@@ -29,6 +29,10 @@
       "password": "Passwort",
       "username": "Nutzername"
     },
+    "account_lock": {
+      "title": "Ausgeschlossen",
+      "text": "Dieses Konto wurde gesperrt. Bitte versuchen Sie es später erneut."
+    },
     "recover_password": {
       "title": "Stellen Sie Ihr Passwort wieder her",
       "email": "Email",
@@ -227,6 +231,18 @@
         "ok": "Ja",
         "cancel": "Nein",
         "message": "Möchten Sie den Benutzer \"{0}\" wirklich löschen?"
+      },
+      "confirm-suspend-modal": {
+        "title": "Benutzer sperren",
+        "ok": "Ja",
+        "cancel": "Nein",
+        "message": "Möchten Sie den Benutzer \"{0}\" wirklich sperren?"
+      },
+      "confirm-unsuspend-modal": {
+        "title": "Benutzer nicht suspendieren",
+        "ok": "Ja",
+        "cancel": "Nein",
+        "message": "Möchten Sie den Benutzer \"{0}\" unbedingt deaktivieren?"
       },
       "add-user": {
         "title": "Neuer Benutzer",
