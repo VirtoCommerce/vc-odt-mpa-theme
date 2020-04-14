@@ -141,8 +141,8 @@ export default class AccountUsers extends Vue {
     this.updateUser(updatedUser);
   }
 
-  confirmDeleteUser(user: User) {
-    this.$bvModal.msgBoxConfirm(i18n.t('account.users.confirm-delete-modal.message', [ user.userName ]) as string, {
+  async confirmDeleteUser(user: User) {
+    const value = await this.$bvModal.msgBoxConfirm(i18n.t('account.users.confirm-delete-modal.message', [ user.userName ]) as string, {
       size: 'md',
       buttonSize: 'md',
       title: i18n.t('account.users.confirm-delete-modal.title') as string,
@@ -151,17 +151,15 @@ export default class AccountUsers extends Vue {
       footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
       hideHeaderClose: false,
       centered: true
-    })
-      .then(value => {
-        if(value) {
-          this.deleteUser(user.id!);
-        }
-      });
+    });
+    if(value) {
+      this.deleteUser(user.id!);
+    }
   }
 
-  changeUserSuspensionStatus(user: User, suspend: boolean) {
+  async changeUserSuspensionStatus(user: User, suspend: boolean) {
     const localizationType = (suspend == true) ? 'suspend' : 'unsuspend';
-    this.$bvModal.msgBoxConfirm(i18n.t(`account.users.confirm-${localizationType}-modal.message`, [ user.userName ]) as string, {
+    const value = await this.$bvModal.msgBoxConfirm(i18n.t(`account.users.confirm-${localizationType}-modal.message`, [ user.userName ]) as string, {
       size: 'md',
       buttonSize: 'md',
       title: i18n.t(`account.users.confirm-${localizationType}-modal.title`) as string,
@@ -170,12 +168,14 @@ export default class AccountUsers extends Vue {
       footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
       hideHeaderClose: false,
       centered: true
-    })
-      .then(value => {
-        if(value) {
-          suspend ? this.suspendUser(user.id!) : this.unsuspendUser(user.id!);
-        }
-      });
+    });
+    if(value) {
+      if (suspend) {
+        this.suspendUser(user.id!);
+      } else {
+        this.unsuspendUser(user.id!);
+      }
+    }
   }
 
 }
