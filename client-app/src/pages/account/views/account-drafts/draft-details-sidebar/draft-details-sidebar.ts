@@ -50,7 +50,7 @@ export default class DraftDetailsSidebar extends Vue {
     })
       .then(value => {
         if(value) {
-          const payload = new DeleteDraftLineItem(item.id!, this.selectedDraft.name!, this.selectedDraft.type!);
+          const payload = new DeleteDraftLineItem(item.id!, this.selectedDraft.name!);
           this.deleteDraftLineItem(payload);
         }
       });
@@ -78,7 +78,7 @@ export default class DraftDetailsSidebar extends Vue {
     const changeItemQty = new ChangeCartItemQty();
     changeItemQty.lineItemId = item.id;
     changeItemQty.quantity = quantity;
-    const payload = new ChangeListItem(this.selectedDraft.name!, this.selectedDraft.type, changeItemQty);
+    const payload = new ChangeListItem(this.selectedDraft.name!, changeItemQty);
     this.changeDraftItemQuantity(payload);
   }
 
