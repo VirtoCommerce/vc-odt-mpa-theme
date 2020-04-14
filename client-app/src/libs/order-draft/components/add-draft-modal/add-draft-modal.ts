@@ -5,21 +5,21 @@ import { required } from "vuelidate/lib/validators";
 
 @Component({
   validations: {
-    listName: { required }
+    draftName: { required }
   }
 })
 export default class AddDraftModal extends Vue {
-  listName = "";
+  draftName = "";
 
   resetForm() {
-    this.listName = "";
+    this.draftName = "";
     this.$nextTick(() => {
       this.$v.$reset();
     });
   }
 
   submitForm() {
-    this.$emit("draftAdded", this.listName);
+    this.$emit("draftAdded", this.draftName);
     this.$bvModal.hide("addDraftModal");
   }
 }
