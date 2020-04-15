@@ -12,9 +12,9 @@ export default class AddDraftModal extends Vue {
   draftName = "";
 
   resetForm() {
+    this.draftName = "";
     this.$nextTick(() => {
       this.$v.$reset();
-      this.draftName = "";
     });
   }
 
