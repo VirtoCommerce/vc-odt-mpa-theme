@@ -1,15 +1,16 @@
 <template>
-  <div class="d-flex align-content-strach">
+  <div class="d-flex">
     <button class="btn btn-sm text-primary" @click="decrement()">
       <font-awesome-icon :icon="minusIcon" size="lg"></font-awesome-icon>
     </button>
-    <input type="text"
-           OnlyNumber="true"
-           class="form-control form-control-sm text-center"
-           :value="model"
-           @keydown="keydown($event)"
-           @blur="textChanged($event.target.value)"
-           @keyup.enter="textChanged($event.target.value)">
+    <div>
+      <input type="text"
+             class="form-control form-control-sm text-center"
+             :value="model"
+             @keydown="keydown($event)"
+             @blur="textChanged($event.target.value)"
+             @keyup.enter="textChanged($event.target.value)">
+    </div>
     <button class="btn btn-sm text-primary" @click="increment()">
       <font-awesome-icon :icon="plusIcon" size="lg"></font-awesome-icon>
     </button>
