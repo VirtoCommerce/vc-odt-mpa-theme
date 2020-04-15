@@ -126,6 +126,8 @@
     "general": {
       "save_html": "Save {0}",
       "add_to_cart": "Add to cart",
+      "add_to_order_draft": "Add to order draft",
+      "add_to_new_order_draft": "Add to new order draft",
       "add_to_quote": "Add to quote"
     },
     "product": {

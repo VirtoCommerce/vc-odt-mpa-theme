@@ -3,6 +3,7 @@
     <add-draft-modal @draftAdded="addToNewDraft($event)"></add-draft-modal>
     <b-dropdown ref="dropdown"
                 class="w-100 h-100"
+                :title="$t('products.general.add_to_order_draft')"
                 right
                 variant="outline-primary">
       <template v-slot:button-content>
@@ -13,7 +14,7 @@
                  :variant="'white'"
                  :opacity="0.69">
         <b-dropdown-item v-b-modal.addDraftModal>
-          <font-awesome-icon :icon="plusIcon"></font-awesome-icon> Add to new order draft
+          <font-awesome-icon :icon="plusIcon"></font-awesome-icon> {{ $t('products.general.add_to_new_order_draft') }}
         </b-dropdown-item>
         <b-dropdown-divider></b-dropdown-divider>
         <b-dropdown-item v-for="draft in drafts.results"
