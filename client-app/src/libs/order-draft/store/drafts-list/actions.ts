@@ -58,5 +58,5 @@ export const actions: ActionTree<DraftsListState, RootState> = {
       context.dispatch(SET_SELECTED_DRAFT, list);
     });
     context.dispatch(FETCH_DRAFTS);
-  },
+  }
 };

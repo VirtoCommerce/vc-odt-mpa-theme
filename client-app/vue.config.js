@@ -15,6 +15,7 @@ module.exports = {
     "@fortawesome/free-solid-svg-icons",
     "@fortawesome/vue-fontawesome",
     "axios",
+    "bootstrap",
     "bootstrap-vue",
     "rxjs",
     "vue-axios",
