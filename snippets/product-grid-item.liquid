@@ -33,19 +33,19 @@
       <div class="form-row">
       {% if product.available %}
       <div class="col">
-        <button class="app-add-item-to-cart btn btn-outline-primary col d-flex justify-content-center p-1" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}"><i class="fas fa-shopping-cart"></i></button>
+        <button class="app-add-item-to-cart btn btn-outline-primary col" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}"><i class="fas fa-shopping-cart"></i></button>
       </div>
       <div class="col">
-          <button class="app-add-item-to-draft btn btn-outline-primary col d-flex justify-content-center p-1" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}"><i class="fas fa-file-alt"></i></button>
+          <button class="app-add-item-to-draft btn btn-outline-primary col" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}"><i class="fas fa-file-alt"></i></button>
       </div>
       {% endif %}
       {% if unavailable %}
-            <button class="btn btn-outline-primary w-100 d-flex justify-content-center p-1" title="{{ 'products.general.add_to_cart' | t }}" disabled>
+            <button class="btn btn-outline-primary w-100" title="{{ 'products.general.add_to_cart' | t }}" disabled>
           <span class="font-weight-bold text-uppercase">{{ 'products.product.unavailable' | t }}</span>
         </button>
       {% endif %}
       {% if sold_out %}
-            <button class="btn btn-outline-primary w-100 d-flex justify-content-center p-1" title="{{ 'products.general.add_to_cart' | t }}" disabled>
+            <button class="btn btn-outline-primary w-100" title="{{ 'products.general.add_to_cart' | t }}" disabled>
           <span class="font-weight-bold text-uppercase">{{ 'products.product.sold_out' | t }}</span>
         </button>
       {% endif %}

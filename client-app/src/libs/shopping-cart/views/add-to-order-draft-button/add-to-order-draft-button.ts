@@ -26,6 +26,9 @@ export default class AddToDraftButton extends Vue {
   @Prop()
   productId!: string;
 
+  @Prop()
+  textVisible!: boolean;
+
   @draftModule.Getter("drafts")
   drafts!: ShoppingCartSearchResult[];
 

@@ -14,6 +14,9 @@ export default class AddToCartButton extends Vue {
   @Prop()
   productId!: string;
 
+  @Prop()
+  textVisible!: boolean;
+
   @cartModule.Action(ADD_ITEM_TO_CART)
   addItemToCart!: (addItem: AddCartItem) => void;
 
