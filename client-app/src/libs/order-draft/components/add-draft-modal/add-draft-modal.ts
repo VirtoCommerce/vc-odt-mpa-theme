@@ -11,15 +11,11 @@ import { CartSearchCriteria } from '@core/api/api-clients';
     draftName: {
       required,
       async isUnique(value) {
-        if (value === '') return true
+        if (value === '') return true;
         const criteria = new CartSearchCriteria({type: orderDraftType, pageNumber: startPageNumber, pageSize: defaultPageSize});
         criteria.keyword = value;
         const result = await listClient.searchLists(criteria, storeName, locale);
-        if (result.totalCount == 0) {
-          return true
-        } else {
-          return false
-        }
+        return result.totalCount == 0;
       }
     }
   }
