@@ -57,7 +57,7 @@ export default class AddToDraftButton extends Vue {
   }
 
   isItemDisabled(draft: ShoppingCart) {
-    return draft.items?.some(x => x.productId == this.productId)
+    return  draft.items?.some(x => x.productId == this.productId);
   }
 
 }
