@@ -22,8 +22,4 @@ export default class AddDraftModal extends Vue {
     this.$emit("draftAdded", this.draftName);
     this.$bvModal.hide("addDraftModal");
   }
-
-  blur () {
-    (this.$v.draftName as Validation).$touch()
-  }
 }
