@@ -19,6 +19,7 @@
         <b-dropdown-divider v-if="drafts.results.length > 0"></b-dropdown-divider>
         <b-dropdown-item v-for="draft in drafts.results"
                          :key="draft.name"
+                         :disabled="isItemDisabled(draft)"
                          @click="addToDraft(draft)">
           {{ draft.name }}
         </b-dropdown-item>
