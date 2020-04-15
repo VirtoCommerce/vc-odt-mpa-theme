@@ -5,7 +5,9 @@
     <div slot="modal-title">
       {{ $t("account.drafts.add-draft.title") }}
     </div>
-    <b-form>
+    <b-form id="add-draft-form"
+            novalidate
+            @submit.stop.prevent="submitForm">
       <b-form-group
         :label="$t('account.drafts.add-draft.draft-name-label')"
         label-for="draftName">
@@ -15,7 +17,7 @@
           :class="{ 'is-invalid': $v.draftName.$error }"
           type="text"
           :placeholder="$t('account.drafts.add-draft.draft-name-placeholder')"
-          @blur="$v.draftName.$touch()"></b-form-input>
+          @blur="blur()"></b-form-input>
         <b-form-invalid-feedback v-if="!$v.draftName.required">
           {{ $t("account.drafts.add-draft.draft-name-required") }}
         </b-form-invalid-feedback>

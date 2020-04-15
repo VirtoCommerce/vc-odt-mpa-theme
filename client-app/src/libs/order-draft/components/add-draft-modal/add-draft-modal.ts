@@ -12,14 +12,18 @@ export default class AddDraftModal extends Vue {
   draftName = "";
 
   resetForm() {
-    this.draftName = "";
     this.$nextTick(() => {
       this.$v.$reset();
+      this.draftName = "";
     });
   }
 
   submitForm() {
     this.$emit("draftAdded", this.draftName);
     this.$bvModal.hide("addDraftModal");
+  }
+
+  blur () {
+    (this.$v.draftName as Validation).$touch()
   }
 }
