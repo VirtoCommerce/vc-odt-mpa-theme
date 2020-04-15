@@ -1,0 +1,25 @@
+<template>
+  <div>
+    <div class="d-flex">
+      <div>
+        <div class="mr-4 mb-2">
+          {{ item.name }}
+        </div>
+        <div>SKU: {{ item.sku }}</div>
+      </div>
+      <font-awesome-layers class="btn ml-auto" @click="onItemDeleted">
+        <font-awesome-icon :icon="deleteIcon" size="lg"></font-awesome-icon>
+      </font-awesome-layers>
+    </div>
+    <div class="d-flex">
+      <div class="font-weight-bold align-self-center">
+        {{ item.extendedPrice.formattedAmount }}
+      </div>
+      <div class="ml-auto w-50">
+        <change-item-quantity :quantity="item.quantity" @quantity-changed="quantityChanged"></change-item-quantity>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" src="./cart-item.ts"></script>

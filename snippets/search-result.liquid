@@ -4,8 +4,8 @@
 {% endunless %}
 
 {% include 'breadcrumb' %}
-
 <div class="row mt-3">
+    <div id="app-cart-sidebar"></div>
     {% if has_sidebar %}
     <aside class="col-lg-2" id="collectionFilters">
       {% include 'collection-sidebar' %}
@@ -24,7 +24,6 @@
                 <button class="d-lg-none btn btn-primary align-self-center" onclick="toggleFiltersSidebar()">{{ 'collections.filter.title' | t }}</button>
               </div>
             </div>
-
             {% if page_description.empty? == false %}
               <div class="mt-2">
                 {{ page_description }}
@@ -56,6 +55,7 @@
         </div>
 
     </div>
+
 </div>
 <script>
 function toggleFiltersSidebar() {

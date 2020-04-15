@@ -6,7 +6,8 @@
       "logged_in": {
         "on_behalf": "Logged in on behalf of",
         "as": "Logged in as"
-      }
+      },
+      "home": "Home"
     },
     "error": {
       "client": {
@@ -28,6 +29,10 @@
       "forgot_password": "Forgot the password?",
       "password": "Password",
       "username": "Username"
+    },
+    "account_lock": {
+      "title": "Locked out",
+      "text": "This account has been locked out, please try again later."
     },
     "recover_password": {
       "title": "Recover your password",
@@ -98,6 +103,25 @@
       }
     }
   },
+  "shopping-cart": {
+    "title": "Your order",
+    "clear-cart": "Remove all",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "total": "Total",
+    "confirm-delete-modal": {
+      "title": "Delete item",
+      "ok": "YES",
+      "cancel": "NO",
+      "message": "Are you sure you want to delete \"{0}\" item?"
+    },
+    "confirm-clear-modal": {
+      "title": "Clear cart",
+      "ok": "YES",
+      "cancel": "NO",
+      "message": "Are you sure you want to clear the cart?"
+    }
+  },
   "products": {
     "general": {
       "save_html": "Save {0}",
@@ -119,13 +143,14 @@
   },
   "account": {
     "menu_titles": {
-      "home": "User Details",
+      "details": "User Details",
       "orders": "Orders",
       "users": "Users",
       "invoices": "Invoices",
-      "payments": "Payments"
+      "payments": "Payments",
+      "drafts": "Order Drafts"
     },
-    "home": {
+    "details": {
       "email": "Email",
       "user_name": "User name",
       "phone": "Phone"
@@ -192,6 +217,18 @@
         "ok": "YES",
         "cancel": "NO",
         "message": "Are you sure you want to delete \"{0}\" user?"
+      },
+      "confirm-suspend-modal": {
+        "title": "Suspend user",
+        "ok": "YES",
+        "cancel": "NO",
+        "message": "Are you sure you want to suspend \"{0}\" user?"
+      },
+      "confirm-unsuspend-modal": {
+        "title": "Unsuspend user",
+        "ok": "YES",
+        "cancel": "NO",
+        "message": "Are you sure you want to unsuspend \"{0}\" user?"
       },
       "add-user": {
         "title": "New user",
@@ -271,6 +308,44 @@
           "gatewayCode": "Method",
           "capturedDate": "Date",
           "currency_code": "Currency"
+        },
+        "text-above": "",
+        "text-below": ""
+      }
+    },
+    "drafts": {
+      "no-drafts": "No data",
+      "empty-draft": "This order draft is empty",
+      "add-draft": {
+        "add-draft": "Add draft",
+        "title": "New draft",
+        "draft-name-label": "Draft name",
+        "draft-name-placeholder": "Draft name",
+        "draft-name-required": "Draft name is required",
+        "submit": "Submit"
+      },
+      "search-label": "Search",
+      "search-placeholder": "Name",
+      "delete-draft": "Delete",
+      "confirm-delete-modal": {
+        "title": "Delete draft",
+        "ok": "YES",
+        "cancel": "NO",
+        "message": "Are you sure you want to delete \"{0}\" draft?"
+      },
+      "confirm-clear-modal": {
+        "title": "Clear draft",
+        "ok": "YES",
+        "cancel": "NO",
+        "message": "Are you sure you want to clear this draft?"
+      },
+      "grid": {
+        "columns": {
+          "name": "Name",
+          "itemsCount": "# Items",
+          "subTotal_formattedAmount": "Subtotal",
+          "total_formattedAmount": "Total",
+          "actions": "Actions"
         },
         "text-above": "",
         "text-below": ""

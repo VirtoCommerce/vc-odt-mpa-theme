@@ -6,7 +6,8 @@
       "logged_in": {
         "on_behalf": "Eingeloggt im Namen von",
         "as": "Angemeldet als"
-      }
+      },
+      "home": "Startseite"
     },
     "error": {
       "client": {
@@ -28,6 +29,10 @@
       "forgot_password": "Haben Sie Ihr Passwort vergessen?",
       "password": "Passwort",
       "username": "Nutzername"
+    },
+    "account_lock": {
+      "title": "Ausgeschlossen",
+      "text": "Dieses Konto wurde gesperrt. Bitte versuchen Sie es später erneut."
     },
     "recover_password": {
       "title": "Stellen Sie Ihr Passwort wieder her",
@@ -98,6 +103,25 @@
       }
     }
   },
+  "shopping-cart": {
+    "title": "Deine Bestellung",
+    "clear-cart": "Alles entfernen",
+    "subtotal": "Zwischensumme",
+    "shipping": "Shipping",
+    "total": "Versand",
+    "confirm-delete-modal": {
+      "title": "Item löschen",
+      "ok": "JA",
+      "cancel": "NEIN",
+      "message": "Möchten Sie das \"{0}\" Element wirklich löschen?"
+    },
+    "confirm-clear-modal": {
+      "title": "Clear cart",
+      "ok": "JA",
+      "cancel": "NEIN",
+      "message": "Sind Sie sicher, dass Sie den Einkaufswagen räumen möchten?"
+    }
+  },
   "products": {
     "general": {
       "save_html": "Speichern {0}",
@@ -119,13 +143,14 @@
   },
   "account": {
     "menu_titles": {
-      "home": "Nutzerdetails",
+      "details": "Nutzerdetails",
       "orders": "Aufträge",
       "users": "Benutzer",
       "invoices": "Rechnungen",
-      "payments": "Zahlungen"
+      "payments": "Zahlungen",
+      "drafts": "Entwürfe bestellen"
     },
-    "home": {
+    "details": {
       "email": "Email",
       "user_name": "Nutzername",
       "phone": "Telefon"
@@ -207,6 +232,18 @@
         "ok": "Ja",
         "cancel": "Nein",
         "message": "Möchten Sie den Benutzer \"{0}\" wirklich löschen?"
+      },
+      "confirm-suspend-modal": {
+        "title": "Benutzer sperren",
+        "ok": "Ja",
+        "cancel": "Nein",
+        "message": "Möchten Sie den Benutzer \"{0}\" wirklich sperren?"
+      },
+      "confirm-unsuspend-modal": {
+        "title": "Benutzer nicht suspendieren",
+        "ok": "Ja",
+        "cancel": "Nein",
+        "message": "Möchten Sie den Benutzer \"{0}\" unbedingt deaktivieren?"
       },
       "add-user": {
         "title": "Neuer Benutzer",
@@ -312,6 +349,44 @@
           "gatewayCode": "Bezahlverfahren",
           "capturedDate": "Datum",
           "currency_code": "Währung"
+        },
+        "text-above": "",
+        "text-below": ""
+      }
+    },
+    "drafts": {
+      "no-drafts": "Keine Daten",
+      "empty-draft": "Dieser Auftragsentwurf ist leer",
+      "add-draft": {
+        "add-draft": "Entwurf hinzufügen",
+        "title": "Neuer Entwurf",
+        "draft-name-label": "Entwurfsname",
+        "draft-name-placeholder": "Entwurfsname",
+        "draft-name-required": "Entwurfsname ist erforderlich",
+        "submit": "Einreichen"
+      },
+      "search-label": "Suche",
+      "search-placeholder": "Name",
+      "delete-draft": "Löschen",
+      "confirm-delete-modal": {
+        "title": "Entwurf löschen",
+        "ok": "JA",
+        "cancel": "NEIN",
+        "message": "Möchten Sie den Entwurf \"{0}\" wirklich löschen?"
+      },
+      "confirm-clear-modal": {
+        "title": "Clear löschen",
+        "ok": "JA",
+        "cancel": "NEIN",
+        "message": "Sind Sie sicher, dass Sie diesen Entwurf löschen möchten?"
+      },
+      "grid": {
+        "columns": {
+          "name": "Name",
+          "itemsCount": "# Positionen",
+          "subTotal_formattedAmount": "Zwischensumme",
+          "total_formattedAmount": "Gesamt",
+          "actions": "Aktionen"
         },
         "text-above": "",
         "text-below": ""

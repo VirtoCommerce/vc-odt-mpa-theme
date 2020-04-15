@@ -1,71 +1,105 @@
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
-import { BvTableCtxObject } from "bootstrap-vue";
-import OrderFilter from "@account/components/orders-filter/index.vue";
-import { FETCH_ORDERS, SET_ORDERS_LIST_CONFIG , FETCH_ORDER } from "@account/store/modules/orders-list/definitions";
-import { OrdersList, OrdersListConfig, OrdersListFilters } from "@account/store/modules/orders-list/types";
-import { CustomerOrder } from "@common/api/api-clients";
-import { pageSizes, ordersStatuses } from "@common/constants";
-import AccountOrderDetailsModal from "../account-order-details-modal/index.vue";
+import { BvTableCtxObject, BvTableFieldArray } from "bootstrap-vue";
+import { ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder, OrderSearchCriteria } from "core/api/api-clients";
+import { pageSizes, ordersStatuses, sortDescending, sortAscending } from "core/constants";
+import { OrderSearchQuery } from "core/models/search/extensions/order-search-query";
+import { QueryBuilder } from 'core/services/query-builder.service';
+import OrderDetailsModal from "libs/order/components/order-details-modal/index.vue";
+import OrderFilter from "libs/order/components/orders-filter/index.vue";
+import { SET_ORDERS_SEARCH_CRITERIA, FETCH_SELECTED_ORDER, CLEAR_SELECTED_ORDER } from "libs/order/store/orders-list/definitions";
+import "core/models/search/extensions/order-search-criteria";
 
 const ordersListModule = namespace("ordersListModule");
 
 @Component({
   components: {
-    AccountOrderDetailsModal,
+    OrderDetailsModal,
     OrderFilter
+  },
+  beforeRouteUpdate: function (to: Route, from: Route, next: (to?: RawLocation | false | ((vm: AccountOrders) => any) | void) => void) {
+    (this as AccountOrders).buildSearchCriteria(to);
+    next();
   }
 })
 export default class AccountOrders extends Vue {
-  @ordersListModule.Getter("ordersList")
-  private ordersList!: OrdersList;
-
   @ordersListModule.Getter("isLoading")
   private isLoading!: boolean;
 
-  @ordersListModule.Action(FETCH_ORDERS)
-  private fetchOrders!: () => OrdersList;
+  @ordersListModule.Getter("columns")
+  private columns!: BvTableFieldArray;
 
-  @ordersListModule.Action(SET_ORDERS_LIST_CONFIG)
-  private setListConfig!: (listConfig: OrdersListConfig) => void;
+  @ordersListModule.Getter("searchCriteria")
+  private searchCriteria!: IOrderSearchCriteria;
 
-  @ordersListModule.Action(FETCH_ORDER)
-  private fetchOrder!: (orderId: string) => CustomerOrder;
+  @ordersListModule.Action(SET_ORDERS_SEARCH_CRITERIA)
+  private setSearchCriteria!: (searchCriteria: IOrderSearchCriteria) => void;
+
+  @ordersListModule.Getter("orders")
+  private orders!: ICustomerOrderSearchResult;
 
   @ordersListModule.Getter("selectedOrder")
-  private selectedOrder!: CustomerOrder;
+  private selectedOrder!: ICustomerOrder | null;
+
+  @ordersListModule.Action(FETCH_SELECTED_ORDER)
+  private fetchSelectedOrder!: (orderId: string) => ICustomerOrder;
+
+  @ordersListModule.Action(CLEAR_SELECTED_ORDER)
+  private clearSelectedOrder!: () => void;
 
   pageSizes = pageSizes;
 
   availableOrderStatuses = ordersStatuses;
 
+  queryBuilder = new QueryBuilder(OrderSearchCriteria, OrderSearchQuery);
+
   mounted() {
-    this.fetchOrders();
+    this.buildSearchCriteria(this.$route, this.searchCriteria);
   }
 
-  pageChanged(page: number) {
-    this.setListConfig({ ...this.ordersList.listConfig, pageNumber: page });
+  orderDetailsModalHided() {
+    this.clearSelectedOrder();
+  }
+
+  buildSearchCriteria(route: Route, initialSearchCriteria?: IOrderSearchCriteria) {
+    const searchCriteria = this.queryBuilder.parseQuery(route.query);
+    this.setSearchCriteria({
+      ...initialSearchCriteria,
+      ...searchCriteria
+    });
+  }
+
+  pageChanged(pageNumber: number) {
+    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber });
   }
 
   pageSizeChanged(pageSize: number) {
-    this.setListConfig({ ...this.ordersList.listConfig, pageNumber: 1, pageSize: pageSize });
+    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: 1, pageSize });
   }
 
   sortChanged(ctx: BvTableCtxObject) {
-    const sortDirection = ctx.sortDesc ? "desc" : "asc";
+    const sortDirection = ctx.sortDesc ? sortDescending : sortAscending;
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
-    const listConfig = { ...this.ordersList.listConfig, pageNumber: 1 };
-    listConfig.filters = { ...this.ordersList.listConfig.filters, sort: sortExpression };
-    this.setListConfig(listConfig);
+    const searchCriteria = { ...this.searchCriteria, pageNumber: 1, sort: sortExpression };
+    this.searchCriteriaChanged(searchCriteria);
+  }
+
+  checkActivePageSize(pageSize: number) {
+    return pageSize == this.searchCriteria.pageSize ? true : false;
+  }
+
+  searchCriteriaChanged(searchCriteria: IOrderSearchCriteria) {
+    const query = this.queryBuilder.buildQuery(new OrderSearchCriteria(searchCriteria));
+    this.$router.push({
+      ...this.$route,
+      query
+    });
   }
 
   openOrderDetails(orderId: string) {
-    this.fetchOrder(orderId);
+    this.fetchSelectedOrder(orderId);
     this.$bvModal.show("orderDetailsModal");
-  }
-
-  filtersChanged(filters: OrdersListFilters) {
-    this.setListConfig({ ...this.ordersList.listConfig, filters });
   }
 }

@@ -46,6 +46,9 @@
     </main>
     {% include 'footer' %}
     <script src="{{ 'bundle/dist/js/chunk-vendors.js' | static_asset_url | append_version }}"></script>
+
+    <script src="{{ 'bundle/dist/js/chunk-common.js' | static_asset_url | append_version }}"></script>
+
     <script src="{{ 'bundle/dist/js/init.js' | static_asset_url | append_version }}"></script>
   </body>
 </html>

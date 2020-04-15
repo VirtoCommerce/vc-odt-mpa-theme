@@ -16,6 +16,16 @@
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
       "pageSizes": [10, 20, 50, 100],
+      "sorting_options": [
+        {"value": "priority-descending;name-ascending", "localization": "collections.sorting.featured" },
+        {"value": "best-selling", "localization": "collections.sorting.best_selling" },
+        {"value": "title-ascending", "localization": "collections.sorting.az" },
+        {"value": "title-descending", "localization": "collections.sorting.za" },
+        {"value": "price-ascending", "localization": "collections.sorting.price_ascending" },
+        {"value": "price-descending", "localization": "collections.sorting.price_descending" },
+        {"value": "createddate-descending", "localization": "collections.sorting.date_descending" },
+        {"value": "createddate-ascending", "localization": "collections.sorting.date_ascending" }
+      ],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -49,6 +59,13 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.formattedAmount",
+        "total.formattedAmount",
+        "actions"
       ]
     },
     "Gray": {
@@ -66,6 +83,16 @@
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
       "pageSizes": [10, 20, 50, 100],
+      "sorting_options": [
+        {"value": "priority-descending;name-ascending", "localization": "collections.sorting.featured" },
+        {"value": "best-selling", "localization": "collections.sorting.best_selling" },
+        {"value": "title-ascending", "localization": "collections.sorting.az" },
+        {"value": "title-descending", "localization": "collections.sorting.za" },
+        {"value": "price-ascending", "localization": "collections.sorting.price_ascending" },
+        {"value": "price-descending", "localization": "collections.sorting.price_descending" },
+        {"value": "createddate-descending", "localization": "collections.sorting.date_descending" },
+        {"value": "createddate-ascending", "localization": "collections.sorting.date_ascending" }
+      ],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -99,6 +126,13 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.formattedAmount",
+        "total.formattedAmount",
+        "actions"
       ]
     },
     "Green": {
@@ -116,6 +150,16 @@
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
       "pageSizes": [10, 20, 50, 100],
+      "sorting_options": [
+        {"value": "priority-descending;name-ascending", "localization": "collections.sorting.featured" },
+        {"value": "best-selling", "localization": "collections.sorting.best_selling" },
+        {"value": "title-ascending", "localization": "collections.sorting.az" },
+        {"value": "title-descending", "localization": "collections.sorting.za" },
+        {"value": "price-ascending", "localization": "collections.sorting.price_ascending" },
+        {"value": "price-descending", "localization": "collections.sorting.price_descending" },
+        {"value": "createddate-descending", "localization": "collections.sorting.date_descending" },
+        {"value": "createddate-ascending", "localization": "collections.sorting.date_ascending" }
+      ],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -149,6 +193,13 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.formattedAmount",
+        "total.formattedAmount",
+        "actions"
       ]
     },
     "Red": {
@@ -166,6 +217,16 @@
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
       "pageSizes": [10, 20, 50, 100],
+      "sorting_options": [
+        {"value": "priority-descending;name-ascending", "localization": "collections.sorting.featured" },
+        {"value": "best-selling", "localization": "collections.sorting.best_selling" },
+        {"value": "title-ascending", "localization": "collections.sorting.az" },
+        {"value": "title-descending", "localization": "collections.sorting.za" },
+        {"value": "price-ascending", "localization": "collections.sorting.price_ascending" },
+        {"value": "price-descending", "localization": "collections.sorting.price_descending" },
+        {"value": "createddate-descending", "localization": "collections.sorting.date_descending" },
+        {"value": "createddate-ascending", "localization": "collections.sorting.date_ascending" }
+      ],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -199,6 +260,13 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.formattedAmount",
+        "total.formattedAmount",
+        "actions"
       ]
     },
     "Yellow": {
@@ -216,6 +284,16 @@
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
       "pageSizes": [10, 20, 50, 100],
+      "sorting_options": [
+        {"value": "priority-descending;name-ascending", "localization": "collections.sorting.featured" },
+        {"value": "best-selling", "localization": "collections.sorting.best_selling" },
+        {"value": "title-ascending", "localization": "collections.sorting.az" },
+        {"value": "title-descending", "localization": "collections.sorting.za" },
+        {"value": "price-ascending", "localization": "collections.sorting.price_ascending" },
+        {"value": "price-descending", "localization": "collections.sorting.price_descending" },
+        {"value": "createddate-descending", "localization": "collections.sorting.date_descending" },
+        {"value": "createddate-ascending", "localization": "collections.sorting.date_ascending" }
+      ],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -249,6 +327,13 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.formattedAmount",
+        "total.formattedAmount",
+        "actions"
       ]
     },
     "Cyan": {
@@ -266,6 +351,16 @@
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
       "pageSizes": [10, 20, 50, 100],
+      "sorting_options": [
+        {"value": "priority-descending;name-ascending", "localization": "collections.sorting.featured" },
+        {"value": "best-selling", "localization": "collections.sorting.best_selling" },
+        {"value": "title-ascending", "localization": "collections.sorting.az" },
+        {"value": "title-descending", "localization": "collections.sorting.za" },
+        {"value": "price-ascending", "localization": "collections.sorting.price_ascending" },
+        {"value": "price-descending", "localization": "collections.sorting.price_descending" },
+        {"value": "createddate-descending", "localization": "collections.sorting.date_descending" },
+        {"value": "createddate-ascending", "localization": "collections.sorting.date_ascending" }
+      ],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -299,6 +394,13 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.formattedAmount",
+        "total.formattedAmount",
+        "actions"
       ]
     },
     "Light Gray": {
@@ -316,6 +418,16 @@
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
       "pageSizes": [10, 20, 50, 100],
+      "sorting_options": [
+        {"value": "priority-descending;name-ascending", "localization": "collections.sorting.featured" },
+        {"value": "best-selling", "localization": "collections.sorting.best_selling" },
+        {"value": "title-ascending", "localization": "collections.sorting.az" },
+        {"value": "title-descending", "localization": "collections.sorting.za" },
+        {"value": "price-ascending", "localization": "collections.sorting.price_ascending" },
+        {"value": "price-descending", "localization": "collections.sorting.price_descending" },
+        {"value": "createddate-descending", "localization": "collections.sorting.date_descending" },
+        {"value": "createddate-ascending", "localization": "collections.sorting.date_ascending" }
+      ],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -349,6 +461,13 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.formattedAmount",
+        "total.formattedAmount",
+        "actions"
       ]
     },
     "Dark": {
@@ -366,6 +485,16 @@
       "footer_column3_title": "Column 3",
       "footer_column3_content": "<ul><li>Content 3</li></ul>",
       "pageSizes": [10, 20, 50, 100],
+      "sorting_options": [
+        {"value": "priority-descending;name-ascending", "localization": "collections.sorting.featured" },
+        {"value": "best-selling", "localization": "collections.sorting.best_selling" },
+        {"value": "title-ascending", "localization": "collections.sorting.az" },
+        {"value": "title-descending", "localization": "collections.sorting.za" },
+        {"value": "price-ascending", "localization": "collections.sorting.price_ascending" },
+        {"value": "price-descending", "localization": "collections.sorting.price_descending" },
+        {"value": "createddate-descending", "localization": "collections.sorting.date_descending" },
+        {"value": "createddate-ascending", "localization": "collections.sorting.date_ascending" }
+      ],
       "orders_grid_fields": [
         { "key": "number", "sortable": true },
         { "key": "status", "sortable": true },
@@ -399,6 +528,13 @@
         "gatewayCode",
         "capturedDate",
         "currency.code"
+      ],
+      "drafts_grid_fields": [
+        "name",
+        "itemsCount",
+        "subTotal.formattedAmount",
+        "total.formattedAmount",
+        "actions"
       ]
     }
   },

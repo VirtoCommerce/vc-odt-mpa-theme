@@ -1,52 +1,5 @@
 <template>
-  <div class="account mb-3 mt-3">
-    <ul class="nav nav-tabs border-primary">
-      <li class="nav-item">
-        <router-link to="/"
-                     tag="a"
-                     active-class="active"
-                     class="nav-link"
-                     exact>
-          {{ $t('account.menu_titles.home') }}
-        </router-link>
-      </li>
-      <li v-if="$can($permissions.CanViewOrders) && $isActive($features.OrderBrowsing)" class="nav-item">
-        <router-link to="orders"
-                     active-class="active"
-                     tag="a"
-                     class="nav-link">
-          {{ $t('account.menu_titles.orders') }}
-        </router-link>
-      </li>
-      <li v-if="$can($permissions.CanViewUsers) && $isActive($features.ManageUsers)" class="nav-item">
-        <router-link to="users"
-                     active-class="active"
-                     tag="a"
-                     class="nav-link">
-          {{ $t('account.menu_titles.users') }}
-        </router-link>
-      </li>
-      <li v-if="$can($permissions.CanViewOrders) && $isActive($features.InvoiceBrowsing)" class="nav-item">
-        <router-link
-          to="invoices"
-          active-class="active"
-          tag="a"
-          class="nav-link">
-          {{ $t('account.menu_titles.invoices') }}
-        </router-link>
-      </li>
-      <li v-if="$can($permissions.CanViewOrders) && $isActive($features.PaymentBrowsing)" class="nav-item">
-        <router-link
-          to="payments"
-          active-class="active"
-          tag="a"
-          class="nav-link">
-          {{ $t('account.menu_titles.payments') }}
-        </router-link>
-      </li>
-    </ul>
-    <router-view></router-view>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script lang="ts">

@@ -6,10 +6,28 @@ const pages = {
 
 module.exports = {
   pages,
-
   outputDir: "../assets/static/bundle/dist",
   filenameHashing: false,
-
+  runtimeCompiler: true,
+  transpileDependencies: [    
+    "@fortawesome/fontawesome-svg-core",
+    "@fortawesome/free-regular-svg-icons",
+    "@fortawesome/free-solid-svg-icons",
+    "@fortawesome/vue-fontawesome",
+    "axios",
+    "bootstrap",
+    "bootstrap-vue",
+    "rxjs",
+    "vue-axios",
+    "vue-i18n",
+    "vue-loading-overlay",
+    "vue-moment",
+    "vue-router",
+    "vue-rx",
+    "vuelidate",
+    "vuex",
+    "vuex-class"
+  ],
   devServer: {
     proxy: "http://localhost:2083"
   },
@@ -30,6 +48,18 @@ module.exports = {
   // https://cli.vuejs.org/guide/webpack.html#chaining-advanced
   // https://github.com/neutrinojs/webpack-chain
   chainWebpack(config) {
+
+    config.module
+      .rule("vue")
+      .use("vue-loader")
+      .loader("vue-loader")
+      .tap(options => {
+        // modify the options...
+        options.compilerOptions.whitespace = "preserve";
+        return options;
+      });
+
+
     // Configure correct typescript aliases processing
     config.resolve.alias.delete("@");
     config.resolve

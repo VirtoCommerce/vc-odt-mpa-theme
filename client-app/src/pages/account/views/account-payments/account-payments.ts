@@ -1,56 +1,84 @@
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
 import { BvTableCtxObject } from "bootstrap-vue";
-import PaymentsFilter from "@account/components/payments-filter/index.vue";
-import { SET_PAYMENTS_LIST_CONFIG, FETCH_PAYMENTS } from '@account/store/modules/payments-list/definitions';
-import { PaymentsList, PaymentsListConfig, PaymentsListFilters } from '@account/store/modules/payments-list/types';
-import { pageSizes } from "@common/constants";
+import { IPaymentSearchCriteria, IPaymentSearchResult, PaymentSearchCriteria } from 'core/api/api-clients';
+import { pageSizes, sortDescending, sortAscending } from "core/constants";
+import { PaymentSearchQuery } from 'core/models/search/extensions/payment-search-query';
+import { QueryBuilder } from 'core/services/query-builder.service';
+import PaymentsFilter from "libs/payment/components/payments-filter/index.vue";
+import { SET_PAYMENTS_SEARCH_CRITERIA } from 'libs/payment/store/payments-list/definitions';
+import "core/models/search/extensions/payment-search-criteria";
 
 const paymentsListModule = namespace('paymentsListModule');
 
 @Component({
   components: {
     PaymentsFilter
+  },
+  beforeRouteUpdate: function (to: Route, from: Route, next: (to?: RawLocation | false | ((vm: AccountPayments) => any) | void) => void) {
+    (this as AccountPayments).buildSearchCriteria(to);
+    next();
   }
 })
 export default class AccountPayments extends Vue {
-  @paymentsListModule.Getter("paymentsList")
-  private paymentsList!: PaymentsList;
-
   @paymentsListModule.Getter("isLoading")
   private isLoading!: boolean;
 
-  @paymentsListModule.Action(FETCH_PAYMENTS)
-  private fetchPayments!: () => PaymentsList;
+  @paymentsListModule.Getter("columns")
+  private columns!: boolean;
 
-  @paymentsListModule.Action(SET_PAYMENTS_LIST_CONFIG)
-  private setListConfig!: (listConfig: PaymentsListConfig) => void;
+  @paymentsListModule.Getter("searchCriteria")
+  private searchCriteria!: IPaymentSearchCriteria;
+
+  @paymentsListModule.Action(SET_PAYMENTS_SEARCH_CRITERIA)
+  private setSearchCriteria!: (searchCriteria: IPaymentSearchCriteria) => void;
+
+  @paymentsListModule.Getter("payments")
+  private payments!: IPaymentSearchResult;
 
   pageSizes = pageSizes;
 
+  queryBuilder = new QueryBuilder(PaymentSearchCriteria, PaymentSearchQuery);
+
   mounted() {
-    this.fetchPayments();
+    this.buildSearchCriteria(this.$route, this.searchCriteria);
   }
 
-  pageChanged(page: number) {
-    this.setListConfig({ ...this.paymentsList.listConfig, pageNumber: page });
+  buildSearchCriteria(route: Route, initialSearchCriteria?: IPaymentSearchCriteria) {
+    const searchCriteria = this.queryBuilder.parseQuery(route.query);
+    this.setSearchCriteria({
+      ...initialSearchCriteria,
+      ...searchCriteria
+    });
+  }
+
+  pageChanged(pageNumber: number) {
+    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber });
   }
 
   pageSizeChanged(pageSize: number) {
-    this.setListConfig({ ...this.paymentsList.listConfig, pageNumber: 1, pageSize: pageSize });
+    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: 1, pageSize });
   }
 
   sortChanged(ctx: BvTableCtxObject) {
-    const sortDirection = ctx.sortDesc ? "desc" : "asc";
+    const sortDirection = ctx.sortDesc ? sortDescending : sortAscending;
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
-    const listConfig = { ...this.paymentsList.listConfig, pageNumber: 1 };
-    listConfig.filters = { ...this.paymentsList.listConfig.filters, sort: sortExpression };
-    this.setListConfig(listConfig);
+    const searchCriteria = { ...this.searchCriteria, pageNumber: 1, sort: sortExpression };
+    this.searchCriteriaChanged(searchCriteria);
   }
 
-  filtersChanged(filters: PaymentsListFilters){
-    this.setListConfig({ ...this.paymentsList.listConfig, filters });
+  checkActivePageSize(pageSize: number) {
+    return pageSize == this.searchCriteria.pageSize ? true : false;
+  }
+
+  searchCriteriaChanged(searchCriteria: IPaymentSearchCriteria) {
+    const query = this.queryBuilder.buildQuery(new PaymentSearchCriteria(searchCriteria));
+    this.$router.push({
+      ...this.$route,
+      query
+    });
   }
 
 }
