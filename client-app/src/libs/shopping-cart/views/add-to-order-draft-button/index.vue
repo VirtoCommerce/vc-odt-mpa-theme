@@ -16,7 +16,7 @@
         <b-dropdown-item v-b-modal.addDraftModal>
           <font-awesome-icon :icon="plusIcon"></font-awesome-icon> {{ $t('products.general.add_to_new_order_draft') }}
         </b-dropdown-item>
-        <b-dropdown-divider></b-dropdown-divider>
+        <b-dropdown-divider v-if="drafts.results.length > 0"></b-dropdown-divider>
         <b-dropdown-item v-for="draft in drafts.results"
                          :key="draft.name"
                          @click="addToDraft(draft)">
