@@ -1,11 +1,13 @@
 <template>
   <b-modal id="addDraftModal"
            no-close-on-backdrop
-           @hide="resetForm">
+           @hidden="resetForm">
     <div slot="modal-title">
       {{ $t("account.drafts.add-draft.title") }}
     </div>
-    <b-form>
+    <b-form id="add-draft-form"
+            novalidate
+            @submit.prevent="submitForm">
       <b-form-group
         :label="$t('account.drafts.add-draft.draft-name-label')"
         label-for="draftName">
