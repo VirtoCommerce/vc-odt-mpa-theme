@@ -1,11 +1,14 @@
 <template>
   <b-modal id="editUserModal"
            no-close-on-backdrop
-           @hide="resetForm">
+           @hidden="resetForm">
     <div slot="modal-title">
       {{ $t("account.users.edit-user-title") }}
     </div>
-    <b-form v-if="userInfo">
+    <b-form v-if="userInfo"
+            id="edit-user-form"
+            novalidate
+            @submit.prevent="submitForm">
       <b-form-group :label="$t('account.users.add-user.email-label')" label-for="email">
         <b-form-input
           id="email"
@@ -62,7 +65,7 @@
     </b-form>
     <template v-slot:modal-footer>
       <b-button
-        variant="primary"
+        variant="outline-primary"
         :disabled="$v.userInfo.$invalid"
         @click="submitForm">
         {{ $t("account.users.add-user.submit") }}

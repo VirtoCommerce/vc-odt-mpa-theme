@@ -126,6 +126,8 @@
     "general": {
       "save_html": "Save {0}",
       "add_to_cart": "Add to cart",
+      "add_to_order_draft": "Add to order draft",
+      "add_to_new_order_draft": "Add to new order draft",
       "add_to_quote": "Add to quote"
     },
     "product": {
@@ -322,6 +324,7 @@
         "draft-name-label": "Draft name",
         "draft-name-placeholder": "Draft name",
         "draft-name-required": "Draft name is required",
+        "draft-name-unique": "Draft name should be unique",
         "submit": "Submit"
       },
       "search-label": "Search",

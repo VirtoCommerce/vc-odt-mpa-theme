@@ -26,6 +26,9 @@ export default class AddToDraftButton extends Vue {
   @Prop()
   productId!: string;
 
+  @Prop()
+  textVisible!: boolean;
+
   @draftModule.Getter("drafts")
   drafts!: ShoppingCartSearchResult[];
 
@@ -54,6 +57,10 @@ export default class AddToDraftButton extends Vue {
     addItemToDraft.listName = draft.name;
     addItemToDraft.quantity = 1;
     await this.addItemToDraft(addItemToDraft);
+  }
+
+  isItemDisabled(draft: ShoppingCart) {
+    return  draft.items?.some(x => x.productId == this.productId);
   }
 
 }
