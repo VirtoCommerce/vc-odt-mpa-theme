@@ -1,5 +1,7 @@
 {% include 'breadcrumb' %}
 
+<div id="app-cart-sidebar"></div>
+
 {% assign on_sale = false %}
 {% if product.compare_at_price.amount > product.price.actual_price.amount %}
     {% assign on_sale = true %}
@@ -62,16 +64,18 @@
 
               {% if product.available %}
                 <div class="btn-group">
-                  <button class="btn btn-outline-primary mb-1" id="addToCart" type="button">
+                  <!-- <button class="btn btn-outline-primary mb-1" id="addToCart" type="button">
                     <span class="fas fa-shopping-cart"></span>
                     <span id="addToCartText">{{ 'products.general.add_to_cart' | t }}</span>
-                  </button>
+                  </button> -->
+                  <button class="app-add-item-to-cart btn btn-outline-primary" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}" text-visible><i class="fas fa-shopping-cart"></i>
+                    <span>{{ 'products.general.add_to_cart' | t }}</span></button>
                 </div>
               {% endif %}
 
               {% if unavailable %}
                 <div class="btn-group">
-                  <button class="btn btn-outline-primary mb-1" id="addToCart" type="button" disabled>
+                  <button class="btn btn-outline-primary" id="addToCart" type="button" disabled>
                     <span class="fas fa-shopping-cart"></span>
                     <span id="addToCartText">{{ 'products.product.unavailable' | t }}</span>
                   </button>
@@ -80,32 +84,17 @@
 
               {% if sold_out %}
                 <div class="btn-group">
-                  <button class="btn btn-outline-primary mb-1" id="addToCart" type="button" disabled>
+                  <button class="btn btn-outline-primary" id="addToCart" type="button" disabled>
                     <span class="fas fa-shopping-cart"></span>
                     <span id="addToCartText">{{ 'products.product.sold_out' | t }}</span>
                   </button>
                 </div>
               {% endif %}
 
-                <div class="btn-group">
-                  <button class="btn btn-outline-primary mb-1" id="addToQuote" type="button">
-                    <i class="fas fa-calculator"></i>
-                    <span id="addToQuoteText">{{ 'products.general.add_to_quote' | t }}</span>
-                  </button>
-                </div>
 
                 <div class="btn-group">
-                  <button class="btn btn-outline-primary mb-1" id="addToCompareList" type="button">
-                    <i class="fas fa-chart-bar"></i>
-                    <span id="addToCompareListText">{{ 'products.compare_list.add_to_compare' | t }}</span>
-                  </button>
-                </div>
-
-                <div class="btn-group">
-                  <button class="btn btn-outline-primary mb-1" id="addToWishlist" type="button">
-                    <i class="fas fa-file-alt"></i>
-                    <span>{{ 'products.list.add_to_myList' | t }}</span>
-                  </button>
+                  <button class="app-add-item-to-draft btn btn-outline-primary" title="{{ 'products.general.add_to_order_draft' | t }}" product-id="{{product.id}}" text-visible><i class="fas fa-file-alt"></i>
+                    <span>{{ 'products.general.add_to_order_draft' | t }}</span></button>
                 </div>
 
               </div>
@@ -159,3 +148,5 @@
     primaryImg.alt = alt;
   }
 </script>
+
+<script src="{{ 'bundle/dist/js/catalog.js' | static_asset_url | append_version }}"></script>

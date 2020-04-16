@@ -22,24 +22,26 @@ const addToCartElements = document.getElementsByClassName("app-add-item-to-cart"
 
 for(const addToCartEl of addToCartElements){
   const productId = addToCartEl.attributes.getNamedItem("product-id")!.value
+  const textVisible = !!addToCartEl.attributes.getNamedItem("text-visible");
   new Vue({
     i18n,
     store,
     render ( h ) {
       return h(AddToCartButton, {
         props: {
-          productId: productId
+          productId: productId,
+          textVisible: textVisible
         }
       })
     }
-  }).$mount(addToCartEl, true);
+  }).$mount(addToCartEl);
 }
 
 new Vue({
   i18n,
   store,
   render: h => h(CartButton)
-}).$mount("#app-cart", true);
+}).$mount("#app-cart");
 
 
 
@@ -61,13 +63,15 @@ const addToDraftElements = document.getElementsByClassName("app-add-item-to-draf
 
 for(const addToDraftEl of addToDraftElements){
   const productId = addToDraftEl.attributes.getNamedItem("product-id")!.value
+  const textVisible = !!addToDraftEl.attributes.getNamedItem("text-visible");
   new Vue({
     i18n,
     store,
     render ( h ) {
       return h(AddToDraftButton, {
         props: {
-          productId: productId
+          productId: productId,
+          textVisible: textVisible
         }
       })
     }

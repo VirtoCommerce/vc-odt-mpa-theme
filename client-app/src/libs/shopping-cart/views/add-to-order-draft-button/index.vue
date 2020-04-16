@@ -8,6 +8,7 @@
                 variant="outline-primary">
       <template v-slot:button-content>
         <i class="fas fa-file-alt"></i>
+        <span v-if="textVisible">{{ $t('products.general.add_to_order_draft') }}</span>
       </template>
       <b-overlay :show="isLoading"
                  rounded="sm"

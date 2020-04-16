@@ -8,8 +8,9 @@
     @hidden="hide">
     <b-overlay :show="isLoading"
                rounded="sm"
-               :opacity="0.33">
-      <div class="d-flex flex-column">
+               :opacity="0.33"
+               class="h-100">
+      <div v-if="cart" class="d-flex flex-column">
         <cart-header
           :cart="cart"
           :title="$t('shopping-cart.title')"
