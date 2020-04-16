@@ -109,6 +109,7 @@
     "subtotal": "Subtotal",
     "shipping": "Shipping",
     "total": "Total",
+    "checkout": "Checkout",
     "confirm-delete-modal": {
       "title": "Delete item",
       "ok": "YES",
@@ -120,6 +121,12 @@
       "ok": "YES",
       "cancel": "NO",
       "message": "Are you sure you want to clear the cart?"
+    },
+    "confirm-checkout-modal": {
+      "title": "Checkout confirmation",
+      "ok": "Checkout",
+      "cancel": "Cancel",
+      "message": "Confirm the checkout for {0} for {1} items."
     }
   },
   "products": {
