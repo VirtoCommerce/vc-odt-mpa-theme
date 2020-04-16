@@ -324,6 +324,7 @@
         "draft-name-label": "Draft name",
         "draft-name-placeholder": "Draft name",
         "draft-name-required": "Draft name is required",
+        "draft-name-unique": "Draft name should be unique",
         "submit": "Submit"
       },
       "search-label": "Search",

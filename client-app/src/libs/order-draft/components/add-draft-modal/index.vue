@@ -17,9 +17,13 @@
           :class="{ 'is-invalid': $v.draftName.$error }"
           type="text"
           :placeholder="$t('account.drafts.add-draft.draft-name-placeholder')"
+          :debounce="1000"
           @blur="$v.draftName.$touch()"></b-form-input>
         <b-form-invalid-feedback v-if="!$v.draftName.required">
           {{ $t("account.drafts.add-draft.draft-name-required") }}
+        </b-form-invalid-feedback>
+        <b-form-invalid-feedback v-if="!$v.draftName.isUnique">
+          {{ $t("account.drafts.add-draft.draft-name-unique") }}
         </b-form-invalid-feedback>
       </b-form-group>
     </b-form>

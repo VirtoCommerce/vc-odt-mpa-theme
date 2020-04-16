@@ -365,6 +365,7 @@
         "draft-name-label": "Entwurfsname",
         "draft-name-placeholder": "Entwurfsname",
         "draft-name-required": "Entwurfsname ist erforderlich",
+        "draft-name-unique": "Der Entwurfsname sollte eindeutig sein",
         "submit": "Einreichen"
       },
       "search-label": "Suche",
