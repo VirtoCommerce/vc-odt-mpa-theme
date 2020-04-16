@@ -1,7 +1,9 @@
 <template>
   <div class="mt-3">
     <add-user-modal @userAdded="userAdded($event)"></add-user-modal>
-    <edit-user-modal :user="selectedUser" @userChanged="userChanged($event)"></edit-user-modal>
+    <edit-user-modal :user="selectedUser"
+                     :is-loading="isLoading"
+                     @userChanged="userChanged($event)"></edit-user-modal>
     <div class="row flex-sm-row flex-column justify-content-between">
       <users-filter
         class="col col-sm-6 col-md-5 col-lg-3"
@@ -35,27 +37,34 @@
           no-local-sorting
           @sort-changed="sortChanged">
           <template v-slot:cell(actions)="row">
-            <div class="d-flex justify-content-md-around">
-              <font-awesome-layers
-                v-if="$can($permissions.CanEditUsers)"
-                class="btn"
-                @click="openEditUserModal(row.item)">
+            <div class="d-flex">
+              <font-awesome-layers v-if="$can($permissions.CanEditUsers)"
+                                   v-b-tooltip.hover
+                                   :title="$t('account.users.edit-user-tooltip')"
+                                   class="btn"
+                                   @click="openEditUserModal(row.item)">
                 <font-awesome-icon :icon="editIcon" size="lg"></font-awesome-icon>
               </font-awesome-layers>
               <font-awesome-layers
-                v-if="$can($permissions.CanDeleteUsers)"
+                v-if="$can($permissions.CanDeleteUsers) && !isCurrentUser(row.item)"
+                v-b-tooltip.hover
+                :title="$t('account.users.delete-user-tooltip')"
                 class="btn"
                 @click="confirmDeleteUser(row.item)">
                 <font-awesome-icon :icon="deleteIcon" size="lg"></font-awesome-icon>
               </font-awesome-layers>
               <font-awesome-layers
-                v-if="!row.item.isLockedOut"
+                v-if="!row.item.isLockedOut && !isCurrentUser(row.item)"
+                v-b-tooltip.hover
+                :title="$t('account.users.suspend-user-tooltip')"
                 class="btn"
                 @click="changeUserSuspensionStatus(row.item, true)">
                 <font-awesome-icon :icon="suspendIcon" size="lg"></font-awesome-icon>
               </font-awesome-layers>
               <font-awesome-layers
-                v-if="row.item.isLockedOut"
+                v-if="row.item.isLockedOut && !isCurrentUser(row.item)"
+                v-b-tooltip.hover
+                :title="$t('account.users.unsuspend-user-tooltip')"
                 class="btn"
                 @click="changeUserSuspensionStatus(row.item, false)">
                 <font-awesome-icon :icon="unsuspendIcon" size="lg"></font-awesome-icon>
