@@ -40,9 +40,13 @@
           no-local-sorting
           @row-clicked="showDraftDetails">
           <template v-slot:cell(actions)="row">
-            <u
-              class="btn d-inline p-0"
-              @click.stop="confirmDeleteDraft(row.item)">{{ $t("account.drafts.delete-draft") }}</u>
+            <font-awesome-layers
+              v-b-tooltip.hover
+              :title="$t('account.drafts.delete-draft-tooltip')"
+              class="btn"
+              @click.stop="confirmDeleteDraft(row.item)">
+              <font-awesome-icon :icon="deleteIcon" size="lg"></font-awesome-icon>
+            </font-awesome-layers>
           </template>
         </b-table>
         <div class="d-flex justify-content-between">
