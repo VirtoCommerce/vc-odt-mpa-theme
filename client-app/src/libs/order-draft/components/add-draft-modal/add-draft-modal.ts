@@ -12,7 +12,7 @@ import { CartSearchCriteria } from '@core/api/api-clients';
       required,
       async isUnique(value) {
         if (value === '') return true;
-        const criteria = new CartSearchCriteria({type: orderDraftType, pageNumber: startPageNumber, pageSize: defaultPageSize});
+        const criteria = new CartSearchCriteria({type: orderDraftType, pageNumber: startPageNumber, pageSize: defaultPageSize, name: value});
         criteria.keyword = value;
         const result = await listClient.searchLists(criteria, storeName, locale);
         return result.totalCount == 0;
