@@ -381,7 +381,7 @@
       },
       "search-label": "Suche",
       "search-placeholder": "Name",
-      "delete-draft": "Löschen",
+      "delete-draft-tooltip": "Entwurf löschen",
       "confirm-delete-modal": {
         "title": "Entwurf löschen",
         "ok": "JA",

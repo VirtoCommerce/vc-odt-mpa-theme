@@ -2,6 +2,7 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import i18n from "@i18n";
 import { BvTableFieldArray } from "bootstrap-vue";
 import AddDraftModal from "libs/order-draft/components/add-draft-modal/index.vue";
@@ -54,6 +55,8 @@ export default class AccountDrafts extends Vue {
   pageSizes = pageSizes;
 
   showDraftDetailsSidebar = false;
+
+  deleteIcon = faTrashAlt;
 
   queryBuilder = new QueryBuilder(CartSearchCriteria, CartSearchQuery);
 

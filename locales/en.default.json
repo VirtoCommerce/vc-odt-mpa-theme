@@ -340,7 +340,7 @@
       },
       "search-label": "Search",
       "search-placeholder": "Name",
-      "delete-draft": "Delete",
+      "delete-draft-tooltip": "Delete draft",
       "confirm-delete-modal": {
         "title": "Delete draft",
         "ok": "YES",
