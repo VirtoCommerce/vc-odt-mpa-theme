@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Component from "vue-class-component";
-import { Prop, Emit } from "vue-property-decorator";
+import { Prop, Emit, Watch } from "vue-property-decorator";
 import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -10,6 +10,12 @@ import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 export default class ChangeItemQuantity extends Vue {
   @Prop()
   quantity!: number;
+
+
+  @Watch("quantity")
+  watchQuantity(value: number) {
+    this.model = value;
+  }
 
   model = 0;
 
