@@ -2,15 +2,21 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { Prop } from "vue-property-decorator";
 import { namespace } from "vuex-class";
-import i18n from '@i18n';
+import i18n from "@i18n";
 import { ShoppingCart, CartLineItem, ChangeCartItemQty } from "core/api/api-clients";
 import CartHeader from "libs/shopping-cart/components/cart-header/index.vue";
 import CartItemsList from "libs/shopping-cart/components/cart-items-list/index.vue";
 import CartSummary from "libs/shopping-cart/components/cart-summary/index.vue";
-import { FETCH_CART, DELETE_ITEM_FROM_CART, CHANGE_ITEM_QUANTITY, CLEAR_CART, HIDE_CART_SIDEBAR, CHECKOUT } from "libs/shopping-cart/store/cart/definitions";
+import {
+  FETCH_CART,
+  DELETE_ITEM_FROM_CART,
+  CHANGE_ITEM_QUANTITY,
+  CLEAR_CART,
+  HIDE_CART_SIDEBAR,
+  CHECKOUT
+} from "libs/shopping-cart/store/cart/definitions";
 
 const cartModule = namespace("cart");
-
 
 @Component({
   name: "ActiveOrderSidebar",
@@ -21,7 +27,6 @@ const cartModule = namespace("cart");
   }
 })
 export default class ActiveOrderSidebar extends Vue {
-
   @cartModule.Getter("sidebarVisible")
   visible!: boolean;
 
@@ -49,79 +54,82 @@ export default class ActiveOrderSidebar extends Vue {
   @cartModule.Action(CHECKOUT)
   checkout!: () => void;
 
-  mounted(){
+  mounted() {
     this.fetchCart();
   }
 
   get canCheckout() {
-    return !!this.cart && this.cart!.isValid && this.cart!.itemsCount > 0;
+    return !!this.cart && this.cart!.isValid && this.cart!.itemsCount! > 0;
   }
 
-  confirmDeleteItem(item: CartLineItem) {
-    this.$bvModal.msgBoxConfirm(i18n.t('shopping-cart.confirm-delete-modal.message', [ item.sku ]) as string, {
-      size: 'md',
-      buttonSize: 'md',
-      title: i18n.t('shopping-cart.confirm-delete-modal.title') as string,
-      okTitle: i18n.t('shopping-cart.confirm-delete-modal.ok') as string,
-      cancelTitle: i18n.t('shopping-cart.confirm-delete-modal.cancel') as string,
-      footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
+  async confirmDeleteItem(item: CartLineItem) {
+    const result = await this.$bvModal.msgBoxConfirm(
+      i18n.t("shopping-cart.confirm-delete-modal.message", [item.sku]) as string,
+      {
+        size: "md",
+        buttonSize: "md",
+        title: i18n.t("shopping-cart.confirm-delete-modal.title") as string,
+        okTitle: i18n.t("shopping-cart.confirm-delete-modal.ok") as string,
+        cancelTitle: i18n.t("shopping-cart.confirm-delete-modal.cancel") as string,
+        footerClass: ["p-2", "flex-row-reverse justify-content-start"],
+        hideHeaderClose: false,
+        centered: true
+      }
+    );
+
+    if (result) {
+      this.deleteLineItem(item.id!);
+    }
+  }
+
+  async confirmClearCart() {
+    const result = await this.$bvModal.msgBoxConfirm(i18n.t("shopping-cart.confirm-clear-modal.message") as string, {
+      size: "md",
+      buttonSize: "md",
+      title: i18n.t("shopping-cart.confirm-clear-modal.title") as string,
+      okTitle: i18n.t("shopping-cart.confirm-clear-modal.ok") as string,
+      cancelTitle: i18n.t("shopping-cart.confirm-clear-modal.cancel") as string,
+      footerClass: ["p-2", "flex-row-reverse justify-content-start"],
       hideHeaderClose: false,
       centered: true
-    })
-      .then(value => {
-        if(value) {
-          this.deleteLineItem(item.id!);
-        }
-      });
+    });
+
+    if (result) {
+      this.clearCart();
+    }
   }
 
-  confirmClearCart(){
-    this.$bvModal.msgBoxConfirm(i18n.t('shopping-cart.confirm-clear-modal.message') as string, {
-      size: 'md',
-      buttonSize: 'md',
-      title: i18n.t('shopping-cart.confirm-clear-modal.title') as string,
-      okTitle: i18n.t('shopping-cart.confirm-clear-modal.ok') as string,
-      cancelTitle: i18n.t('shopping-cart.confirm-clear-modal.cancel') as string,
-      footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
-      hideHeaderClose: false,
-      centered: true
-    })
-      .then(value => {
-        if(value) {
-          this.clearCart();
-        }
-      });
-  }
+  async confirmCheckout() {
+    const result = await this.$bvModal.msgBoxConfirm(
+      i18n.t("shopping-cart.confirm-checkout-modal.message", [
+        this.cart!.total!.formattedAmount,
+        this.cart!.itemsCount
+      ]) as string,
+      {
+        size: "md",
+        buttonSize: "md",
+        title: i18n.t("shopping-cart.confirm-checkout-modal.title") as string,
+        okTitle: i18n.t("shopping-cart.confirm-checkout-modal.ok") as string,
+        cancelTitle: i18n.t("shopping-cart.confirm-checkout-modal.cancel") as string,
+        footerClass: ["p-2", "flex-row-reverse justify-content-start"],
+        hideHeaderClose: false,
+        centered: true
+      }
+    );
 
-  confirmCheckout() {
-    this.$bvModal.msgBoxConfirm(i18n.t('shopping-cart.confirm-checkout-modal.message', [this.cart!.total!.formattedAmount, this.cart!.itemsCount]) as string, {
-      size: 'md',
-      buttonSize: 'md',
-      title: i18n.t('shopping-cart.confirm-checkout-modal.title') as string,
-      okTitle: i18n.t('shopping-cart.confirm-checkout-modal.ok') as string,
-      cancelTitle: i18n.t('shopping-cart.confirm-checkout-modal.cancel') as string,
-      footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
-      hideHeaderClose: false,
-      centered: true
-    })
-      .then(value => {
-        if(value) {
-          this.checkout();
-        }
-      });
+    if (result) {
+      this.checkout();
+    }
   }
-
 
   changeQuantity(item: CartLineItem, quantity: number) {
     const changeItemQty = new ChangeCartItemQty();
     changeItemQty.lineItemId = item.id;
     changeItemQty.quantity = quantity;
-    this.changeLineItemQuantity(changeItemQty)
+    this.changeLineItemQuantity(changeItemQty);
   }
 
   hide() {
     this.hideCartSidebar();
   }
-
-
 }

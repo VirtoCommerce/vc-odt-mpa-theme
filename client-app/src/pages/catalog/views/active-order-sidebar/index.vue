@@ -17,7 +17,9 @@
           @clear-cart-clicked="confirmClearCart"></cart-header>
         <cart-summary :cart="cart"></cart-summary>
         <div class="d-flex justify-content-center">
-          <button class="btn btn-outline-primary w-75 text-center mt-3" @click="confirmCheckout()">
+          <button class="btn btn-outline-primary w-75 text-center mt-3"
+                  :disabled="!canCheckout"
+                  @click="confirmCheckout()">
             {{ $t('shopping-cart.checkout') }}
           </button>
         </div>
