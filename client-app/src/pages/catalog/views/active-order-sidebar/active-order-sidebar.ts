@@ -7,7 +7,7 @@ import { ShoppingCart, CartLineItem, ChangeCartItemQty } from "core/api/api-clie
 import CartHeader from "libs/shopping-cart/components/cart-header/index.vue";
 import CartItemsList from "libs/shopping-cart/components/cart-items-list/index.vue";
 import CartSummary from "libs/shopping-cart/components/cart-summary/index.vue";
-import { FETCH_CART, DELETE_ITEM_FROM_CART, CHANGE_ITEM_QUANTITY, CLEAR_CART, HIDE_CART_SIDEBAR } from "libs/shopping-cart/store/cart/definitions";
+import { FETCH_CART, DELETE_ITEM_FROM_CART, CHANGE_ITEM_QUANTITY, CLEAR_CART, HIDE_CART_SIDEBAR, CHECKOUT } from "libs/shopping-cart/store/cart/definitions";
 
 const cartModule = namespace("cart");
 
@@ -46,8 +46,15 @@ export default class ActiveOrderSidebar extends Vue {
   @cartModule.Action(CLEAR_CART)
   clearCart!: () => void;
 
+  @cartModule.Action(CHECKOUT)
+  checkout!: () => void;
+
   mounted(){
     this.fetchCart();
+  }
+
+  get canCheckout() {
+    return !!this.cart && this.cart!.isValid && this.cart!.itemsCount > 0;
   }
 
   confirmDeleteItem(item: CartLineItem) {
@@ -85,6 +92,25 @@ export default class ActiveOrderSidebar extends Vue {
         }
       });
   }
+
+  confirmCheckout() {
+    this.$bvModal.msgBoxConfirm(i18n.t('shopping-cart.confirm-checkout-modal.message', [this.cart!.total!.formattedAmount, this.cart!.itemsCount]) as string, {
+      size: 'md',
+      buttonSize: 'md',
+      title: i18n.t('shopping-cart.confirm-checkout-modal.title') as string,
+      okTitle: i18n.t('shopping-cart.confirm-checkout-modal.ok') as string,
+      cancelTitle: i18n.t('shopping-cart.confirm-checkout-modal.cancel') as string,
+      footerClass: ['p-2', 'flex-row-reverse justify-content-start'],
+      hideHeaderClose: false,
+      centered: true
+    })
+      .then(value => {
+        if(value) {
+          this.checkout();
+        }
+      });
+  }
+
 
   changeQuantity(item: CartLineItem, quantity: number) {
     const changeItemQty = new ChangeCartItemQty();

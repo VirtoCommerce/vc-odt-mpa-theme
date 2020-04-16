@@ -109,6 +109,7 @@
     "subtotal": "Zwischensumme",
     "shipping": "Shipping",
     "total": "Versand",
+    "checkout": "Bestellen",
     "confirm-delete-modal": {
       "title": "Item löschen",
       "ok": "JA",
@@ -120,6 +121,12 @@
       "ok": "JA",
       "cancel": "NEIN",
       "message": "Sind Sie sicher, dass Sie den Einkaufswagen räumen möchten?"
+    },
+    "confirm-checkout-modal": {
+      "title": "Kassenbestätigung",
+      "ok": "Bestellen",
+      "cancel": "Abbrechen",
+      "message": "Bestätigen Sie die Kaufabwicklung für {0} für  {1} Artikel."
     }
   },
   "products": {
