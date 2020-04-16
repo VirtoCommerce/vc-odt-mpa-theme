@@ -199,6 +199,10 @@
     "users": {
       "no-users": "No data",
       "keyword": "Keyword",
+      "edit-user-tooltip": "Edit user",
+      "delete-user-tooltip": "Delete user",
+      "suspend-user-tooltip": "Suspend user",
+      "unsuspend-user-tooltip": "Unsuspend user",
       "edit-user-title": "Edit user",
       "grid": {
         "columns": {

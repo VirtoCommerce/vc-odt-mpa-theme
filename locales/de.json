@@ -212,6 +212,10 @@
     "users": {
       "no-users": "Keine Daten",
       "keyword": "Stichwort",
+      "edit-user-tooltip": "Benutzer bearbeiten",
+      "delete-user-tooltip": "Benutzer löschen",
+      "suspend-user-tooltip": "Benutzer sperren",
+      "unsuspend-user-tooltip": "Benutzer nicht suspendieren",
       "edit-user-title": "Benutzer bearbeiten",
       "grid": {
         "columns": {

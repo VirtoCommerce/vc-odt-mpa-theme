@@ -18,6 +18,9 @@ export default class EditUserModal extends Vue {
   @Prop()
   user!: User;
 
+  @Prop()
+  isLoading!: boolean;
+
   @Watch("user")
   onPropertyChanged(newUser: User) {
     const newUserCopy = new User();
