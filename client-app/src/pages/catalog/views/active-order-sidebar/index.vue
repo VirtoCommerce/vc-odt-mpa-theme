@@ -9,12 +9,12 @@
                rounded="sm"
                :opacity="0.33"
                class="h-100">
-      <div v-if="cart" class="d-flex flex-column">
-        <cart-header
-          :cart="cart"
-          :title="$t('shopping-cart.title')"
-          @clear-cart-clicked="confirmClearCart"></cart-header>
-        <div v-if="cart.itemsCount > 0" class="d-flex flex-column">
+      <div v-if="cart">
+        <div v-if="cart.itemsCount > 0">
+          <cart-header
+            :cart="cart"
+            :title="$t('shopping-cart.title')"
+            @clear-cart-clicked="confirmClearCart"></cart-header>
           <cart-summary :cart="cart"></cart-summary>
           <div class="d-flex justify-content-center">
             <button
@@ -29,6 +29,11 @@
                            @item-deleted="confirmDeleteItem"
                            @quantity-changed="changeQuantity">
           </cart-items-list>
+        </div>
+        <div v-if="cart.itemsCount == 0" class="d-flex flex-column">
+          <span class="align-self-center">
+            {{ $t("shopping-cart.empty-message") }}
+          </span>
         </div>
       </div>
     </b-overlay>
