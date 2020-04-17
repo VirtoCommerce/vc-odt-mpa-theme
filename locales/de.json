@@ -105,6 +105,7 @@
   },
   "shopping-cart": {
     "title": "Deine Bestellung",
+    "items-qty-message": "Sie haben {0} Artikel in dieser Reihenfolge",
     "clear-cart": "Alles entfernen",
     "subtotal": "Zwischensumme",
     "shipping": "Shipping",
