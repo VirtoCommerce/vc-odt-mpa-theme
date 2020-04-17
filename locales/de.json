@@ -105,10 +105,12 @@
   },
   "shopping-cart": {
     "title": "Deine Bestellung",
+    "items-qty-message": "Sie haben {0} Artikel in dieser Reihenfolge",
     "clear-cart": "Alles entfernen",
     "subtotal": "Zwischensumme",
     "shipping": "Shipping",
     "total": "Versand",
+    "checkout": "Bestellen",
     "confirm-delete-modal": {
       "title": "Item löschen",
       "ok": "JA",
@@ -120,6 +122,12 @@
       "ok": "JA",
       "cancel": "NEIN",
       "message": "Sind Sie sicher, dass Sie den Einkaufswagen räumen möchten?"
+    },
+    "confirm-checkout-modal": {
+      "title": "Kassenbestätigung",
+      "ok": "Bestellen",
+      "cancel": "Abbrechen",
+      "message": "Bestätigen Sie die Kaufabwicklung für {0} für  {1} Artikel."
     }
   },
   "products": {
@@ -212,6 +220,10 @@
     "users": {
       "no-users": "Keine Daten",
       "keyword": "Stichwort",
+      "edit-user-tooltip": "Benutzer bearbeiten",
+      "delete-user-tooltip": "Benutzer löschen",
+      "suspend-user-tooltip": "Benutzer sperren",
+      "unsuspend-user-tooltip": "Benutzer nicht suspendieren",
       "edit-user-title": "Benutzer bearbeiten",
       "grid": {
         "columns": {
@@ -370,7 +382,7 @@
       },
       "search-label": "Suche",
       "search-placeholder": "Name",
-      "delete-draft": "Löschen",
+      "delete-draft-tooltip": "Entwurf löschen",
       "confirm-delete-modal": {
         "title": "Entwurf löschen",
         "ok": "JA",

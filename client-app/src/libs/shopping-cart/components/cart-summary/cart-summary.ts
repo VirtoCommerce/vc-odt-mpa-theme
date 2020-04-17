@@ -8,6 +8,7 @@ import { ShoppingCart } from 'core/api/api-clients';
   name: "CartSummary"
 })
 export default class CartSummary extends Vue {
+
   @Prop()
   cart!: ShoppingCart;
 

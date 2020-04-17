@@ -105,10 +105,12 @@
   },
   "shopping-cart": {
     "title": "Your order",
+    "items-qty-message": "You have {0} items in this order",
     "clear-cart": "Remove all",
     "subtotal": "Subtotal",
     "shipping": "Shipping",
     "total": "Total",
+    "checkout": "Checkout",
     "confirm-delete-modal": {
       "title": "Delete item",
       "ok": "YES",
@@ -120,6 +122,12 @@
       "ok": "YES",
       "cancel": "NO",
       "message": "Are you sure you want to clear the cart?"
+    },
+    "confirm-checkout-modal": {
+      "title": "Checkout confirmation",
+      "ok": "Checkout",
+      "cancel": "Cancel",
+      "message": "Confirm the checkout for {0} for {1} items."
     }
   },
   "products": {
@@ -199,6 +207,10 @@
     "users": {
       "no-users": "No data",
       "keyword": "Keyword",
+      "edit-user-tooltip": "Edit user",
+      "delete-user-tooltip": "Delete user",
+      "suspend-user-tooltip": "Suspend user",
+      "unsuspend-user-tooltip": "Unsuspend user",
       "edit-user-title": "Edit user",
       "grid": {
         "columns": {
@@ -329,7 +341,7 @@
       },
       "search-label": "Search",
       "search-placeholder": "Name",
-      "delete-draft": "Delete",
+      "delete-draft-tooltip": "Delete draft",
       "confirm-delete-modal": {
         "title": "Delete draft",
         "ok": "YES",

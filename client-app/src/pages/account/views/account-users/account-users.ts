@@ -178,4 +178,8 @@ export default class AccountUsers extends Vue {
     }
   }
 
+  isCurrentUser(user: User) {
+    return this.profile.id == user.id;
+  }
+
 }

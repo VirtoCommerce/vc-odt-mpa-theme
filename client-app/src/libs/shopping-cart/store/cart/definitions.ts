@@ -6,3 +6,4 @@ export const CLEAR_CART =  "clearCart";
 export const CHANGE_ITEM_QUANTITY = "changeCartItemQuantity";
 export const SHOW_CART_SIDEBAR = "showCartSidebar";
 export const HIDE_CART_SIDEBAR = "hideCartSidebar";
+export const CHECKOUT = "checkout";
