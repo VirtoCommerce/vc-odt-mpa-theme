@@ -103,7 +103,7 @@ export default class ActiveOrderSidebar extends Vue {
     const result = await this.$bvModal.msgBoxConfirm(
       i18n.t("shopping-cart.confirm-checkout-modal.message", [
         this.cart!.total!.formattedAmount,
-        this.cart!.itemsCount
+        this.cart!.itemsQuantity
       ]) as string,
       {
         size: "md",
