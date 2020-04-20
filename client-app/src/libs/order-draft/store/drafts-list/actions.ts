@@ -1,9 +1,9 @@
 import { ActionTree } from "vuex";
 import { CartSearchCriteria, IShoppingCart, ChangeCartItemQty, AddCartItem } from "core/api/api-clients";
 import { storeName, locale, orderDraftType } from "core/constants";
-import { listClient } from "core/services/api-clients.service";
+import { listClient, cartClient } from "core/services/api-clients.service";
 import { RootState } from "store/types";
-import { FETCH_DRAFTS, SET_DRAFTS_SEARCH_CRITERIA, ADD_DRAFT, SET_DRAFTS, DELETE_DRAFT, SET_SELECTED_DRAFT, DELETE_ITEM_FROM_DRAFT, CHANGE_DRAFT_ITEM_QUANTITY, ADD_ITEM_TO_DRAFT, CLEAR_SELECTED_DRAFT } from "./definitions";
+import { FETCH_DRAFTS, SET_DRAFTS_SEARCH_CRITERIA, ADD_DRAFT, SET_DRAFTS, DELETE_DRAFT, SET_SELECTED_DRAFT, DELETE_ITEM_FROM_DRAFT, CHANGE_DRAFT_ITEM_QUANTITY, ADD_ITEM_TO_DRAFT, CLEAR_SELECTED_DRAFT, CHECKOUT } from "./definitions";
 import { DraftsListState } from "./types";
 
 
@@ -57,6 +57,11 @@ export const actions: ActionTree<DraftsListState, RootState> = {
     await listClient.getListByName(listName, orderDraftType, storeName, locale).then(list => {
       context.dispatch(SET_SELECTED_DRAFT, list);
     });
+    context.dispatch(FETCH_DRAFTS);
+  },
+  async [CHECKOUT](context, payload: string) {
+    context.commit(FETCH_DRAFTS);
+    await cartClient.createOrderFromNamedCart(payload, orderDraftType, null, storeName, locale);
     context.dispatch(FETCH_DRAFTS);
   }
 };
