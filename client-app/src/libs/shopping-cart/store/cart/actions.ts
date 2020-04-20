@@ -46,7 +46,7 @@ export const actions: ActionTree<CartState, RootState> = {
   },
   async [CHECKOUT](context) {
     context.commit(FETCH_CART);
-    await cartClient.createOrder(null, storeName, locale);
+    await cartClient.createOrderFromDefaultCart(null, storeName, locale);
     await context.dispatch(FETCH_CART_ITEMS_COUNT);
     await context.dispatch(FETCH_CART);
   },

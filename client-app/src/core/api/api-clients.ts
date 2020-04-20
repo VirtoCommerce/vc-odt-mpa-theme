@@ -1851,7 +1851,7 @@ export class ApiCartClient {
      * @param bankCardInfo (optional) 
      * @return Success
      */
-    createOrder(bankCardInfo: BankCardInfo | null | undefined, store: string, language: string): Promise<OrderCreatedInfo> {
+    createOrderFromDefaultCart(bankCardInfo: BankCardInfo | null | undefined, store: string, language: string): Promise<OrderCreatedInfo> {
         let url_ = this.baseUrl + "/{store}/{language}/storefrontapi/cart/createorder";
         if (store === undefined || store === null)
             throw new Error("The parameter 'store' must be defined.");
@@ -1874,11 +1874,71 @@ export class ApiCartClient {
         };
 
         return this.instance.request(options_).then((_response: AxiosResponse) => {
-            return this.processCreateOrder(_response);
+            return this.processCreateOrderFromDefaultCart(_response);
         });
     }
 
-    protected processCreateOrder(response: AxiosResponse): Promise<OrderCreatedInfo> {
+    protected processCreateOrderFromDefaultCart(response: AxiosResponse): Promise<OrderCreatedInfo> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        if (status === 200) {
+            const _responseText = response.data;
+            let result200: any = null;
+            let resultData200  = _responseText;
+            result200 = OrderCreatedInfo.fromJS(resultData200);
+            return result200;
+        } else if (status !== 200 && status !== 204) {
+            const _responseText = response.data;
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+        }
+        return Promise.resolve<OrderCreatedInfo>(<any>null);
+    }
+
+    /**
+     * @param bankCardInfo (optional) 
+     * @return Success
+     */
+    createOrderFromNamedCart(name: string, type: string, bankCardInfo: BankCardInfo | null | undefined, store: string, language: string): Promise<OrderCreatedInfo> {
+        let url_ = this.baseUrl + "/{store}/{language}/storefrontapi/cart/{name}/{type}/createorder";
+        if (name === undefined || name === null)
+            throw new Error("The parameter 'name' must be defined.");
+        url_ = url_.replace("{name}", encodeURIComponent("" + name)); 
+        if (type === undefined || type === null)
+            throw new Error("The parameter 'type' must be defined.");
+        url_ = url_.replace("{type}", encodeURIComponent("" + type)); 
+        if (store === undefined || store === null)
+            throw new Error("The parameter 'store' must be defined.");
+        url_ = url_.replace("{store}", encodeURIComponent("" + store)); 
+        if (language === undefined || language === null)
+            throw new Error("The parameter 'language' must be defined.");
+        url_ = url_.replace("{language}", encodeURIComponent("" + language)); 
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(bankCardInfo);
+
+        let options_ = <AxiosRequestConfig>{
+            data: content_,
+            method: "POST",
+            url: url_,
+            headers: {
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            }
+        };
+
+        return this.instance.request(options_).then((_response: AxiosResponse) => {
+            return this.processCreateOrderFromNamedCart(_response);
+        });
+    }
+
+    protected processCreateOrderFromNamedCart(response: AxiosResponse): Promise<OrderCreatedInfo> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
