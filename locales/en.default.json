@@ -106,6 +106,7 @@
   "shopping-cart": {
     "title": "Your order",
     "items-qty-message": "You have {0} items in this order",
+    "empty-message": "Your order is empty",
     "clear-cart": "Remove all",
     "subtotal": "Subtotal",
     "shipping": "Shipping",
