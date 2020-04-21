@@ -1903,10 +1903,11 @@ export class ApiCartClient {
 
     /**
      * @param bankCardInfo (optional) 
+     * @param removeCart (optional) 
      * @return Success
      */
-    createOrderFromNamedCart(name: string, type: string, bankCardInfo: BankCardInfo | null | undefined, store: string, language: string): Promise<OrderCreatedInfo> {
-        let url_ = this.baseUrl + "/{store}/{language}/storefrontapi/cart/{name}/{type}/createorder";
+    createOrderFromNamedCart(name: string, type: string, bankCardInfo: BankCardInfo | null | undefined, removeCart: boolean | null | undefined, store: string, language: string): Promise<OrderCreatedInfo> {
+        let url_ = this.baseUrl + "/{store}/{language}/storefrontapi/cart/{name}/{type}/createorder?";
         if (name === undefined || name === null)
             throw new Error("The parameter 'name' must be defined.");
         url_ = url_.replace("{name}", encodeURIComponent("" + name)); 
@@ -1919,6 +1920,8 @@ export class ApiCartClient {
         if (language === undefined || language === null)
             throw new Error("The parameter 'language' must be defined.");
         url_ = url_.replace("{language}", encodeURIComponent("" + language)); 
+        if (removeCart !== undefined)
+            url_ += "removeCart=" + encodeURIComponent("" + removeCart) + "&"; 
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(bankCardInfo);
