@@ -34,3 +34,24 @@ export const invoicesGridFields = window.THEME_SETTINGS.invoices_grid_fields as 
 export const paymentsGridFields = window.THEME_SETTINGS.payments_grid_fields as BvTableFieldArray;
 export const draftsGridFields = window.THEME_SETTINGS.drafts_grid_fields as BvTableFieldArray;
 
+// features
+export const ordersBrowsingFeature = window.OrdersBrowsingFeature;
+export const paymentBrowsingFeature = window.PaymentBrowsingFeature;
+export const invoiceBrowsingFeature = window.InvoiceBrowsingFeature;
+export const manageUsersFeature = window.ManageUsersFeature;
+export const manageRolesFeature = window.ManageRolesFeature;
+export const contractsInfoBrowsingFeature = window.ContractsInfoBrowsingFeature;
+export const retrieveReorderingFeature = window.RetrieveReorderingFeature;
+export const orderApprovalFeature = window.OrderApprovalFeature;
+export const productTextSearchFeature = window.ProductTextSearchFeature;
+export const productsFilteringFeature = window.ProductsFilteringFeature;
+export const productDetailsBrowsingFeature = window.ProductDetailsBrowsingFeature;
+export const productPriceBrowsingFeature = window.ProductPriceBrowsingFeature;
+export const productRecommendationFeature = window.ProductRecommendationFeature;
+export const orderDraftFeature = window.OrderDraftFeature;
+export const wishListFeature = window.WishListFeature;
+export const submitOrderFeature = window.SubmitOrderFeature;
+export const productInventoryBrowsingFeature = window.ProductInventoryBrowsingFeature;
+export const manageShipmentDetailsFeature = window.ManageShipmentDetailsFeature;
+export const managePaymentDetailsFeature = window.ManagePaymentDetailsFeature;
+
