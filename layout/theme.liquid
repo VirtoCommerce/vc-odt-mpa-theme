@@ -31,26 +31,7 @@
     {{ 'bundle/dist/css/chunk-vendors.css' | static_asset_url | append_version | stylesheet_tag }}
 
     <script>
-      window.OrdersBrowsingFeature = {{ 'OrdersBrowsing' | is_feature_active }};
-      window.PaymentBrowsingFeature = {{ 'PaymentBrowsing' | is_feature_active }};
-      window.InvoiceBrowsingFeature = {{ 'InvoiceBrowsing' | is_feature_active }};
-      window.ManageUsersFeature = {{ 'ManageUsers' | is_feature_active }};
-      window.ManageRolesFeature = {{ 'ManageRoles' | is_feature_active }};
-      window.ContractsInfoBrowsingFeature = {{ 'ContractsInfoBrowsing' | is_feature_active }};
-      window.RetrieveReorderingFeature = {{ 'RetrieveReordering' | is_feature_active }};
-      window.OrderApprovalFeature = {{ 'OrderApproval' | is_feature_active }};
-      window.ProductTextSearchFeature = {{ 'ProductTextSearch' | is_feature_active }};
-      window.ProductsFilteringFeature = {{ 'ProductsFiltering' | is_feature_active }};
-      window.ProductDetailsBrowsingFeature = {{ 'ProductDetailsBrowsing' | is_feature_active }};
-      window.ProductPriceBrowsingFeature = {{ 'ProductPriceBrowsing' | is_feature_active }};
-      window.ProductRecommendationFeature = {{ 'ProductRecommendation' | is_feature_active }};
-      window.OrderDraftFeature = {{ 'OrderDraft' | is_feature_active }};
-      window.WishListFeature = {{ 'WishList' | is_feature_active }};
-      window.SubmitOrderFeature = {{ 'SubmitOrder' | is_feature_active }};
-      window.ProductInventoryBrowsingFeature = {{ 'ProductInventoryBrowsing' | is_feature_active }};
-      window.ManageShipmentDetailsFeature = {{ 'ManageShipmentDetails' | is_feature_active }};
-      window.ManagePaymentDetailsFeature = {{ 'ManagePaymentDetails' | is_feature_active }};
-
+      window.Features = {{ '' | is_features_active : 'OrdersBrowsing', 'PaymentBrowsing', 'InvoiceBrowsing', 'ManageUsers', 'ManageRoles', 'ContractsInfoBrowsing', 'RetrieveReordering', 'OrderApproval', 'ProductTextSearch', 'ProductsFiltering', 'ProductDetailsBrowsing', 'ProductPriceBrowsing', 'ProductRecommendation', 'OrderDraft', 'WishList', 'SubmitOrder','ProductInventoryBrowsing', 'ManageShipmentDetails', 'ManagePaymentDetails'}};
       window.BASE_URL = `{{ "/" | full_url }}`;
       window.STORE_NAME = "{{ current_store.name }}";
       window.LOCALE = "{{ current_language.culture_name }}";

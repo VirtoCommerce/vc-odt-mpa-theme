@@ -18,6 +18,10 @@ declare global {
     LOCALE: string;
     LOCALIZATION_MESSAGES: LocaleMessages;
     THEME_SETTINGS: any;
+    Features: Features;
+  }
+
+  interface Features {
     OrdersBrowsingFeature: boolean;
     PaymentBrowsingFeature: boolean;
     InvoiceBrowsingFeature: boolean;
