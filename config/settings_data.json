@@ -544,7 +544,6 @@
       "IsActive": true,
       "Requires": [],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -552,7 +551,6 @@
       "IsActive": true,
       "Requires": [],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -560,7 +558,6 @@
       "IsActive": true,
       "Requires": [],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -568,7 +565,6 @@
       "IsActive": true,
       "Requires": [],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -576,7 +572,6 @@
       "IsActive": true,
       "Requires": [],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -584,7 +579,6 @@
       "IsActive": true,
       "Requires": [],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -592,7 +586,6 @@
       "IsActive": true,
       "Requires": [],
       "Replaces": [],
-      "Replaced": [ "OrderDraft" ],
       "Conflicts": [ "SubmitOrder", "ProductInventoryBrowsing", "ManageShipmentDetails", "ManagePaymentDetails" ]
     },
     {
@@ -600,7 +593,6 @@
       "IsActive": true,
       "Requires": [],
       "Replaces": [],
-      "Replaced": [ "OrderDraft" ],
       "Conflicts": [ "SubmitOrder", "ProductInventoryBrowsing", "ManageShipmentDetails", "ManagePaymentDetails" ]
     },
     {
@@ -608,7 +600,6 @@
       "IsActive": true,
       "Requires": [ "ProductTextSearch", "ProductsFiltering" ],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -616,7 +607,6 @@
       "IsActive": true,
       "Requires": [ "ProductTextSearch", "ProductsFiltering" ],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -624,7 +614,6 @@
       "IsActive": true,
       "Requires": [ "ProductTextSearch", "ProductsFiltering" ],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -632,7 +621,6 @@
       "IsActive": true,
       "Requires": [ "ProductTextSearch", "ProductsFiltering", "ProductDetailsBrowsing" ],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -640,7 +628,6 @@
       "IsActive": true,
       "Requires": [ "ProductTextSearch", "ProductsFiltering", "ProductDetailsBrowsing" ],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -648,7 +635,6 @@
       "IsActive": true,
       "Requires": [ "ProductTextSearch", "ProductsFiltering", "ProductDetailsBrowsing", "ProductPriceBrowsing" ],
       "Replaces": [ "RetrieveReordering", "OrderApproval" ],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -656,7 +642,6 @@
       "IsActive": true,
       "Requires": [ "ProductTextSearch", "ProductsFiltering", "ProductDetailsBrowsing", "ProductPriceBrowsing" ],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -664,7 +649,6 @@
       "IsActive": true,
       "Requires": [ "ProductTextSearch", "ProductsFiltering", "ProductDetailsBrowsing", "ProductPriceBrowsing", "OrderDraft", "ProductInventoryBrowsing" ],
       "Replaces": [ "RetrieveReordering", "OrderApproval" ],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -672,7 +656,6 @@
       "IsActive": true,
       "Requires": [ "ProductTextSearch", "ProductsFiltering", "ProductDetailsBrowsing", "ProductPriceBrowsing", "OrderDraft", "SubmitOrder" ],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -680,7 +663,6 @@
       "IsActive": true,
       "Requires": [ "ProductTextSearch", "ProductsFiltering", "ProductDetailsBrowsing", "ProductPriceBrowsing", "OrderDraft", "SubmitOrder" ],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     },
     {
@@ -688,7 +670,6 @@
       "IsActive": true,
       "Requires": [ "ProductTextSearch", "ProductsFiltering", "ProductDetailsBrowsing", "ProductPriceBrowsing", "OrderDraft", "SubmitOrder" ],
       "Replaces": [],
-      "Replaced": [],
       "Conflicts": []
     }
   ]
