@@ -61,7 +61,7 @@ export const actions: ActionTree<DraftsListState, RootState> = {
   },
   async [CHECKOUT](context, payload: string) {
     context.commit(FETCH_DRAFTS);
-    await cartClient.createOrderFromNamedCart(payload, orderDraftType, null, true, storeName, locale);
+    await cartClient.createOrderFromNamedCart(payload, orderDraftType, null, false, storeName, locale);
     context.dispatch(FETCH_DRAFTS);
   }
 };
