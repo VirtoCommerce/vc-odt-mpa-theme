@@ -19,6 +19,12 @@
         <change-item-quantity :quantity="item.quantity" @quantity-changed="quantityChanged"></change-item-quantity>
       </div>
     </div>
+    <b-form-invalid-feedback v-for="error in item.validationErrors"
+                             :key="error.errorCode"
+                             :state="false"
+                             :force-show="true">
+      {{ $t('shopping-cart.errors.'+error.errorCode) }}
+    </b-form-invalid-feedback>
   </div>
 </template>
 
