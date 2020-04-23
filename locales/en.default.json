@@ -129,6 +129,9 @@
       "ok": "Checkout",
       "cancel": "Cancel",
       "message": "Confirm the checkout for {0} for {1} items."
+    },
+    "errors":{
+      "QuantityError": "Quantity is invalid"
     }
   },
   "products": {
