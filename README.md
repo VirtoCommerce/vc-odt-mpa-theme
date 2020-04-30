@@ -12,7 +12,7 @@
 - SEO friendly thanks to SSR (Server Side Rendering) performing on the VC Storefront ASP.NET Core application.
 - Presentation logic decoupling from backend. You might fully concentrate on  presentation tasks and do not think for backend. 
 - Intentionaly lack of using custom CSS an initial styles constructed, using popular Bootstrap CSS library  and have an adaptive markup allows working on all popular devices and resolutions to make the customization process for theme styles  more straitforward. 
-- Support WEB content management experience without development labor thanks to integration with [https://github.com/VirtoCommerce/vc-module-pagebuilder](VC page  builder)
+- Support WEB content management experience without development labor thanks to integration with [VC page  builder](https://github.com/VirtoCommerce/vc-module-pagebuilder)
 - Liquid templates and SSR (server side rendering)  + MPA (mutiple page application) architecture with using Vue.JS progressive framework allow to get the all benefits from both server side and WEB development technices.
   
 # The project business key featues:
