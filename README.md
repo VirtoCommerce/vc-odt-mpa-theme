@@ -2,10 +2,10 @@
 
 ![image](https://user-images.githubusercontent.com/7566324/80617364-4ba80a80-8a42-11ea-8222-be17dea1cc8d.png)
 
-**ODT-MPA starter theme** - is starter theme is demonstared a typical out-of-the-box B2B Portal that beign a part of the [Digital Organic Transformation (ODT)]() strategy and built using Liquid templates, Vue.JS web progressive framework and Bootstrap CSS with elements of WEB CMS.
- This theme represents the VC Team's opinionated starting point for new projects. It strives to include up-to-date best practices and solutions that we have deemed needed for the majority of projects we build. It is a reflection of what’s possible when building a theme! The **ODT-MPA starter theme** is not a framework but rather a starting point for your theme that you can customize by direct modifications!
+**ODT-MPA starter theme** - is starter theme is demonstared a typical out-of-the-box B2B Portal that beign a part of the [Digital Organic Transformation (ODT)]() strategy and built using Liquid templates, Vue.JS web progressive framework and Bootstrap CSS with elements of Web CMS.
+ This theme represents the VC Team's opinionated starting point for new projects. It strives to include up-to-date best practices and solutions that we have deemed needed for the majority of projects we build. It is a reflection of what’s possible when building a theme! The **ODT-MPA starter theme** is not only a real-world solution that implements practical business use-cases and this is a good starting point for your theme that you can customize by direct code modifications!
 
-# The project technical key featues:
+# The project non-functional key features:
 
 - Plays opinionated starting point for all new themes and frontend solution constructed on VC storefront. 
 - Focus on development performance thanks to maximum reusing of exciting developer experience such as server side functionality, web components and views.
@@ -15,7 +15,7 @@
 - Support WEB content management experience without development labor thanks to integration with [VC page  builder](https://github.com/VirtoCommerce/vc-module-pagebuilder)
 - Liquid templates and SSR (server side rendering)  + MPA (mutiple page application) architecture with using Vue.JS progressive framework allow to get the all benefits from both server side and WEB development technices.
   
-# The project business key featues:
+# The project business key features:
 
 - Authorization. Login, logout, reset password
 - Order history browsing. Review and search the orders history (headers, lines)
@@ -27,9 +27,7 @@
 - Contract status browsing.	Review contract details and status
 - Retrieve re-ordering.	Retrieve order replication with comments – (email)
 - Order approve	Review, approve or reject an order created by account manager
-- Product text search.	Filter products using text search
-- Product filtering. Filter products by multiple parameters and text search
-- Product details browsing.	Review product catalog details
+- Catalog navigation. Full-text  search, faceting search, categories browsing, products details.
 - Product prices browsing.	Review product prices in a product catalog details
 - Product recomendations. Cross-sell, Up-Sell, Frequently bought together etc.
 - Wish lists	Create, update, delete wish list and put products to it from catalog or from existent orders
@@ -44,8 +42,11 @@
 
 # How does it work?
 TBD
-# Why MPA (Multi Page Application)?
-TBD
+# Why MPA (Multi Page Application) instaed of SPA (Single Page Application)?
+There are the folowing  reasones why MPA architecture has been chosen. 
+- SEO requirements. One of the weaknesses of the SPA is SEO. Unfortunately, they aren’t as SEO friendly as MPA’s. It’s primarily because the majority of single-page applications are run on JavaScript, which most search engines do not support. MPA enables better website positioning as each page can be optimized for a different keyword. Also, meta tags can be included on every page – this positively impacts Google rankings.
+- Web CMS integration. VC team have been working on own Web CMS implementation [VC page  builder](https://github.com/VirtoCommerce/vc-module-pagebuilder), this tools allows to edit Liquid themes files and theme settings using a visual editor along with using the storefront for preview of changes. 
+- Reusing of exists Storefront's functionality such as security, slug routing, multiple stores, currencies, and languages. All these functionalities are hard to be reused in the classical SPA applications. 
 
 # Theme structure
 ```bash
@@ -111,7 +112,29 @@ TBD
 
 
 # Getting started
-TBD
+## Prerequisites
+
+You need to have local installation of storefront. Follow [this article](https://virtocommerce.com/docs/vc2devguide/deployment/storefront-deployment) step-by-step to install storefront from binaries or source code.
+
+## Deploy theme
+1. Clone repo into your storefront folder path `{vc-storefront}/wwwroot/cms-content/themes/{store-name}/default`.
+```bash
+  git clone https://github.com/VirtoCommerce/vc-odt-mpa-theme.git "C:\vc-storefront\wwwroot\cms-content\themes\Electronics\default"
+```
+2. Change current  directory
+```bash
+   cd C:\vc-storefront\wwwroot\cms-content\themes\Electronics\default\clientApp
+```
+3. Install Node.js dependencies.
+```bash
+   npm install    
+```
+4. Build theme scripts and styles for production with minification
+```bash
+   npm run dev 
+```
+5. Run storefront 
+
 
 # License
 Copyright (c) Virtosoftware Ltd.  All rights reserved.
