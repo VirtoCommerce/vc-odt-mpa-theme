@@ -119,11 +119,11 @@ There are the folowing  reasones why MPA architecture has been chosen.
 You need to have local installation of storefront. Follow [this article](https://virtocommerce.com/docs/vc2devguide/deployment/storefront-deployment) step-by-step to install storefront from binaries or source code.
 
 ## Deploy theme
-1. Clone repo into your storefront folder path `{vc-storefront}/wwwroot/cms-content/themes/{store-name}/default`.
+1. Clone repo into the folder where storefront is installed  `{vc-storefront}/wwwroot/cms-content/themes/{store-name}/default`.
 ```bash
   git clone https://github.com/VirtoCommerce/vc-odt-mpa-theme.git "C:\vc-storefront\wwwroot\cms-content\themes\Electronics\default"
 ```
-2. Change current  directory
+2. Change the current  directory
 ```bash
    cd C:\vc-storefront\wwwroot\cms-content\themes\Electronics\default\clientApp
 ```
