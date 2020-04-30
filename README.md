@@ -3,7 +3,9 @@
 ![image](https://user-images.githubusercontent.com/7566324/80617364-4ba80a80-8a42-11ea-8222-be17dea1cc8d.png)
 
 **ODT-MPA starter theme** - is starter theme is demonstared a typical out-of-the-box B2B Portal that beign a part of the [Digital Organic Transformation (ODT)]() strategy and built using Liquid templates, Vue.JS web progressive framework and Bootstrap CSS with elements of Web CMS.
- This theme represents the VC Team's opinionated starting point for new projects. It strives to include up-to-date best practices and solutions that we have deemed needed for the majority of projects we build. It is a reflection of what’s possible when building a theme! The **ODT-MPA starter theme** is not only a real-world solution that implements practical business use-cases and this is a good starting point for your theme that you can customize by direct code modifications!
+ This theme represents the VC Team's opinionated starting point for new projects. It strives to include up-to-date best practices and solutions that we have deemed needed for the majority of projects we build. It is a reflection of what’s possible when building a theme! 
+
+The **ODT-MPA starter theme** is not only a real-world solution that implements practical business use-cases and  this is also the good starting point for your theme that you can customize by direct code modifications!
 
 # The project non-functional key features:
 
