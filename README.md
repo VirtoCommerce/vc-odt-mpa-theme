@@ -44,7 +44,7 @@ The **ODT-MPA starter theme** is not only a real-world solution that implements 
 
 # How does it work?
 TBD
-# Why MPA (Multi Page Application) instaed of SPA (Single Page Application)?
+# Why MPA (Multi Page Application) instead of SPA (Single Page Application)?
 There are the folowing  reasones why MPA architecture has been chosen. 
 - SEO requirements. One of the weaknesses of the SPA is SEO. Unfortunately, they aren’t as SEO friendly as MPA’s. It’s primarily because the majority of single-page applications are run on JavaScript, which most search engines do not support. MPA enables better website positioning as each page can be optimized for a different keyword. Also, meta tags can be included on every page – this positively impacts Google rankings.
 - Web CMS integration. VC team have been working on own Web CMS implementation [VC page  builder](https://github.com/VirtoCommerce/vc-module-pagebuilder), this tools allows to edit Liquid themes files and theme settings using a visual editor along with using the storefront for preview of changes. 
