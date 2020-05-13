@@ -7,7 +7,8 @@ import { CartState } from "./types";
 export const SET_CART = "setCart";
 export const SET_CART_ITEMS_COUNT = "setCartItemsCount";
 export const SET_SIDEBAR_VISIBLE = "setSidebarVisible";
-
+export const ADD_PRODUCT_TO_CHANGE_SET = "addProductToChangeSet";
+export const REMOVE_PRODUCT_FROM_CHANGE_SET = "removeProductFromChangeSet";
 
 //mutations
 export const mutations: MutationTree<CartState> = {
@@ -24,6 +25,17 @@ export const mutations: MutationTree<CartState> = {
   },
   [SET_SIDEBAR_VISIBLE](state, payload: boolean){
     state.sidebarVisible = payload;
+  },
+  [ADD_PRODUCT_TO_CHANGE_SET](state, payload: string) {
+    if(payload) {
+      state.changeProductIdSet.push(payload);
+    }
+  },
+  [REMOVE_PRODUCT_FROM_CHANGE_SET](state, payload: string) {
+    if(payload) {
+      const idx =  state.changeProductIdSet.indexOf(payload);
+      state.changeProductIdSet.splice(idx, 1);
+    }
   }
 
 };

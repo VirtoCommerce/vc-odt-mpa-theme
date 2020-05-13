@@ -7,4 +7,5 @@ export interface CartState extends AsyncState {
   cart: ShoppingCart | null;
   cartItemsCount: number;
   sidebarVisible: boolean;
+  changeProductIdSet: string[];
 }
