@@ -23,12 +23,20 @@ export default class AddToCartButton extends Vue {
   @cartModule.Action(SHOW_CART_SIDEBAR)
   showCartSidebar!: () => void;
 
+  @cartModule.Getter("changeProductIdSet")
+  changeProductIdSet!: string[];
+
   onClick() {
     const addItem = new AddCartItem();
     addItem.productId = this.productId;
     addItem.quantity = 1;
     this.addItemToCart(addItem);
     this.showCartSidebar();
+  }
+
+  get busy(): boolean {
+    const result = this.changeProductIdSet.indexOf(this.productId) > -1;
+    return result;
   }
 
 }
