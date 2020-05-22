@@ -40,8 +40,10 @@
     </script>
   </head>
   <body class="min-vh-100 d-flex flex-column">
-    {{ content_for_header }}
-    <main class="container flex-grow-1 pb-5">
+    <div class="fixed-top">
+      {{ content_for_header }}
+    </div>
+    <main class="container flex-grow-1 pb-5" style="margin-top: 49px;">
       <div id="initApp"></div>
       {{ content_for_layout }}
     </main>
