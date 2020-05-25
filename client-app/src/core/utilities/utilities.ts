@@ -14,3 +14,10 @@ export function toDictionary(obj: any): Dictionary<string | (string | null)[] | 
   }
   return result;
 }
+
+
+export function appendToFilename(filename: string, suffix: string){
+  const dotIndex = filename.lastIndexOf(".");
+  if (dotIndex == -1) return filename + suffix;
+  else return filename.substring(0, dotIndex) + suffix + filename.substring(dotIndex);
+}

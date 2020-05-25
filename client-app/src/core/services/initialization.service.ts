@@ -9,6 +9,7 @@ import { faHeartBroken, faLock, faMeteor, faThLarge, faList, faShoppingCart, faC
 import { FontAwesomeIcon, FontAwesomeLayers } from "@fortawesome/vue-fontawesome";
 import { ButtonPlugin, CollapsePlugin, PaginationPlugin, TablePlugin, ToastPlugin, ModalPlugin, CardPlugin, DropdownPlugin, FormCheckboxPlugin, FormGroupPlugin, FormDatepickerPlugin, FormInputPlugin, FormPlugin, FormSelectPlugin, InputGroupPlugin, TooltipPlugin, SidebarPlugin, OverlayPlugin } from "bootstrap-vue";
 import axios from "core/services/axios-instance";
+import { appendSuffixToImgUrl } from "@core/filters/imgUrl";
 
 export default class InitializationService {
   static initializeCommon() {
@@ -26,6 +27,8 @@ export default class InitializationService {
     //plugins
     Vue.use(VueRx);
     Vue.use(VueAxios, axios);
+
+    Vue.filter('imgUrl', appendSuffixToImgUrl);
 
     // workaround because of unstable build caused by broken .d.ts
     // eslint-disable-next-line @typescript-eslint/no-var-requires
