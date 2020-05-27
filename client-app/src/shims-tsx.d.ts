@@ -18,5 +18,28 @@ declare global {
     LOCALE: string;
     LOCALIZATION_MESSAGES: LocaleMessages;
     THEME_SETTINGS: any;
+    Features: Features;
+  }
+
+  interface Features {
+    OrdersBrowsingFeature: boolean;
+    PaymentBrowsingFeature: boolean;
+    InvoiceBrowsingFeature: boolean;
+    ManageUsersFeature: boolean;
+    ManageRolesFeature: boolean;
+    ContractsInfoBrowsingFeature: boolean;
+    RetrieveReorderingFeature: boolean;
+    OrderApprovalFeature: boolean;
+    ProductTextSearchFeature: boolean;
+    ProductsFilteringFeature: boolean;
+    ProductDetailsBrowsingFeature: boolean;
+    ProductPriceBrowsingFeature: boolean;
+    ProductRecommendationFeature: boolean;
+    OrderDraftFeature: boolean;
+    WishListFeature: boolean;
+    SubmitOrderFeature: boolean;
+    ProductInventoryBrowsingFeature: boolean;
+    ManageShipmentDetailsFeature: boolean;
+    ManagePaymentDetailsFeature: boolean;
   }
 }
