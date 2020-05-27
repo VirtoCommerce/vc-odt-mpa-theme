@@ -4,10 +4,10 @@
       <font-awesome-icon :icon="minusIcon" size="lg"></font-awesome-icon>
     </button>
     <div>
-      <input type="text"
+      <input v-only-number
+             type="text"
              class="form-control form-control-sm text-center"
              :value="model"
-             @keydown="keydown($event)"
              @blur="textChanged($event.target.value)"
              @keyup.enter="textChanged($event.target.value)">
     </div>
