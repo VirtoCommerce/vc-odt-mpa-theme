@@ -4,7 +4,7 @@ import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
 import { BvTableCtxObject, BvTableFieldArray } from "bootstrap-vue";
 import { ICustomerOrderSearchResult, IOrderSearchCriteria, ICustomerOrder, OrderSearchCriteria } from "core/api/api-clients";
-import { pageSizes, ordersStatuses, sortDescending, sortAscending } from "core/constants";
+import { pageSizes, ordersStatuses, sortDescending, sortAscending, startPageNumber } from "core/constants";
 import { OrderSearchQuery } from "core/models/search/extensions/order-search-query";
 import { QueryBuilder } from 'core/services/query-builder.service';
 import OrderDetailsModal from "libs/order/components/order-details-modal/index.vue";
@@ -76,13 +76,13 @@ export default class AccountOrders extends Vue {
   }
 
   pageSizeChanged(pageSize: number) {
-    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: 1, pageSize });
+    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: startPageNumber, pageSize });
   }
 
   sortChanged(ctx: BvTableCtxObject) {
     const sortDirection = ctx.sortDesc ? sortDescending : sortAscending;
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
-    const searchCriteria = { ...this.searchCriteria, pageNumber: 1, sort: sortExpression };
+    const searchCriteria = { ...this.searchCriteria, pageNumber: startPageNumber, sort: sortExpression };
     this.searchCriteriaChanged(searchCriteria);
   }
 

@@ -5,7 +5,7 @@ import { namespace } from "vuex-class";
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { BvTableCtxObject } from "bootstrap-vue";
 import { IPaymentSearchCriteria, IPaymentSearchResult, PaymentSearchCriteria } from 'core/api/api-clients';
-import { pageSizes, invoicesStatuses, baseUrl, storeName, locale, sortDescending, sortAscending } from "core/constants";
+import { pageSizes, invoicesStatuses, baseUrl, storeName, locale, sortDescending, sortAscending, startPageNumber } from "core/constants";
 import { PaymentSearchQuery } from 'core/models/search/extensions/payment-search-query';
 import { QueryBuilder } from 'core/services/query-builder.service';
 import InvoicesFilter from "libs/invoice/components/invoices-filter/index.vue";
@@ -64,13 +64,13 @@ export default class AccountInvoices extends Vue {
   }
 
   pageSizeChanged(pageSize: number) {
-    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: 1, pageSize });
+    this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: startPageNumber, pageSize });
   }
 
   sortChanged(ctx: BvTableCtxObject) {
     const sortDirection = ctx.sortDesc ? sortDescending : sortAscending;
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
-    const searchCriteria = { ...this.searchCriteria, pageNumber: 1, sort: sortExpression };
+    const searchCriteria = { ...this.searchCriteria, pageNumber: startPageNumber, sort: sortExpression };
     this.searchCriteriaChanged(searchCriteria);
   }
 
