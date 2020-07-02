@@ -68,7 +68,7 @@ export default class ErrorInfo extends Vue {
     });
   }
 
-  unmounted() {
+  beforeDestroy() {
     this.timestampSubscription.unsubscribe();
   }
 }
