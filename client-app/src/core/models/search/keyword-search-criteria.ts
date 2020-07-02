@@ -3,11 +3,11 @@ import { PagedSearchCriteria, IPagedSearchCriteria } from 'core/models/search/pa
 
 /* eslint-disable-next-line @typescript-eslint/interface-name-prefix */
 export interface IKeywordSearchCriteria extends IPagedSearchCriteria {
-  keyword?: string;
+  keyword?: string | null;
 }
 
 export class KeywordSearchCriteria extends PagedSearchCriteria implements IKeywordSearchCriteria {
-  keyword?: string;
+  keyword?: string | null;
 
   constructor(data?: IKeywordSearchCriteria) {
     super(data);
@@ -15,7 +15,7 @@ export class KeywordSearchCriteria extends PagedSearchCriteria implements IKeywo
 
   toSearchQuery<TSearchQuery extends KeywordSearchQuery>(searchQueryType: { new(): TSearchQuery }): TSearchQuery {
     const searchQuery = super.toSearchQuery<TSearchQuery>(searchQueryType);
-    searchQuery.keyword = this.keyword;
+    searchQuery.keyword = this.keyword || undefined;
     return searchQuery;
   }
 }

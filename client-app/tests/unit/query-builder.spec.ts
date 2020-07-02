@@ -1,11 +1,11 @@
 import "chai-string";
+import chai, { expect } from "chai";
 import { ProductSearchCriteria } from "core/api/api-clients";
 import { ProductSearchQuery } from "core/models/search/extensions/product-search-query";
 import { KeywordSearchCriteria } from "core/models/search/keyword-search-criteria";
 import { KeywordSearchQuery } from "core/models/search/keyword-search-query";
 import { TermsData } from "core/models/search/terms-data";
 import { QueryBuilder } from "core/services/query-builder.service";
-import chai, { expect } from "chai";
 import "core/models/search/extensions/product-search-criteria";
 
 // workaround because of unstable build caused by broken .d.ts

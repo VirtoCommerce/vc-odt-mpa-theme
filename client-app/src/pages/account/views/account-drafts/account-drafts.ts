@@ -3,8 +3,8 @@ import Component from "vue-class-component";
 import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
-import i18n from "@i18n";
 import { BvTableFieldArray } from "bootstrap-vue";
+import i18n from "@i18n";
 import AddDraftModal from "libs/order-draft/components/add-draft-modal/index.vue";
 import DraftsFilter from "libs/order-draft/components/drafts-filter/index.vue";
 import { SET_DRAFTS_SEARCH_CRITERIA, ADD_DRAFT, DELETE_DRAFT, SET_SELECTED_DRAFT } from "libs/order-draft/store/drafts-list/definitions";
@@ -95,6 +95,8 @@ export default class AccountDrafts extends Vue {
     const query = this.queryBuilder.buildQuery(new CartSearchCriteria(searchCriteria));
     this.$router.push({
       ...this.$route,
+      // Workaround for miscompatibility in vue router types
+      name: this.$route.name || undefined,
       query
     });
   }
