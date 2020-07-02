@@ -77,6 +77,8 @@ export default class AccountPayments extends Vue {
     const query = this.queryBuilder.buildQuery(new PaymentSearchCriteria(searchCriteria));
     this.$router.push({
       ...this.$route,
+      // Workaround for miscompatibility in vue router types
+      name: this.$route.name || undefined,
       query
     });
   }

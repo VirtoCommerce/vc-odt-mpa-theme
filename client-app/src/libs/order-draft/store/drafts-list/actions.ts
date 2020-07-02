@@ -43,7 +43,7 @@ export const actions: ActionTree<DraftsListState, RootState> = {
     await listClient.addItemToList(addCartItem, storeName, locale);
     context.dispatch(FETCH_DRAFTS);
   },
-  async [CHANGE_DRAFT_ITEM_QUANTITY](context, { listName, changeQty }: { listName: string; changeQty: ChangeCartItemQty | null | undefined }) {
+  async [CHANGE_DRAFT_ITEM_QUANTITY](context, { listName, changeQty }: { listName: string; changeQty: ChangeCartItemQty | null }) {
     context.commit(FETCH_DRAFTS);
     await listClient.changeListItem(listName, orderDraftType, changeQty, storeName, locale);
     await listClient.getListByName(listName, orderDraftType, storeName, locale).then(list => {
