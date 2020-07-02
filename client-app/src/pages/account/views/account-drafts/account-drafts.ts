@@ -10,7 +10,7 @@ import DraftsFilter from "libs/order-draft/components/drafts-filter/index.vue";
 import { SET_DRAFTS_SEARCH_CRITERIA, ADD_DRAFT, DELETE_DRAFT, SET_SELECTED_DRAFT } from "libs/order-draft/store/drafts-list/definitions";
 import DraftDetailsSidebar from '@account/views/account-drafts/draft-details-sidebar/index.vue';
 import { ICartSearchCriteria, IShoppingCartSearchResult, CartSearchCriteria, ShoppingCart, IShoppingCart } from "@core/api/api-clients";
-import { pageSizes } from "@core/constants";
+import { pageSizes, startPageNumber } from "@core/constants";
 import { CartSearchQuery } from '@core/models/search/extensions/cart-search-query';
 import { QueryBuilder } from "@core/services/query-builder.service";
 
@@ -82,7 +82,7 @@ export default class AccountDrafts extends Vue {
   pageSizeChanged(pageSize: number) {
     this.searchCriteriaChanged({
       ...this.searchCriteria,
-      pageNumber: 1,
+      pageNumber: startPageNumber,
       pageSize
     });
   }
