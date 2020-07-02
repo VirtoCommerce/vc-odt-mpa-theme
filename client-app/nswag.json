@@ -22,7 +22,7 @@
       "injectionTokenType": "OpaqueToken",
       "rxJsVersion": 6.0,
       "dateTimeType": "Date",
-      "nullValue": "Undefined",
+      "nullValue": "null",
       "generateClientClasses": true,
       "generateClientInterfaces": false,
       "generateOptionalParameters": false,
