@@ -4,8 +4,8 @@ import { Route, RawLocation } from 'vue-router';
 import { namespace } from "vuex-class";
 import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faLock, faUnlock } from '@fortawesome/free-solid-svg-icons';
-import i18n from "@i18n";
 import { BvTableCtxObject } from "bootstrap-vue";
+import i18n from "@i18n";
 import { User,OrganizationUserRegistration, UserUpdateInfo, IOrganizationContactsSearchCriteria, IUserSearchResult, IUser, OrganizationContactsSearchCriteria } from "core/api/api-clients";
 import { pageSizes, sortDescending, sortAscending, startPageNumber } from "core/constants";
 import { OrganizationContactsSearchQuery } from 'core/models/search/extensions/organization-contacts-search-query';
@@ -119,6 +119,8 @@ export default class AccountUsers extends Vue {
     const query = this.queryBuilder.buildQuery(new OrganizationContactsSearchCriteria(searchCriteria));
     this.$router.push({
       ...this.$route,
+      // Workaround for miscompatibility in vue router types
+      name: this.$route.name || undefined,
       query
     });
   }

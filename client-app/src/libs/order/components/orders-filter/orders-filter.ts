@@ -30,7 +30,7 @@ export default class OrderFilter extends Vue {
     this.setDatepickerLocalization();
   }
 
-  dateChanged(startDate?: Date, endDate?: Date) {
+  dateChanged(startDate?: Date | null, endDate?: Date | null) {
     if (startDate && endDate) {
       this.isDateValid = startDate <= endDate;
       if (this.isDateValid) {
