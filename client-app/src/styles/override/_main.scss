@@ -16,6 +16,7 @@ body {
 
 .product-grid {
   //border: $redborder;
+  color: #fff;
 }
 
 .btn-secondary {
@@ -167,6 +168,8 @@ p {
 }
 
 .card-buttons-right .app-add-item-to-cart .btn {
+  width: 110px;
+  height: 36px;
   background: url(/static/cart-icon-long-button.svg) no-repeat 10px 5px;
 }
 
@@ -464,6 +467,8 @@ p {
   width: 260px;
 }
 
+
+
 .collection-sorting .dropdown-toggle {
   width: 192px;
   text-align: left;
@@ -709,4 +714,23 @@ footer h4 {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+
+// Future Features
+
+.collection-view{
+  display: none !important; 
+}
+
+.app-add-item-to-compare {
+  display: none;
+}
+
+.compare-link {
+  display: none;
+}
+
+.product-rating{
+  display: none;
 }
