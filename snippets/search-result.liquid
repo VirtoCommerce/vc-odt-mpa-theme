@@ -7,12 +7,12 @@
 <div class="row mt-3">
     <div id="app-cart-sidebar"></div>
     {% if has_sidebar %}
-    <aside class="col-xl-3 col-lg-3" id="collectionFilters">
+    <aside class="col-lg-2 col-xl-2 col-md-4" id="collectionFilters">
       {% include 'collection-sidebar' %}
     </aside>
     {% endif %}
 
-    <div class="col-7 {% if has_sidebar %}col-lg-8{% endif %} product-grid">
+    <div class="col-7 {% if has_sidebar %}col-lg-8{% endif %} product-grid col-xl-5 col-md-8">
 
         <header class="d-flex flex-column mb-4 sorting-header">
             <div class="d-flex flex-wrap flex-lg-row flex-column">
@@ -37,9 +37,9 @@
             {% for product in product_search_result.products %}
 
             {% if has_sidebar %}
-            {% assign grid_item_width = 'col-xl-4 col-lg-4 col-md-4 col-sm-6' %}
+            {% assign grid_item_width = 'col-xl-3 col-lg-4 col-md-6 col-sm-6 product-card' %}
             {% else %}
-            {% assign grid_item_width = 'col-xl-4 col-lg-4 col-md-4 col-sm-6' %}
+            {% assign grid_item_width = 'col-xl-3 col-lg-4 col-md-6 col-sm-6 product-card' %}
             {% endif %}
             {% include 'product-grid-item' %}
 
