@@ -6,7 +6,7 @@
   </div> -->
 
     {% for aggregation in product_search_result.aggregations %}
-    <div class="col-6 col-lg-12">
+    <div class="col-6 col-lg-12 col-md-12">
       {% capture group_label_key %}collections.tags.{{ aggregation.label }}.label{% endcapture %}
       {% assign group_label = group_label_key | t %}
       {% if group_label == group_label_key %}
