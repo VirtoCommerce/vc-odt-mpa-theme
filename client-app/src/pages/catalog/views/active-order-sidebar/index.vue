@@ -1,7 +1,7 @@
 <template>
   <b-sidebar id="draft-details"
              :visible="visible"
-             body-class="pl-3 pr-3"
+             body-class="pl-4 pr-4"
              right
              shadow
              @hidden="hide">
@@ -10,7 +10,7 @@
                :opacity="0.33"
                class="h-100">
       <div v-if="cart">
-        <div v-if="cart.itemsCount > 0">
+        <div v-if="cart.itemsCount > 0" class="cart-header">
           <cart-header
             :cart="cart"
             :title="$t('shopping-cart.title')"
@@ -18,7 +18,7 @@
           <cart-summary :cart="cart"></cart-summary>
           <div class="d-flex justify-content-center">
             <button
-              class="btn btn-outline-primary w-75 text-center mt-3"
+              class="btn btn-primary w-75 text-center mt-3"
               :disabled="!canCheckout"
               @click="confirmCheckout()">
               {{ $t("shopping-cart.checkout") }}

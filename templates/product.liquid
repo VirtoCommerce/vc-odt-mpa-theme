@@ -75,7 +75,7 @@
 
               {% if unavailable %}
                 <div class="btn-group">
-                  <button class="btn btn-outline-primary" id="addToCart" type="button" disabled>
+                  <button class="btn btn-primary" id="addToCart" type="button" disabled>
                     <span class="fas fa-shopping-cart"></span>
                     <span id="addToCartText">{{ 'products.product.unavailable' | t }}</span>
                   </button>
@@ -84,7 +84,7 @@
 
               {% if sold_out %}
                 <div class="btn-group">
-                  <button class="btn btn-outline-primary" id="addToCart" type="button" disabled>
+                  <button class="btn btn-primary" id="addToCart" type="button" disabled>
                     <span class="fas fa-shopping-cart"></span>
                     <span id="addToCartText">{{ 'products.product.sold_out' | t }}</span>
                   </button>
@@ -93,7 +93,7 @@
 
 
                 <div class="btn-group">
-                  <button class="app-add-item-to-draft btn btn-outline-primary" title="{{ 'products.general.add_to_order_draft' | t }}" product-id="{{product.id}}" text-visible><i class="fas fa-file-alt"></i>
+                  <button class="app-add-item-to-draft btn btn-primary" title="{{ 'products.general.add_to_order_draft' | t }}" product-id="{{product.id}}" text-visible><i class="fas fa-file-alt"></i>
                     <span>{{ 'products.general.add_to_order_draft' | t }}</span></button>
                 </div>
 

@@ -8,8 +8,8 @@
           
             <div class="col-5"><ul class="cart-login ml-auto">
                 <li><a class="top-nav-links compare-link" href="#">Compare</a></li>
-                <!-- <li><a class="top-nav-links whish-link" href="#">Whishlist</a></li> -->
-                <li><a class="top-nav-links drafts-link" href="#">Order Drafts</a></li>
+                <!-- <li><a class="top-nav-links whish-link" href="#">Whishlist</a></li> --> 
+                <li><a class="top-nav-links drafts-link" href="/account#/drafts">Order Drafts</a></li>
                 <li class="header-cart"><span id="app-cart"></span></li>
                 <li class="nav-item">
                     {% if customer.is_registered_user %}
@@ -29,7 +29,7 @@
                 </li>
                 {% if customer.is_registered_user %}
                 <li class="nav-item">
-                    <a href="{{ 'account/logout' | absolute_url }}" class="nav-link">{{ "common.header.log_out" | t }}
+                    <a href="{{ 'account/logout' | absolute_url }}" class="nav-link logout">{{ "common.header.log_out" | t }}
                     </a>
                 </li>
                 {% endif %}
