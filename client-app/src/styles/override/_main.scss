@@ -120,6 +120,16 @@ p {
   color: #ffffff;
 }
 
+.btn {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+}
+
 // Action buttons
 
 .form-row {
@@ -398,6 +408,10 @@ p {
   text-decoration: none;
 }
 
+.header-cart{
+  margin-top: 4px;
+}
+
 .top-nav-links {
   display: block;
   height: 40px;
@@ -453,6 +467,31 @@ p {
   color: #ffffff;
 }
 
+/* ----- Filter button  -----*/
+
+.filter-button, .filter-button:focus {
+  background: #ffffff;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
+  border: 0;
+  color: #212529;
+  padding-left: 36px;
+  background: url(/static/filter-icons.svg) no-repeat 10px 9px;
+  margin-top: -1px;
+}
+
+.filter-button:hover, .filter-button:active {
+  //background: $primary !important;
+  color: #fff;
+  background: url(/static/filter-icons.svg) $primary no-repeat 10px -20px;
+}
+
+@media (min-width: 769px) {
+  .filter-button{
+    display: none !important;
+  }
+}
+
 /* ---------- SORTING   --------------------*/
 
 .sorting-header {
@@ -466,8 +505,6 @@ p {
 .collection-sorting {
   width: 260px;
 }
-
-
 
 .collection-sorting .dropdown-toggle {
   width: 192px;
@@ -664,7 +701,19 @@ footer h4 {
     flex: 0 0 38%;
     max-width: 38%;
   }
+
 }
+
+@media (max-width: 767px){
+#collectionFilters{
+  display: none;
+}
+
+.d-none{
+  display: flex !important;
+}
+}
+
 
 @media (min-width: 991px) and (max-width: 1166px) {
   .before-header form.input-group {
@@ -688,6 +737,8 @@ footer h4 {
   }
 }
 
+
+
 @media (min-width: 1140px) {
   .product-card {
     flex: 0 0 25%;
@@ -696,11 +747,21 @@ footer h4 {
 
   .product-grid {
     flex: 0 0 80%;
-    // max-width: 81%;
-    //width: 83% !important;
     max-width: 80%;
     padding-right: 0;
     margin-right: -50px;
+  }
+}
+
+@media (min-width: 992px)  and (max-width: 1200px) {
+  .before-header {
+    max-width: 90%;
+  }
+
+  .navbar-collapse {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -716,11 +777,10 @@ footer h4 {
   }
 }
 
-
 // Future Features
 
-.collection-view{
-  display: none !important; 
+.collection-view {
+  display: none !important;
 }
 
 .app-add-item-to-compare {
@@ -731,6 +791,6 @@ footer h4 {
   display: none;
 }
 
-.product-rating{
+.product-rating {
   display: none;
 }
