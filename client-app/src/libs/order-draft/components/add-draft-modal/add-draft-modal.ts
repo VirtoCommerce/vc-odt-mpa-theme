@@ -23,14 +23,14 @@ import { CartSearchCriteria } from '@core/api/api-clients';
 export default class AddDraftModal extends Vue {
   draftName = "";
 
-  resetForm() {
+  public resetForm(): void {
     this.draftName = "";
     this.$nextTick(() => {
       this.$v.$reset();
     });
   }
 
-  submitForm() {
+  public submitForm(): void {
     this.$emit("draftAdded", this.draftName);
     this.$bvModal.hide("addDraftModal");
   }

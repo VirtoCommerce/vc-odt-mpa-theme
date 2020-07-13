@@ -33,19 +33,19 @@ export default class AddUserModal extends Vue {
   passwordFieldType = "password";
   user: AddUser = new AddUser();
 
-  resetForm() {
+  public resetForm(): void {
     this.user = new AddUser();
     this.$nextTick(() => {
       this.$v.$reset();
     });
   }
 
-  switchPasswordVisibility() {
+  public switchPasswordVisibility(): void {
     this.passwordFieldType =
       this.passwordFieldType === "password" ? "text" : "password";
   }
 
-  submitForm() {
+  public submitForm(): void {
     const user: AddUser = {
       firstName: this.user.firstName,
       lastName: this.user.lastName,

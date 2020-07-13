@@ -51,34 +51,26 @@ export default class AccountInvoices extends Vue {
     this.buildSearchCriteria(this.$route, this.searchCriteria);
   }
 
-  buildSearchCriteria(route: Route, initialSearchCriteria?: IPaymentSearchCriteria) {
-    const searchCriteria = this.queryBuilder.parseQuery(route.query);
-    this.setSearchCriteria({
-      ...initialSearchCriteria,
-      ...searchCriteria
-    });
-  }
-
-  pageChanged(pageNumber: number) {
+  public pageChanged(pageNumber: number): void {
     this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber });
   }
 
-  pageSizeChanged(pageSize: number) {
+  public pageSizeChanged(pageSize: number): void {
     this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: startPageNumber, pageSize });
   }
 
-  sortChanged(ctx: BvTableCtxObject) {
+  public sortChanged(ctx: BvTableCtxObject): void {
     const sortDirection = ctx.sortDesc ? sortDescending : sortAscending;
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
     const searchCriteria = { ...this.searchCriteria, pageNumber: startPageNumber, sort: sortExpression };
     this.searchCriteriaChanged(searchCriteria);
   }
 
-  checkActivePageSize(pageSize: number) {
+  public checkActivePageSize(pageSize: number): boolean {
     return pageSize == this.searchCriteria.pageSize ? true : false;
   }
 
-  searchCriteriaChanged(searchCriteria: IPaymentSearchCriteria) {
+  public searchCriteriaChanged(searchCriteria: IPaymentSearchCriteria): void {
     const query = this.queryBuilder.buildQuery(new PaymentSearchCriteria(searchCriteria));
     this.$router.push({
       ...this.$route,
@@ -88,9 +80,17 @@ export default class AccountInvoices extends Vue {
     });
   }
 
-  getInvoicePdf(orderNumber: string) {
+  public getInvoicePdf(orderNumber: string): void {
     const url = baseUrl + `/${storeName}/${locale}/storefrontapi/orders/${orderNumber}/invoice`;
     window.open(url, '_blank');
+  }
+
+  private buildSearchCriteria(route: Route, initialSearchCriteria?: IPaymentSearchCriteria): void {
+    const searchCriteria = this.queryBuilder.parseQuery(route.query);
+    this.setSearchCriteria({
+      ...initialSearchCriteria,
+      ...searchCriteria
+    });
   }
 
 }

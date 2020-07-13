@@ -22,15 +22,15 @@ export default class OrderFilter extends Vue {
 
   locale = locale;
 
-  emitChanges(searchCriteria: IOrderSearchCriteria) {
-    this.$emit("searchCriteriaChanged", searchCriteria);
-  }
-
   mounted() {
     this.setDatepickerLocalization();
   }
 
-  dateChanged(startDate?: Date | null, endDate?: Date | null) {
+  public emitChanges(searchCriteria: IOrderSearchCriteria): void {
+    this.$emit("searchCriteriaChanged", searchCriteria);
+  }
+
+  public dateChanged(startDate?: Date | null, endDate?: Date | null): void {
     if (startDate && endDate) {
       this.isDateValid = startDate <= endDate;
       if (this.isDateValid) {
@@ -48,23 +48,19 @@ export default class OrderFilter extends Vue {
     }
   }
 
-  changeStartDate(date?: Date) {
+  public changeStartDate(date?: Date): void {
     if (this.searchCriteria.startDate?.getTime() !== date?.getTime()){
       this.dateChanged(date, this.searchCriteria.endDate);
     }
   }
 
-  changeEndDate(date?: Date) {
+  public changeEndDate(date?: Date): void {
     if (this.searchCriteria.endDate?.getTime() !== this.prepareEndDate(date)?.getTime()) {
       this.dateChanged(this.searchCriteria.startDate, this.prepareEndDate(date));
     }
   }
 
-  setDatepickerLocalization() {
-    this.datepickerLabels = i18n.te("account.orders.datepicker") ? i18n.t("account.orders.datepicker") : {};
-  }
-
-  getCurrentStatusLabel(): TranslateResult {
+  public getCurrentStatusLabel(): TranslateResult {
     if (this.allStatusesSelected || !this.searchCriteria.statuses?.length) {
       return i18n.t("account.orders.status-filter.all");
     } else {
@@ -74,23 +70,27 @@ export default class OrderFilter extends Vue {
     }
   }
 
-  selectedStatusesChanged(selectedStatuses: string[]) {
+  public selectedStatusesChanged(selectedStatuses: string[]): void {
     this.allStatusesSelected = selectedStatuses.length === this.availableOrderStatuses.length;
     const searchCriteria = { ...this.searchCriteria, statuses: selectedStatuses };
     this.emitChanges(searchCriteria);
   }
 
-  toggleAllStatuses(checked: boolean) {
+  public toggleAllStatuses(checked: boolean): void {
     const searchCriteria: IOrderSearchCriteria = { ...this.searchCriteria, statuses: checked ? this.availableOrderStatuses : [] };
     this.emitChanges(searchCriteria);
   }
 
-  changeKeyword(keyword: string) {
+  public changeKeyword(keyword: string): void {
     const searchCriteria = { ...this.searchCriteria, keyword };
     this.emitChanges(searchCriteria);
   }
 
   private prepareEndDate(endDate?: Date): Date | undefined {
     return endDate != null ? this.$moment(endDate).add(1, "days").subtract(1, "seconds").toDate() : endDate;
+  }
+
+  private setDatepickerLocalization(): void {
+    this.datepickerLabels = i18n.te("account.orders.datepicker") ? i18n.t("account.orders.datepicker") : {};
   }
 }
