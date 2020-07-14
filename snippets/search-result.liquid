@@ -7,22 +7,29 @@
 <div class="row mt-3">
     <div id="app-cart-sidebar"></div>
     {% if has_sidebar %}
+    <div class="d-flex justify-content-between filter-mobile">
+      <div class="d-flex flex-wrap justify-content-between">
+        {% include 'collection-sorting' %}
+        {% include 'collection-views' %}
+      </div>
+      <button class="d-lg-none btn btn-primary justify-content-between filter-button" onclick="toggleFiltersSidebar()">{{ 'collections.filter.title' | t }}</button>
+    </div>
     <aside class="col-lg-2 col-xl-2 col-md-4" id="collectionFilters">
       {% include 'collection-sidebar' %}
     </aside>
     {% endif %}
 
-    <div class="col-7 {% if has_sidebar %}col-lg-8{% endif %} product-grid col-xl-5 col-md-8">
+    <div class="col-7 {% if has_sidebar %}col-lg-8{% endif %} product-grid col-xl-5 col-md-8 col-sm-12">
 
         <header class="d-flex flex-column mb-4 sorting-header">
             <div class="d-flex flex-wrap flex-lg-row flex-column">
               <h1>{{ collection.title }}</h1>
-              <div class="d-flex justify-content-between">
+              <div class="d-flex justify-content-between filter-desktop">
                 <div class="d-flex flex-wrap justify-content-between">
                   {% include 'collection-sorting' %}
                   {% include 'collection-views' %}
                 </div>
-                <button class="d-lg-none btn btn-primary align-self-center filter-button" onclick="toggleFiltersSidebar()">{{ 'collections.filter.title' | t }}</button>
+                <button class="d-lg-none btn btn-primary justify-content-between filter-button" onclick="toggleFiltersSidebar()">{{ 'collections.filter.title' | t }}</button>
               </div>
             </div>
             {% if page_description.empty? == false %}

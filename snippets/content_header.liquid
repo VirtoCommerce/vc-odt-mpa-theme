@@ -1,8 +1,10 @@
 <header id="header1">
     <div class="before-header container flex-grow-1">
         <div class="row">
-            <div class="col-3">  <a class="navbar-brand" href="{{ "/" | absolute_url }}"><img src="/static/shop-logo.svg" alt="Smartshop" class="shop-logo" /></a></div>
-            <div class="col-4 input-group {% if collection.title %}mt-2{% endif %}">
+            <div class="col-3">  
+                <a class="navbar-brand" href="{{ "/" | absolute_url }}"><img src="/static/shop-logo.svg" alt="Smartshop" class="shop-logo" />
+                <a class="navbar-brand-mobile" href="{{ "/" | absolute_url }}"><img src="/static/shop-logo-mobile.svg" alt="Smartshop" class="shop-logo" /></a></a></div>
+            <div class="col-4 input-group-wrapper {% if collection.title %}mt-2{% endif %}">
                 {% include 'search-bar' %}
             </div>
           
@@ -47,6 +49,7 @@
             <ul class="navbar-nav">
                 {% include 'site-nav' %}
             </ul>
+          
             <!-- <ul class="navbar-nav ml-auto">
                 <li>
                     <span id="app-cart"></span>
@@ -74,6 +77,9 @@
                 </li>
                 {% endif %}
             </ul> -->
+        </div>
+        <div class="mobile-search {% if collection.title %}mt-2{% endif %}">
+            {% include 'search-bar' %}
         </div>
     </nav>
 </header>

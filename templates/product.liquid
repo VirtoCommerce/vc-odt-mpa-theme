@@ -28,8 +28,9 @@
         {% if featured_image %}
           <img id="productPrimaryImg" class="mw-100" src="{{ featured_image | img_url: "348x348" }}" alt="{{ featured_image.alt | escape }}">
         {% else %}
-          <div class="d-flex justify-content-center h3">
-            <i class="fas fa-camera fa-10x mw-100"></i>
+          <div class="d-flex justify-content-center h3 no-image">
+            <!-- <i class="fas fa-camera fa-10x mw-100"></i> -->
+            <img src="/static/no-image-placeholder.svg" alt="no image" />
           </div>
         {% endif %}
       </div>
