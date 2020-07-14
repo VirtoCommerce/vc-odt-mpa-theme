@@ -25,7 +25,7 @@ export default class CartButton extends Vue {
     this.fetchItemsQuantity();
   }
 
-  onClick() {
-    this.showCartSidebar()
+  public onClick(): void {
+    this.showCartSidebar();
   }
 }

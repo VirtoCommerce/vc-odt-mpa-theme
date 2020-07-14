@@ -26,7 +26,7 @@ export default class AddToCartButton extends Vue {
   @cartModule.Getter("changeProductIdSet")
   changeProductIdSet!: string[];
 
-  onClick() {
+  public onClick(): void {
     const addItem = new AddCartItem();
     addItem.productId = this.productId;
     addItem.quantity = 1;

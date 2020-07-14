@@ -14,7 +14,7 @@ export default class CartHeader extends Vue {
   @Prop()
   title!: string;
 
-  onClearCartClicked(){
+  public onClearCartClicked(): void {
     this.$emit("clear-cart-clicked");
   }
 }

@@ -42,7 +42,7 @@ export default class DraftDetailsSidebar extends Vue {
   @draftsListModule.Action(CHECKOUT)
   private checkout!: (draftName: string) => void;
 
-  async confirmDeleteItem(item: CartLineItem) {
+  public async confirmDeleteItem(item: CartLineItem): Promise<void> {
     const value = await this.$bvModal.msgBoxConfirm(i18n.t('shopping-cart.confirm-delete-modal.message', [ item.sku ]) as string, {
       size: 'md',
       buttonSize: 'md',
@@ -53,13 +53,13 @@ export default class DraftDetailsSidebar extends Vue {
       hideHeaderClose: false,
       centered: true
     });
-    if(value) {
+    if (value) {
       const payload = new DeleteDraftLineItem(item.id!, this.selectedDraft.name!);
       this.deleteDraftLineItem(payload);
     }
   }
 
-  async confirmClearDraft(){
+  public async confirmClearDraft(): Promise<void> {
     const value = await this.$bvModal.msgBoxConfirm(i18n.t('account.drafts.confirm-clear-modal.message') as string, {
       size: 'md',
       buttonSize: 'md',
@@ -75,7 +75,7 @@ export default class DraftDetailsSidebar extends Vue {
     }
   }
 
-  changeQuantity(lineItem: CartLineItem, quantity: number) {
+  public changeQuantity(lineItem: CartLineItem, quantity: number): void {
     const changeItemQty = new ChangeCartItemQty({
       lineItemId: lineItem.id,
       quantity
@@ -84,15 +84,15 @@ export default class DraftDetailsSidebar extends Vue {
     this.changeDraftItemQuantity(payload);
   }
 
-  closeSidebar() {
+  public closeSidebar(): void {
     this.$emit("sidebar-closed", false);
   }
 
-  canCheckout() {
+  public canCheckout(): boolean | undefined {
     return !!this.selectedDraft && this.selectedDraft.isValid && this.selectedDraft.itemsCount! > 0;
   }
 
-  async confirmCheckout() {
+  public async confirmCheckout(): Promise<void> {
     const result = await this.$bvModal.msgBoxConfirm(
       i18n.t("shopping-cart.confirm-checkout-modal.message", [
         this.selectedDraft.total!.formattedAmount,
