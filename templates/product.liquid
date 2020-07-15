@@ -28,8 +28,9 @@
         {% if featured_image %}
           <img id="productPrimaryImg" class="mw-100" src="{{ featured_image | img_url: "348x348" }}" alt="{{ featured_image.alt | escape }}">
         {% else %}
-          <div class="d-flex justify-content-center h3">
-            <i class="fas fa-camera fa-10x mw-100"></i>
+          <div class="d-flex justify-content-center h3 no-image">
+            <!-- <i class="fas fa-camera fa-10x mw-100"></i> -->
+            <img src="/static/no-image-placeholder.svg" alt="no image" />
           </div>
         {% endif %}
       </div>
@@ -68,14 +69,14 @@
                     <span class="fas fa-shopping-cart"></span>
                     <span id="addToCartText">{{ 'products.general.add_to_cart' | t }}</span>
                   </button> -->
-                  <button class="app-add-item-to-cart btn btn-outline-primary" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}" text-visible><i class="fas fa-shopping-cart"></i>
+                  <button class="app-add-item-to-cart btn" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}" text-visible><i class="fas fa-shopping-cart"></i>
                     <span>{{ 'products.general.add_to_cart' | t }}</span></button>
                 </div>
               {% endif %}
 
               {% if unavailable %}
                 <div class="btn-group">
-                  <button class="btn btn-outline-primary" id="addToCart" type="button" disabled>
+                  <button class="btn btn-primary" id="addToCart" type="button" disabled>
                     <span class="fas fa-shopping-cart"></span>
                     <span id="addToCartText">{{ 'products.product.unavailable' | t }}</span>
                   </button>
@@ -84,7 +85,7 @@
 
               {% if sold_out %}
                 <div class="btn-group">
-                  <button class="btn btn-outline-primary" id="addToCart" type="button" disabled>
+                  <button class="btn btn-primary" id="addToCart" type="button" disabled>
                     <span class="fas fa-shopping-cart"></span>
                     <span id="addToCartText">{{ 'products.product.sold_out' | t }}</span>
                   </button>
@@ -93,7 +94,7 @@
 
 
                 <div class="btn-group">
-                  <button class="app-add-item-to-draft btn btn-outline-primary" title="{{ 'products.general.add_to_order_draft' | t }}" product-id="{{product.id}}" text-visible><i class="fas fa-file-alt"></i>
+                  <button class="app-add-item-to-draft btn btn-primary" title="{{ 'products.general.add_to_order_draft' | t }}" product-id="{{product.id}}" text-visible><i class="fas fa-file-alt"></i>
                     <span>{{ 'products.general.add_to_order_draft' | t }}</span></button>
                 </div>
 
