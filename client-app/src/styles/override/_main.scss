@@ -11,11 +11,9 @@ body {
 
 .main-content {
   margin-top: 139px;
-  //border: $redborder;
 }
 
 .product-grid {
-  //border: $redborder;
   color: #fff;
 }
 
@@ -325,9 +323,8 @@ header.b-sidebar-header {
 }
 
 .cart-list {
-  // padding-top: 35px;
   padding-bottom: 35px;
-  margin-top: 105px;
+  margin-top: 125px;
 }
 
 .fa-layers svg.svg-inline--fa {
@@ -764,7 +761,6 @@ header.b-sidebar-header {
 
 .filter-button:hover,
 .filter-button:active {
-  //background: $primary !important;
   color: #fff;
   background: url(/static/filter-icons.svg) $primary no-repeat 10px -18px;
 }
@@ -946,9 +942,6 @@ footer h4 {
 ///////////////////////////// Mobile ////////////////////
 
 
-
-/////////////////////////
-
 @media (max-width: 485px) {
   .navbar-brand {
     display: none;
@@ -1068,9 +1061,6 @@ footer h4 {
     justify-content: space-between !important;
   }
 
-  
-
-
 }
 
 
@@ -1108,16 +1098,6 @@ footer h4 {
     flex: 0 0 40%;
     max-width: 40%;
   }
-
-  // .input-group-wrapper {
-  //   flex: 0 0 48%;
-  //   max-width: 48%;
-  // }
-
-  // .before-header .col-5{
-  //   flex: 0 0 30%;
-  //   max-width: 30%;
-  //   }
 }
 
 /////////////////////////////////
@@ -1204,15 +1184,6 @@ footer h4 {
   }
 }
 
-/////////////////////////////////
-
-// @media (min-width: 1075px) and (max-width: 1276px) {
-//   .input-group-wrapper {
-//     flex: 0 0 30%;
-//     max-width: 30%;
-//     margin-right: 20px;
-//   }
-// }
 
 /////////////////////////////////
 
