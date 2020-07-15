@@ -64,22 +64,14 @@ export default class AccountDrafts extends Vue {
     this.buildSearchCriteria(this.$route, this.searchCriteria);
   }
 
-  buildSearchCriteria(route: Route, initialSearchCriteria?: ICartSearchCriteria) {
-    const searchCriteria = this.queryBuilder.parseQuery(route.query);
-    this.setSearchCriteria({
-      ...initialSearchCriteria,
-      ...searchCriteria
-    });
-  }
-
-  pageChanged(pageNumber: number) {
+  public pageChanged(pageNumber: number): void {
     this.searchCriteriaChanged({
       ...this.searchCriteria,
       pageNumber
     });
   }
 
-  pageSizeChanged(pageSize: number) {
+  public pageSizeChanged(pageSize: number): void {
     this.searchCriteriaChanged({
       ...this.searchCriteria,
       pageNumber: startPageNumber,
@@ -87,11 +79,11 @@ export default class AccountDrafts extends Vue {
     });
   }
 
-  checkActivePageSize(pageSize: number) {
+  public checkActivePageSize(pageSize: number): boolean {
     return pageSize == this.searchCriteria.pageSize ? true : false;
   }
 
-  searchCriteriaChanged(searchCriteria: ICartSearchCriteria) {
+  public searchCriteriaChanged(searchCriteria: ICartSearchCriteria): void {
     const query = this.queryBuilder.buildQuery(new CartSearchCriteria(searchCriteria));
     this.$router.push({
       ...this.$route,
@@ -101,20 +93,20 @@ export default class AccountDrafts extends Vue {
     });
   }
 
-  showDraftDetails(draft: ShoppingCart){
+  public showDraftDetails(draft: ShoppingCart): void {
     this.selectDraft(draft);
     this.showDraftDetailsSidebar = true;
   }
 
-  sidebarClosed() {
+  public sidebarClosed(): void {
     this.showDraftDetailsSidebar = false;
   }
 
-  draftAdded(draftName: string) {
+  public draftAdded(draftName: string): void {
     this.addDraft(draftName);
   }
 
-  async confirmDeleteDraft(draft: ShoppingCart) {
+  public async confirmDeleteDraft(draft: ShoppingCart): Promise<void> {
     const value = await this.$bvModal.msgBoxConfirm(i18n.t('account.drafts.confirm-delete-modal.message', [ draft.name ]) as string, {
       size: 'md',
       buttonSize: 'md',
@@ -125,10 +117,18 @@ export default class AccountDrafts extends Vue {
       hideHeaderClose: false,
       centered: true
     });
-    if(value) {
+    if (value) {
       this.showDraftDetailsSidebar = false;
       this.deleteDraft([draft.id!]);
     }
+  }
+
+  private buildSearchCriteria(route: Route, initialSearchCriteria?: ICartSearchCriteria): void {
+    const searchCriteria = this.queryBuilder.parseQuery(route.query);
+    this.setSearchCriteria({
+      ...initialSearchCriteria,
+      ...searchCriteria
+    });
   }
 
 }

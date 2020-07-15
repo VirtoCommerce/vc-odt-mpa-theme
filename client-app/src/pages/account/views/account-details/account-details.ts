@@ -21,7 +21,8 @@ export default class AccountInfo extends Vue {
   mounted() {
     this.fetchProfile();
   }
-  update() {
+
+  public update(): void {
     const userUpdateInfo =  new UserUpdateInfo();
     Object.assign(userUpdateInfo, this.profile);
 

@@ -62,7 +62,7 @@ export default class ActiveOrderSidebar extends Vue {
     return !!this.cart && this.cart!.isValid && this.cart!.itemsCount! > 0;
   }
 
-  async confirmDeleteItem(item: CartLineItem) {
+  public async confirmDeleteItem(item: CartLineItem): Promise<void> {
     const result = await this.$bvModal.msgBoxConfirm(
       i18n.t("shopping-cart.confirm-delete-modal.message", [item.sku]) as string,
       {
@@ -82,7 +82,7 @@ export default class ActiveOrderSidebar extends Vue {
     }
   }
 
-  async confirmClearCart() {
+  public async confirmClearCart(): Promise<void> {
     const result = await this.$bvModal.msgBoxConfirm(i18n.t("shopping-cart.confirm-clear-modal.message") as string, {
       size: "md",
       buttonSize: "md",
@@ -99,7 +99,7 @@ export default class ActiveOrderSidebar extends Vue {
     }
   }
 
-  async confirmCheckout() {
+  public async confirmCheckout(): Promise<void> {
     const result = await this.$bvModal.msgBoxConfirm(
       i18n.t("shopping-cart.confirm-checkout-modal.message", [
         this.cart!.total!.formattedAmount,
@@ -122,14 +122,14 @@ export default class ActiveOrderSidebar extends Vue {
     }
   }
 
-  changeQuantity(item: CartLineItem, quantity: number) {
+  public changeQuantity(item: CartLineItem, quantity: number): void {
     const changeItemQty = new ChangeCartItemQty();
     changeItemQty.lineItemId = item.id;
     changeItemQty.quantity = quantity;
     this.changeLineItemQuantity(changeItemQty);
   }
 
-  hide() {
+  public hide(): void {
     this.hideCartSidebar();
   }
 }

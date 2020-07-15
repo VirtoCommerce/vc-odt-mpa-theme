@@ -15,11 +15,11 @@ export default class CartItemsList extends Vue {
   @Prop()
   items!: CartLineItem[];
 
-  onItemDeleted(item: CartLineItem) {
+  public onItemDeleted(item: CartLineItem): void {
     this.$emit("item-deleted", item);
   }
 
-  onQuantityChanged(item: CartLineItem, quantity: number) {
+  public onQuantityChanged(item: CartLineItem, quantity: number): void {
     this.$emit("quantity-changed", item, quantity);
   }
 

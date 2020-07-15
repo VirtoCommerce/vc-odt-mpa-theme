@@ -17,15 +17,15 @@ export default class PaymentsFilter extends Vue {
 
   locale = locale;
 
-  emitChanges(searchCriteria: IPaymentSearchCriteria) {
-    this.$emit("searchCriteriaChanged", searchCriteria);
-  }
-
   mounted() {
     this.setDatepickerLocalization();
   }
 
-  dateChanged(startDate?: Date | null, endDate?: Date | null) {
+  public emitChanges(searchCriteria: IPaymentSearchCriteria): void {
+    this.$emit("searchCriteriaChanged", searchCriteria);
+  }
+
+  public dateChanged(startDate?: Date | null, endDate?: Date | null): void {
     if (startDate && endDate) {
       this.isDateValid = startDate <= endDate;
       if (this.isDateValid) {
@@ -43,19 +43,19 @@ export default class PaymentsFilter extends Vue {
     }
   }
 
-  changeStartDate(date?: Date) {
+  public changeStartDate(date?: Date): void {
     if (this.searchCriteria.startDate?.getTime() !== date?.getTime()){
       this.dateChanged(date, this.searchCriteria.endDate);
     }
   }
 
-  changeEndDate(date?: Date) {
+  public changeEndDate(date?: Date): void {
     if (this.searchCriteria.endDate?.getTime() !== this.prepareEndDate(date)?.getTime()) {
       this.dateChanged(this.searchCriteria.startDate, this.prepareEndDate(date));
     }
   }
 
-  setDatepickerLocalization() {
+  private setDatepickerLocalization(): void {
     this.datepickerLabels = i18n.te("account.payments.datepicker") ? i18n.t("account.payments.datepicker") : {};
   }
 
