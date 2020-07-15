@@ -214,9 +214,11 @@ p {
 }
 
 .card-buttons-right .app-add-item-to-cart .btn {
-  //width: 110px;
+  width: 120px;
   height: 36px;
   background: url(/static/cart-icon-white-hover.svg) no-repeat 10px 9px;
+  font-size: 13px;
+  padding-left: 36px;
 }
 
 .card-buttons-right .app-add-item-to-cart .btn:hover {
@@ -666,6 +668,7 @@ header.b-sidebar-header {
   background: url(/static/cart-icon.svg) no-repeat left -27px;
   color: $primary;
   border: 0 !important;
+  box-shadow: none;
 }
 
 .btn:focus,
@@ -675,7 +678,6 @@ header.b-sidebar-header {
   border: 0 !important;
 }
 
-.header-cart button:focus,
 .header-cart button:active,
 .header-cart button:visited,
 .header-cart button:target {
@@ -683,6 +685,14 @@ header.b-sidebar-header {
   background: url(/static/cart-icon.svg) no-repeat left 9px !important;
   border: 0 !important;
   color: $primary;
+  box-shadow: none;
+}
+
+.header-cart button:focus{
+  box-shadow: none;
+  background: url(/static/cart-icon.svg) no-repeat left -27px;
+  border: 0 !important;
+  color: #767676;
 }
 
 .header-cart button svg {

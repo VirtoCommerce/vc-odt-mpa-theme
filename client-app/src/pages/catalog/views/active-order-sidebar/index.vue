@@ -29,7 +29,7 @@
         </div>
         <!-- <div class="border-top my-3"></div> -->
       </div>
-      </div>
+
       <div class="cart-footer pl-4 pr-4">
         <cart-summary
           :cart="cart">

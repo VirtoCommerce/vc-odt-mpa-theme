@@ -10,7 +10,7 @@
       class="btn"
       :title="$t('products.general.add_to_cart')"
       @click.prevent="onClick">
-      <i class="fas fa-shopping-cart"></i>
+      <i class="fas fa-shopping-cart"></i>Add to cart
       <span v-if="textVisible">{{ $t("products.general.add_to_cart") }}</span>
     </button>
   </b-overlay>
