@@ -38,7 +38,7 @@
                 {{ product.rating }}
               {% endif %}
               <img src="/static/rating.png" alt="test-rating" />
-            </div>  
+            </div>
             <p class="mt-1">{{ product.title }}</p>
         </div>
 
@@ -49,13 +49,13 @@
 
         <div class="form-row">
             {% if product.available %}
-         
+
             <div class="card-buttons-left">
                 <button class="app-add-item-to-draft col"
                     title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}"></button>
 
                 <!-- <div class="app-add-item-to-compare w-100 h-100">-->
-                    <div class="w-100 h-100 btn-group app-add-item-to-compare"> 
+                    <div class="w-100 h-100 btn-group app-add-item-to-compare">
                         <button type="button" title="Compare" class="btn w-100 h-100" id="">Compare</button>
                      </div>
                <!-- </div> -->
@@ -63,7 +63,7 @@
 
             <div class="card-buttons-right">
               <button class="app-add-item-to-cart col"
-                  title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}"></button>
+                  title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}" text-visible></button>
             </div>
 
             {% endif %}
