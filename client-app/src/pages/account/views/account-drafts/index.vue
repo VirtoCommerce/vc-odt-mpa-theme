@@ -55,6 +55,7 @@
             aria-controls="drafts-table"
             :total-rows="drafts.totalCount"
             :per-page="searchCriteria.pageSize"
+            class="display-by"
             @change="pageChanged($event)"></b-pagination>
           <div>
             Display by&nbsp;&nbsp;
