@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-3">
+  <div class="mt-3 table-column">
     <order-details-modal :order="selectedOrder"
                          :show-details="true"
                          :show-order-details="false"
@@ -45,6 +45,7 @@
             :per-page="searchCriteria.pageSize"
             @change="pageChanged($event)"></b-pagination>
           <div>
+            Display by&nbsp;&nbsp;
             <b-dropdown
               id="page-sizes"
               class="form-control p-0"

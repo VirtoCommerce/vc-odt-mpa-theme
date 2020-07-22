@@ -1,8 +1,8 @@
 <template>
-  <div class="mt-3">
+  <div class="mt-3 table-column">
     <draft-details-sidebar :show-sidebar="showDraftDetailsSidebar" @sidebar-closed="sidebarClosed"></draft-details-sidebar>
     <add-draft-modal @draftAdded="draftAdded($event)"></add-draft-modal>
-    <div class="row flex-sm-row flex-column justify-content-between">
+    <div class="row flex-sm-row flex-column justify-content-between drafts-row-search">
       <drafts-filter
         class="col col-sm-6 col-md-5 col-lg-3"
         :search-criteria="searchCriteria"
@@ -57,6 +57,7 @@
             :per-page="searchCriteria.pageSize"
             @change="pageChanged($event)"></b-pagination>
           <div>
+            Display by&nbsp;&nbsp;
             <b-dropdown
               id="page-sizes"
               class="form-control p-0"
