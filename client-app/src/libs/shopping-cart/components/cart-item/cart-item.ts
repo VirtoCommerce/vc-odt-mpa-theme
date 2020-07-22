@@ -18,15 +18,15 @@ export default class CartItem extends Vue {
 
   deleteIcon = faTrashAlt;
 
-  onItemDeleted() {
+  public onItemDeleted(): void {
     this.$emit("item-deleted", this.item);
   }
 
-  onQuantityChanged(quantity: number) {
+  public onQuantityChanged(quantity: number): void {
     this.$emit("quantity-changed", this.item, quantity);
   }
 
-  quantityChanged(quantity: number) {
+  public quantityChanged(quantity: number): void {
     this.onQuantityChanged(quantity);
   }
 

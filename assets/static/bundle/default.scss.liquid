@@ -1,6 +1,8 @@
 // Your variable overrides
-$primary: {{ settings.color_primary }};
-$secondary: {{ settings.color_secondary }};
+//$primary: {{ settings.color_primary }}; Commented primary color because of new design
+//$secondary: {{ settings.color_secondary }}; Commented secondary color because of new design
+$primary: #76bb85;
+$secondary: #7b76bb;
 $link-color: {{ settings.link_color }};
 $pagination-color: {{ settings.pagination_color }};
 $pagination-active-bg: {{ settings.pagination_active_color }};
@@ -11,5 +13,13 @@ $nav-tabs-link-active-border-color: $primary $primary #fff $primary;
 $nav-tabs-link-hover-border-color: $primary;
 $dropdown-min-width: 5rem;
 
+$textColorMain: #000000;
+$textColorFaded: #b4b4b4; //faded
+$border: 1px #e0e0e0 solid;
+$mainFont: "Rubik", sans-serif; //main text
+$headerFont: "Poppins", sans-serif; //headers
+$borderRadius: 0.35rem;
+$transition: 0.3s;
+$redborder: 1px red solid;
 
 @import "dist/scss/default.scss";

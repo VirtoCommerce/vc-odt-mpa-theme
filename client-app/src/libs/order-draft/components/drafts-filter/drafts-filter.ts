@@ -11,11 +11,11 @@ export default class DraftsFilter extends Vue {
 
   searchIcon = faSearch;
 
-  emitChanges(searchCriteria: ICartSearchCriteria) {
+  public emitChanges(searchCriteria: ICartSearchCriteria): void {
     this.$emit("searchCriteriaChanged", searchCriteria);
   }
 
-  changeKeyword(keyword: string) {
+  public changeKeyword(keyword: string): void {
     const searchCriteria = { ...this.searchCriteria, keyword };
     this.emitChanges(searchCriteria);
   }

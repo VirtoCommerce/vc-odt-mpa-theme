@@ -343,13 +343,38 @@
       "pagination_color": "#008B8B",
       "pagination_active_color": "#008B8B",
       "navbar_links_color": "#fff",
-      "copyright": "<p>&copy; 2020</p>",
-      "footer_column1_title": "Column 1",
-      "footer_column1_content": "<ul><li>Content 1</li></ul>",
-      "footer_column2_title": "Column 2",
-      "footer_column2_content": "<ul><li>Content 2</li></ul>",
-      "footer_column3_title": "Column 3",
-      "footer_column3_content": "<ul><li>Content 3</li></ul>",
+      "copyright": "<p>Copyright © 2020&nbsp;&nbsp;•&nbsp;&nbsp;All rights reserved&nbsp;&nbsp;•&nbsp;&nbsp;Virtocommerce&nbsp;&nbsp;•&nbsp;&nbsp;Community</p>",
+      "footer_column1_title": "Get to Know Us",
+      "footer_column1_content": "<ul><li>Company info</li>
+                                        <li>News</li>
+                                        <li>Investors</li>
+                                        <li>Careers</li>
+                                        <li>Diversity & Inclusion</li>
+                                        <li>Global Impact</li>
+                                        </ul>",
+      "footer_column2_title": "Community",
+      "footer_column2_content": "<ul>
+                                        <li>Announcements</li>
+                                        <li>Knowledge Base</li>
+                                        <li>Discussion boards</li>
+                                        <li>Shop for Charity</li>
+                                        <li>Charity Shop</li>
+                                        <li>Our Community</li>
+                                        </ul>",
+      "footer_column3_title": "	Let Us Help You",
+      "footer_column3_content": "<ul><li>COVID-19</li>
+                                        <li>Your Account</li>
+                                        <li>Your Orders</li>
+                                        <li>Shipping Rates & Policies</li>
+                                        <li>Returns & Replacements</li>
+                                        <li>Help</li></ul>",
+       "footer_column4_title": "More from Smartshop",
+       "footer_column4_content": "<ul><li>Mobile Apps</li>
+                                        <li>Marketplace</li>
+                                        <li>Gift vouchers</li>
+                                        <li>Investors site</li>
+                                        <li>Region Settings</li>
+                                        </ul>",
       "pageSizes": [10, 20, 50, 100],
       "sorting_options": [
         {"value": "priority-descending;name-ascending", "localization": "collections.sorting.featured" },

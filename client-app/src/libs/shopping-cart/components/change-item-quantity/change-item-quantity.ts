@@ -19,26 +19,27 @@ export default class ChangeItemQuantity extends Vue {
 
   model = 0;
 
+  plusIcon = faPlusCircle;
+
+  minusIcon = faMinusCircle;
+
   mounted (){
     this.model = this.quantity;
   }
 
-  plusIcon = faPlusCircle;
-  minusIcon = faMinusCircle;
-
-  increment() {
+  public increment(): void {
     this.model++;
     this.onQuantityChanged(this.model);
   }
 
-  decrement() {
-    if(this.model > 1) {
+  public decrement(): void {
+    if (this.model > 1) {
       this.model--;
       this.onQuantityChanged(this.model);
     }
   }
 
-  textChanged(value: string) {
+  public textChanged(value: string): void {
     const intValue = parseInt(value, 10)
     if( !isNaN(intValue) ) {
       this.model = intValue;
@@ -49,7 +50,7 @@ export default class ChangeItemQuantity extends Vue {
 
   }
 
-  onQuantityChanged(value: number) {
+  public onQuantityChanged(value: number): void {
     this.$emit("quantity-changed", value);
   }
 }

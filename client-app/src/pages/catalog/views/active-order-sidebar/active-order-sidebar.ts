@@ -62,7 +62,7 @@ export default class ActiveOrderSidebar extends Vue {
     return !!this.cart && this.cart!.isValid && this.cart!.itemsCount! > 0;
   }
 
-  async confirmDeleteItem(item: CartLineItem) {
+  public async confirmDeleteItem(item: CartLineItem): Promise<void> {
     const result = await this.$bvModal.msgBoxConfirm(
       i18n.t("shopping-cart.confirm-delete-modal.message", [item.sku]) as string,
       {
@@ -71,7 +71,7 @@ export default class ActiveOrderSidebar extends Vue {
         title: i18n.t("shopping-cart.confirm-delete-modal.title") as string,
         okTitle: i18n.t("shopping-cart.confirm-delete-modal.ok") as string,
         cancelTitle: i18n.t("shopping-cart.confirm-delete-modal.cancel") as string,
-        footerClass: ["p-2", "flex-row-reverse justify-content-start"],
+        footerClass: ["p-3", "flex-row-reverse justify-content-start"],
         hideHeaderClose: false,
         centered: true
       }
@@ -82,14 +82,14 @@ export default class ActiveOrderSidebar extends Vue {
     }
   }
 
-  async confirmClearCart() {
+  public async confirmClearCart(): Promise<void> {
     const result = await this.$bvModal.msgBoxConfirm(i18n.t("shopping-cart.confirm-clear-modal.message") as string, {
       size: "md",
       buttonSize: "md",
       title: i18n.t("shopping-cart.confirm-clear-modal.title") as string,
       okTitle: i18n.t("shopping-cart.confirm-clear-modal.ok") as string,
       cancelTitle: i18n.t("shopping-cart.confirm-clear-modal.cancel") as string,
-      footerClass: ["p-2", "flex-row-reverse justify-content-start"],
+      footerClass: ["p-23", "flex-row-reverse justify-content-start"],
       hideHeaderClose: false,
       centered: true
     });
@@ -99,7 +99,7 @@ export default class ActiveOrderSidebar extends Vue {
     }
   }
 
-  async confirmCheckout() {
+  public async confirmCheckout(): Promise<void> {
     const result = await this.$bvModal.msgBoxConfirm(
       i18n.t("shopping-cart.confirm-checkout-modal.message", [
         this.cart!.total!.formattedAmount,
@@ -111,7 +111,7 @@ export default class ActiveOrderSidebar extends Vue {
         title: i18n.t("shopping-cart.confirm-checkout-modal.title") as string,
         okTitle: i18n.t("shopping-cart.confirm-checkout-modal.ok") as string,
         cancelTitle: i18n.t("shopping-cart.confirm-checkout-modal.cancel") as string,
-        footerClass: ["p-2", "flex-row-reverse justify-content-start"],
+        footerClass: ["p-3", "justify-content-end"],
         hideHeaderClose: false,
         centered: true
       }
@@ -122,14 +122,14 @@ export default class ActiveOrderSidebar extends Vue {
     }
   }
 
-  changeQuantity(item: CartLineItem, quantity: number) {
+  public changeQuantity(item: CartLineItem, quantity: number): void {
     const changeItemQty = new ChangeCartItemQty();
     changeItemQty.lineItemId = item.id;
     changeItemQty.quantity = quantity;
     this.changeLineItemQuantity(changeItemQty);
   }
 
-  hide() {
+  public hide(): void {
     this.hideCartSidebar();
   }
 }

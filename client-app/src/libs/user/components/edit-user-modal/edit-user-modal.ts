@@ -30,13 +30,13 @@ export default class EditUserModal extends Vue {
 
   userInfo: User | null = null;
 
-  resetForm() {
+  public resetForm(): void {
     this.$nextTick(() => {
       this.$v.$reset();
     });
   }
 
-  submitForm() {
+  public submitForm(): void {
     if (this.userInfo) {
       const user: UserUpdateInfo = new UserUpdateInfo();
       user.init({

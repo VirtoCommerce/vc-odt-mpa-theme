@@ -22,15 +22,15 @@ export default class InvoicesFilter extends Vue {
 
   locale = locale;
 
-  emitChanges(searchCriteria: IPaymentSearchCriteria) {
-    this.$emit("searchCriteriaChanged", searchCriteria);
-  }
-
   mounted() {
     this.setDatepickerLocalization();
   }
 
-  dateChanged(startDate?: Date | null, endDate?: Date | null) {
+  public emitChanges(searchCriteria: IPaymentSearchCriteria): void {
+    this.$emit("searchCriteriaChanged", searchCriteria);
+  }
+
+  public dateChanged(startDate?: Date | null, endDate?: Date | null): void {
     if (startDate && endDate) {
       this.isDateValid = startDate <= endDate;
       if (this.isDateValid) {
@@ -48,23 +48,19 @@ export default class InvoicesFilter extends Vue {
     }
   }
 
-  changeStartDate(date?: Date) {
+  public changeStartDate(date?: Date): void {
     if (this.searchCriteria.startDate?.getTime() !== date?.getTime()){
       this.dateChanged(date, this.searchCriteria.endDate);
     }
   }
 
-  changeEndDate(date?: Date) {
+  public changeEndDate(date?: Date): void {
     if (this.searchCriteria.endDate?.getTime() !== this.prepareEndDate(date)?.getTime()) {
       this.dateChanged(this.searchCriteria.startDate, this.prepareEndDate(date));
     }
   }
 
-  setDatepickerLocalization() {
-    this.datepickerLabels = i18n.te("account.invoices.datepicker") ? i18n.t("account.invoices.datepicker") : {};
-  }
-
-  getCurrentStatusLabel(): TranslateResult {
+  public getCurrentStatusLabel(): TranslateResult {
     if (this.allStatusesSelected || !this.searchCriteria.statuses?.length) {
       return i18n.t("account.invoices.status-filter.all");
     } else {
@@ -74,18 +70,22 @@ export default class InvoicesFilter extends Vue {
     }
   }
 
-  selectedStatusesChanged(selectedStatuses: string[]) {
+  public selectedStatusesChanged(selectedStatuses: string[]): void {
     this.allStatusesSelected = selectedStatuses.length === this.availableInvoicesStatuses.length;
     const searchCriteria = { ...this.searchCriteria, statuses: selectedStatuses };
     this.emitChanges(searchCriteria);
   }
 
-  toggleAllStatuses(checked: boolean) {
+  public toggleAllStatuses(checked: boolean): void {
     const searchCriteria: IPaymentSearchCriteria = { ...this.searchCriteria, statuses: checked ? this.availableInvoicesStatuses : [] };
     this.emitChanges(searchCriteria);
   }
 
   private prepareEndDate(endDate?: Date): Date | undefined {
     return endDate != null ? this.$moment(endDate).add(1, "days").subtract(1, "seconds").toDate() : endDate;
+  }
+
+  private setDatepickerLocalization(): void {
+    this.datepickerLabels = i18n.te("account.invoices.datepicker") ? i18n.t("account.invoices.datepicker") : {};
   }
 }

@@ -39,7 +39,7 @@ export default class AddToDraftButton extends Vue {
   addItemToDraft!: (criteria: AddCartItem) => void;
 
 
-  async addToNewDraft(draftName: string) {
+  public async addToNewDraft(draftName: string): Promise<void> {
     (this.$refs.dropdown as any).hide();
     await this.addNewDraft(draftName);
     const addItemToDraft = new AddCartItem();
@@ -50,7 +50,7 @@ export default class AddToDraftButton extends Vue {
     await this.addItemToDraft(addItemToDraft);
   }
 
-  async addToDraft(draft: ShoppingCart) {
+  public async addToDraft(draft: ShoppingCart): Promise<void> {
     const addItemToDraft = new AddCartItem();
     addItemToDraft.type = draft.type;
     addItemToDraft.productId = this.productId;
@@ -59,8 +59,8 @@ export default class AddToDraftButton extends Vue {
     await this.addItemToDraft(addItemToDraft);
   }
 
-  isItemDisabled(draft: ShoppingCart) {
-    return  draft.items?.some(x => x.productId == this.productId);
+  public isItemDisabled(draft: ShoppingCart): boolean | undefined {
+    return draft.items?.some(x => x.productId == this.productId);
   }
 
 }

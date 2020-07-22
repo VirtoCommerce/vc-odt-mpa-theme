@@ -9,11 +9,11 @@ export default class UsersFilter extends Vue {
   @Prop()
   searchCriteria!: IOrganizationContactsSearchCriteria;
 
-  emitChanges(searchCriteria: IOrganizationContactsSearchCriteria) {
+  public emitChanges(searchCriteria: IOrganizationContactsSearchCriteria): void {
     this.$emit("searchCriteriaChanged", searchCriteria);
   }
 
-  changeKeyword(keyword: string) {
+  public changeKeyword(keyword: string): void {
     const searchCriteria = { ...this.searchCriteria, keyword };
     this.emitChanges(searchCriteria);
   }

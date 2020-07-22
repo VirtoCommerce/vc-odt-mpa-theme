@@ -5,7 +5,7 @@
         {{ title }}
       </h5>
       <button v-if="cart.itemsCount != 0"
-              class="btn btn-link px-0 pt-0 text-nowrap"
+              class="btn btn-link px-0 pt-0 text-nowrap remove-button"
               @click="onClearCartClicked()">
         {{ $t('shopping-cart.clear-cart') }}
       </button>

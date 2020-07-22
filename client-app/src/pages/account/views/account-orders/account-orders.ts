@@ -59,38 +59,30 @@ export default class AccountOrders extends Vue {
     this.buildSearchCriteria(this.$route, this.searchCriteria);
   }
 
-  orderDetailsModalHided() {
+  public orderDetailsModalHided(): void {
     this.clearSelectedOrder();
   }
 
-  buildSearchCriteria(route: Route, initialSearchCriteria?: IOrderSearchCriteria) {
-    const searchCriteria = this.queryBuilder.parseQuery(route.query);
-    this.setSearchCriteria({
-      ...initialSearchCriteria,
-      ...searchCriteria
-    });
-  }
-
-  pageChanged(pageNumber: number) {
+  public pageChanged(pageNumber: number): void {
     this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber });
   }
 
-  pageSizeChanged(pageSize: number) {
+  public pageSizeChanged(pageSize: number): void {
     this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: startPageNumber, pageSize });
   }
 
-  sortChanged(ctx: BvTableCtxObject) {
+  public sortChanged(ctx: BvTableCtxObject): void {
     const sortDirection = ctx.sortDesc ? sortDescending : sortAscending;
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
     const searchCriteria = { ...this.searchCriteria, pageNumber: startPageNumber, sort: sortExpression };
     this.searchCriteriaChanged(searchCriteria);
   }
 
-  checkActivePageSize(pageSize: number) {
+  public checkActivePageSize(pageSize: number): boolean {
     return pageSize == this.searchCriteria.pageSize ? true : false;
   }
 
-  searchCriteriaChanged(searchCriteria: IOrderSearchCriteria) {
+  public searchCriteriaChanged(searchCriteria: IOrderSearchCriteria): void {
     const query = this.queryBuilder.buildQuery(new OrderSearchCriteria(searchCriteria));
     this.$router.push({
       ...this.$route,
@@ -100,8 +92,16 @@ export default class AccountOrders extends Vue {
     });
   }
 
-  openOrderDetails(orderId: string) {
+  public openOrderDetails(orderId: string): void {
     this.fetchSelectedOrder(orderId);
     this.$bvModal.show("orderDetailsModal");
+  }
+
+  private buildSearchCriteria(route: Route, initialSearchCriteria?: IOrderSearchCriteria): void {
+    const searchCriteria = this.queryBuilder.parseQuery(route.query);
+    this.setSearchCriteria({
+      ...initialSearchCriteria,
+      ...searchCriteria
+    });
   }
 }

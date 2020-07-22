@@ -88,34 +88,26 @@ export default class AccountUsers extends Vue {
     this.buildSearchCriteria(this.$route, this.searchCriteria);
   }
 
-  buildSearchCriteria(route: Route, initialSearchCriteria?: IOrganizationContactsSearchCriteria) {
-    const searchCriteria = this.queryBuilder.parseQuery(route.query);
-    this.setSearchCriteria({
-      ...initialSearchCriteria,
-      ...searchCriteria
-    });
-  }
-
-  pageChanged(pageNumber: number) {
+  public pageChanged(pageNumber: number): void {
     this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber });
   }
 
-  pageSizeChanged(pageSize: number) {
+  public pageSizeChanged(pageSize: number): void {
     this.searchCriteriaChanged({ ...this.searchCriteria, pageNumber: startPageNumber, pageSize });
   }
 
-  sortChanged(ctx: BvTableCtxObject) {
+  public sortChanged(ctx: BvTableCtxObject): void {
     const sortDirection = ctx.sortDesc ? sortDescending : sortAscending;
     const sortExpression = `${ctx.sortBy}:${sortDirection}`;
     const searchCriteria = { ...this.searchCriteria, pageNumber: startPageNumber, sort: sortExpression };
     this.searchCriteriaChanged(searchCriteria);
   }
 
-  checkActivePageSize(pageSize: number) {
+  public checkActivePageSize(pageSize: number): boolean {
     return pageSize == this.searchCriteria.pageSize ? true : false;
   }
 
-  searchCriteriaChanged(searchCriteria: IOrganizationContactsSearchCriteria) {
+  public searchCriteriaChanged(searchCriteria: IOrganizationContactsSearchCriteria): void {
     const query = this.queryBuilder.buildQuery(new OrganizationContactsSearchCriteria(searchCriteria));
     this.$router.push({
       ...this.$route,
@@ -125,12 +117,12 @@ export default class AccountUsers extends Vue {
     });
   }
 
-  openEditUserModal(user: User) {
+  public openEditUserModal(user: User): void {
     this.fetchSelectedUser(user.id!);
     this.$bvModal.show("editUserModal");
   }
 
-  userAdded(newUser: AddUser) {
+  public userAdded(newUser: AddUser): void {
     if (this.profile.contact?.organizationId) {
       const orgId: string = this.profile.contact.organizationId;
       const registerUser = new OrganizationUserRegistration();
@@ -139,11 +131,11 @@ export default class AccountUsers extends Vue {
     }
   }
 
-  userChanged(updatedUser: UserUpdateInfo) {
+  public userChanged(updatedUser: UserUpdateInfo): void {
     this.updateUser(updatedUser);
   }
 
-  async confirmDeleteUser(user: User) {
+  public async confirmDeleteUser(user: User): Promise<void> {
     const value = await this.$bvModal.msgBoxConfirm(i18n.t('account.users.confirm-delete-modal.message', [ user.userName ]) as string, {
       size: 'md',
       buttonSize: 'md',
@@ -154,12 +146,12 @@ export default class AccountUsers extends Vue {
       hideHeaderClose: false,
       centered: true
     });
-    if(value) {
+    if (value) {
       this.deleteUser(user.id!);
     }
   }
 
-  async changeUserSuspensionStatus(user: User, suspend: boolean) {
+  public async changeUserSuspensionStatus(user: User, suspend: boolean): Promise<void> {
     const localizationType = (suspend == true) ? 'suspend' : 'unsuspend';
     const value = await this.$bvModal.msgBoxConfirm(i18n.t(`account.users.confirm-${localizationType}-modal.message`, [ user.userName ]) as string, {
       size: 'md',
@@ -171,7 +163,7 @@ export default class AccountUsers extends Vue {
       hideHeaderClose: false,
       centered: true
     });
-    if(value) {
+    if (value) {
       if (suspend) {
         this.suspendUser(user.id!);
       } else {
@@ -180,8 +172,16 @@ export default class AccountUsers extends Vue {
     }
   }
 
-  isCurrentUser(user: User) {
+  public isCurrentUser(user: User): boolean {
     return this.profile.id == user.id;
+  }
+
+  private buildSearchCriteria(route: Route, initialSearchCriteria?: IOrganizationContactsSearchCriteria): void {
+    const searchCriteria = this.queryBuilder.parseQuery(route.query);
+    this.setSearchCriteria({
+      ...initialSearchCriteria,
+      ...searchCriteria
+    });
   }
 
 }
