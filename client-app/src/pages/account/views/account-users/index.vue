@@ -79,8 +79,10 @@
             aria-controls="users-table"
             :total-rows="users.totalCount"
             :per-page="searchCriteria.pageSize"
+            class="display-by"
             @change="pageChanged($event)"></b-pagination>
           <div>
+            Display by&nbsp;&nbsp;
             <b-dropdown
               id="page-sizes"
               class="form-control p-0"
