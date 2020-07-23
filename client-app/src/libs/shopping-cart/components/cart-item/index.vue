@@ -15,7 +15,7 @@
       <div class="font-weight-bold align-self-center">
         {{ item.extendedPrice.formattedAmount }}
       </div>
-      <div class="ml-auto w-50">
+      <div class="ml-auto item-number">
         <change-item-quantity :quantity="item.quantity" @quantity-changed="quantityChanged"></change-item-quantity>
       </div>
     </div>
