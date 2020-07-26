@@ -769,6 +769,7 @@ header.b-sidebar-header {
   background: url(/static/user-logout.svg) no-repeat left 11px;
 }
 
+
 // Cart button
 
 .cart-login li.header-cart {
@@ -805,23 +806,6 @@ header.b-sidebar-header {
   border: 0 !important;
   box-shadow: none;
 }
-
-// .btn:focus,
-// .btn button:active,
-// .btn button:visited,
-// .btn button:target {
-//   border: 0 !important;
-// }
-
-// .header-cart button:active,
-// .header-cart button:visited,
-// .header-cart button:target {
-//   background: none !important;
-//   background: url(/static/cart-icon.svg) no-repeat left 9px !important;
-//   border: 0 !important;
-//   color: $primary;
-//   box-shadow: none;
-// }
 
 .header-cart button:focus {
   box-shadow: none;
@@ -1296,13 +1280,6 @@ h2.product-title {
   background: url(/static/draft-icon-button.svg) #fff no-repeat 16px 13px;
 }
 
-// .show > .btn-outline-primary.dropdown-toggle {
-//     color: #7b76bb !important;
-//     background: url(/static/draft-icon-button.svg) #fff no-repeat 16px 13px !important;
-//     border: 0 !important;
-//     box-shadow: none;
-// }
-
 .product-action-buttons .app-add-item-to-draft .dropdown-toggle::after {
   top: 21px;
   right: 18px;
@@ -1444,9 +1421,6 @@ h2.product-title {
     font-size: 21px !important;
     line-height: 21px !important;
     padding-top: 20px !important;
-  }
-  .navbar .mobile-search {
-    //padding-bottom: 25px;
   }
 }
 
@@ -1752,7 +1726,6 @@ h2.product-title {
   .navbar-nav .nav-item {
     display: flex;
     margin-right: 15px;
-    //border: 1px red solid;
   }
 
   .navbar {
@@ -1865,10 +1838,6 @@ h2.product-title {
 /////////////////////////////////
 
 @media (min-width: 1200px) {
-  .before-header {
-    //max-width: 95%;
-  }
-
   .navbar-collapse {
     max-width: 91%;
     margin-left: auto;
