@@ -29,7 +29,7 @@
           <span class="align-self-center">{{ $t("account.drafts.empty-draft") }}</span>
         </div>
 
-        <div class="cart-footer pl-4 pr-4">
+        <div class="cart-footer pl-4 pr-4 ccc">
           <cart-summary
             :cart="selectedDraft">
           </cart-summary>
