@@ -8,7 +8,6 @@
     <b-overlay :show="isLoading"
                rounded="sm"
                :opacity="0.33">
-      <!-- class="h-100"> -->
       <div v-if="cart">
         <div v-if="cart.itemsCount > 0" class="cart-header  pl-4">
           <cart-header
