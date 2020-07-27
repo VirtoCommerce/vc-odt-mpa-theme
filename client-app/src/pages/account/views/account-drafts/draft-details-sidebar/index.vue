@@ -17,7 +17,7 @@
             @clear-cart-clicked="confirmClearDraft"></cart-header>
         </div>
 
-        <div class="cart-list pl-4">
+        <div class="cart-list pl-4 pr-4">
           <cart-items-list
             :items="selectedDraft.items"
             @item-deleted="confirmDeleteItem"
@@ -29,7 +29,7 @@
           <span class="align-self-center">{{ $t("account.drafts.empty-draft") }}</span>
         </div>
 
-        <div class="cart-footer pl-4 pr-4 ccc">
+        <div class="cart-footer pl-4 pr-4">
           <cart-summary
             :cart="selectedDraft">
           </cart-summary>

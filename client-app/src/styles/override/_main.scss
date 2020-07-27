@@ -126,7 +126,7 @@ p {
   font-weight: 500;
   font-size: 15px;
   line-height: 26px;
-  padding: 0.42rem 1.5rem 0.375rem 1.4rem;
+  //padding: 0.42rem 1.5rem 0.375rem 1.4rem;
   border: 0;
   border-radius: 60px;
 }
@@ -142,6 +142,7 @@ p {
   border-radius: 60px;
   transition: $transition;
   background: $primary;
+  padding: 0.42rem 1.5rem 0.375rem 1.4rem;
 }
 
 .btn-primary:hover,
@@ -175,7 +176,7 @@ p {
   box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.14);
   color: #212529;
   height: 40px;
-
+  padding: 0.42rem 1.5rem 0.375rem 1.4rem;
 }
 
 .btn-secondary:focus,
@@ -332,7 +333,7 @@ p {
 /****** HISTORY *************************************************/
 
 #page-sizes {
-  width: 67px;
+  width: 80px;
 }
 
 #begin-date svg,
@@ -442,6 +443,10 @@ header.b-sidebar-header {
   width: 100%;
 }
 
+.b-sidebar-body{
+  padding-right: 0 !important;
+}
+
 .b-sidebar-body .cart-header .flex-column {
   font-weight: 600;
 }
@@ -452,19 +457,27 @@ header.b-sidebar-header {
   color: #000;
 }
 
+.b-sidebar > .b-sidebar-body {
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: scroll;
+}
+
 .item-number {
   width: 170px;
   margin-right: -10px;
+  margin-top: 5px;
   justify-content: flex-end;
 }
+
+.item-number .btn{
+  padding: 0.22rem 1.0rem 0.375rem 1.0rem;
+}
+
 
 .cart-list {
   padding-bottom: 35px;
   margin-top: 125px;
-}
-
-.fa-layers svg.svg-inline--fa {
-  top: 10px;
 }
 
 .remove-button {

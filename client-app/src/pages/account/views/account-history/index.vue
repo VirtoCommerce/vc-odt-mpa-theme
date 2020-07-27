@@ -37,13 +37,6 @@
           {{ $t('account.menu_titles.drafts') }}
         </router-link>
       </li>
-      <li class="nav-item">
-        <a href="/account/#/details"
-           aria-current="page"
-           class="nav-link">
-          User Details
-        </a>
-      </li>
     </ul>
     <router-view></router-view>
   </div>
