@@ -10,7 +10,7 @@
       <div class="col col-sm-auto col-md-auto col-lg-auto align-self-sm-end mt-3">
         <b-button
           v-b-modal.addDraftModal
-          variant="outline-primary">
+          variant="outline-primary add-button">
           {{ $t("account.drafts.add-draft.add-draft") }}
         </b-button>
       </div>
