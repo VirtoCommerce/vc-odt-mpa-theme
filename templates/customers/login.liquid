@@ -1,6 +1,14 @@
+
+
 {% layout 'login' %}
 
-<form class="d-flex flex-column align-items-center"
+<div class="login-left-container">
+   <div class="login-shop-logo">
+                <a class="navbar-brand" href="{{ "/" | absolute_url }}"><img src="/static/shop-logo.svg" alt="Smartshop" class="shop-logo" />
+                <a class="navbar-brand-mobile" href="{{ "/" | absolute_url }}"><img src="/static/shop-logo-mobile.svg" alt="Smartshop" class="shop-logo" /></a></a>
+    </div>
+
+<form class="d-flex flex-column"
   accept-charset="UTF-8"
   action="{{ requestUrl }}"
   method="post"
@@ -23,7 +31,35 @@
     <input id="RememberMe" class="custom-control-input" type="checkbox" />
     <label for="RememberMe" class="custom-control-label">{{ "common.login.remember_me" | t }}</label>
   </div>
+
+  <div class="login-button">
   <button type="submit" class="btn btn-primary mt-2">{{ "common.login.log_in" | t }}</button>
-  <a class="mt-3" href="{{ '/account/forgotpassword' | absolute_url }}">{{ "common.login.forgot_password" | t }}</a>
+  <a class="forgot-password" href="{{ '/account/forgotpassword' | absolute_url }}">{{ "common.login.forgot_password" | t }}</a>
+  </div>
   {{ antiforgery }}
 </form>
+
+
+<div class="social-networks-login">
+  <div class="social-text">Or login with</div>
+  <div class="social-icons">
+    <ul>
+      <li><a href="#"><img src="/static/google.svg"></a></li>
+      <li><a href="#"><img src="/static/facebook.svg"></a></li>
+      <li><a href="#"><img src="/static/windows.svg"></a></li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="login-copyright">
+  <div class="login-copyright-text">Copyright © 2020&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;All rights reserved</div>
+</div>
+
+
+</div>
+
+<div class="login-right-container">
+  <div class="login-right-container-bg"></div>
+</div>
+

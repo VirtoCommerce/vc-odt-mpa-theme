@@ -23,8 +23,8 @@
     {{ 'bundle/default.scss.css' | static_asset_url | append_version | stylesheet_tag }}
 
 </head>
-<body class="h-100">
-	<main class="h-100 d-flex justify-content-center align-items-center">
+<body class="h-100 login-screens">
+	<main class="h-100 d-flex login-wrapper">
   {{ content_for_layout }}
   </main>
 </body>
