@@ -195,9 +195,9 @@ p {
 }
 
 .btn-secondary:hover {
-    color: #fff;
-    background-color: $secondary;
-    border: none;
+  color: #fff;
+  background-color: $secondary;
+  border: none;
 }
 // Action buttons
 
@@ -442,7 +442,7 @@ header.b-sidebar-header {
   width: 100%;
 }
 
-.b-sidebar-body{
+.b-sidebar-body {
   padding-right: 0 !important;
 }
 
@@ -457,9 +457,9 @@ header.b-sidebar-header {
 }
 
 .b-sidebar > .b-sidebar-body {
-    flex-grow: 1;
-    height: 100%;
-    overflow-y: scroll;
+  flex-grow: 1;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .item-number {
@@ -469,10 +469,9 @@ header.b-sidebar-header {
   justify-content: flex-end;
 }
 
-.item-number .btn{
-  padding: 0.22rem 1.0rem 0.375rem 1.0rem;
+.item-number .btn {
+  padding: 0.22rem 1rem 0.375rem 1rem;
 }
-
 
 .cart-list {
   padding-bottom: 35px;
@@ -781,7 +780,6 @@ header.b-sidebar-header {
   background: url(/static/user-logout.svg) no-repeat left 11px;
 }
 
-
 // Cart button
 
 .cart-login li.header-cart {
@@ -811,7 +809,8 @@ header.b-sidebar-header {
   transition: none;
 }
 
-.header-cart button:hover, .header-cart button:active {
+.header-cart button:hover,
+.header-cart button:active {
   background: none;
   background: url(/static/cart-icon.svg) no-repeat left -27px !important;
   color: $primary !important;
@@ -1365,6 +1364,202 @@ h2.product-title {
 
 .nav-tabs .nav-link:focus {
   color: #000;
+}
+
+///////////////////////////// LOGIN SCREENS ////////////////////
+
+.login-screens a {
+  color: #5d8ac5;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  flex-direction: row;
+}
+
+.login-left-container {
+  display: flex;
+  max-width: 350px;
+  min-width: 350px;
+  flex-grow: 1;
+  flex-direction: column;
+  margin-left: 100px;
+  margin-top: 90px;
+  margin-right: 100px;
+}
+
+.login-right-container {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  background-color: #7b76bb;
+}
+
+.login-right-container-bg {
+  height: 100%;
+  background: url(/static/login-bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.login-wrapper .navbar-brand {
+  padding-top: 0;
+}
+
+.login-wrapper .navbar-brand img {
+  width: 290px;
+}
+
+.login-shop-logo {
+  margin-bottom: 130px;
+  margin-left: 0;
+}
+
+.login-left-container h3 {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 35px;
+  color: #212529;
+  margin-bottom: 42px;
+}
+
+.login-left-container .form-group input {
+  height: 42px;
+  margin-bottom: 4px;
+  font-size: 16px !important;
+}
+
+.login-left-container .custom-checkbox {
+  margin-top: 0px !important;
+  font-size: 15px;
+}
+
+.login-left-container .custom-control-label {
+  line-height: 18px;
+}
+
+.login-left-container button.btn-primary {
+  margin-top: 26px !important;
+  width: 163px;
+  text-align: center;
+}
+
+.login-button {
+  display: flex;
+  justify-content: space-between;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.forgot-password {
+  margin-top: 34px !important;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: right;
+  margin-right: 4px;
+}
+
+.login-copyright {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 40px;
+}
+
+.login-copyright-text {
+  font-size: 15px;
+  color: #9EA4AC;
+}
+
+.social-networks-login {
+  display: flex;
+  border-top: 1px #d2d2d2 solid;
+  padding-top: 70px;
+  margin-top: 70px;
+}
+
+.social-networks-login .social-text {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 35px;
+  color: #212529;
+  margin-bottom: 42px;
+}
+
+.social-networks-login .social-icons {
+}
+
+.social-icons ul {
+  list-style-type: none;
+}
+
+.social-icons ul li {
+  float: left;
+  margin-right: 20px;
+  width: 34px;
+  height: 34px;
+}
+
+@media (max-width: 650px) {
+  .login-screens .navbar-brand-mobile {
+    display: none !important;
+  }
+
+  .login-screens .navbar-brand {
+    display: block !important;
+    width: 190px;
+  }
+
+  .login-left-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 310px;
+    min-width: 310px;
+    margin-top: 50px;
+  }
+
+  .login-right-container {
+    display: none;
+  }
+
+  .social-networks-login {
+    padding-top: 40px;
+    margin-top: 50px;
+  }
+
+  .login-shop-logo {
+    margin-bottom: 100px;
+    margin-left: 0;
+  }
+
+  .forgot-password {
+    width: 170px;
+  }
+
+  .login-left-container button.btn-primary {
+    width: 143px;
+  }
+
+  .social-networks-login .social-text {
+    font-size: 17px;
+  }
+
+  .login-left-container h3 {
+    font-size: 25px;
+  }
 }
 
 ///////////////////////////// MOBILE ////////////////////
