@@ -25,7 +25,20 @@
 </head>
 <body class="h-100 login-screens">
 	<main class="h-100 d-flex login-wrapper">
-  {{ content_for_layout }}
+    <div class="login-left-container">
+      <div class="login-shop-logo">
+                   <a class="navbar-brand" href="{{ "/" | absolute_url }}"><img src="{{ 'shop-logo.svg' | asset_url }}" alt="Smartshop" class="shop-logo" />
+                   <a class="navbar-brand-mobile" href="{{ "/" | absolute_url }}"><img src="{{ 'shop-logo-mobile.svg' | asset_url }}" alt="Smartshop" class="shop-logo" /></a></a>
+       </div>
+       {{ content_for_layout }}
+     <div class="login-copyright">
+        <div class="login-copyright-text">Copyright © 2020&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;All rights reserved</div>
+     </div>
+   </div>
+
+   <div class="login-right-container">
+     <div class="login-right-container-bg"></div>
+   </div>
   </main>
 </body>
 </html>
