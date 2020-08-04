@@ -7,8 +7,7 @@
              @hidden="hide">
     <b-overlay :show="isLoading"
                rounded="sm"
-               :opacity="0.33"
-               class="h-100">
+               :opacity="0.33">
       <div v-if="cart">
         <div v-if="cart.itemsCount > 0" class="cart-header  pl-4">
           <cart-header
@@ -16,7 +15,7 @@
             :title="$t('shopping-cart.title')"
             @clear-cart-clicked="confirmClearCart"></cart-header>
         </div>
-        <div class="cart-list pl-4">
+        <div class="cart-list pl-4 pr-4">
           <cart-items-list :items="cart.items"
                            @item-deleted="confirmDeleteItem"
                            @quantity-changed="changeQuantity">
