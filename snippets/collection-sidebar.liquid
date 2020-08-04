@@ -15,8 +15,24 @@
         <h5 class="font-weight-bold text-uppercase">{{ group_label | escape }}</h5>
 
         <!-- NEW - Collapse Button -->
-        <a class="collapse-button" href="#"">Collapse</a>
-        <ul class="list-unstyled">
+        <a class="btn btn-primary collapse-button  collapsed" data-toggle="collapse" href="#{{aggregation.field}}" role="button" aria-expanded="true" aria-controls="collapseExample">Collapse</a>
+
+          <script>
+            var screen_width = document.documentElement.clientWidth;
+            var mobile_siderbar_list = '<ul id="{{aggregation.field}}" class="collapse list-unstyled mobile-ul">';
+            var desktop_sidebar_list = `{% if aggregation.field == '__outline' or aggregation.field == 'Brand' %}
+                <ul id="{{aggregation.field}}" class="collapse list-unstyled desktop-ul show">
+              {% else %}
+                <ul id="{{aggregation.field}}" class="collapse list-unstyled desktop-ul">
+              {% endif %}`;
+
+          if (screen_width <= 765) {
+              document.write(mobile_siderbar_list);
+          } else{
+              document.write(desktop_sidebar_list);
+          }
+        </script>
+
             {% for custom_tag in aggregation.items %}
             {% assign tag = custom_tag %}
             {% include 'tag-label' %}
@@ -35,7 +51,5 @@
         </ul>
     </div>
     {% endfor %}
-
 </div>
 {% endunless %}
-
