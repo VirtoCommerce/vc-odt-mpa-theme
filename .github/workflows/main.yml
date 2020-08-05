@@ -35,17 +35,17 @@ jobs:
       # After anp install 'bower install' cmd will be invoked as package.json script
     - name: Npm Install
       run: npm install
-      working-directory: ./client-app
+      #working-directory: ./client-app
 
     - name: Build theme and compress to zip
       run: npm run compress
-      working-directory: ./client-app
+      #working-directory: ./client-app
 
     - name: Find Artifact Path
       id: artifact-path
       shell: pwsh
       run: |
-        $file = Get-ChildItem -Path artifacts -Filter "*.zip" | Select-Object -First 1
+        $file = Get-ChildItem -Path ../artifacts -Filter "*.zip" | Select-Object -First 1
         Write-Host "::set-output name=path::$($file.FullName)"
         Write-Host "::set-output name=name::$('${{ github.repository }}'.Replace('${{ github.repository_owner }}/', ''))_${{ steps.image.outputs.taggedVersion }}"
 
