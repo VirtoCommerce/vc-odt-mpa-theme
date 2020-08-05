@@ -37,6 +37,7 @@ jobs:
       run: npm install
       #working-directory: ./client-app
 
+
     - name: Build theme and compress to zip
       run: npm run compress
       #working-directory: ./client-app
