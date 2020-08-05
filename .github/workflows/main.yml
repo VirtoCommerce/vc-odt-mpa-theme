@@ -31,7 +31,6 @@ jobs:
     - name: Get Image Version
       uses: VirtoCommerce/vc-github-actions/get-image-version@dev
       id: image
-      working-directory: ./client-app
 
       # After anp install 'bower install' cmd will be invoked as package.json script
     - name: Npm Install
