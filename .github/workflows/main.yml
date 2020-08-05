@@ -1,0 +1,94 @@
+name: CI
+on:
+  workflow_dispatch:
+  push:
+    branches: [ dev, vp-3998 ]
+  pull_request:
+    branches: [ dev ]
+
+jobs:
+  build-package:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    name: Build Package
+    defaults:
+      run:
+        working-directory: client-app
+    outputs:
+        path: ${{ steps.artifact-path.outputs.path }}
+        name: ${{ steps.artifact-path.outputs.name }}
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    - name: Install Node.js 10
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+
+    - name: Get Image Version
+      uses: VirtoCommerce/vc-github-actions/get-image-version@dev
+      id: image
+      working-directory: ./client-app
+
+      # After anp install 'bower install' cmd will be invoked as package.json script
+    - name: Npm Install
+      run: npm install
+      working-directory: ./client-app
+
+    - name: Build theme and compress to zip
+      run: npm run compress
+      working-directory: ./client-app
+
+    - name: Find Artifact Path
+      id: artifact-path
+      shell: pwsh
+      run: |
+        $file = Get-ChildItem -Path artifacts -Filter "*.zip" | Select-Object -First 1
+        Write-Host "::set-output name=path::$($file.FullName)"
+        Write-Host "::set-output name=name::$('${{ github.repository }}'.Replace('${{ github.repository_owner }}/', ''))_${{ steps.image.outputs.taggedVersion }}"
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        path: ${{ steps.artifact-path.outputs.path }}
+        name: ${{ steps.artifact-path.outputs.name }}
+
+  publish:
+    name: Publish image
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    needs: [build-package]
+    steps:
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v2
+        with:
+          # Artifact name
+          name: ${{needs.build-package.outputs.name}}
+          # Destination path
+          path: ${{needs.build-package.outputs.path}}
+
+      - name: Set artifact name
+        shell: pwsh
+        id: artifact
+        run: |
+          Get-ChildItem ${{needs.build-package.outputs.path}} | ForEach-Object {
+            Rename-Item $_ -NewName ${{needs.build-package.outputs.name}}.zip
+          }
+
+      - name: Upload a Build Artifact to Azure Blob Storage
+        uses: bacongobbler/azure-blob-storage-upload@v1.1.1
+        with:
+          source_dir: '${{needs.build-package.outputs.path}}'
+          container_name: 'packages'
+          connection_string: ${{ secrets.BLOB_CONNECTION_STRING }}
+          sync: false
+
+      - name: Set Build status Successful
+        run: echo "::set-env name=BUILD_STATE::successful"
+
+      - name: Set Build status Failed
+        if: failure()
+        run: echo "::set-env name=BUILD_STATE::failed"
