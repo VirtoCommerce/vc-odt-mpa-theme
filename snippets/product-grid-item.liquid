@@ -70,16 +70,16 @@
 
 
             {% if unavailable %}
-            <button class="btn w-100" title="{{ 'products.general.add_to_cart' | t }}" disabled>
-                <span class="font-weight-bold text-uppercase">{{ 'products.product.unavailable' | t }}</span>
+            <button class="btn disabled-product" title="{{ 'products.general.add_to_cart' | t }}" disabled>
+                <span class="disabled-text">{{ 'products.product.unavailable' | t }}</span>
             </button>
             {% endif %}
             {% if sold_out %}
-            <button class="btn w-100" title="{{ 'products.general.add_to_cart' | t }}" disabled>
-                <span class="font-weight-bold text-uppercase">{{ 'products.product.sold_out' | t }}</span>
+            <button class="btn disabled-product
+            " title="{{ 'products.general.add_to_cart' | t }}" disabled>
+                <span class="disabled-text">{{ 'products.product.sold_out' | t }}</span>
             </button>
             {% endif %}
         </div>
     </a>
-
 </div>
