@@ -32,7 +32,7 @@ jobs:
       uses: VirtoCommerce/vc-github-actions/get-image-version@dev
       id: image
       with:
-        path: '/client-app'
+        path: 'client-app'
 
       # After anp install 'bower install' cmd will be invoked as package.json script
     - name: Npm Install
