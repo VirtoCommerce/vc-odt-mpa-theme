@@ -37,11 +37,9 @@ jobs:
       # After anp install 'bower install' cmd will be invoked as package.json script
     - name: Npm Install
       run: npm install
-      #working-directory: ./client-app
 
     - name: Build theme and compress to zip
       run: npm run compress
-      #working-directory: ./client-app
 
     - name: Find Artifact Path
       id: artifact-path
