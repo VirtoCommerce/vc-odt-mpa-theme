@@ -1,5 +1,5 @@
 {% layout 'login' %}
-
+ {% include 'form-errors-custom' %}
 <form class="d-flex flex-column"
   accept-charset="UTF-8"
   action="{{ requestUrl }}"
@@ -7,9 +7,10 @@
   id="customer_login"
   name="customer_login"
 >
-  <h3>{{ "common.login.login_header" | t }}</h3>
 
-  {% include 'form-errors-custom' %}
+<h3>{{ "common.login.login_header" | t }}</h3>
+
+
 
   <div class="form-group">
     <input type="text" id="username" class="form-control" name="customer[user_name]" required placeholder={{ "common.login.username" | t }} />
@@ -40,5 +41,11 @@
       <li><a href="#"><img src="{{ 'windows.svg' | asset_url }}"></a></li>
     </ul>
   </div>
+</div>
+
+<div class="login-copyright">
+    <div class="login-copyright-text">
+      Copyright © 2020&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;All rights reserved
+    </div>
 </div>
 
