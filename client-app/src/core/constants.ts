@@ -4,8 +4,8 @@ import {  BvTableFieldArray } from 'bootstrap-vue';
 export const storeName = window.STORE_NAME;
 export const locale = window.LOCALE;
 // Need to trim store and language from base URL because they will be added later as parameters for each API call.
-export const baseUrl = window.BASE_URL.replace(`/${storeName}`, "/")
-  .replace(`/${locale}`, "/")
+export const baseUrl = window.BASE_URL.replace( new RegExp(`(?<!http:/)/${storeName}`), "/")
+  .replace(new RegExp(`(?<!http:/)/${locale}`), "/")
   .replace(/[/]+$/, "");
 
 export const fullBaseUrl = `${baseUrl}/${storeName}/${locale}/`;
