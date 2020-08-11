@@ -1477,6 +1477,8 @@ h2.product-title {
   color: #000;
 }
 
+
+
 ///////////////////////////// LOGIN SCREENS ////////////////////
 
 .alert-danger {
@@ -1786,7 +1788,9 @@ h2.product-title {
   }
 }
 
-/////////////////////////
+///////////// 767 ////////////
+
+
 
 @media (max-width: 767px) {
   .mobile-search {
@@ -1816,7 +1820,8 @@ h2.product-title {
   }
 
   #collectionFilters .col-6 {
-    float: left;
+    //float: left;
+    //display: inline-block;
     max-width: 45%;
     margin-right: 10px;
     margin-left: 10px;
@@ -1852,7 +1857,7 @@ h2.product-title {
   }
 }
 
-/////////////////////////
+///////////// 576 ////////////
 
 @media (max-width: 576px) {
   .col-sm-6 {
@@ -1898,16 +1903,20 @@ h2.product-title {
   }
 
   #collectionFilters {
-    padding-left: 0.9rem;
-    padding-right: 0.9rem;
+    padding-left: 13px;
+    padding-right: 13px;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 
   #collectionFilters .col-6 {
-    max-width: 44%;
+    max-width: 320px;
+    width: 100%;
+    flex: 0 0 95%;
     margin-right: 0px;
     margin-left: 15px;
-    flex-wrap: wrap;
   }
 
   .sorting-header {
@@ -1916,13 +1925,27 @@ h2.product-title {
 
   .filter-mobile {
     display: flex !important;
-    width: 90%;
-    max-width: 350px;
+    max-width: 320px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 35px;
-    margin-bottom: 30px;
+    margin-top: 10px !important;
+    margin-bottom: 25px !important;
   }
+
+
+  #collectionFilters .list-unstyled li .custom-control-label {
+    font-family: "Rubik", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #000000;
+}
+
+
+#collectionFilters h5 {
+    font-size: 17px;
+}
 
   .collection-sorting,
   .filter-button {
@@ -2029,6 +2052,10 @@ h2.product-title {
   }
 }
 
+
+////////////////////////////////
+
+
 @media (min-width: 576px) and (max-width: 766px) {
   .table-column .col-lg-2 {
     flex: 0 0 50% !important;
@@ -2043,6 +2070,26 @@ h2.product-title {
   .account .nav-link {
     margin-right: 0px;
   }
+
+  #collectionFilters {
+    padding-left: 13px;
+    padding-right: 13px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  #collectionFilters .col-6 {
+    float: left;
+    max-width: 320px;
+    width: 47%;
+    flex: 0 0 47%;
+    margin-right: 0px;
+    margin-left: 15px;
+  }
+
+
 }
 
 /////////////////////////////////
