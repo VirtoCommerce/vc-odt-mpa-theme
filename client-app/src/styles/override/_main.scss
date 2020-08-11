@@ -33,6 +33,10 @@ body {
   display: none !important;
 }
 
+  .navbar {
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.56rem;
+  }
 /****** PRODUCT CARD ****************/
 
 p {
@@ -345,8 +349,12 @@ p {
 
 /****** HISTORY *************************************************/
 
+.b-form-datepicker {
+  position: relative;
+}
+
 #page-sizes {
-  width: 80px;
+  width: 70px;
 }
 
 #begin-date svg,
@@ -356,8 +364,26 @@ p {
 
 #begin-date,
 #end-date {
-  min-width: 30px;
+  min-width: 36px;
+  min-height: 30px;
   background: url(/static/history-calendar.svg) no-repeat 14px 10px;
+  position: absolute;
+  right: 5px;
+}
+
+.b-calendar-inner {
+  width: 100% !important;
+}
+
+#begin-date__dialog_ {
+  padding: 10px;
+  top: 5px !important;
+  left: 4px !important;
+}
+
+#end-date__dialog_ {
+  top: 5px !important;
+  left: 4px !important;
 }
 
 .b-form-btn-label-control.form-control > label {
@@ -391,12 +417,10 @@ element.style {
 }
 
 .form-control {
-  border-radius: 20px;
+  border-radius: $borderRadius;
   padding-left: 15px;
   padding-top: 7px;
 }
-
-
 
 .btn-outline-primary {
   // width: 126px;
@@ -765,6 +789,8 @@ header.b-sidebar-header {
   flex-wrap: nowrap;
 }
 
+
+
 //SEARCH
 
 .before-header .input-group {
@@ -784,6 +810,8 @@ header.b-sidebar-header {
 .before-header .input-group .form-control {
   height: 43px;
 }
+
+.top-search-wrapper{}
 
 .input-group input {
   font-family: $mainFont;
@@ -996,18 +1024,18 @@ header.b-sidebar-header {
 .filter-button:focus {
   background: #ffffff;
   box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.14);
-  border-radius: 4px;
+  border-radius: 34px;
   border: 0;
   color: #212529;
-  padding-left: 36px;
-  background: url(/static/filter-icons.svg) no-repeat 10px 14px;
+  padding-left: 42px;
+  background: url(/static/filter-icons.svg) no-repeat 13px 14px;
   margin-top: -2px;
 }
 
 .filter-button:hover,
 .filter-button:active {
   color: #fff;
-  background: url(/static/filter-icons.svg) $primary no-repeat 10px -18px;
+  background: url(/static/filter-icons.svg) $primary no-repeat 13px -18px;
 }
 
 @media (min-width: 768px) {
@@ -1035,7 +1063,6 @@ header.b-sidebar-header {
   height: 42px;
   text-align: left;
   position: relative;
-  border-radius: 4.25rem;
 }
 
 .collection-sorting label,
@@ -1056,7 +1083,7 @@ header.b-sidebar-header {
   font-size: 16px;
   line-height: 25px;
   color: #212529;
-  border-radius: 4.25rem;
+  border-radius: $borderRadius;
 }
 
 .dropdown-toggle::after {
@@ -1132,18 +1159,18 @@ header.b-sidebar-header {
   display: none !important;
 }
 
-.dropdown-menu{
+.dropdown-menu {
   width: 100%;
   margin-top: 10px;
   box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.1);
-  border: 1px #EAEAEA solid;
+  border: 1px #eaeaea solid;
 }
 
-.dropdown-menu  .custom-checkbox .custom-control-label::before {
-    top: 4px;
+.dropdown-menu .custom-checkbox .custom-control-label::before {
+  top: 4px;
 }
 
-.dropdown-menu .custom-checkbox{
+.dropdown-menu .custom-checkbox {
   margin-bottom: 4px;
 }
 
@@ -1186,7 +1213,7 @@ header.b-sidebar-header {
   width: 100px;
   text-align: left;
   position: relative;
-  border-radius: 4.25rem;
+  //border-radius: 4.25rem;
 }
 
 #pageSize label {
@@ -1439,8 +1466,24 @@ h2.product-title {
 }
 
 #dropdown-filters {
-  border-radius: 4rem !important;
+  border-radius: $borderRadius;
 }
+
+.rounded {
+  border-radius: $borderRadius !important;
+}
+
+#keyword-search {
+  border-radius: 4rem;
+}
+
+.input-group #keyword-search {
+  border-top-left-radius: 4rem;
+  border-bottom-left-radius: 4rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 
 //////
 
@@ -1477,8 +1520,6 @@ h2.product-title {
   color: #000;
 }
 
-
-
 ///////////////////////////// LOGIN SCREENS ////////////////////
 
 .alert-danger {
@@ -1486,7 +1527,7 @@ h2.product-title {
   border-color: #efd3d2;
 }
 
-.alert-danger p{
+.alert-danger p {
   font-family: $mainFont;
   font-style: normal;
   font-weight: normal;
@@ -1619,7 +1660,8 @@ h2.product-title {
   font-size: 16px !important;
 }
 
-.login-left-container .form-group input:focus, .login-left-container .form-group input:active {
+.login-left-container .form-group input:focus,
+.login-left-container .form-group input:active {
   height: 42px;
   margin-bottom: 4px;
   font-size: 16px !important;
@@ -1790,8 +1832,6 @@ h2.product-title {
 
 ///////////// 767 ////////////
 
-
-
 @media (max-width: 767px) {
   .mobile-search {
     display: flex;
@@ -1829,7 +1869,6 @@ h2.product-title {
     border-radius: $borderRadius;
     margin-bottom: 15px;
   }
-
 
   .product-grid {
     margin-left: 0px;
@@ -1910,7 +1949,6 @@ h2.product-title {
     margin-right: auto;
   }
 
-
   #collectionFilters .col-6 {
     max-width: 320px;
     width: 100%;
@@ -1925,13 +1963,12 @@ h2.product-title {
 
   .filter-mobile {
     display: flex !important;
-    max-width: 320px;
+    max-width: 330px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px !important;
     margin-bottom: 25px !important;
   }
-
 
   #collectionFilters .list-unstyled li .custom-control-label {
     font-family: "Rubik", sans-serif;
@@ -1940,12 +1977,11 @@ h2.product-title {
     font-size: 15px;
     line-height: 1.6;
     color: #000000;
-}
+  }
 
-
-#collectionFilters h5 {
+  #collectionFilters h5 {
     font-size: 17px;
-}
+  }
 
   .collection-sorting,
   .filter-button {
@@ -1992,6 +2028,14 @@ h2.product-title {
   .display-by {
     display: none;
   }
+
+  .filter-button, .filter-button:hover, .filter-button:active, .filter-button:focus{
+    border-radius: 5rem;
+    height: 42px;
+    width: 42px;
+    padding: 20px;
+  }
+
 }
 
 /////////////////////////
@@ -2052,9 +2096,7 @@ h2.product-title {
   }
 }
 
-
 ////////////////////////////////
-
 
 @media (min-width: 576px) and (max-width: 766px) {
   .table-column .col-lg-2 {
@@ -2079,7 +2121,6 @@ h2.product-title {
     margin-right: auto;
   }
 
-
   #collectionFilters .col-6 {
     float: left;
     max-width: 320px;
@@ -2088,8 +2129,6 @@ h2.product-title {
     margin-right: 0px;
     margin-left: 15px;
   }
-
-
 }
 
 /////////////////////////////////
@@ -2222,10 +2261,9 @@ h2.product-title {
   .navbar {
     padding-left: 25px;
   }
- .d-none {
+  .d-none {
     display: flex !important;
   }
-
 }
 /////////////////////////////////
 
@@ -2238,10 +2276,9 @@ h2.product-title {
     margin-left: -10px;
   }
 
-  .cart-login .nav-item  {
+  .cart-login .nav-item {
     padding-left: 24px;
   }
-
 }
 
 @media (min-width: 991px) and (max-width: 1176px) {
