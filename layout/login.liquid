@@ -30,14 +30,23 @@
                    <a class="navbar-brand" href="{{ "/" | absolute_url }}"><img src="{{ 'shop-logo.svg' | asset_url }}" alt="Smartshop" class="shop-logo" />
                    <a class="navbar-brand-mobile" href="{{ "/" | absolute_url }}"><img src="{{ 'shop-logo-mobile.svg' | asset_url }}" alt="Smartshop" class="shop-logo" /></a></a>
        </div>
-       {{ content_for_layout }}
-     <div class="login-copyright">
-        <div class="login-copyright-text">Copyright © 2020&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;All rights reserved</div>
-     </div>
+      {{ content_for_layout }}
+
    </div>
 
    <div class="login-right-container">
-     <div class="login-right-container-bg"></div>
+     <div class="login-right-container-bg">
+       <div class="login-info-text-wrapper">
+          <div class="login-info-text">
+          <h2>Registering gives additional bonuses</h2>
+              <ul>
+                <li>Your orders are saved and you will never lose your personal data.
+                <li>You do not need to enter your data every time, everything is securely stored in the system.</li>
+                <li>You will be able to fully enjoy the support system of our shop.</li>
+              </ul>
+          </div>
+       </div>
+     </div>
    </div>
   </main>
 </body>
