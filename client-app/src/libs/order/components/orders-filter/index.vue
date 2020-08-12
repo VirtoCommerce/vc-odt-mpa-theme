@@ -7,6 +7,7 @@
           id="begin-date"
           :value="searchCriteria.startDate"
           value-as-date
+          right
           reset-button
           :label-reset-button="$t('account.orders.reset')"
           :date-format-options="{ year: 'numeric', month: 'long', day: 'numeric' }"
@@ -14,7 +15,7 @@
           :class="{ 'is-invalid': !isDateValid && isDateValid != null }"
           :locale="locale"
           v-bind="datepickerLabels"
-          class="mb-2"
+          class="mb-2 calendar-right"
           @input="changeStartDate($event)"></b-form-datepicker>
       </div>
       <div class="col col-sm-6 col-md-5 col-lg-4">
@@ -23,6 +24,7 @@
           id="end-date"
           :value="searchCriteria.endDate"
           value-as-date
+          right
           reset-button
           :label-reset-button="$t('account.orders.reset')"
           :date-format-options="{ year: 'numeric', month: 'long', day: 'numeric' }"
