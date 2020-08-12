@@ -30,7 +30,7 @@ export function appendToFilename(filename: string, suffix: string, checkIfSuffix
 }
 
 
-export function removeStoreAndLocaleFromUrlString(baseUrlStr: string, storeName: string, locale: string): string {
+export function removeStoreAndLocaleFromUrl(baseUrlStr: string, storeName: string, locale: string): string {
   const baseUrl = new URL(window.BASE_URL);
   const pathname = baseUrl.pathname.replace(`/${storeName}`, '/')
     .replace(new RegExp(`/${locale}`), '/')
