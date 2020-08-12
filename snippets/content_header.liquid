@@ -1,16 +1,16 @@
 <header id="header1">
     <div class="before-header container flex-grow-1">
         <div class="row">
-            <div class="col-3">  
+            <div class="col-3">
                 <a class="navbar-brand" href="{{ "/" | absolute_url }}"><img src="/static/shop-logo.svg" alt="Smartshop" class="shop-logo" />
                 <a class="navbar-brand-mobile" href="{{ "/" | absolute_url }}"><img src="/static/shop-logo-mobile.svg" alt="Smartshop" class="shop-logo" /></a></a></div>
-            <div class="col-4 input-group-wrapper {% if collection.title %}mt-2{% endif %}">
+            <div class="col-4 input-group-wrapper top-search-wrapper {% if collection.title %}mt-2{% endif %}">
                 {% include 'search-bar' %}
             </div>
-          
-            <div class="col-5"><ul class="cart-login ml-auto">
-                <li><a class="top-nav-links compare-link" href="#">Compare</a></li>
-                <!-- <li><a class="top-nav-links whish-link" href="#">Whishlist</a></li> --> 
+
+            <div class="col-5 cart-login-wrapper"><ul class="cart-login ml-auto">
+                <!-- <li><a class="top-nav-links compare-link" href="#">Compare</a></li>
+                 <li><a class="top-nav-links whish-link" href="#">Whishlist</a></li> -->
                 <li><a class="top-nav-links drafts-link" href="/account#/drafts">Order Drafts</a></li>
                 <li class="header-cart"><span id="app-cart"></span></li>
                 <li class="nav-item">
@@ -49,7 +49,7 @@
             <ul class="navbar-nav">
                 {% include 'site-nav' %}
             </ul>
-          
+
             <!-- <ul class="navbar-nav ml-auto">
                 <li>
                     <span id="app-cart"></span>
