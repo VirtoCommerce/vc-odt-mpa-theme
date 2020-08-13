@@ -1,6 +1,6 @@
 # ODT-MPA starter/boilerplate theme for VirtoCommerce Storefront.
 
-![image](https://user-images.githubusercontent.com/7566324/80617364-4ba80a80-8a42-11ea-8222-be17dea1cc8d.png)
+![ODT Category page](https://user-images.githubusercontent.com/66079752/90002067-75540d00-dc92-11ea-9688-3a88ebfcea21.jpg)
 
 **ODT-MPA starter theme** - is starter theme is demonstared a typical out-of-the-box B2B Portal that beign a part of the [Digital Organic Transformation (ODT)]() strategy and built using Liquid templates, Vue.JS web progressive framework and Bootstrap CSS with elements of Web CMS.
  This theme represents the VC Team's opinionated starting point for new projects. It strives to include up-to-date best practices and solutions that we have deemed needed for the majority of projects we build. It is a reflection of what’s possible when building a theme! 
@@ -16,6 +16,9 @@ The **ODT-MPA starter theme** is not only a real-world solution that implements 
 - Intentionaly lack of using custom CSS an initial styles constructed, using popular Bootstrap CSS library  and have an adaptive markup allows working on all popular devices and resolutions to make the customization process for theme styles  more straitforward. 
 - Support WEB content management experience without development labor thanks to integration with [VC page  builder](https://github.com/VirtoCommerce/vc-module-pagebuilder)
 - Liquid templates and SSR (server side rendering)  + MPA (mutiple page application) architecture with using Vue.JS progressive framework allow to get the all benefits from both server side and WEB development technices.
+  
+
+![ODT Login Screen](https://user-images.githubusercontent.com/66079752/90002356-daa7fe00-dc92-11ea-82ea-7a9f3aaee41d.jpg)
   
 # The project business key features:
 
@@ -41,6 +44,7 @@ The **ODT-MPA starter theme** is not only a real-world solution that implements 
 - Manage payment details. Manage order payment details before submitting and order
 - Order approval workflow.	An order should be accepted by multiple roles to be competed
 
+![ODT Product page](https://user-images.githubusercontent.com/66079752/90002565-19d64f00-dc93-11ea-9c7e-b4f0e996af24.jpg)
 
 # How does it work?
 TBD

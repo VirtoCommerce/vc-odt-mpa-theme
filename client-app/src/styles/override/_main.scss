@@ -1574,12 +1574,14 @@ h2.product-title {
 
 .login-right-container {
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   background-color: #7b76bb;
 }
 
 .login-right-container-bg {
   height: 100%;
+  flex-grow: 1;
   background: url(/static/login-bg.jpg) no-repeat center right;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -1590,6 +1592,7 @@ h2.product-title {
 .login-info-text-wrapper {
   height: 100%;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: flex-end;
 }
@@ -2093,6 +2096,14 @@ h2.product-title {
   .table-column .col-lg-2 {
     flex: 0 0 41.66667% !important;
     max-width: 41.66667% !important;
+  }
+
+}
+
+@media (max-width: 915px) {
+
+  .login-info-text{
+    display: none;
   }
 }
 
