@@ -1,0 +1,5 @@
+<select class="form-control" {% if inputItem.fieldId != '' %} id="{{inputItem.fieldId}}" {% endif %} name="{{inputItem.fieldName}}" {% if inputItem.required == 'True' %}required{% endif %}>
+    {% for option in inputItem.selectOptions %}
+        <option value="{{option.value}}" {% if option.isSelected == 'True' %}selected{% endif %} {% if option.isDisabled == 'True' %}disabled{% endif %}>{{option.label}}</option>
+    {% endfor %}
+</select>
