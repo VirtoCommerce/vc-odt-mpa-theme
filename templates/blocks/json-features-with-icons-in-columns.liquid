@@ -1,0 +1,60 @@
+<div id="{{ block.__id }}" class="block">
+    <div class="container">
+        {% if block.title != '' %}
+            <div class="row">
+                <div class="block__text {{block.textAreaWidth}}">
+                    {% include 'blocks/seo-text' tag: block.titleSeoTag, text: block.title, class: 'h2' %}
+
+                    {% include 'blocks/headings' headings: block.headings %}
+
+                    {% if block.subtitle != '' and block.subtitlePosition == 'upper' %}
+                        <div class="block__space"></div>
+                        {% include 'blocks/seo-text' tag: block.subtitleSeoTag, text: block.subtitle, class: 'block__descr' %}
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+        
+        {% if block.columns.size > 0 %}
+            <div class="row list-items {% if block.iconsType == 'letters' %} list-items-letters {% endif %}">
+                {% for column in block.columns %}
+                    <div class="col-{{block.columnsCount}} list-item">
+                        <div>
+                            {% if block.iconsType == 'numbers' or block.iconsType == 'letters' %}
+                                <div class="text-{{column.button.style}} list__num list__num-{{block.iconsFilling}} {% if block.iconsAreFilled == 'True' %} list__num--filled-{{block.iconsFilling}} {% endif %}"></div>
+                            {% endif %}
+                            {% if block.iconsType == 'customIcon' %}
+                                {% if column.image.url != '' %}
+                                    <div class="list__image lazyload" title="{{column.image.altText}}" data-bg="{{ column.image.url }}"></div>
+                                {% endif %}
+                            {% endif %}
+                            {% if block.iconsType == 'images' %}
+                                {% if column.image.url != '' %}
+                                    <img data-src="{{ column.image.url }}" title="{{column.image.altText}}" class="list__ico lazyload" />
+                                {% endif %}
+                            {% endif %}
+                            {% if column.title != '' %}
+                                {% include 'blocks/seo-text' tag: column.titleSeoTag, text: column.title, class: 'h4' %}
+                            {% endif %}
+                            {% if column.subtitle != '' %}
+                                {% include 'blocks/seo-text' tag: column.subtitleSeoTag, text: column.subtitle, class: 'list__descr' %}
+                            {% endif %}
+                            {% if column.button != '' and column.button.urlText != '' %}
+                                <div class="block__space"></div>
+                                <div class="block__actions">
+                                    <a href="{{column.button.url}}" class="btn btn-{{column.button.style}}" {% if column.buttonIsNewWindow == 'True' %} target="_blank" {% endif %}>{{column.button.urlText}}</a>
+                                </div>
+                        {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% if block.subtitle != '' and block.subtitlePosition == 'lower' %}
+            <div class="block__text {{block.textAreaWidth}}">
+                <div class="block__space"></div>
+                {% include 'blocks/seo-text' tag: block.subtitleSeoTag, text: block.subtitle, class: 'block__descr' %}
+            </div>
+        {% endif %}
+    </div>
+</div>
