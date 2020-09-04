@@ -12,10 +12,10 @@
       </font-awesome-layers>
     </div>
     <div class="d-flex">
-      <div class="font-weight-bold align-self-center">
+      <div class="font-weight-bold align-self-center cart-row-price">
         {{ item.extendedPrice.formattedAmount }}
       </div>
-      <div class="ml-auto item-number">
+      <div class="ml-auto item-number rr">
         <change-item-quantity :quantity="item.quantity" @quantity-changed="quantityChanged"></change-item-quantity>
       </div>
     </div>
