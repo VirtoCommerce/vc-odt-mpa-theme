@@ -1,58 +1,86 @@
-{% include 'blocks/overlay-color-hex-style-with-counter' predefinedColor: block.backgroundOverlayColor, customColor: block.backgroundOverlayColorHex %}
+<style>
 
-<div id="{{ block.__id }}">
-    <div class="block {% include 'blocks/cover-background-settings' %}>
-        <div class="block__inner container">
-            <div class="row align-items-center">
-                {% if block.horizontalAlignment == 'left' %}
-                    <div class="col-lg">
-                        {% if block.containerImage != '' %}
-                            {% if block.containerImage.url != '' %}
-                                <img data-src="{{ block.containerImage.url }}" title="{{block.containerImage.altText}}" class="block__pic lazyload" />
-                            {% endif %}
-                        {% endif %}
+    #{{ block.__id }} {
+      {% if block.overlayColor %}
+        background-color: {{ block.backgroundColor }};
+      {% endif %}
+    }
+
+  {% if block.overlayColor %}
+    #{{block.__id}} > .block:after {
+      content: ' ';
+      background-color: {{ block.overlayColor }};
+      opacity:.7;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 5;
+    }
+  {% endif %}
+
+</style>
+
+<div id="{{ block.__id }}" style="position: relative;">
+    <div class="{% include 'blocks/helpers/block-paddings' %} block block-cover"
+        {% if block.background != '' and block.background.url != '' %} style="background-image: url({{ block.background.url }})" {% endif %}>
+        <div class="container">
+            <div class="d-flex justify-content-center {% if block.imagePosition == 'right' %} flex-row-reverse {% endif %}">
+                {% if block.containerImage and block.containerImage.url %}
+                    <div>
+                        <img src="{{ block.containerImage.url }}" title="{{block.containerImage.altText}}" class="img-fluid" />
                     </div>
                 {% endif %}
                 
-                <div class="col-lg {{block.verticalAlignment}}">
-                    {% if block.note != '' %}
-                        {% include 'blocks/seo-text' tag: block.noteSeoTag, text: block.note, class: 'block__note' %}
-                        <div class="block__space"></div>
+                <div class="px-5">
+                    {% if block.note %}
+                        <div class="text-muted h4">{{ block.note }}</div>
                     {% endif %}
 
-                    {% if block.title != '' %}
-                        {% include 'blocks/title-font-size' %}
-                        {% include 'blocks/seo-text' tag: block.titleSeoTag, text: block.title, class: ('block__t ' | append titleFontSize) %}
+                    {% if block.title %}
+                        {% include 'blocks/helpers/block-title' %}
                     {% endif %}
 
-                    {% include 'blocks/headings' headings: block.headings %}
-                    <div class="block__space"></div>
-
-                    {% if block.subtitle != '' %}
-                        {% include 'blocks/seo-text' tag: block.subtitleSeoTag, text: block.subtitle, class: 'block__descr' %}
+                    {% if block.subtitle %}
+                        <div> {{ block.subtitle }} </div>
+                        
                     {% endif %}
                     
-                    {% if block.firstButton != '' and block.firstButton.urlText != '' %}
-                        <div class="block__space"></div>
+                    {% if (block.firstButton and block.firstButton.urlText) or (block.secondButton and block.secondButton.urlText) %}
                         <div class="block__actions">
-                            <a href="{{block.firstButton.url}}" class="{{block.firstButton.style}}" {% if block.firstButton.openInNewTab == 'True' %} target="_blank" {% endif %}>{{block.firstButton.urlText}}</a>
-                            {% if block.secondButton != '' and block.secondButton.urlText != '' %}
-                                <a href="{{block.secondButton.url}}" class="{{block.secondButton.style}}" {% if block.secondButton.openInNewTab == 'True' %} target="_blank" {% endif %}>{{block.secondButton.urlText}}</a>
+                            {% if block.firstButton and block.firstButton.urlText %}
+                                <a href="{{block.firstButton.url}}" class="btn {{ block.firstButton.style }}" {% if block.firstButton.openInNewTab == 'True' %} target="_blank" {% endif %}>{{block.firstButton.urlText}}</a>
+                            {% endif %}
+                            {% if block.secondButton and block.secondButton.urlText %}
+                                <a href="{{block.secondButton.url}}" class="btn {{block.secondButton.style}}" {% if block.secondButton.openInNewTab == 'True' %} target="_blank" {% endif %}>{{block.secondButton.urlText}}</a>
                             {% endif %}
                         </div>
                     {% endif %}
                 </div>
-                
-                {% if block.horizontalAlignment == 'right' %}
-                    <div class="col-lg">
-                        {% if block.containerImage != '' %}
-                            {% if block.containerImage.url != '' %}
-                                <img data-src="{{ block.containerImage.url }}" title="{{block.containerImage.altText}}" class="block__pic lazyload" />
-                            {% endif %}
-                        {% endif %}
-                    </div>
-                {% endif %}
             </div>
         </div>
     </div>
 </div>
+
+{% comment %}
+
+__id: string (unique block id)
+
+name: string
+headerType: [ h1, h2, h3, like-h1, like-h2, like-h3 ]
+noTop: bool
+noBottom: bool
+
+backgroundColor: string (hex color)
+overlayColor: string (hex color)
+imagePosition: string [ null, right ]
+note: string
+title: string
+subtitle: string (wysiwyg)
+background: object (url to image, alt text)
+containerImage: object (url to image, alt text)
+firstButton: object (url, text, style [ bootstrap buttons styles ], openInNewTab [True, False]),
+secondButton: object (url, text, style [ bootstrap buttons styles ], openInNewTab [True, False]),
+
+{% endcomment %}
