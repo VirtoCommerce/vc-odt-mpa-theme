@@ -1,9 +1,9 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { Validation } from "vuelidate"; //Don't remove this import
-import { required } from "vuelidate/lib/validators";
 import { storeName, locale, orderDraftType, startPageNumber, defaultPageSize } from "core/constants";
 import { listClient } from "core/services/api-clients.service";
+import { required } from "vuelidate/lib/validators";
 import { CartSearchCriteria } from '@core/api/api-clients';
 
 @Component({

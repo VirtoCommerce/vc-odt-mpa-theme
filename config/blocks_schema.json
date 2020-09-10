@@ -176,7 +176,52 @@
       }
     ],
     "namedSettings": {
-
+      "cover-items": [
+        {
+          "id": "note",
+          "label": "Note",
+          "type": "string",
+          "default": "Our company",
+          "tab": "Content"
+        },
+        {
+          "id": "title",
+          "label": "Title",
+          "type": "string",
+          "default": "Bring your ideas to life",
+          "tab": "Content"
+        },
+        {
+          "id": "subtitle",
+          "label": "Subtitle",
+          "type": "text",
+          "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win.",
+          "tab": "Content"
+        },
+        {
+          "id": "backgroundColor",
+          "label": "Background color",
+          "type": "color",
+          "default": "",
+          "tab": "Settings",
+          "group": "Background"
+        },
+        {
+          "id": "overlayColor",
+          "label": "Overlay color",
+          "type": "color",
+          "default": "",
+          "tab": "Settings",
+          "group": "Background"
+        },
+        {
+          "id": "background",
+          "label": "Background",
+          "type": "image",
+          "tab": "Content",
+          "group": "Background"
+        }
+      ]
     }
   },
   "text": {
@@ -253,37 +298,9 @@
     "icon": "image-text",
     "displayField": "name",
     "category": "Promo",
-    "includeShared": [],
+    "includeShared": [ "cover-items" ],
     "excludeShared": [ "titleStyle", "titleAlignment", "style" ],
     "settings": [
-      {
-        "id": "note",
-        "label": "Note",
-        "type": "string",
-        "default": "Our company",
-        "tab": "Content"
-      },
-      {
-        "id": "title",
-        "label": "Title",
-        "type": "string",
-        "default": "Bring your ideas to life",
-        "tab": "Content"
-      },
-      {
-        "id": "subtitle",
-        "label": "Subtitle",
-        "type": "text",
-        "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win.",
-        "tab": "Content"
-      },
-      {
-        "id": "background",
-        "label": "Upload background image",
-        "type": "image",
-        "tab": "Content",
-        "group": "Background"
-      },
       {
         "id": "containerImage",
         "label": "Upload image",
@@ -394,27 +411,11 @@
         ],
         "default": {
           "url": "",
-          "urlText": "",
+          "urlText": "View more",
           "style": "btn-secondary"
         },
         "tab": "Content",
         "group": "Buttons"
-      },
-      {
-        "id": "backgroundColor",
-        "label": "Background color",
-        "type": "color",
-        "default": "",
-        "tab": "Settings",
-        "group": "Background"
-      },
-      {
-        "id": "overlayColor",
-        "label": "Overlay color",
-        "type": "color",
-        "default": "",
-        "tab": "Settings",
-        "group": "Background"
       },
       {
         "id": "imagePosition",
@@ -438,10 +439,10 @@
     "name": "Logotypes",
     "icon": "image-text",
     "displayField": "title",
-    "category": "Media",
+    "category": "Featured",
     "includeShared": [],
     "excludeShared": [ "titleAlignment" ],
-    "settings": [      
+    "settings": [
       {
         "id": "textAreaWidth",
         "label": "Text area width",
@@ -541,104 +542,239 @@
       }
     ]
   },
-  "cover-with-form": {
-    "id": "cover-with-form",
-    "name": "Cover with form",
+  "features-with-icons-in-columns": {
+    "id": "features-with-icons-in-columns",
+    "name": "Features with icons in columns",
     "icon": "image-text",
-    "displayField": "name",
-    "category": "Covers and Hero",
-    "includeShared": [
-      "cover-blocks",
-      "seo-subtitle",
-      "seo-note",
-      "headings"
-    ],
+    "displayField": "title",
+    "category": "Featured",
+    "includeShared": [],
     "settings": [
       {
-        "id": "horizontalAlignment",
-        "default": "right"
-      },
-      {
-        "id": "titleSeoTag",
-        "label": "Title SEO tag",
+        "id": "columnsCount",
+        "label": "Columns count",
         "type": "select",
-        "default": "div",
+        "default": "3",
         "options": [
           {
-            "value": "h1",
-            "label": "H1"
+            "value": "12",
+            "label": "1"
           },
           {
-            "value": "h2",
-            "label": "H2"
+            "value": "6",
+            "label": "2"
           },
           {
-            "value": "h3",
-            "label": "H3"
+            "value": "4",
+            "label": "3"
           },
           {
-            "value": "div",
-            "label": "DIV"
+            "value": "3",
+            "label": "4"
           }
         ],
         "tab": "Settings",
-        "group": "Typography"
+        "group": "Main block settings"
       },
       {
-        "id": "backgroundColorHex",
-        "label": "Colour HEX",
-        "type": "color",
-        "default": "",
-        "tab": "Settings",
-        "group": "Background"
-      },
-      {
-        "id": "backgroundOverlayColor",
-        "label": "Background overlay color",
+        "id": "textAreaWidth",
+        "label": "Text area width",
         "type": "select",
-        "default": "none",
+        "default": "col-lg",
+        "options": [
+          {
+            "value": "col-lg",
+            "label": "Full width"
+          },
+          {
+            "value": "col-lg-10",
+            "label": "10 cols"
+          },
+          {
+            "value": "col-lg-8",
+            "label": "8 cols"
+          },
+          {
+            "value": "col-lg-6",
+            "label": "6 cols"
+          }
+        ],
+        "tab": "Settings",
+        "group": "Main block settings"
+      },
+      {
+        "id": "iconsType",
+        "label": "Icons type",
+        "type": "select",
+        "default": "numbers",
         "options": [
           {
             "value": "none",
             "label": "None"
           },
           {
-            "value": "black",
-            "label": "Black"
+            "value": "numbers",
+            "label": "Numbers"
           },
           {
-            "value": "white",
-            "label": "White"
+            "value": "letters",
+            "label": "Letters"
+          },
+          {
+            "value": "images",
+            "label": "Custom icon"
+          },
+          {
+            "value": "customIcon",
+            "label": "Image"
           }
         ],
         "tab": "Settings",
-        "group": "Background"
+        "group": "Items"
       },
       {
-        "id": "backgroundOverlayColorHex",
-        "label": "Overlay color HEX",
-        "type": "color",
-        "default": "",
+        "id": "iconsAreFilled",
+        "label": "Icons filling",
+        "type": "checkbox",
+        "default": false,
         "tab": "Settings",
-        "group": "Background"
+        "group": "Items"
       },
       {
-        "id": "backgroundScrollEffect",
-        "label": "Scroll effect",
+        "id": "title",
+        "label": "Title",
+        "type": "string",
+        "default": "Bring your ideas to life",
+        "tab": "Content"
+      },
+      {
+        "id": "content",
+        "label": "Content",
+        "type": "text",
+        "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win.",
+        "tab": "Content"
+      },
+      {
+        "id": "columns",
+        "label": "Items",
+        "type": "list",
+        "addText": "Add column",
+        "removeText": "Remove column",
+        "displayField": "title",
+        "element": [
+          {
+            "id": "title",
+            "type": "string",
+            "label": "Title"
+          },
+          {
+            "id": "image",
+            "type": "image",
+            "label": "Upload image",
+            "group": "Image"
+          },
+          {
+            "id": "button",
+            "label": "Button",
+            "type": "url",
+            "urlLabel": "Url",
+            "textLabel": "Button text",
+            "styleLabel": "Link style",
+            "styles": [
+              {
+                "value": "btn-primary",
+                "label": "Primary button"
+              },
+              {
+                "value": "btn-secondary",
+                "label": "Secondary button"
+              },
+              {
+                "value": "btn-success",
+                "label": "Success button"
+              },
+              {
+                "value": "btn-danger",
+                "label": "Danger button"
+              },
+              {
+                "value": "btn-warning",
+                "label": "Warning button"
+              },
+              {
+                "value": "btn-info",
+                "label": "Info button"
+              },
+              {
+                "value": "btn-light",
+                "label": "Light button"
+              },
+              {
+                "value": "btn-dark",
+                "label": "Dark button"
+              },
+              {
+                "value": "btn-link",
+                "label": "Link button"
+              }
+            ]
+          }
+        ],
+        "default": [
+          {
+            "title": "Access to customer insights yields competitive advantage",
+            "button": {
+              "url": "",
+              "urlText": "Call to action",
+              "style": "btn btn--orange"
+            }
+          },
+          {
+            "title": "Access to customer insights yields competitive advantage",
+            "button": {
+              "url": "",
+              "urlText": "Call to action",
+              "style": "btn btn--orange"
+            }
+          },
+          {
+            "title": "Access to customer insights yields competitive advantage",
+            "button": {
+              "url": "",
+              "urlText": "Call to action",
+              "style": "btn btn--orange"
+            }
+          }
+        ],
+        "tab": "Content"
+      }
+    ]
+  },
+  "cover-with-form": {
+    "id": "cover-with-form",
+    "name": "Cover with form",
+    "icon": "image-text",
+    "displayField": "name",
+    "category": "Featured",
+    "includeShared": [ "cover-items" ],
+    "excludeShared": [ "titleStyle", "titleAlignment", "style" ],
+    "settings": [
+      {
+        "id": "formPosition",
+        "label": "Form position",
+        "default": "right",
         "type": "select",
-        "default": "block--cover-static",
+        "tab": "Settings",
         "options": [
           {
-            "value": "block--cover-fixed",
-            "label": "Fixed"
+            "value": null,
+            "label": "Left"
           },
           {
-            "value": "block--cover-static",
-            "label": "Static"
+            "value": "right",
+            "label": "Right"
           }
-        ],
-        "tab": "Settings",
-        "group": "Background"
+        ]
       },
       {
         "id": "formId",
@@ -667,72 +803,47 @@
         "id": "formSubmitButtonStyle",
         "label": "Submit button style",
         "type": "select",
-        "default": "btn btn--orange btn--block",
+        "default": "btn-primary",
         "options": [
           {
-            "value": "btn btn--black btn--block",
-            "label": "Black"
+            "value": "btn-primary",
+            "label": "Primary button"
           },
           {
-            "value": "btn btn--orange btn--block",
-            "label": "Orange"
+            "value": "btn-secondary",
+            "label": "Secondary button"
           },
           {
-            "value": "btn btn--white btn--block",
-            "label": "White"
+            "value": "btn-success",
+            "label": "Success button"
+          },
+          {
+            "value": "btn-danger",
+            "label": "Danger button"
+          },
+          {
+            "value": "btn-warning",
+            "label": "Warning button"
+          },
+          {
+            "value": "btn-info",
+            "label": "Info button"
+          },
+          {
+            "value": "btn-light",
+            "label": "Light button"
+          },
+          {
+            "value": "btn-dark",
+            "label": "Dark button"
+          },
+          {
+            "value": "btn-link",
+            "label": "Link button"
           }
         ],
         "tab": "Settings",
         "group": "Form"
-      },
-      {
-        "id": "title",
-        "label": "Title",
-        "type": "text",
-        "default": "Bring your ideas to life",
-        "tab": "Content",
-        "settings": [
-          "TextColor",
-          "Link",
-          "Unlink"
-        ]
-      },
-      {
-        "id": "subtitle",
-        "label": "Subtitle",
-        "type": "text",
-        "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win.",
-        "tab": "Content",
-        "settings": [
-          "TextColor",
-          "NumberedList",
-          "BulletedList",
-          "Bold",
-          "Italic",
-          "Link",
-          "Unlink",
-          "Maximize",
-          "Source"
-        ]
-      },
-      {
-        "id": "note",
-        "label": "Note",
-        "type": "text",
-        "default": "Our company",
-        "tab": "Content",
-        "settings": [
-          "TextColor",
-          "Link",
-          "Unlink"
-        ]
-      },
-      {
-        "id": "background",
-        "label": "Background",
-        "type": "image",
-        "tab": "Content",
-        "group": "Background"
       },
       {
         "id": "formFields",
@@ -958,22 +1069,46 @@
         "styleLabel": "Link style",
         "styles": [
           {
-            "value": "btn btn--black",
-            "label": "Black button"
+            "value": "btn-primary",
+            "label": "Primary button"
           },
           {
-            "value": "btn btn--orange",
-            "label": "Orange button"
+            "value": "btn-secondary",
+            "label": "Secondary button"
           },
           {
-            "value": "btn btn--white",
-            "label": "White button"
+            "value": "btn-success",
+            "label": "Success button"
+          },
+          {
+            "value": "btn-danger",
+            "label": "Danger button"
+          },
+          {
+            "value": "btn-warning",
+            "label": "Warning button"
+          },
+          {
+            "value": "btn-info",
+            "label": "Info button"
+          },
+          {
+            "value": "btn-light",
+            "label": "Light button"
+          },
+          {
+            "value": "btn-dark",
+            "label": "Dark button"
+          },
+          {
+            "value": "btn-link",
+            "label": "Link button"
           }
         ],
         "default": {
           "url": "",
           "urlText": "Call to action",
-          "style": "btn btn--orange"
+          "style": "btn-primary"
         },
         "tab": "Content",
         "group": "Buttons"
@@ -987,359 +1122,49 @@
         "styleLabel": "Link style",
         "styles": [
           {
-            "value": "btn btn--black",
-            "label": "Black button"
+            "value": "btn-primary",
+            "label": "Primary button"
           },
           {
-            "value": "btn btn--orange",
-            "label": "Orange button"
+            "value": "btn-secondary",
+            "label": "Secondary button"
           },
           {
-            "value": "btn btn--white",
-            "label": "White button"
+            "value": "btn-success",
+            "label": "Success button"
+          },
+          {
+            "value": "btn-danger",
+            "label": "Danger button"
+          },
+          {
+            "value": "btn-warning",
+            "label": "Warning button"
+          },
+          {
+            "value": "btn-info",
+            "label": "Info button"
+          },
+          {
+            "value": "btn-light",
+            "label": "Light button"
+          },
+          {
+            "value": "btn-dark",
+            "label": "Dark button"
+          },
+          {
+            "value": "btn-link",
+            "label": "Link button"
           }
         ],
         "default": {
           "url": "",
           "urlText": "",
-          "style": "btn btn--orange"
+          "style": "btn-secondary"
         },
         "tab": "Content",
         "group": "Buttons"
-      }
-    ]
-  },
-  "features-with-icons-in-columns": {
-    "id": "features-with-icons-in-columns",
-    "name": "Features with icons in columns",
-    "icon": "image-text",
-    "displayField": "title",
-    "category": "Features and Cards",
-    "includeShared": [],
-    "settings": [
-      {
-        "id": "columnsCount",
-        "label": "Columns count",
-        "type": "select",
-        "default": "3",
-        "options": [
-          {
-            "value": "12",
-            "label": "1"
-          },
-          {
-            "value": "6",
-            "label": "2"
-          },
-          {
-            "value": "4",
-            "label": "3"
-          },
-          {
-            "value": "3",
-            "label": "4"
-          }
-        ],
-        "tab": "Settings",
-        "group": "Main block settings"
-      },
-      {
-        "id": "textAreaWidth",
-        "label": "Text area width",
-        "type": "select",
-        "default": "col-lg",
-        "options": [
-          {
-            "value": "col-lg",
-            "label": "Full width"
-          },
-          {
-            "value": "col-lg-10",
-            "label": "10 cols"
-          },
-          {
-            "value": "col-lg-8",
-            "label": "8 cols"
-          },
-          {
-            "value": "col-lg-6",
-            "label": "6 cols"
-          }
-        ],
-        "tab": "Settings",
-        "group": "Main block settings"
-      },
-      {
-        "id": "subtitlePosition",
-        "label": "Subtitle position",
-        "type": "select",
-        "default": "upper",
-        "options": [
-          {
-            "value": "upper",
-            "label": "Upper"
-          },
-          {
-            "value": "lower",
-            "label": "Lower"
-          }
-        ],
-        "tab": "Settings",
-        "group": "Typography"
-      },
-      {
-        "id": "iconsType",
-        "label": "Icons type",
-        "type": "select",
-        "default": "numbers",
-        "options": [
-          {
-            "value": "none",
-            "label": "None"
-          },
-          {
-            "value": "numbers",
-            "label": "Numbers"
-          },
-          {
-            "value": "letters",
-            "label": "Letters"
-          },
-          {
-            "value": "images",
-            "label": "Custom icon"
-          },
-          {
-            "value": "customIcon",
-            "label": "Image"
-          }
-        ],
-        "tab": "Settings",
-        "group": "Items"
-      },
-      {
-        "id": "iconsAreFilled",
-        "label": "Icons filling",
-        "type": "checkbox",
-        "default": false,
-        "tab": "Settings",
-        "group": "Items"
-      },
-      {
-        "id": "title",
-        "label": "Title",
-        "type": "string",
-        "default": "Bring your ideas to life",
-        "tab": "Content"
-      },
-      {
-        "id": "subtitle",
-        "label": "Subtitle",
-        "type": "text",
-        "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win.",
-        "tab": "Content",
-        "settings": [
-          "TextColor",
-          "NumberedList",
-          "BulletedList",
-          "Bold",
-          "Italic",
-          "Link",
-          "Unlink",
-          "Maximize",
-          "Source"
-        ]
-      },
-      {
-        "id": "columns",
-        "label": "Items",
-        "type": "list",
-        "addText": "Add column",
-        "removeText": "Remove column",
-        "displayField": "title",
-        "element": [
-          {
-            "id": "title",
-            "type": "string",
-            "label": "Title",
-            "settings": [
-              "TextColor",
-              "Link",
-              "Unlink"
-            ]
-          },
-          {
-            "id": "titleSeoTag",
-            "label": "Title SEO tag",
-            "type": "select",
-            "default": "none",
-            "options": [
-              {
-                "value": "h1",
-                "label": "H1"
-              },
-              {
-                "value": "h2",
-                "label": "H2"
-              },
-              {
-                "value": "h3",
-                "label": "H3"
-              },
-              {
-                "value": "h4",
-                "label": "H4"
-              },
-              {
-                "value": "h5",
-                "label": "H5"
-              },
-              {
-                "value": "h6",
-                "label": "H6"
-              },
-              {
-                "value": "none",
-                "label": "None"
-              }
-            ],
-            "tab": "Settings",
-            "group": "Typography"
-          },
-          {
-            "id": "subtitle",
-            "type": "text",
-            "label": "Subtitle",
-            "settings": [
-              "TextColor",
-              "NumberedList",
-              "BulletedList",
-              "Bold",
-              "Italic",
-              "Link",
-              "Unlink",
-              "Maximize",
-              "Source"
-            ]
-          },
-          {
-            "id": "subtitleSeoTag",
-            "label": "Subtitle SEO tag",
-            "type": "select",
-            "default": "none",
-            "options": [
-              {
-                "value": "h1",
-                "label": "H1"
-              },
-              {
-                "value": "h2",
-                "label": "H2"
-              },
-              {
-                "value": "h3",
-                "label": "H3"
-              },
-              {
-                "value": "h4",
-                "label": "H4"
-              },
-              {
-                "value": "h5",
-                "label": "H5"
-              },
-              {
-                "value": "h6",
-                "label": "H6"
-              },
-              {
-                "value": "none",
-                "label": "None"
-              }
-            ],
-            "tab": "Settings",
-            "group": "Typography"
-          },
-          {
-            "id": "image",
-            "type": "image",
-            "label": "Upload image",
-            "group": "Image"
-          },
-          {
-            "id": "button",
-            "label": "Button",
-            "type": "url",
-            "urlLabel": "Url",
-            "textLabel": "Button text",
-            "styleLabel": "Link style",
-            "styles": [
-              {
-                "value": "primary",
-                "label": "Primary"
-              },
-              {
-                "value": "secondary",
-                "label": "Secondary"
-              },
-              {
-                "value": "success",
-                "label": "Success"
-              },
-              {
-                "value": "danger",
-                "label": "Danger"
-              },
-              {
-                "value": "warning",
-                "label": "Warning"
-              },
-              {
-                "value": "info",
-                "label": "Info"
-              },
-              {
-                "value": "light",
-                "label": "Light"
-              },
-              {
-                "value": "dark",
-                "label": "Dark"
-              },
-              {
-                "value": "link",
-                "label": "Link"
-              }
-            ]
-          }
-        ],
-        "default": [
-          {
-            "title": "Access to customer insights yields competitive advantage",
-            "button": {
-              "url": "",
-              "urlText": "Call to action",
-              "style": "btn btn--orange"
-            }
-          },
-          {
-            "title": "Access to customer insights yields competitive advantage",
-            "button": {
-              "url": "",
-              "urlText": "Call to action",
-              "style": "btn btn--orange"
-            }
-          },
-          {
-            "title": "Access to customer insights yields competitive advantage",
-            "button": {
-              "url": "",
-              "urlText": "Call to action",
-              "style": "btn btn--orange"
-            }
-          }
-        ],
-        "tab": "Content"
       }
     ]
   },
@@ -1347,6 +1172,7 @@
     "name": "Buy now",
     "icon": "text",
     "displayField": "name",
+    "category": "Promo",
     "settings": [
       {
         "id": "title",

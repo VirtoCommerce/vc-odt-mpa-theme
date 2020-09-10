@@ -1,12 +1,12 @@
 <div id="{{ block.__id }}" style="position: relative;" class="{{ block.style }}">
   <div class="{% include 'blocks/helpers/block-paddings' %} block container">
-  <div class=" px-5">
+    <div class="px-5">
       {% include 'blocks/helpers/block-title' %}
 
       {% if block.content %}
       <div class="block-text"> {{ block.content}} </div>
       {% endif %}
-  </div>
+    </div>
   </div>
 </div>
 
@@ -21,7 +21,6 @@ titleStyle: [ null, bg-light ]
 style: [ light, dark ]
 noTop: bool
 noBottom: bool
-noPad: bool
 
 title: string
 content: string (wysiwyg)

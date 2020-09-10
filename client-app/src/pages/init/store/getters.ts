@@ -1,7 +1,7 @@
 import { GetterTree } from "vuex";
+import { State } from "pages/init/store/state";
 import { interval } from "rxjs";
 import { map } from "rxjs/operators";
-import { State } from "pages/init/store/state";
 import { ReactiveErrorInfo } from "@init-app/store/types";
 
 // getters
