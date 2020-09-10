@@ -1,0 +1,35 @@
+<div id="{{ block.__id }}" style="position: relative;">
+  <div class="container my-3 py-3">
+    <h1>{{ block.title }}</h1>
+    {% assign product = products | where: 'Sku', '==', block.sku | first %}
+    {% if product %}
+    <div class="row">
+      <div class="col">
+        {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+        <img class="img-fluid" src="{{ featured_image | img_url }}" />
+      </div>
+      <div class="col">
+        <h2>{{ product.title }}</h2>
+        {% include 'product-price' product: product %}
+        <div>
+          {{ block.description }}
+        </div>
+        <div class="btn-group">
+          <button class="app-add-item-to-cart btn" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}" text-visible="">
+            <i class="fas fa-shopping-cart"></i>
+            <span>{{ 'products.general.add_to_cart' | t }}</span>
+          </button>
+          <a class="btn btn-primary" target="_blank" href="{{ product.url }}">To product page</a>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <blockquote>
+      Product not found
+    </blockquote>
+    {% endif %}
+  </div>
+</div>
+
+<script src="{{ 'bundle/dist/js/catalog.js' | static_asset_url | append_version }}"></script>
+
