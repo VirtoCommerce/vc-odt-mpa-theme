@@ -42,10 +42,10 @@
     </script>
   </head>
   <body class="min-vh-100 d-flex flex-column">
-    <div class="fixed-top">
+    <div {% if is_preview_mode != true %} class="fixed-top" {% endif %}>
       {{ content_for_header }}
     </div>
-    <main class="container flex-grow-1 pb-5 main-content">
+    <main class="{% if is_preview_mode != true %} container {% endif %} flex-grow-1 pb-5 main-content">
       <div id="initApp"></div>
       {{ content_for_layout }}
     </main>
