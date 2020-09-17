@@ -29,7 +29,6 @@
 
     {{ 'bundle/default.scss.css' | static_asset_url | append_version | stylesheet_tag }}
     {{ 'bundle/dist/css/chunk-vendors.css' | static_asset_url | append_version | stylesheet_tag }}
-    {{ 'pages.css' | asset_url | stylesheet_tag }}
 
 
     <script>
@@ -37,15 +36,16 @@
       window.BASE_URL = `{{ "/" | full_url }}`;
       window.STORE_NAME = "{{ current_store.name }}";
       window.LOCALE = "{{ current_language.culture_name }}";
+      //TODO: load in the VUE app via ajax call
       window.LOCALIZATION_MESSAGES = {{ '' | t }};
       window.THEME_SETTINGS = {{ settings | json }};
     </script>
   </head>
   <body class="min-vh-100 d-flex flex-column">
-    <div {% if is_preview_mode != true %} class="fixed-top" {% endif %}>
+    <div class="fixed-top">
       {{ content_for_header }}
     </div>
-    <main class="{% if is_preview_mode != true %} container {% endif %} flex-grow-1 pb-5 main-content">
+    <main class="container flex-grow-1 pb-5 main-content">
       <div id="initApp"></div>
       {{ content_for_layout }}
     </main>
