@@ -2,8 +2,8 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { Validation } from "vuelidate"; //Don't remove this import
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { AddUser } from "libs/user/models/add-user";
 import { required, email, minLength, sameAs } from "vuelidate/lib/validators";
+import { AddUser } from "libs/user/models/add-user";
 
 @Component({
   validations: {
