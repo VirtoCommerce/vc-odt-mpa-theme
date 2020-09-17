@@ -1186,9 +1186,60 @@
         "type": "string"
       },
       {
+        "id": "hidePrice",
+        "label": "Hide price",
+        "type": "checkbox"
+      },
+      {
         "id": "description",
         "label": "Description",
         "type": "text"
+      },
+      {
+        "id": "buttonText",
+        "label": "Button text",
+        "type": "string"
+      }
+    ]
+  },
+  "product-tiles": {
+    "name": "Product tiles",
+    "icon": "text",
+    "displayField": "name",
+    "category": "Promo",
+    "settings": [
+      {
+        "id": "title",
+        "label": "Title",
+        "type": "string"
+      },
+      {
+        "id": "content",
+        "label": "Content",
+        "type": "text"
+      },
+      {
+        "id": "categoryId",
+        "label": "Choose category",
+        "type": "select",
+        "request": {
+          "url": "/api/catalog/search/categories",
+          "method": "post",
+          "resultField": "items",
+          "params": {
+            "objectType": "Category",
+            "catalogId": "4974648a41df4e6ea67ef2ad76d7bbd4"
+          },
+          "label": "name",
+          "value": "id"
+        }
+      },
+      {
+        "id": "count",
+        "label": "Max items",
+        "type": "number",
+        "default": 0,
+        "min": 0
       }
     ]
   },

@@ -12,16 +12,22 @@
       </div>
       <div class="col">
         <h2>{{ product.title }}</h2>
-        {% include 'product-price' product: product %}
-        <div>
+        {% if block.hidePrice != 'True' %}
+        <div class="py-3">
+          {% include 'product-price' product: product %}
+        </div>
+        {% endif %}
+        <div class="py-3">
           {{ block.description }}
         </div>
         <div class="btn-group">
-          <button class="app-add-item-to-cart btn" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}" text-visible="">
+          <!--<button class="app-add-item-to-cart btn" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}" text-visible="">
             <i class="fas fa-shopping-cart"></i>
             <span>{{ 'products.general.add_to_cart' | t }}</span>
-          </button>
-          <a class="btn btn-primary" target="_blank" href="{{ product.url }}">To product page</a>
+          </button>-->
+          {% if block.buttonText %}
+          <a class="btn btn-primary" target="_blank" href="{{ product.url }}">{{ block.buttonText }}</a>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -51,5 +57,7 @@ noBottom: bool
 title: string
 sku: string
 description: string (wysiwyg)
+buttonText: string
+hidePrice: bool
 
 {% endcomment %}

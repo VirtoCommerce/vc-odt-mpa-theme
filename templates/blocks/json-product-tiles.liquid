@@ -3,6 +3,10 @@
     <div class="px-5">
       {% include 'blocks/helpers/block-title' %}
 
+      {% if block.content %}
+      <div class="block-text"> {{ block.content}} </div>
+      {% endif %}
+
       {% if block.categoryId %}
       <div class="col-7 product-grid col-xl-5 col-md-8 col-sm-12">
 
