@@ -1186,9 +1186,19 @@
         "type": "string"
       },
       {
+        "id": "hidePrice",
+        "label": "Hide price",
+        "type": "checkbox"
+      },
+      {
         "id": "description",
         "label": "Description",
         "type": "text"
+      },
+      {
+        "id": "buttonText",
+        "label": "Button text",
+        "type": "string"
       }
     ]
   },
@@ -1202,6 +1212,11 @@
         "id": "title",
         "label": "Title",
         "type": "string"
+      },
+      {
+        "id": "content",
+        "label": "Content",
+        "type": "text"
       },
       {
         "id": "categoryId",
