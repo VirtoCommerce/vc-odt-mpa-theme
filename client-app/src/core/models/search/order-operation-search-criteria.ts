@@ -1,8 +1,8 @@
 /* eslint-disable-next-line import/default */
-import moment from 'moment';
 import { isoDateFormat } from 'core/constants';
 import { KeywordSearchCriteria, IKeywordSearchCriteria } from 'core/models/search/keyword-search-criteria';
 import { OrderOperationSearchQuery } from 'core/models/search/order-operation-search-query';
+import moment from 'moment';
 import { safeInvoke } from '@core/utilities/utilities';
 
 /* eslint-disable-next-line @typescript-eslint/interface-name-prefix */

@@ -18,3 +18,11 @@
     {% endif %}
     data-val="true" data-val-required="{{validationMessage}}" aria-required="true" aria-describedby="{{inputItem.fieldName}}-error" aria-invalid="true"
 {% endif %}
+
+{% if inputItem.fieldType == 'email' %}
+    data-val-email="{{inputItem.labelText}} is invalid"
+{% endif %}
+
+{% if inputItem.fieldType == 'phone' %}
+    data-val-regex="{{item.labelText}} is invalid" data-val-regex-pattern="[0-9]{11,}"
+{% endif %}

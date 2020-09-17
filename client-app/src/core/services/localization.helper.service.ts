@@ -1,5 +1,5 @@
-import { BvTableFieldArray } from "bootstrap-vue";
 import i18n from "@i18n";
+import { BvTableFieldArray } from "bootstrap-vue";
 
 /**
  * localize one column label by key and locale file node
