@@ -39,9 +39,7 @@
   </div>
 </div>
 
-{% if is_preview_mode == true %}
-<script src="{{ 'bundle/dist/js/catalog.js' | static_asset_url | append_version }}"></script>
-{% endif %}
+{% include 'blocks/catalog-script' %}
 
 {% comment %}
 

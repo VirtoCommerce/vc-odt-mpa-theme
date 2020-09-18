@@ -1,5 +1,7 @@
 {% assign blocks = page.content | parse_json %}
 
+{% assign catalog_script_rendered = false %}
+
 {% for item in blocks -%}
     {% if item.hidden != 'True' %}
         {% assign templateName = "blocks/json-"|append:item.type -%}

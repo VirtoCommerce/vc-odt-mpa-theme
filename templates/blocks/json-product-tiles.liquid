@@ -15,7 +15,7 @@
             {% if category.products.empty? == false %}
 
             {% assign count = category.products.size %}
-            {% if block.count > 0 %}
+            {% if block.count and block.count > 0 %}
             {% assign count = block.count %}
             {% endif %}
 
@@ -35,6 +35,8 @@
     </div>
   </div>
 </div>
+
+{% include 'blocks/catalog-script' %}
 
 {% comment %}
 
