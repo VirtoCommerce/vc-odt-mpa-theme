@@ -1,14 +1,16 @@
 {% include 'blocks/helpers/cover-style' %}
-
 <div id="{{ block.__id }}" style="position: relative;">
-    <div class="{% include 'blocks/helpers/block-paddings' %} block block-cover"
-        {% if block.background != '' and block.background.url != '' %} style="background-image: url({{ block.background.url }})" {% endif %}>
-        <div class="container cover-container">
-            <div class="d-flex justify-content-center {% if block.formPosition == 'right' %} flex-row-reverse {% endif %}">
-              {% include 'blocks/form/form' %}
+    <div class="{% include 'blocks/helpers/block-paddings' %} block block-cover">
 
-              {% include 'blocks/helpers/cover-text' %}
+        <div class="d-flex flex-column align-items-center">
+            <div class="text-center {{ block.textAreaWidth }}">
+                {% include 'blocks/helpers/cover-text' %}
             </div>
+            {% if block.formFields and block.formFields.size > 0 %}
+                <div class="{{ block.formWidth }}">
+                    {% include 'blocks/form/form' %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -22,7 +24,6 @@ headerType: [ h1, h2, h3, like-h1, like-h2, like-h3 ]
 noTop: bool
 noBottom: bool
 
-formPosition: string (null, right)
 formId: string
 formName: string
 formSubmitRedirectUrl: string
@@ -55,3 +56,4 @@ firstButton: object (url, text, style [ bootstrap buttons styles ], openInNewTab
 secondButton: object (url, text, style [ bootstrap buttons styles ], openInNewTab [True, False]),
 
 {% endcomment %}
+

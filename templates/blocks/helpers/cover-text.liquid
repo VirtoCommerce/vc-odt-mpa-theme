@@ -1,6 +1,6 @@
-<div class="px-5">
+<div class="px-5 {% if block.centerText == 'True' %} align-self-center {% endif %}">
     {% if block.note %}
-        <div class="text-muted h4">{{ block.note }}</div>
+        <div class="text-muted h4" {% if block.noteColor != '' %} style="color: {{block.noteColor}};" {% endif %}>{{ block.note }}</div>
     {% endif %}
 
     {% if block.title %}
@@ -8,7 +8,7 @@
     {% endif %}
 
     {% if block.subtitle %}
-        <div> {{ block.subtitle }} </div>
+        <div class="subtitle-container"> {{ block.subtitle }} </div>
                         
     {% endif %}
                     

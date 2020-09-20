@@ -1,0 +1,82 @@
+{% include 'blocks/helpers/cover-style' %}
+
+<div id="{{ block.__id }}" style="position: relative;" class="{{ block.style }}">
+  <div class="{% include 'blocks/helpers/block-paddings' %} block container">
+
+  {% if block.displayType == 'simple' %}
+
+      <div class="d-flex {% if block.titleAlignment == 'text-center'  %} justify-content-center {% else %} justify-content-between {% endif %}">
+
+          {% if block.title %}
+              <div class="px-5">
+                  {% include 'blocks/helpers/block-title' %}
+              </div>
+          {% endif %}
+
+          {% if block.firstButton and block.firstButton.urlText and block.firstButton.urlText != '' %}
+              <div>
+                  <a href="{{block.firstButton.url}}" class="btn {{ block.firstButton.style }}" {% if block.firstButton.openInNewTab == 'True' %} target="_blank" {% endif %}>{{block.firstButton.urlText}}</a>
+              </div>
+          {% endif %}
+
+      </div>
+  {% else %}
+
+      <div class="d-flex justify-content-between">
+
+          <div class="d-flex flex-column align-self-center" style="flex: 1;">
+              {% if block.title %}
+                  {% include 'blocks/helpers/block-title' %}
+              {% endif %}
+                
+              {% if block.subtitle != '' %}
+
+                  {% if block.subtitle %}
+                      <div class="subtitle-container" style="text-align: center;"> {{ block.subtitle }} </div>                        
+                  {% endif %}
+              {% endif %}
+
+              <div class="d-flex justify-content-center">
+                  {% if block.firstButton and block.firstButton.urlText and block.firstButton.urlText != '' %}
+                      <a href="{{block.firstButton.url}}" class="btn {{ block.firstButton.style }}" {% if block.firstButton.openInNewTab == 'True' %} target="_blank" {% endif %}>{{block.firstButton.urlText}}</a>
+                  {% endif %}
+                  {% if block.secondButton and block.secondButton.urlText and block.secondButton.urlText != '' %}
+                      <a href="{{block.secondButton.url}}" class="btn {{ block.secondButton.style }}" {% if block.secondButton.openInNewTab == 'True' %} target="_blank" {% endif %}>{{block.secondButton.urlText}}</a>
+                  {% endif %}
+              </div>
+          </div>
+
+          {% if block.brandColor != '' %}
+          <div>
+              <svg class="block__logo d-none d-md-block" width="200" height="200" viewBox="0 0 429 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M185.715 0L92.8508 214.285H185.715L278.572 0H185.715Z" fill="{{block.brandColor}}" fill-opacity="0.6"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0L92.8569 214.285H185.714L92.8569 0H0Z" fill="{{block.brandColor}}" fill-opacity="0.7"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M428.57 235.713C428.57 255.441 412.585 271.427 392.856 271.427C373.128 271.427 357.142 255.441 357.142 235.713C357.142 215.984 373.128 199.998 392.856 199.998C412.585 199.998 428.57 215.984 428.57 235.713Z" fill="{{block.brandColor}}" fill-opacity="0.7"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M324.678 257.065H230C240.471 337.7 309.364 400 392.857 400V307.143C360.842 307.143 333.757 286.079 324.678 257.065Z" fill="{{block.brandColor}}" fill-opacity="0.7"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M230.008 214.283H324.708C333.808 185.305 360.872 164.284 392.857 164.284V71.4266C309.386 71.4266 240.515 133.684 230.008 214.283Z" fill="{{block.brandColor}}" fill-opacity="0.7"/>
+              </svg>
+              </div>
+          {% endif %}
+          
+      </div>
+
+  {% endif %}
+
+  </div>
+</div>
+
+{% comment %}
+
+__id: string (unique block id)
+
+name: string
+headerType: [ h1, h2, h3, like-h1, like-h2, like-h3 ]
+noTop: bool
+noBottom: bool
+
+textAreaWidth: string (col-lg, col-lg-10, col-lg-8, col-lg-6)
+brandColor: string (color)
+subtitle: string
+displayType: string (logo | simple)
+
+{% endcomment %}
