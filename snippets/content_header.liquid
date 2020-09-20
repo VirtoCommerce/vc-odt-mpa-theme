@@ -2,8 +2,8 @@
     <div class="before-header container flex-grow-1">
         <div class="row">
             <div class="col-3">
-                <a class="navbar-brand" href="{{ "/" | absolute_url }}"><img src="/static/shop-logo.svg" alt="Smartshop" class="shop-logo" />
-                <a class="navbar-brand-mobile" href="{{ "/" | absolute_url }}"><img src="/static/shop-logo-mobile.svg" alt="Smartshop" class="shop-logo" /></a></a></div>
+                <a class="navbar-brand" href="{{ "/" | absolute_url }}"><img src="{{ 'shop-logo.svg' | static_asset_url }}" alt="Smartshop" class="shop-logo" />
+                <a class="navbar-brand-mobile" href="{{ "/" | absolute_url }}"><img src="{{ 'shop-logo-mobile.svg' | static_asset_url }}" alt="Smartshop" class="shop-logo" /></a></a></div>
             <div class="col-4 input-group-wrapper top-search-wrapper {% if collection.title %}mt-2{% endif %}">
                 {% include 'search-bar' %}
             </div>
