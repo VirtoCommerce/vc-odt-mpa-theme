@@ -5,10 +5,10 @@
 
   {% if block.displayType == 'simple' %}
 
-      <div class="d-flex {% if block.titleAlignment == 'text-center'  %} justify-content-center {% else %} justify-content-between {% endif %}">
+      <div class="d-flex px-5 {% if block.titleAlignment == 'text-center'  %} justify-content-center {% else %} justify-content-between {% endif %}">
 
           {% if block.title %}
-              <div class="px-5">
+              <div class="pr-5">
                   {% include 'blocks/helpers/block-title' %}
               </div>
           {% endif %}
@@ -22,9 +22,9 @@
       </div>
   {% else %}
 
-      <div class="d-flex justify-content-between">
+      <div class="d-flex px-5 {% if block.titleAlignment == 'text-center'  %} justify-content-center {% else %} justify-content-between {% endif %}">
 
-          <div class="d-flex flex-column align-self-center" style="flex: 1;">
+          <div class="d-flex flex-column align-self-center {{ block.textAreaWidth }}" style="flex: 1;">
               {% if block.title %}
                   {% include 'blocks/helpers/block-title' %}
               {% endif %}
@@ -32,11 +32,11 @@
               {% if block.subtitle != '' %}
 
                   {% if block.subtitle %}
-                      <div class="subtitle-container" style="text-align: center;"> {{ block.subtitle }} </div>                        
+                      <div class="subtitle-container" {% if block.titleAlignment == 'text-center'  %} style="text-align: center;" {% endif %}> {{ block.subtitle }} </div>                        
                   {% endif %}
               {% endif %}
 
-              <div class="d-flex justify-content-center">
+              <div class="d-flex {% if block.titleAlignment == 'text-center'  %} justify-content-center {% endif %}">
                   {% if block.firstButton and block.firstButton.urlText and block.firstButton.urlText != '' %}
                       <a href="{{block.firstButton.url}}" class="btn {{ block.firstButton.style }}" {% if block.firstButton.openInNewTab == 'True' %} target="_blank" {% endif %}>{{block.firstButton.urlText}}</a>
                   {% endif %}
