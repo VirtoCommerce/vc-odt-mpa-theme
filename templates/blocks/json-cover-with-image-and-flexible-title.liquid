@@ -3,7 +3,7 @@
 <div id="{{ block.__id }}" style="position: relative;">
     <div class="{% include 'blocks/helpers/block-paddings' %} block block-cover"
         {% if block.background != '' and block.background.url != '' %} style="background-image: url({{ block.background.url }})" {% endif %}>
-        <div class="container">
+        <div class="container cover-container">
             <div class="d-flex justify-content-center {% if block.imagePosition == 'right' %} flex-row-reverse {% endif %}">
               {% if block.containerImage and block.containerImage.url %}
                 <div>

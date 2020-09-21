@@ -178,29 +178,36 @@
     "namedSettings": {
       "cover-items": [
         {
-          "id": "note",
-          "label": "Note",
-          "type": "string",
-          "default": "Our company",
-          "tab": "Content"
-        },
-        {
           "id": "title",
           "label": "Title",
           "type": "string",
-          "default": "Bring your ideas to life",
-          "tab": "Content"
+          "default": "Bring your ideas to life"
         },
         {
           "id": "subtitle",
           "label": "Subtitle",
           "type": "text",
-          "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win.",
-          "tab": "Content"
+          "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win."
         },
         {
           "id": "backgroundColor",
           "label": "Background color",
+          "type": "color",
+          "default": "",
+          "tab": "Settings",
+          "group": "Background"
+        },
+        {
+          "id": "titleColor",
+          "label": "Title color",
+          "type": "color",
+          "default": "",
+          "tab": "Settings",
+          "group": "Background"
+        },
+        {
+          "id": "subtitleColor",
+          "label": "Subtitle color",
           "type": "color",
           "default": "",
           "tab": "Settings",
@@ -218,8 +225,449 @@
           "id": "background",
           "label": "Background",
           "type": "image",
-          "tab": "Content",
           "group": "Background"
+        }
+      ],
+      "buttons": [
+        {
+          "id": "firstButton",
+          "label": "First button",
+          "type": "url",
+          "urlLabel": "Url",
+          "textLabel": "Button text",
+          "styleLabel": "Link style",
+          "styles": [
+            {
+              "value": "btn-primary",
+              "label": "Primary button"
+            },
+            {
+              "value": "btn-secondary",
+              "label": "Secondary button"
+            },
+            {
+              "value": "btn-success",
+              "label": "Success button"
+            },
+            {
+              "value": "btn-danger",
+              "label": "Danger button"
+            },
+            {
+              "value": "btn-warning",
+              "label": "Warning button"
+            },
+            {
+              "value": "btn-info",
+              "label": "Info button"
+            },
+            {
+              "value": "btn-light",
+              "label": "Light button"
+            },
+            {
+              "value": "btn-dark",
+              "label": "Dark button"
+            },
+            {
+              "value": "btn-link",
+              "label": "Link button"
+            }
+          ],
+          "default": {
+            "url": "",
+            "urlText": "Call to action",
+            "style": "btn-primary"
+          },
+          "group": "Buttons"
+        },
+        {
+          "id": "secondButton",
+          "label": "Second button",
+          "type": "url",
+          "urlLabel": "Url",
+          "textLabel": "Button text",
+          "styleLabel": "Link style",
+          "styles": [
+            {
+              "value": "btn-primary",
+              "label": "Primary button"
+            },
+            {
+              "value": "btn-secondary",
+              "label": "Secondary button"
+            },
+            {
+              "value": "btn-success",
+              "label": "Success button"
+            },
+            {
+              "value": "btn-danger",
+              "label": "Danger button"
+            },
+            {
+              "value": "btn-warning",
+              "label": "Warning button"
+            },
+            {
+              "value": "btn-info",
+              "label": "Info button"
+            },
+            {
+              "value": "btn-light",
+              "label": "Light button"
+            },
+            {
+              "value": "btn-dark",
+              "label": "Dark button"
+            },
+            {
+              "value": "btn-link",
+              "label": "Link button"
+            }
+          ],
+          "default": {
+            "url": "",
+            "urlText": "",
+            "style": "btn-secondary"
+          },
+          "group": "Buttons"
+        }
+      ],
+      "notes": [
+        {
+          "id": "note",
+          "label": "Note",
+          "type": "string",
+          "default": "Our company"
+        },
+        {
+          "id": "noteColor",
+          "label": "Note color",
+          "type": "color",
+          "default": "",
+          "tab": "Settings",
+          "group": "Background"
+        }
+      ],
+      "form": [
+        {
+          "id": "formId",
+          "label": "Form ID",
+          "type": "string",
+          "default": "formId",
+          "tab": "Settings",
+          "group": "Form"
+        },
+        {
+          "id": "formName",
+          "label": "Form Name",
+          "type": "string",
+          "default": "formName",
+          "tab": "Settings",
+          "group": "Form"
+        },
+        {
+          "id": "formSubmitRedirectUrl",
+          "label": "Submit redirect URL",
+          "type": "string",
+          "tab": "Settings",
+          "group": "Form"
+        },
+        {
+          "id": "formSubmitButtonStyle",
+          "label": "Submit button style",
+          "type": "select",
+          "default": "btn-primary",
+          "options": [
+            {
+              "value": "btn-primary",
+              "label": "Primary button"
+            },
+            {
+              "value": "btn-secondary",
+              "label": "Secondary button"
+            },
+            {
+              "value": "btn-success",
+              "label": "Success button"
+            },
+            {
+              "value": "btn-danger",
+              "label": "Danger button"
+            },
+            {
+              "value": "btn-warning",
+              "label": "Warning button"
+            },
+            {
+              "value": "btn-info",
+              "label": "Info button"
+            },
+            {
+              "value": "btn-light",
+              "label": "Light button"
+            },
+            {
+              "value": "btn-dark",
+              "label": "Dark button"
+            },
+            {
+              "value": "btn-link",
+              "label": "Link button"
+            }
+          ],
+          "tab": "Settings",
+          "group": "Form"
+        },
+        {
+          "id": "formFields",
+          "label": "Fields list",
+          "type": "list",
+          "addText": "Add a field",
+          "removeText": "Remove a field",
+          "displayField": "labelText",
+          "element": [
+            {
+              "id": "fieldType",
+              "label": "Type",
+              "type": "select",
+              "default": "text",
+              "options": [
+                {
+                  "value": "button",
+                  "label": "Button"
+                },
+                {
+                  "value": "checkbox",
+                  "label": "Checkbox"
+                },
+                {
+                  "value": "email",
+                  "label": "Email"
+                },
+                {
+                  "value": "hidden",
+                  "label": "Hidden"
+                },
+                {
+                  "value": "phone",
+                  "label": "Phone"
+                },
+                {
+                  "value": "radio",
+                  "label": "Radio"
+                },
+                {
+                  "value": "select",
+                  "label": "Select"
+                },
+                {
+                  "value": "text",
+                  "label": "Text"
+                },
+                {
+                  "value": "textarea",
+                  "label": "Textarea"
+                }
+              ],
+              "group": "Field name settings"
+            },
+            {
+              "id": "fieldName",
+              "label": "Name",
+              "type": "string",
+              "group": "Field name settings"
+            },
+            {
+              "id": "fieldId",
+              "label": "ID",
+              "type": "string",
+              "group": "Field name settings"
+            },
+            {
+              "id": "labelText",
+              "label": "Label",
+              "type": "string",
+              "group": "Field name settings"
+            },
+            {
+              "id": "placeholder",
+              "label": "Placeholder",
+              "type": "string",
+              "default": "Enter the value",
+              "group": "Field name settings"
+            },
+            {
+              "id": "fieldValue",
+              "label": "Value",
+              "type": "string",
+              "default": "",
+              "group": "Field name settings"
+            },
+            {
+              "id": "required",
+              "label": "Required field",
+              "type": "checkbox",
+              "group": "Validation"
+            },
+            {
+              "id": "validationMessage",
+              "label": "Validation message",
+              "type": "string",
+              "group": "Validation"
+            },
+            {
+              "id": "radioListItems",
+              "label": "Radio items",
+              "title": "Radio items list",
+              "type": "popup-list",
+              "options": {
+                "width": "70%",
+                "max-height": "70%"
+              },
+              "addText": "Add radio option",
+              "removeText": "Remove item",
+              "element": [
+                {
+                  "id": "title",
+                  "type": "string",
+                  "label": "Title"
+                },
+                {
+                  "id": "text",
+                  "type": "string",
+                  "label": "Subtitle"
+                },
+                {
+                  "id": "id",
+                  "type": "string",
+                  "label": "Radio ID"
+                },
+                {
+                  "id": "value",
+                  "type": "string",
+                  "label": "Radio value"
+                },
+                {
+                  "id": "isChecked",
+                  "type": "checkbox",
+                  "label": "Checked"
+                },
+                {
+                  "id": "isDisabled",
+                  "type": "checkbox",
+                  "label": "Disabled"
+                }
+              ]
+            },
+            {
+              "id": "selectOptions",
+              "label": "Select options",
+              "type": "popup-list",
+              "options": {
+                "width": "30%"
+              },
+              "addText": "Add select option",
+              "removeText": "Remove option",
+              "element": [
+                {
+                  "id": "label",
+                  "type": "string",
+                  "label": "Label"
+                },
+                {
+                  "id": "value",
+                  "type": "string",
+                  "label": "Value"
+                },
+                {
+                  "id": "isSelected",
+                  "type": "checkbox",
+                  "label": "Selected checkbox"
+                },
+                {
+                  "id": "isDisabled",
+                  "type": "checkbox",
+                  "label": "Disabled"
+                }
+              ]
+            }
+          ],
+          "default": [
+            {
+              "fieldName": "fullname",
+              "fieldId": "fullname",
+              "fieldType": "text",
+              "required": true,
+              "labelText": "Full name",
+              "placeholder": "Enter your name"
+            },
+            {
+              "fieldName": "email",
+              "fieldId": "email",
+              "fieldType": "text",
+              "required": true,
+              "labelText": "Email",
+              "placeholder": "Enter your email"
+            },
+            {
+              "fieldName": "agree",
+              "fieldId": "agree",
+              "fieldType": "checkbox",
+              "required": true,
+              "labelText": "By checking this checkbox,&nbsp;I'm agree to the Virto Commerce <a href=\"/terms\">Terms</a> and <a href=\"/privacy\">Privacy</a>.",
+              "validationMessage": "Please agree with our terms"
+            },
+            {
+              "fieldType": "button",
+              "labelText": "Action button"
+            }
+          ],
+          "group": "Form"
+        },
+        {
+          "id": "showFormLabels",
+          "label": "Show form labels",
+          "type": "checkbox",
+          "default": true,
+          "group": "Form"
+        }
+      ],
+      "text-width": [
+        {
+          "id": "textAreaWidth",
+          "label": "Text area width",
+          "type": "select",
+          "default": "col-lg",
+          "options": [
+            {
+              "value": "col-lg",
+              "label": "Full width"
+            },
+            {
+              "value": "col-lg-10",
+              "label": "10 cols"
+            },
+            {
+              "value": "col-lg-8",
+              "label": "8 cols"
+            },
+            {
+              "value": "col-lg-6",
+              "label": "6 cols"
+            },
+            {
+              "value": "col-lg-4",
+              "label": "4 cols"
+            },
+            {
+              "value": "col-lg-3",
+              "label": "3 cols"
+            }
+          ],
+          "tab": "Settings",
+          "group": "Main block settings"
         }
       ]
     }
@@ -293,12 +741,11 @@
     ]
   },
   "cover-with-image-and-flexible-title": {
-    "id": "cover-with-image-and-flexible-title",
     "name": "Cover with image and flexible title",
     "icon": "image-text",
     "displayField": "name",
     "category": "Promo",
-    "includeShared": [ "cover-items" ],
+    "includeShared": [ "cover-items", "notes", "buttons" ],
     "excludeShared": [ "titleStyle", "titleAlignment", "style" ],
     "settings": [
       {
@@ -308,114 +755,7 @@
         "default": {
           "url": "/assets/pages/video-screen-4.png"
         },
-        "tab": "Content",
         "group": "Container media"
-      },
-      {
-        "id": "firstButton",
-        "label": "First button",
-        "type": "url",
-        "urlLabel": "Url",
-        "textLabel": "Button text",
-        "styleLabel": "Link style",
-        "styles": [
-          {
-            "value": "btn-primary",
-            "label": "Primary button"
-          },
-          {
-            "value": "btn-secondary",
-            "label": "Secondary button"
-          },
-          {
-            "value": "btn-success",
-            "label": "Success button"
-          },
-          {
-            "value": "btn-danger",
-            "label": "Danger button"
-          },
-          {
-            "value": "btn-warning",
-            "label": "Warning button"
-          },
-          {
-            "value": "btn-info",
-            "label": "Info button"
-          },
-          {
-            "value": "btn-light",
-            "label": "Light button"
-          },
-          {
-            "value": "btn-dark",
-            "label": "Dark button"
-          },
-          {
-            "value": "btn-link",
-            "label": "Link button"
-          }
-        ],
-        "default": {
-          "url": "",
-          "urlText": "Call to action",
-          "style": "btn-primary"
-        },
-        "tab": "Content",
-        "group": "Buttons"
-      },
-      {
-        "id": "secondButton",
-        "label": "Second button",
-        "type": "url",
-        "urlLabel": "Url",
-        "textLabel": "Button text",
-        "styleLabel": "Link style",
-        "styles": [
-          {
-            "value": "btn-primary",
-            "label": "Primary button"
-          },
-          {
-            "value": "btn-secondary",
-            "label": "Secondary button"
-          },
-          {
-            "value": "btn-success",
-            "label": "Success button"
-          },
-          {
-            "value": "btn-danger",
-            "label": "Danger button"
-          },
-          {
-            "value": "btn-warning",
-            "label": "Warning button"
-          },
-          {
-            "value": "btn-info",
-            "label": "Info button"
-          },
-          {
-            "value": "btn-light",
-            "label": "Light button"
-          },
-          {
-            "value": "btn-dark",
-            "label": "Dark button"
-          },
-          {
-            "value": "btn-link",
-            "label": "Link button"
-          }
-        ],
-        "default": {
-          "url": "",
-          "urlText": "View more",
-          "style": "btn-secondary"
-        },
-        "tab": "Content",
-        "group": "Buttons"
       },
       {
         "id": "imagePosition",
@@ -444,44 +784,16 @@
     "excludeShared": [ "titleAlignment" ],
     "settings": [
       {
-        "id": "textAreaWidth",
-        "label": "Text area width",
-        "type": "select",
-        "default": "col-lg",
-        "options": [
-          {
-            "value": "col-lg",
-            "label": "Full width"
-          },
-          {
-            "value": "col-lg-10",
-            "label": "10 cols"
-          },
-          {
-            "value": "col-lg-8",
-            "label": "8 cols"
-          },
-          {
-            "value": "col-lg-6",
-            "label": "6 cols"
-          }
-        ],
-        "tab": "Settings",
-        "group": "Main block settings"
-      },
-      {
         "id": "title",
         "label": "Title",
         "type": "string",
-        "default": "Bring your ideas to life",
-        "tab": "Content"
+        "default": "Bring your ideas to life"
       },
       {
         "id": "content",
         "label": "Content",
         "type": "text",
-        "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win.",
-        "tab": "Content"
+        "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win."
       },
       {
         "id": "logotypes",
@@ -537,24 +849,22 @@
             "url": "",
             "openInNewTab": false
           }
-        ],
-        "tab": "Content"
+        ]
       }
     ]
   },
   "features-with-icons-in-columns": {
-    "id": "features-with-icons-in-columns",
     "name": "Features with icons in columns",
     "icon": "image-text",
     "displayField": "title",
     "category": "Featured",
-    "includeShared": [],
+    "includeShared": [ "text-width" ],
     "settings": [
       {
         "id": "columnsCount",
         "label": "Columns count",
         "type": "select",
-        "default": "3",
+        "default": "4",
         "options": [
           {
             "value": "12",
@@ -575,33 +885,7 @@
         ],
         "tab": "Settings",
         "group": "Main block settings"
-      },
-      {
-        "id": "textAreaWidth",
-        "label": "Text area width",
-        "type": "select",
-        "default": "col-lg",
-        "options": [
-          {
-            "value": "col-lg",
-            "label": "Full width"
-          },
-          {
-            "value": "col-lg-10",
-            "label": "10 cols"
-          },
-          {
-            "value": "col-lg-8",
-            "label": "8 cols"
-          },
-          {
-            "value": "col-lg-6",
-            "label": "6 cols"
-          }
-        ],
-        "tab": "Settings",
-        "group": "Main block settings"
-      },
+      },      
       {
         "id": "iconsType",
         "label": "Icons type",
@@ -633,26 +917,16 @@
         "group": "Items"
       },
       {
-        "id": "iconsAreFilled",
-        "label": "Icons filling",
-        "type": "checkbox",
-        "default": false,
-        "tab": "Settings",
-        "group": "Items"
-      },
-      {
         "id": "title",
         "label": "Title",
         "type": "string",
-        "default": "Bring your ideas to life",
-        "tab": "Content"
+        "default": "Bring your ideas to life"
       },
       {
         "id": "content",
         "label": "Content",
         "type": "text",
-        "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win.",
-        "tab": "Content"
+        "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win."
       },
       {
         "id": "columns",
@@ -726,7 +1000,7 @@
             "button": {
               "url": "",
               "urlText": "Call to action",
-              "style": "btn btn--orange"
+              "style": "btn-primary"
             }
           },
           {
@@ -734,7 +1008,7 @@
             "button": {
               "url": "",
               "urlText": "Call to action",
-              "style": "btn btn--orange"
+              "style": "btn-primary"
             }
           },
           {
@@ -742,23 +1016,28 @@
             "button": {
               "url": "",
               "urlText": "Call to action",
-              "style": "btn btn--orange"
+              "style": "btn-primary"
             }
           }
-        ],
-        "tab": "Content"
+        ]
       }
     ]
   },
   "cover-with-form": {
-    "id": "cover-with-form",
     "name": "Cover with form",
     "icon": "image-text",
     "displayField": "name",
     "category": "Featured",
-    "includeShared": [ "cover-items" ],
+    "includeShared": [ "cover-items", "notes", "buttons", "form" ],
     "excludeShared": [ "titleStyle", "titleAlignment", "style" ],
     "settings": [
+      {
+        "id": "centerText",
+        "label": "Place text in center",
+        "type": "checkbox",
+        "default": true,
+        "tab": "Settings"
+      },
       {
         "id": "formPosition",
         "label": "Form position",
@@ -775,396 +1054,6 @@
             "label": "Right"
           }
         ]
-      },
-      {
-        "id": "formId",
-        "label": "Form ID",
-        "type": "string",
-        "default": "formId",
-        "tab": "Settings",
-        "group": "Form"
-      },
-      {
-        "id": "formName",
-        "label": "Form Name",
-        "type": "string",
-        "default": "formName",
-        "tab": "Settings",
-        "group": "Form"
-      },
-      {
-        "id": "formSubmitRedirectUrl",
-        "label": "Submit redirect URL",
-        "type": "string",
-        "tab": "Settings",
-        "group": "Form"
-      },
-      {
-        "id": "formSubmitButtonStyle",
-        "label": "Submit button style",
-        "type": "select",
-        "default": "btn-primary",
-        "options": [
-          {
-            "value": "btn-primary",
-            "label": "Primary button"
-          },
-          {
-            "value": "btn-secondary",
-            "label": "Secondary button"
-          },
-          {
-            "value": "btn-success",
-            "label": "Success button"
-          },
-          {
-            "value": "btn-danger",
-            "label": "Danger button"
-          },
-          {
-            "value": "btn-warning",
-            "label": "Warning button"
-          },
-          {
-            "value": "btn-info",
-            "label": "Info button"
-          },
-          {
-            "value": "btn-light",
-            "label": "Light button"
-          },
-          {
-            "value": "btn-dark",
-            "label": "Dark button"
-          },
-          {
-            "value": "btn-link",
-            "label": "Link button"
-          }
-        ],
-        "tab": "Settings",
-        "group": "Form"
-      },
-      {
-        "id": "formFields",
-        "label": "Fields list",
-        "type": "list",
-        "addText": "Add a field",
-        "removeText": "Remove a field",
-        "displayField": "labelText",
-        "element": [
-          {
-            "id": "fieldType",
-            "label": "Type",
-            "type": "select",
-            "default": "text",
-            "options": [
-              {
-                "value": "button",
-                "label": "Button"
-              },
-              {
-                "value": "checkbox",
-                "label": "Checkbox"
-              },
-              {
-                "value": "email",
-                "label": "Email"
-              },
-              {
-                "value": "hidden",
-                "label": "Hidden"
-              },
-              {
-                "value": "phone",
-                "label": "Phone"
-              },
-              {
-                "value": "radio",
-                "label": "Radio"
-              },
-              {
-                "value": "select",
-                "label": "Select"
-              },
-              {
-                "value": "text",
-                "label": "Text"
-              },
-              {
-                "value": "textarea",
-                "label": "Textarea"
-              }
-            ],
-            "group": "Field name settings"
-          },
-          {
-            "id": "fieldName",
-            "label": "Name",
-            "type": "string",
-            "group": "Field name settings"
-          },
-          {
-            "id": "fieldId",
-            "label": "ID",
-            "type": "string",
-            "group": "Field name settings"
-          },
-          {
-            "id": "labelText",
-            "label": "Label",
-            "type": "string",
-            "group": "Field name settings"
-          },
-          {
-            "id": "placeholder",
-            "label": "Placeholder",
-            "type": "string",
-            "default": "Enter the value",
-            "group": "Field name settings"
-          },
-          {
-            "id": "fieldValue",
-            "label": "Value",
-            "type": "string",
-            "default": "",
-            "group": "Field name settings"
-          },
-          {
-            "id": "required",
-            "label": "Required field",
-            "type": "checkbox",
-            "group": "Validation"
-          },
-          {
-            "id": "validationMessage",
-            "label": "Validation message",
-            "type": "string",
-            "group": "Validation"
-          },
-          {
-            "id": "radioListItems",
-            "label": "Radio items",
-            "title": "Radio items list",
-            "type": "popup-list",
-            "options": {
-              "width": "70%",
-              "max-height": "70%"
-            },
-            "addText": "Add radio option",
-            "removeText": "Remove item",
-            "element": [
-              {
-                "id": "title",
-                "type": "string",
-                "label": "Title"
-              },
-              {
-                "id": "text",
-                "type": "string",
-                "label": "Subtitle"
-              },
-              {
-                "id": "id",
-                "type": "string",
-                "label": "Radio ID"
-              },
-              {
-                "id": "value",
-                "type": "string",
-                "label": "Radio value"
-              },
-              {
-                "id": "isChecked",
-                "type": "checkbox",
-                "label": "Checked"
-              },
-              {
-                "id": "isDisabled",
-                "type": "checkbox",
-                "label": "Disabled"
-              }
-            ]
-          },
-          {
-            "id": "selectOptions",
-            "label": "Select options",
-            "type": "popup-list",
-            "options": {
-              "width": "30%"
-            },
-            "addText": "Add select option",
-            "removeText": "Remove option",
-            "element": [
-              {
-                "id": "label",
-                "type": "string",
-                "label": "Label"
-              },
-              {
-                "id": "value",
-                "type": "string",
-                "label": "Value"
-              },
-              {
-                "id": "isSelected",
-                "type": "checkbox",
-                "label": "Selected checkbox"
-              },
-              {
-                "id": "isDisabled",
-                "type": "checkbox",
-                "label": "Disabled"
-              }
-            ]
-          }
-        ],
-        "default": [
-          {
-            "fieldName": "fullname",
-            "fieldId": "fullname",
-            "fieldType": "text",
-            "required": true,
-            "labelText": "Full name",
-            "placeholder": "Enter your name"
-          },
-          {
-            "fieldName": "email",
-            "fieldId": "email",
-            "fieldType": "text",
-            "required": true,
-            "labelText": "Email",
-            "placeholder": "Enter your email"
-          },
-          {
-            "fieldName": "agree",
-            "fieldId": "agree",
-            "fieldType": "checkbox",
-            "required": true,
-            "labelText": "By checking this checkbox,&nbsp;I'm agree to the Virto Commerce <a href=\"/terms\">Terms</a> and <a href=\"/privacy\">Privacy</a>.",
-            "validationMessage": "Please agree with our terms"
-          },
-          {
-            "fieldType": "button",
-            "labelText": "Action button"
-          }
-        ],
-        "tab": "Content",
-        "group": "Form"
-      },
-      {
-        "id": "showFormLabels",
-        "label": "Show form labels",
-        "type": "checkbox",
-        "default": true,
-        "tab": "Content",
-        "group": "Form"
-      },
-      {
-        "id": "firstButton",
-        "label": "First button",
-        "type": "url",
-        "urlLabel": "Url",
-        "textLabel": "Button text",
-        "styleLabel": "Link style",
-        "styles": [
-          {
-            "value": "btn-primary",
-            "label": "Primary button"
-          },
-          {
-            "value": "btn-secondary",
-            "label": "Secondary button"
-          },
-          {
-            "value": "btn-success",
-            "label": "Success button"
-          },
-          {
-            "value": "btn-danger",
-            "label": "Danger button"
-          },
-          {
-            "value": "btn-warning",
-            "label": "Warning button"
-          },
-          {
-            "value": "btn-info",
-            "label": "Info button"
-          },
-          {
-            "value": "btn-light",
-            "label": "Light button"
-          },
-          {
-            "value": "btn-dark",
-            "label": "Dark button"
-          },
-          {
-            "value": "btn-link",
-            "label": "Link button"
-          }
-        ],
-        "default": {
-          "url": "",
-          "urlText": "Call to action",
-          "style": "btn-primary"
-        },
-        "tab": "Content",
-        "group": "Buttons"
-      },
-      {
-        "id": "secondButton",
-        "label": "Second button",
-        "type": "url",
-        "urlLabel": "Url",
-        "textLabel": "Button text",
-        "styleLabel": "Link style",
-        "styles": [
-          {
-            "value": "btn-primary",
-            "label": "Primary button"
-          },
-          {
-            "value": "btn-secondary",
-            "label": "Secondary button"
-          },
-          {
-            "value": "btn-success",
-            "label": "Success button"
-          },
-          {
-            "value": "btn-danger",
-            "label": "Danger button"
-          },
-          {
-            "value": "btn-warning",
-            "label": "Warning button"
-          },
-          {
-            "value": "btn-info",
-            "label": "Info button"
-          },
-          {
-            "value": "btn-light",
-            "label": "Light button"
-          },
-          {
-            "value": "btn-dark",
-            "label": "Dark button"
-          },
-          {
-            "value": "btn-link",
-            "label": "Link button"
-          }
-        ],
-        "default": {
-          "url": "",
-          "urlText": "",
-          "style": "btn-secondary"
-        },
-        "tab": "Content",
-        "group": "Buttons"
       }
     ]
   },
@@ -1173,7 +1062,15 @@
     "icon": "text",
     "displayField": "name",
     "category": "Promo",
+    "excludeShared": [ "titleAlignment" ],
     "settings": [
+      {
+        "id": "reverse",
+        "label": "Reverse columns",
+        "type": "checkbox",
+        "tab": "Settings",
+        "default": false
+      },
       {
         "id": "title",
         "label": "Title",
@@ -1198,7 +1095,8 @@
       {
         "id": "buttonText",
         "label": "Button text",
-        "type": "string"
+        "type": "string",
+        "default": "Buy now!"
       }
     ]
   },
@@ -1243,39 +1141,88 @@
       }
     ]
   },
-  "product-tiles": {
-    "name": "Product tiles",
-    "icon": "text",
-    "displayField": "name",
-    "category": "Promo",
+  "call-to-action": {
+    "name": "Call to action",
+    "icon": "image-text",
+    "displayField": "title",
+    "category": "Featured",
+    "includeShared": [ "cover-items", "text-width", "buttons" ],
+    "excludeShared": [ "note", "noteColor" ],
     "settings": [
       {
-        "id": "title",
-        "label": "Title",
-        "type": "string"
+        "id": "subtitleColor",
+        "label": "Content text color"
       },
       {
-        "id": "categoryId",
-        "label": "Choose category",
+        "id": "brandColor",
+        "label": "Brand colour",
+        "type": "color",
+        "default": "gray",
+        "tab": "Settings"
+      },
+      {
+        "id": "subtitle",
+        "label": "Content"
+      },
+      {
+        "id": "displayType",
+        "label": "Block display type",
         "type": "select",
-        "request": {
-          "url": "/api/catalog/search/categories",
-          "method": "post",
-          "resultField": "items",
-          "params": {
-            "objectType": "Category",
-            "catalogId": "4974648a41df4e6ea67ef2ad76d7bbd4"
+        "default": "logo",
+        "options": [
+          {
+            "value": "logo",
+            "label": "With logo"
           },
-          "label": "name",
-          "value": "id"
-        }
-      },
+          {
+            "value": "simple",
+            "label": "Simple"
+          }
+        ]
+      }
+    ]
+  },
+  "headline": {
+    "name": "Headline",
+    "icon": "text",
+    "displayField": "name",
+    "category": "Text",
+    "includeShared": [ "notes", "cover-items", "form", "text-width", "buttons" ],
+    "excludeShared": [  ],
+    "settings": [
       {
-        "id": "count",
-        "label": "Max items",
-        "type": "number",
-        "default": 0,
-        "min": 0
+        "id": "formWidth",
+        "label": "Form area width",
+        "type": "select",
+        "default": "col-lg-6",
+        "options": [
+          {
+            "value": "col-lg",
+            "label": "Full width"
+          },
+          {
+            "value": "col-lg-10",
+            "label": "10 cols"
+          },
+          {
+            "value": "col-lg-8",
+            "label": "8 cols"
+          },
+          {
+            "value": "col-lg-6",
+            "label": "6 cols"
+          },
+          {
+            "value": "col-lg-4",
+            "label": "4 cols"
+          },
+          {
+            "value": "col-lg-3",
+            "label": "3 cols"
+          }
+        ],
+        "tab": "Settings",
+        "group": "Main block settings"
       }
     ]
   }

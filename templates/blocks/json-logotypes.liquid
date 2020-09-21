@@ -16,7 +16,7 @@
         {% if block.logotypes.size > 0 %}
             <div class="row justify-content-center">
                 {% for logotype in block.logotypes %}
-                    <div class="col-2 col-md-1">
+                    <div class="col-3">
                         {% if logotype.url != '' %}
                             <a href="{{logotype.url}}" {% if logotype.openInNewTab == 'True' %}target="_blank"{% endif %}>
                                 <img src="{{ logotype.image.url }}" title="{{logotype.image.altText}}" class="img-fluid" />

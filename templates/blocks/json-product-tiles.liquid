@@ -8,14 +8,13 @@
       {% endif %}
 
       {% if block.categoryId %}
-      <div class="col-7 product-grid col-xl-5 col-md-8 col-sm-12">
-
+      <div>
         <div class="row">
             {% assign category = collections | where: 'Id', '==', block.categoryId | first %}
             {% if category.products.empty? == false %}
 
             {% assign count = category.products.size %}
-            {% if block.count > 0 %}
+            {% if block.count and block.count > 0 %}
             {% assign count = block.count %}
             {% endif %}
 
@@ -35,6 +34,8 @@
     </div>
   </div>
 </div>
+
+{% include 'blocks/helpers/catalog-script' %}
 
 {% comment %}
 
