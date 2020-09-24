@@ -885,7 +885,7 @@
         ],
         "tab": "Settings",
         "group": "Main block settings"
-      },      
+      },
       {
         "id": "iconsType",
         "label": "Icons type",
@@ -1058,7 +1058,7 @@
     ]
   },
   "buy-now": {
-    "name": "Buy now",
+    "name": "Buy now (live)",
     "icon": "text",
     "displayField": "name",
     "category": "Promo",
@@ -1078,14 +1078,122 @@
         "default": "Buy now!"
       },
       {
-        "id": "sku",
-        "label": "SKU",
-        "type": "string"
+        "id": "price",
+        "label": "Price",
+        "type": "string",
+        "default": null
+      },
+      {
+        "id": "product",
+        "label": "Product",
+        "type": "select",
+        "equalKey": "id",
+        "filterList": false,
+        "request": {
+          "url": "api/catalog/search/products",
+          "method": "post",
+          "resultField": "items",
+          "searchField": "searchPhrase",
+          "label": "name",
+          "value": [
+            "id",
+            "name",
+            "code",
+            "imgSrc",
+            {
+              "key": "content",
+              "query": "$.reviews[?(@.reviewType=='QuickReview')].content",
+              "isArray": false
+            }
+          ],
+          "params": {
+            "storeId": "odt",
+            "catalogId": "4974648a41df4e6ea67ef2ad76d7bbd4",
+            "responseGroup": "5243487",
+            "sort": "priority-descending;name-ascending"
+          }
+        },
+        "options": [
+          {
+            "label": "[none]",
+            "value": null
+          }
+        ]
+      },
+      {
+        "id": "description",
+        "label": "Description",
+        "type": "text"
+      },
+      {
+        "id": "buttonText",
+        "label": "Button text",
+        "type": "string",
+        "default": "Buy now!"
+      }
+    ]
+  },
+  "buy-now-search": {
+    "name": "Buy now (in page)",
+    "icon": "text",
+    "displayField": "name",
+    "category": "Promo",
+    "excludeShared": [ "titleAlignment" ],
+    "settings": [
+      {
+        "id": "reverse",
+        "label": "Reverse columns",
+        "type": "checkbox",
+        "tab": "Settings",
+        "default": false
+      },
+      {
+        "id": "title",
+        "label": "Title",
+        "type": "string",
+        "default": "Buy now!"
       },
       {
         "id": "hidePrice",
         "label": "Hide price",
-        "type": "checkbox"
+        "type": "checkbox",
+        "default": false
+      },
+      {
+        "id": "product",
+        "label": "Product",
+        "type": "search",
+        "nodataText": "No product found",
+        "displayInfo": [
+          {
+            "label": "Name",
+            "key": "name"
+          },
+          {
+            "label": "Image",
+            "key": "imgSrc",
+            "type": "image"
+          }
+        ],
+        "request": {
+          "url": "api/catalog/search/products",
+          "method": "post",
+          "resultField": "items",
+          "searchField": "searchPhrase",
+          "label": "name",
+          "value": [
+            "id",
+            "name",
+            "code",
+            "imgSrc"
+          ],
+          "params": {
+            "storeId": "odt",
+            "catalogId": "4974648a41df4e6ea67ef2ad76d7bbd4",
+            "responseGroup": "5243487",
+            "sort": "priority-descending;name-ascending"
+          }
+        }
       },
       {
         "id": "description",
@@ -1188,7 +1296,7 @@
     "displayField": "name",
     "category": "Text",
     "includeShared": [ "notes", "cover-items", "form", "text-width", "buttons" ],
-    "excludeShared": [  ],
+    "excludeShared": [],
     "settings": [
       {
         "id": "formWidth",
