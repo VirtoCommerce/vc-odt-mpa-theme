@@ -11,6 +11,9 @@
       <div>
         <div class="row">
             {% assign category = collections | where: 'Id', '==', block.categoryId | first %}
+
+            {% assign skus = block.excludes | split: '\n' %}
+
             {% if category.products.empty? == false %}
 
             {% assign count = category.products.size %}
@@ -20,8 +23,10 @@
 
             {% for product in category.products limit:count %}
 
-            {% assign grid_item_width = 'col-xl-3 col-lg-4 col-md-6 col-sm-6 product-card' %}
-            {% include 'product-grid-item' %}
+              {% if array.contains skus product.sku %}
+                {% assign grid_item_width = 'col-xl-3 col-lg-4 col-md-6 col-sm-6 product-card' %}
+                {% include 'product-grid-item' %}
+              {% endif %}
 
             {% endfor %}
 

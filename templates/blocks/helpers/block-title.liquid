@@ -1,7 +1,5 @@
 {% assign titleStyle = block.titleAlignment | append ' ' |append block.titleStyle %}
 
-{% assign givenTitle = title %}
-
 {% if givenTitle == null %}
 {% assign givenTitle = block.title %}
 {% endif %}
@@ -26,3 +24,4 @@
     <div class="h2 {{ titleStyle }}">{{ givenTitle }}</div>
   {% endif %}
 {% endif %}
+{% assign givenTitle = null %}
