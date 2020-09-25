@@ -1228,6 +1228,7 @@
         "id": "categoryId",
         "label": "Choose category",
         "type": "select",
+        "cacheRequest": true,
         "request": {
           "url": "/api/catalog/search/categories",
           "method": "post",
@@ -1246,6 +1247,12 @@
         "type": "number",
         "default": 0,
         "min": 0
+      },
+      {
+        "id": "excludes",
+        "label": "SKU for exclude",
+        "type": "string",
+        "multiline": true
       }
     ]
   },
