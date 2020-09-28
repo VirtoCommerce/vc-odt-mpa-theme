@@ -226,6 +226,81 @@
           "label": "Background",
           "type": "image",
           "group": "Background"
+        },
+        {
+          "id": "textColumnWidth",
+          "label": "Text column width",
+          "type": "select",
+          "tab": "Settings",
+          "options": [
+            {
+              "label": "6 cols",
+              "value": "col-md-6"
+            },
+            {
+              "label": "5 cols",
+              "value": "col-md-5"
+            },
+            {
+              "label": "4 cols",
+              "value": "col-md-4"
+            },
+            {
+              "label": "3 cols",
+              "value": "col-md-3"
+            },
+            {
+              "label": "2 cols",
+              "value": "col-md-2"
+            }
+          ],
+          "default": "col-md-4"
+        },
+        {
+          "id": "secondColumnWidth",
+          "label": "Second column width",
+          "tab": "Settings",
+          "type": "select",
+          "options": [
+            {
+              "label": "6 cols",
+              "value": "col-md-6"
+            },
+            {
+              "label": "5 cols",
+              "value": "col-md-5"
+            },
+            {
+              "label": "4 cols",
+              "value": "col-md-4"
+            },
+            {
+              "label": "3 cols",
+              "value": "col-md-3"
+            },
+            {
+              "label": "2 cols",
+              "value": "col-md-2"
+            }
+          ],
+          "default": "col-md-4"
+        },
+        {
+          "id": "columnsPosition",
+          "label": "Columns position",
+          "tab": "Settings",
+          "type": "select",
+          "options": [
+            {
+              "label": "Center",
+              "value": "justify-content-center"
+            },
+            {
+              "label": "Justify",
+              "value": "justify-content-between"
+            }
+          ],
+          "default": "justify-content-center"
         }
       ],
       "buttons": [
@@ -236,6 +311,7 @@
           "urlLabel": "Url",
           "textLabel": "Button text",
           "styleLabel": "Link style",
+          "sort": 100,
           "styles": [
             {
               "value": "btn-primary",
@@ -288,6 +364,7 @@
           "urlLabel": "Url",
           "textLabel": "Button text",
           "styleLabel": "Link style",
+          "sort": 101,
           "styles": [
             {
               "value": "btn-primary",
@@ -612,14 +689,6 @@
               "placeholder": "Enter your email"
             },
             {
-              "fieldName": "agree",
-              "fieldId": "agree",
-              "fieldType": "checkbox",
-              "required": true,
-              "labelText": "By checking this checkbox,&nbsp;I'm agree to the Virto Commerce <a href=\"/terms\">Terms</a> and <a href=\"/privacy\">Privacy</a>.",
-              "validationMessage": "Please agree with our terms"
-            },
-            {
               "fieldType": "button",
               "labelText": "Action button"
             }
@@ -672,11 +741,146 @@
       ]
     }
   },
+  "cover-with-image": {
+    "name": "Cover with image",
+    "icon": "image-text",
+    "displayField": "name",
+    "category": "Covers and Hero",
+    "includeShared": [ "cover-items", "notes", "buttons" ],
+    "excludeShared": [ "titleStyle", "titleAlignment", "style" ],
+    "settings": [
+      {
+        "id": "containerImage",
+        "label": "Upload image",
+        "type": "image",
+        "default": {
+          "url": "/assets/pages/video-screen-4.png"
+        },
+        "group": "Container media"
+      },
+      {
+        "id": "imagePosition",
+        "label": "Image position",
+        "type": "select",
+        "tab": "Settings",
+        "options": [
+          {
+            "value": null,
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      }
+    ]
+  },
+  "cover-with-form": {
+    "name": "Cover with form",
+    "icon": "image-text",
+    "displayField": "name",
+    "category": "Covers and Hero",
+    "includeShared": [ "cover-items", "notes", "buttons", "form" ],
+    "excludeShared": [ "titleStyle", "titleAlignment", "style" ],
+    "settings": [
+      {
+        "id": "centerText",
+        "label": "Place text in center",
+        "type": "checkbox",
+        "default": true,
+        "tab": "Settings"
+      },
+      {
+        "id": "formPosition",
+        "label": "Form position",
+        "default": "right",
+        "type": "select",
+        "tab": "Settings",
+        "options": [
+          {
+            "value": null,
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "id": "firstButton",
+        "default": null
+      }
+    ]
+  },
+  "cover-with-simple-text": {
+    "name": "Cover with Simple Text",
+    "icon": "text",
+    "displayField": "name",
+    "category": "Covers and Hero",
+    "includeShared": [ "notes", "cover-items", "buttons" ],
+    "excludeShared": [ "textColumnWidth", "secondColumnWidth", "columnsPosition", "titleAlignment" ],
+    "settings": []
+  },
+  "headline": {
+    "name": "Headline",
+    "icon": "text",
+    "displayField": "name",
+    "category": "Headlines and Forms",
+    "includeShared": [ "notes", "cover-items", "text-width", "buttons" ],
+    "excludeShared": [ "textColumnWidth", "secondColumnWidth", "columnsPosition", "titleAlignment" ],
+    "settings": []
+  },
+  "headline-with-form": {
+    "name": "Headline with form",
+    "icon": "text",
+    "displayField": "name",
+    "category": "Headlines and Forms",
+    "includeShared": [ "notes", "cover-items", "form", "text-width" ],
+    "excludeShared": [ "textColumnWidth", "secondColumnWidth", "columnsPosition", "titleAlignment" ],
+    "settings": [
+      {
+        "id": "formWidth",
+        "label": "Form area width",
+        "type": "select",
+        "default": "col-lg-6",
+        "options": [
+          {
+            "value": "col-lg",
+            "label": "Full width"
+          },
+          {
+            "value": "col-lg-10",
+            "label": "10 cols"
+          },
+          {
+            "value": "col-lg-8",
+            "label": "8 cols"
+          },
+          {
+            "value": "col-lg-6",
+            "label": "6 cols"
+          },
+          {
+            "value": "col-lg-4",
+            "label": "4 cols"
+          },
+          {
+            "value": "col-lg-3",
+            "label": "3 cols"
+          }
+        ],
+        "tab": "Settings",
+        "group": "Main block settings"
+      }
+    ]
+  },
   "text": {
     "name": "Simple text",
     "icon": "text",
     "displayField": "name",
-    "category": "Text",
+    "category": "Paragraphs and Links",
     "settings": [
       {
         "id": "title",
@@ -697,7 +901,7 @@
     "name": "Two columns text",
     "icon": "text",
     "displayField": "name",
-    "category": "Text",
+    "category": "Paragraphs and Links",
     "settings": [
       {
         "id": "title",
@@ -740,46 +944,11 @@
       }
     ]
   },
-  "cover-with-image-and-flexible-title": {
-    "name": "Cover with image and flexible title",
-    "icon": "image-text",
-    "displayField": "name",
-    "category": "Promo",
-    "includeShared": [ "cover-items", "notes", "buttons" ],
-    "excludeShared": [ "titleStyle", "titleAlignment", "style" ],
-    "settings": [
-      {
-        "id": "containerImage",
-        "label": "Upload image",
-        "type": "image",
-        "default": {
-          "url": "/assets/pages/video-screen-4.png"
-        },
-        "group": "Container media"
-      },
-      {
-        "id": "imagePosition",
-        "label": "Image position",
-        "type": "select",
-        "tab": "Settings",
-        "options": [
-          {
-            "value": null,
-            "label": "Left"
-          },
-          {
-            "value": "right",
-            "label": "Right"
-          }
-        ]
-      }
-    ]
-  },
   "logotypes": {
     "name": "Logotypes",
     "icon": "image-text",
     "displayField": "title",
-    "category": "Featured",
+    "category": "Media and Logotypes",
     "includeShared": [],
     "excludeShared": [ "titleAlignment" ],
     "settings": [
@@ -853,11 +1022,11 @@
       }
     ]
   },
-  "features-with-icons-in-columns": {
+  "features-with-icons": {
     "name": "Features with icons in columns",
     "icon": "image-text",
     "displayField": "title",
-    "category": "Featured",
+    "category": "Features and Cards",
     "includeShared": [ "text-width" ],
     "settings": [
       {
@@ -905,11 +1074,11 @@
             "label": "Letters"
           },
           {
-            "value": "images",
+            "value": "customIcon",
             "label": "Custom icon"
           },
           {
-            "value": "customIcon",
+            "value": "images",
             "label": "Image"
           }
         ],
@@ -946,6 +1115,11 @@
             "type": "image",
             "label": "Upload image",
             "group": "Image"
+          },
+          {
+            "id": "content",
+            "label": "Content",
+            "type": "text"
           },
           {
             "id": "button",
@@ -996,72 +1170,64 @@
         ],
         "default": [
           {
-            "title": "Access to customer insights yields competitive advantage",
-            "button": {
-              "url": "",
-              "urlText": "Call to action",
-              "style": "btn-primary"
-            }
+            "title": "Access to customer insights yields competitive advantage"
           },
           {
-            "title": "Access to customer insights yields competitive advantage",
-            "button": {
-              "url": "",
-              "urlText": "Call to action",
-              "style": "btn-primary"
-            }
+            "title": "Access to customer insights yields competitive advantage"
           },
           {
-            "title": "Access to customer insights yields competitive advantage",
-            "button": {
-              "url": "",
-              "urlText": "Call to action",
-              "style": "btn-primary"
-            }
+            "title": "Access to customer insights yields competitive advantage"
           }
         ]
       }
     ]
   },
-  "cover-with-form": {
-    "name": "Cover with form",
+  "call-to-action": {
+    "name": "Call to action",
     "icon": "image-text",
-    "displayField": "name",
-    "category": "Featured",
-    "includeShared": [ "cover-items", "notes", "buttons", "form" ],
-    "excludeShared": [ "titleStyle", "titleAlignment", "style" ],
+    "displayField": "title",
+    "category": "Promotions and CTAs",
+    "includeShared": [ "cover-items", "text-width", "buttons" ],
+    "excludeShared": [ "note", "noteColor" ],
     "settings": [
       {
-        "id": "centerText",
-        "label": "Place text in center",
-        "type": "checkbox",
-        "default": true,
+        "id": "subtitleColor",
+        "label": "Content text color"
+      },
+      {
+        "id": "brandColor",
+        "label": "Brand colour",
+        "type": "color",
+        "default": "gray",
         "tab": "Settings"
       },
       {
-        "id": "formPosition",
-        "label": "Form position",
-        "default": "right",
+        "id": "subtitle",
+        "label": "Content"
+      },
+      {
+        "id": "displayType",
+        "label": "Block display type",
         "type": "select",
-        "tab": "Settings",
+        "default": "logo",
         "options": [
           {
-            "value": null,
-            "label": "Left"
+            "value": "logo",
+            "label": "With logo"
           },
           {
-            "value": "right",
-            "label": "Right"
+            "value": "simple",
+            "label": "Simple"
           }
         ]
       }
     ]
   },
   "buy-now": {
-    "name": "Buy now (live)",
+    "name": "Product details (live)",
     "icon": "text",
     "displayField": "name",
-    "category": "Promo",
+    "category": "Queries and Others",
     "excludeShared": [ "titleAlignment" ],
     "settings": [
       {
@@ -1134,10 +1300,10 @@
     ]
   },
   "buy-now-search": {
-    "name": "Buy now (in page)",
+    "name": "Product detail",
     "icon": "text",
     "displayField": "name",
-    "category": "Promo",
+    "category": "Queries and Others",
     "excludeShared": [ "titleAlignment" ],
     "settings": [
       {
@@ -1205,6 +1371,21 @@
         "label": "Button text",
         "type": "string",
         "default": "Buy now!"
+      },
+      {
+        "id": "buttonType",
+        "label": "Button action",
+        "type": "select",
+        "options": [
+          {
+            "label": "Add to cart",
+            "value": "cart"
+          },
+          {
+            "label": "Go to product page",
+            "value": "link"
+          }
+        ]
       }
     ]
   },
@@ -1212,7 +1393,7 @@
     "name": "Product tiles",
     "icon": "text",
     "displayField": "name",
-    "category": "Promo",
+    "category": "Queries and Others",
     "settings": [
       {
         "id": "title",
@@ -1253,91 +1434,6 @@
         "label": "SKU for exclude",
         "type": "string",
         "multiline": true
-      }
-    ]
-  },
-  "call-to-action": {
-    "name": "Call to action",
-    "icon": "image-text",
-    "displayField": "title",
-    "category": "Featured",
-    "includeShared": [ "cover-items", "text-width", "buttons" ],
-    "excludeShared": [ "note", "noteColor" ],
-    "settings": [
-      {
-        "id": "subtitleColor",
-        "label": "Content text color"
-      },
-      {
-        "id": "brandColor",
-        "label": "Brand colour",
-        "type": "color",
-        "default": "gray",
-        "tab": "Settings"
-      },
-      {
-        "id": "subtitle",
-        "label": "Content"
-      },
-      {
-        "id": "displayType",
-        "label": "Block display type",
-        "type": "select",
-        "default": "logo",
-        "options": [
-          {
-            "value": "logo",
-            "label": "With logo"
-          },
-          {
-            "value": "simple",
-            "label": "Simple"
-          }
-        ]
-      }
-    ]
-  },
-  "headline": {
-    "name": "Headline",
-    "icon": "text",
-    "displayField": "name",
-    "category": "Text",
-    "includeShared": [ "notes", "cover-items", "form", "text-width", "buttons" ],
-    "excludeShared": [],
-    "settings": [
-      {
-        "id": "formWidth",
-        "label": "Form area width",
-        "type": "select",
-        "default": "col-lg-6",
-        "options": [
-          {
-            "value": "col-lg",
-            "label": "Full width"
-          },
-          {
-            "value": "col-lg-10",
-            "label": "10 cols"
-          },
-          {
-            "value": "col-lg-8",
-            "label": "8 cols"
-          },
-          {
-            "value": "col-lg-6",
-            "label": "6 cols"
-          },
-          {
-            "value": "col-lg-4",
-            "label": "4 cols"
-          },
-          {
-            "value": "col-lg-3",
-            "label": "3 cols"
-          }
-        ],
-        "tab": "Settings",
-        "group": "Main block settings"
       }
     ]
   }

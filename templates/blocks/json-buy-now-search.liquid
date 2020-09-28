@@ -32,7 +32,14 @@
             <span>{{ 'products.general.add_to_cart' | t }}</span>
           </button>-->
           {% if block.buttonText %}
+          {% if block.buttonType == 'cart' %}
+            <button class="app-add-item-to-cart btn" title="{{ block.buttonText }}" product-id="{{block.product.id}}" text-visible="">
+              <i class="fas fa-shopping-cart"></i>
+              <span>{{ block.buttonText }}</span>
+            </button>
+          {% else %}
           <a class="btn btn-primary" target="_blank" href="{{ product.url }}">{{ block.buttonText }}</a>
+          {% endif %}
           {% endif %}
         </div>
       </div>

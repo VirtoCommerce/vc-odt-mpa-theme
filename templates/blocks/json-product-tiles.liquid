@@ -16,18 +16,13 @@
 
             {% if category.products.empty? == false %}
 
-            {% assign count = category.products.size %}
-            {% if block.count and block.count > 0 %}
-            {% assign count = block.count %}
-            {% endif %}
-
             {% comment %}dump way{% endcomment %}
             {% assign p = category.products %}
             {% for sku in skus %}
             {% assign p = p | where: 'Sku', '!=', sku %}
             {% endfor %}
 
-            {% for product in p limit:count %}
+            {% for product in p %}
 
                 {% assign grid_item_width = 'col-xl-3 col-lg-4 col-md-6 col-sm-6 product-card' %}
                 {% include 'product-grid-item' %}
