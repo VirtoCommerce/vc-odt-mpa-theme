@@ -1,15 +1,13 @@
 {% include 'blocks/helpers/cover-style' %}
-
 <div id="{{ block.__id }}" style="position: relative;">
     <div class="{% include 'blocks/helpers/block-paddings' %} block block-cover"
         {% if block.background != '' and block.background.url != '' %} style="background-image: url({{ block.background.url }})" {% endif %}>
+
         <div class="container cover-container">
-            <div class="d-flex row {{ block.columnsPosition }}
-                {% if block.formPosition == 'right' %} flex-row-reverse {% endif %}" style="min-height: 550px;">
-              <div class="align-self-center {{ block.secondColumnWidth }}">
-                {% include 'blocks/form/form' %}
-              </div>
-              {% include 'blocks/helpers/cover-text' %}
+            <div class="d-flex justify-content-center" style="min-height: 550px;">
+                <div class="align-self-center text-center {{ block.textAreaWidth }}">
+                    {% include 'blocks/helpers/cover-text' %}
+                </div>
             </div>
         </div>
     </div>
@@ -24,7 +22,6 @@ headerType: [ h1, h2, h3, like-h1, like-h2, like-h3 ]
 noTop: bool
 noBottom: bool
 
-formPosition: string (null, right)
 formId: string
 formName: string
 formSubmitRedirectUrl: string
@@ -57,3 +54,4 @@ firstButton: object (url, text, style [ bootstrap buttons styles ], openInNewTab
 secondButton: object (url, text, style [ bootstrap buttons styles ], openInNewTab [True, False]),
 
 {% endcomment %}
+

@@ -1,7 +1,7 @@
 {% if item.fieldType == 'hidden' %}
     <input type="text" {% if item.fieldId != '' %} id="{{item.fieldId}}" {% endif %} name="{{item.fieldName}}" value="{{item.fieldValue}}" style="display:none" />
 {% else %}
-    <div class="form-group">
+    <div class="form-group" {% if block.type == 'headline-with-form' and item.fieldType == 'button' %} style="text-align: center;" {% endif %}>
         {% assign showTitle = block.showFormLabels == 'True' and item.fieldType != 'checkbox' and item.fieldType != 'radio' and item.fieldType != 'button' %}
         {% if showTitle %}
             <label class="form-label" {% if item.fieldId != '' %} for="{{item.fieldId}}" {% endif %}>{{item.labelText}}</label>

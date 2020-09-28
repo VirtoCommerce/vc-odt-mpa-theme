@@ -38,3 +38,19 @@
   background-position: 50% 25%;
   background-size: cover;
 }
+
+.list-image {
+  background-position: 50%;
+  background-size: cover;
+  height: 10rem;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.list-icon {
+  display: block;
+  margin-bottom: 1.25rem;
+  height: 3.125rem;
+  max-width: 3.125rem;
+}

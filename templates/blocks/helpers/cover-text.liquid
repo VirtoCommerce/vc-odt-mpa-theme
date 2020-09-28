@@ -1,4 +1,4 @@
-<div class="px-5 {% if block.centerText == 'True' %} align-self-center {% endif %}">
+<div class="px-5 align-self-center {{ block.textColumnWidth }}">
     {% if block.note %}
         <div class="text-muted h4" {% if block.noteColor != '' %} style="color: {{block.noteColor}};" {% endif %}>{{ block.note }}</div>
     {% endif %}
