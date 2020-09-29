@@ -1,5 +1,6 @@
 {% if is_preview_mode != true and catalog_script_rendered != true %}
 {% assign catalog_script_rendered = true %}
+<div id="app-cart-sidebar"></div>
 <script src="{{ 'bundle/dist/js/catalog.js' | static_asset_url | append_version }}"></script>
 {% endif %}
 
