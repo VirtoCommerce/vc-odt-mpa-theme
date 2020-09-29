@@ -10,27 +10,32 @@
       {% if block.categoryId %}
       <div>
         <div class="row">
-            {% assign category = collections | where: 'Id', '==', block.categoryId | first %}
+          {% assign category = collections | where: 'Id', '==', block.categoryId | first %}
 
-            {% assign skus = block.excludes | split: '\n' %}
+          {% assign skus = block.excludes | split: '\n' %}
 
-            {% if category.products.empty? == false %}
+          {% if category.products.empty? == false %}
 
-            {% comment %}dump way{% endcomment %}
-            {% assign p = category.products %}
-            {% for sku in skus %}
-            {% assign p = p | where: 'Sku', '!=', sku %}
-            {% endfor %}
+          {% comment %}dump way{% endcomment %}
+          {% assign p = category.products %}
+          {% for sku in skus %}
+          {% assign p = p | where: 'Sku', '!=', sku %}
+          {% endfor %}
 
-            {% for product in p %}
+          {% assign count = category.products.size %}
+          {% if block.count and block.count > 0 %}
+          {% assign count = block.count %}
+          {% endif %}
 
-                {% assign grid_item_width = 'col-xl-3 col-lg-4 col-md-6 col-sm-6 product-card' %}
-                {% include 'product-grid-item' %}
+          {% for product in p limit:count %}
 
-            {% endfor %}
+          {% assign grid_item_width = 'col-xl-3 col-lg-4 col-md-6 col-sm-6 product-card' %}
+          {% include 'product-grid-item' %}
 
-            {% else %}
-            <p class="col-12">{{ 'search.no_results' | t }}</p>
+          {% endfor %}
+
+          {% else %}
+          <p class="col-12">{{ 'search.no_results' | t }}</p>
             {% endif %}
         </div>
       </div>
