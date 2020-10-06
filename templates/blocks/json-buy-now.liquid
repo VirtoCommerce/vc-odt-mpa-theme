@@ -1,3 +1,19 @@
+{% assign display_block = true %}
+{% assign request = request_url | format:null %}
+
+{% if block.utmString != '' %}
+  {% assign display_block = request contains block.utmString %}
+  {% if block.utmNegotiate == 'True' %}
+    {% comment %} i couldn't find a negotiate operator {% endcomment %}
+    {% if display_block %}
+      {% assign display_block = false %}
+    {% else %}
+      {% assign display_block = true %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% if display_block or is_preview_mode %}
 <div id="{{ block.__id }}" style="position: relative;" class="{{ block.style }}">
   <div class="{% include 'blocks/helpers/block-paddings' %} block container">
     {% assign product = block.product %}
@@ -55,6 +71,8 @@
     {% endif %}
   </div>
 </div>
+
+{% endif %}
 
 {% include 'blocks/helpers/catalog-script' %}
 
