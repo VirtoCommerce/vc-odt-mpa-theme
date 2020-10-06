@@ -738,6 +738,24 @@
           "tab": "Settings",
           "group": "Main block settings"
         }
+      ],
+      "utm-marks": [
+        {
+          "id": "utmString",
+          "label": "UTM expression",
+          "type": "string",
+          "default": null,
+          "tab": "Settings",
+          "sort": 35
+        },
+        {
+          "id": "utmNegotiate",
+          "label": "Negotiate UTM",
+          "type": "checkbox",
+          "default": false,
+          "tab": "Settings",
+          "sort": 36
+        }
       ]
     }
   },
@@ -1228,6 +1246,7 @@
     "icon": "text",
     "displayField": "name",
     "category": "Queries and Others",
+    "includeShared": [ "utm-marks" ],
     "excludeShared": [ "titleAlignment" ],
     "settings": [
       {
@@ -1304,6 +1323,7 @@
     "icon": "text",
     "displayField": "name",
     "category": "Queries and Others",
+    "includeShared": [ "utm-marks" ],
     "excludeShared": [ "titleAlignment" ],
     "settings": [
       {
@@ -1394,6 +1414,7 @@
     "icon": "text",
     "displayField": "name",
     "category": "Queries and Others",
+    "includeShared": [ "utm-marks" ],
     "settings": [
       {
         "id": "title",
