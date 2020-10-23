@@ -4,8 +4,8 @@
         {% if block.background != '' and block.background.url != '' %} style="background-image: url({{ block.background.url }})" {% endif %}>
 
         <div class="container cover-container">
-            <div class="d-flex flex-column align-items-center">
-                <div class="text-center {{ block.textAreaWidth }}">
+            <div class="d-flex flex-column align-items-center row">
+                <div class="text-center align-self-center {{ block.textAreaWidth }}">
                     {% include 'blocks/helpers/cover-text' %}
                 </div>
             </div>

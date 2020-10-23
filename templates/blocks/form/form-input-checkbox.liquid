@@ -3,4 +3,4 @@
     {% if item.fieldName != '' %} name="{{item.fieldName}}" {% endif %}
     {% include 'blocks/form/input-validation-attributes' inputItem: item %}
  />
-<label class="form-check-label" {% if item.fieldId != '' %} for="{{item.fieldId}}" {% endif %}>{{item.labelText}}</label>
+<label {% if block.subtitleColor %} style="color: {{block.subtitleColor}};" {% endif %} class="form-check-label" {% if item.fieldId != '' %} for="{{item.fieldId}}" {% endif %}>{{item.labelText}}</label>

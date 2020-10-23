@@ -1,33 +1,41 @@
-<div id="{{ block.__id }}" style="position: relative;" class="{{ block.style }}">
-  <div class="{% include 'blocks/helpers/block-paddings' %} block">
-    <div class="container">
-        <div class="row px-5 justify-content-center">
-            {% include 'blocks/helpers/block-title' %}
-        </div>
-        <div class="row px-5 justify-content-center">
-            <div class="text-center {{block.textAreaWidth}}">
-                
-                {% if block.content %}
-                    {{ block.content }}
+{% include 'blocks/helpers/color-style' %}
+
+<div id="{{ block.__id }}" style="position: relative;">
+    <div class="{% include 'blocks/helpers/block-paddings' %} block">
+        <div class="container">
+            <div class="px-5">
+                <div class="d-flex flex-column align-items-center row">
+                    <div class="text-center align-self-center {{ block.textAreaWidth }}">
+                      {% include 'blocks/helpers/block-title' %}
+                    </div>
+                </div>
+                {% if block.subtitle %}
+                    <div class="d-flex flex-column align-items-center row">
+                        <div class="text-center text-container align-self-center {{ block.textAreaWidth }}">
+                            {{ block.subtitle }}
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if block.logotypes.size > 0 %}
+                    <div class="d-flex flex-column align-items-center row">
+                        <div class="d-flex flex-row justify-content-between align-self-center {{ block.textAreaWidth }}">
+                            {% for logotype in block.logotypes %}
+                                <div>
+                                    {% if logotype.url != '' %}
+                                        <a href="{{logotype.url}}" {% if logotype.openInNewTab == 'True' %}target="_blank"{% endif %}>
+                                            <img src="{{ logotype.image.url }}" title="{{logotype.image.altText}}" class="img-fluid" />
+                                        </a>
+                                    {% else %}
+                                        <img src="{{ logotype.image.url }}" title="{{logotype.image.altText}}" class="img-fluid" />
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
                 {% endif %}
             </div>
         </div>
-
-        {% if block.logotypes.size > 0 %}
-            <div class="row justify-content-center">
-                {% for logotype in block.logotypes %}
-                    <div class="col-3">
-                        {% if logotype.url != '' %}
-                            <a href="{{logotype.url}}" {% if logotype.openInNewTab == 'True' %}target="_blank"{% endif %}>
-                                <img src="{{ logotype.image.url }}" title="{{logotype.image.altText}}" class="img-fluid" />
-                            </a>
-                        {% else %}
-                            <img src="{{ logotype.image.url }}" title="{{logotype.image.altText}}" class="img-fluid" />
-                        {% endif %}
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
     </div>
 </div>
 
