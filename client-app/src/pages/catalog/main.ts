@@ -22,6 +22,7 @@ const addToCartElements = document.getElementsByClassName("app-add-item-to-cart"
 
 for(const addToCartEl of addToCartElements){
   const productId = addToCartEl.attributes.getNamedItem("product-id")!.value
+  const giftId = addToCartEl.attributes.getNamedItem("gift-id")?.value;
   const textVisible = !!addToCartEl.attributes.getNamedItem("text-visible");
   new Vue({
     i18n,
@@ -30,6 +31,7 @@ for(const addToCartEl of addToCartElements){
       return h(AddToCartButton, {
         props: {
           productId: productId,
+          giftId: giftId,
           textVisible: textVisible
         }
       })
