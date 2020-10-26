@@ -103,7 +103,7 @@
           "id": "backgroundColor",
           "label": "Background color",
           "type": "color",
-          "default": "",
+          "default": null,
           "sort": 270,
           "tab": "Settings",
           "group": "Background"
@@ -679,7 +679,7 @@
           "id": "backgroundColor",
           "label": "Background color",
           "type": "color",
-          "default": "#efefef",
+          "default": null,
           "sort": 270,
           "tab": "Settings",
           "group": "Background"
@@ -942,6 +942,9 @@
     "category": "Paragraphs and Links",
     "includeShared": [ "text-width", "margins", "colors" ],
     "excludeShared": [],
+    "default": {
+      "backgroundColor": "#efefef" 
+    },
     "settings": [
       {
         "id": "title",
@@ -966,7 +969,6 @@
     "includeShared": [ "text-width", "margins", "colors" ],
     "excludeShared": [],
     "default": {
-      "backgroundColor": "#efefef",
       "titleColor": "#000000",
       "contentColor": "#767676"
     },
@@ -1049,6 +1051,9 @@
     "displayField": "title",
     "category": "Features and Cards",
     "includeShared": [ "text-width", "colors", "margins" ],
+    "default": {
+      "backgroundColor": "#efefef"
+    },
     "settings": [
       {
         "id": "title",
@@ -1285,7 +1290,7 @@
         "default": {
           "id": "9cbd8f316e254a679ba34a900fccb076",
           "name": "3DR Solo Quadcopter (No Gimbal)",
-          "imgSrc": "/assets/catalog/3DRSOLO/1428965138000_1133723.jpg",
+          "imgSrc": "/assets/blocks/1428965138000_1133723.jpg",
           "description": "<ul class=\"top-section-list\">&#10;<li class=\"top-section-list-item\">Capture Aerial Photos/Video with a GoPro</li>&#10;<li class=\"top-section-list-item\">Linear Tracking with Cablecam Mode</li>&#10;<li class=\"top-section-list-item\">Follow Me: Tracks Your Mobile Device</li>&#10;<li class=\"top-section-list-item\">HDMI Output on Transmitter</li>&#10;<li class=\"top-section-list-item\">Android and iOS Mobile Apps</li>&#10;<li class=\"top-section-list-item\">Video Game-Style Controls</li>&#10;<li class=\"top-section-list-item\">Return Home and &#34;Safety Net&#34; Modes</li>&#10;<li class=\"top-section-list-item\">One-Button Flying / &#34;Pause&#34; Button</li>&#10;<li class=\"top-section-list-item\">Operate GoPro Through App</li>&#10;<li class=\"top-section-list-item\">Works with Optional Solo Gimbal</li>&#10;</ul>",
           "price": "$995.99",
           "url": "3dr-solo-quadcopter-no-gimbal",
