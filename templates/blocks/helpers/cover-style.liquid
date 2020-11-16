@@ -1,12 +1,10 @@
 <style>
-
+  {%- if block.backgroundColor != '' %}
     #{{ block.__id }} {
-      {% if block.backgroundColor %}
         background-color: {{ block.backgroundColor }};
-      {% endif %}
     }
-
-  {% if block.overlayColor %}
+  {% endif %}
+  {%- if block.overlayColor != '' %}
     #{{block.__id}} > .block:after {
       content: ' ';
       background-color: {{ block.overlayColor }};
@@ -23,19 +21,19 @@
     }
   {% endif %}
 
-  {% if block.subtitleColor %}
+  {%- if block.subtitleColor != '' %}
     #{{block.__id}} .subtitle-container, #{{block.__id}} .subtitle-container > * {
       color: {{block.subtitleColor}};    
     }
   {% endif %}
 
-  {% if block.noteColor %}
+  {%- if block.noteColor != '' %}
     #{{block.__id}} .text-muted {
       color: {{block.noteColor}} !important;
     }
   {% endif %}
 
-  {% if block.titleColor %}
+  {%- if block.titleColor != '' %}
     #{{block.__id}} h1, #{{block.__id}} h2, #{{block.__id}} h3, #{{block.__id}} .like-h1, #{{block.__id}} .like-h2, #{{block.__id}} .like-h3 {
       color: {{block.titleColor}};
     }

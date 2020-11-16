@@ -5,13 +5,13 @@
       {% endif %}
     }
 
-  {% if block.contentColor %}
+  {%- if block.contentColor %}
     #{{block.__id}} .text-container {
       color: {{block.contentColor}} !important;
     }
   {% endif %}
 
-  {% if block.titleColor %}
+  {%- if block.titleColor %}
     #{{block.__id}} h1, #{{block.__id}} h2, #{{block.__id}} h3, #{{block.__id}} .like-h1, #{{block.__id}} .like-h2, #{{block.__id}} .like-h3 {
       color: {{block.titleColor}};
     }

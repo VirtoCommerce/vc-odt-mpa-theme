@@ -871,6 +871,375 @@
       }
     ]
   },
+  "cover-with-variations": {
+    "name": "Cover with variations",
+    "icon": "text",
+    "displayField": "name",
+    "category": "Covers and Hero",
+    "excludeShared": [ "headerType" ],
+    "settings": [
+      {
+        "id": "previewValue",
+        "label": "Preview value",
+        "type": "string"
+      },
+      {
+        "id": "criteria",
+        "label": "Criteria",
+        "type": "select",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "url",
+            "label": "URL parameter"
+          },
+          {
+            "value": "userGroup",
+            "label": "User group"
+          },
+          {
+            "value": "ab",
+            "label": "A/B"
+          }
+        ]
+      },
+      {
+        "id": "variations",
+        "label": "Variations",
+        "type": "list",
+        "default": [
+          {
+            "hideOnMatch": false,
+            "title": "Bring your ideas to life",
+            "subtitle": "Anything you dream about is possible to realise just at the moment when you decide to win",
+            "image": {
+              "url": "/assets/blocks/portfolio-woocommerce.png"
+            },
+            "backgroundImage": {
+              "url": "/assets/blocks/cover-with-image-background.jpg"
+            }
+          }
+        ],
+        "element": [
+          {
+            "id": "criteriaValue",
+            "label": "Criteria value",
+            "type": "string"
+          },
+          {
+            "id": "title",
+            "label": "Title",
+            "type": "string"
+          },
+          {
+            "id": "subtitle",
+            "label": "Subtitle",
+            "type": "string"
+          },
+          {
+            "id": "note",
+            "label": "Note",
+            "type": "string"
+          },
+          {
+            "id": "image",
+            "label": "Side Image",
+            "type": "image"
+          },
+          {
+            "id": "backgroundImage",
+            "label": "Background Image",
+            "type": "image"
+          },
+          {
+            "id": "firstButton",
+            "label": "First button",
+            "type": "url",
+            "urlLabel": "Url",
+            "textLabel": "Button text",
+            "styleLabel": "Link style",
+            "styles": [
+              {
+                "value": "btn-primary",
+                "label": "Primary button"
+              },
+              {
+                "value": "btn-secondary",
+                "label": "Secondary button"
+              },
+              {
+                "value": "btn-success",
+                "label": "Success button"
+              },
+              {
+                "value": "btn-danger",
+                "label": "Danger button"
+              },
+              {
+                "value": "btn-warning",
+                "label": "Warning button"
+              },
+              {
+                "value": "btn-info",
+                "label": "Info button"
+              },
+              {
+                "value": "btn-light",
+                "label": "Light button"
+              },
+              {
+                "value": "btn-dark",
+                "label": "Dark button"
+              },
+              {
+                "value": "btn-link",
+                "label": "Link button"
+              }
+            ]
+          },
+          {
+            "id": "secondButton",
+            "label": "Second button",
+            "type": "url",
+            "urlLabel": "Url",
+            "textLabel": "Button text",
+            "styleLabel": "Link style",
+            "styles": [
+              {
+                "value": "btn-primary",
+                "label": "Primary button"
+              },
+              {
+                "value": "btn-secondary",
+                "label": "Secondary button"
+              },
+              {
+                "value": "btn-success",
+                "label": "Success button"
+              },
+              {
+                "value": "btn-danger",
+                "label": "Danger button"
+              },
+              {
+                "value": "btn-warning",
+                "label": "Warning button"
+              },
+              {
+                "value": "btn-info",
+                "label": "Info button"
+              },
+              {
+                "value": "btn-light",
+                "label": "Light button"
+              },
+              {
+                "value": "btn-dark",
+                "label": "Dark button"
+              },
+              {
+                "value": "btn-link",
+                "label": "Link button"
+              }
+            ]
+          },
+          {
+            "id": "settingsIndex",
+            "label": "Settings index",
+            "type": "number",
+            "default": 0
+          }
+        ]
+      },
+      {
+        "id": "settings",
+        "label": "Settings",
+        "tab": "Settings",
+        "type": "list",
+        "element": [
+          {
+            "id": "imagePosition",
+            "label": "Image position",
+            "type": "select",
+            "default": "right",
+            "options": [
+              {
+                "value": null,
+                "label": "Left"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "id": "textWidth",
+            "label": "Text container width",
+            "type": "select",
+            "options": [
+              {
+                "label": "3 cols",
+                "value": "col-md-3"
+              },
+              {
+                "label": "4 cols",
+                "value": "col-md-4"
+              },
+              {
+                "label": "5 cols",
+                "value": "col-md-5"
+              },
+              {
+                "label": "6 cols",
+                "value": "col-md-6"
+              },
+              {
+                "label": "7 cols",
+                "value": "col-md-7"
+              },
+              {
+                "label": "8 cols",
+                "value": "col-md-8"
+              },
+              {
+                "label": "Fluid",
+                "value": "col"
+              }
+            ]
+          },
+          {
+            "id": "imageWidth",
+            "label": "Side image width",
+            "type": "select",
+            "options": [
+              {
+                "label": "3 cols",
+                "value": "col-md-3"
+              },
+              {
+                "label": "4 cols",
+                "value": "col-md-4"
+              },
+              {
+                "label": "5 cols",
+                "value": "col-md-5"
+              },
+              {
+                "label": "6 cols",
+                "value": "col-md-6"
+              },
+              {
+                "label": "7 cols",
+                "value": "col-md-7"
+              },
+              {
+                "label": "8 cols",
+                "value": "col-md-8"
+              },
+              {
+                "label": "Fluid",
+                "value": "col"
+              }
+            ]
+          },
+          {
+            "id": "headerType",
+            "label": "Title SEO Tag",
+            "type": "select",
+            "options": [
+              {
+                "value": "h1",
+                "label": "H1"
+              },
+              {
+                "value": "h2",
+                "label": "H2"
+              },
+              {
+                "value": "h3",
+                "label": "H3"
+              },
+              {
+                "value": "h4",
+                "label": "H4"
+              },
+              {
+                "value": "h5",
+                "label": "H5"
+              },
+              {
+                "value": "h6",
+                "label": "H6"
+              },
+              {
+                "value": "like-h1",
+                "label": "Like H1"
+              },
+              {
+                "value": "like-h2",
+                "label": "Like H2"
+              },
+              {
+                "value": "like-h3",
+                "label": "Like H3"
+              },
+              {
+                "value": "like-h4",
+                "label": "Like H4"
+              },
+              {
+                "value": "like-h5",
+                "label": "Like H5"
+              },
+              {
+                "value": "like-h6",
+                "label": "Like H6"
+              }
+            ]
+          },
+          {
+            "id": "titleColor",
+            "label": "Title color",
+            "type": "color"
+          },
+          {
+            "id": "subtitleColor",
+            "label": "Subtitle color",
+            "type": "color"
+          },
+          {
+            "id": "noteColor",
+            "label": "Note color",
+            "type": "color"
+          },
+          {
+            "id": "backgroundColor",
+            "label": "Background color",
+            "type": "color"
+          },
+          {
+            "id": "overlayColor",
+            "label": "Overlay background color",
+            "type": "color"
+          }
+        ],
+        "default": [
+          {
+            "imagePosition": "right",
+            "textWidth": "col",
+            "imageWidth": "col-md-6",
+            "headerType": "like-h1",
+            "titleColor": "#000000",
+            "subtitleColor": "#737373"
+          }
+        ]
+      }
+    ]
+  },
   "headline": {
     "name": "Headline with simple text",
     "icon": "text",
@@ -943,7 +1312,7 @@
     "includeShared": [ "text-width", "margins", "colors" ],
     "excludeShared": [],
     "default": {
-      "backgroundColor": "#efefef" 
+      "backgroundColor": "#efefef"
     },
     "settings": [
       {
@@ -1276,9 +1645,9 @@
     "includeShared": [ "utm-marks", "margins", "colors" ],
     "excludeShared": [],
     "default": {
-        "headerType": "like-h3",
-        "titleColor": "#000000",
-        "contentColor": "#767676"
+      "headerType": "like-h3",
+      "titleColor": "#000000",
+      "contentColor": "#767676"
     },
     "settings": [
       {
