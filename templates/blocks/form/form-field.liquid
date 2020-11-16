@@ -4,7 +4,7 @@
     <div class="form-group" {% if block.type == 'headline-with-form' and item.fieldType == 'button' %} style="text-align: center;" {% endif %}>
         {% assign showTitle = block.showFormLabels == 'True' and item.fieldType != 'checkbox' and item.fieldType != 'radio' and item.fieldType != 'button' %}
         {% if showTitle %}
-            <label class="form-label" {% if item.fieldId != '' %} for="{{item.fieldId}}" {% endif %}>{{item.labelText}}</label>
+            <label {% if block.subtitleColor %} style="color: {{block.subtitleColor}};" {% endif %} class="form-label" {% if item.fieldId != '' %} for="{{item.fieldId}}" {% endif %}>{{item.labelText}}</label>
         {% endif %}
 
         {% if item.fieldType != '' %}

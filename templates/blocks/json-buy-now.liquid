@@ -1,7 +1,7 @@
 {% assign display_block = true %}
 {% assign request = request_url | format:null %}
 
-{% if block.utmString != '' %}
+{% if block.utmString and block.utmString != '' %}
   {% assign display_block = request contains block.utmString %}
   {% if block.utmNegotiate == 'True' %}
     {% comment %} i couldn't find a negotiate operator {% endcomment %}
@@ -14,6 +14,9 @@
 {% endif %}
 
 {% if display_block or is_preview_mode %}
+
+{% include 'blocks/helpers/color-style' %}
+
 <div id="{{ block.__id }}" style="position: relative;" class="{{ block.style }}">
   <div class="{% include 'blocks/helpers/block-paddings' %} block container">
     {% assign product = block.product %}
@@ -21,46 +24,40 @@
       {% include 'blocks/helpers/block-title' givenTitle: product.name %}
     </div>
     {% if product %}
-      {% if block.price %}
+      {% if block.hidePrice != 'True' %}
         <div class="px-5 py-3">
           <div class="d-flex flex-column price-block">
             <span class="d-flex">
               <strong class="font-weight-bold h5 basic-price align-self-center product-price">
-                <span>{{ block.price }}</span>
+                <span>{{ product.price }}</span>
               </strong>
             </span>
           </div>
-
         </div>
       {% endif %}
     <div class="px-5 row {% if block.reverse == 'True' %} flex-row-reverse {% endif %}">
       <div class="col">
-        {% assign featured_image = product.imgSrc %}
-        <img class="img-fluid" src="{{ featured_image | img_url }}" />
+        <img class="img-fluid" src="{{ product.imgSrc | img_url }}" />
       </div>
       <div class="col">        
-        <div class="py-3">
+        <div class="text-container py-3">
           {% if block.description != '' %}
           {{ block.description }}
           {% else %}
-          {{ product.content }}
+          {{ product.description }}
           {% endif %}
         </div>
-        <div class="btn-group">
-          <!--<button class="app-add-item-to-cart btn" title="{{ 'products.general.add_to_cart' | t }}" product-id="{{product.id}}" text-visible="">
-            <i class="fas fa-shopping-cart"></i>
-            <span>{{ 'products.general.add_to_cart' | t }}</span>
-          </button>-->
-          {% if block.buttonText %}
-            {% if block.buttonType == 'cart' %}
-            <button class="app-add-item-to-cart btn btn-primary" title="{{ block.buttonText }}" product-id="{{block.product.id}}" text-visible="">
-              <i class="fas fa-shopping-cart"></i>
-              <span>{{ block.buttonText }}</span>
-            </button>
+        <div class="product-action-buttons">
+          <div class="btn-group">
+            {% if block.buttonAction == 'add' %}
+              <button class="app-add-item-to-cart btn btn-primary" title="{{ block.buttonText }}" product-id="{{block.product.id}}" {% if block.giftProduct %} gift-id="{{ block.giftProduct.id }}" {% endif %} text-visible="">
+                <i class="fas fa-shopping-cart"></i>
+                <span>{{ block.buttonText }}</span>
+              </button>
             {% else %}
-            <a class="btn btn-primary" target="_blank" href="{{ product.url }}">{{ block.buttonText }}</a>
+              <a class="btn btn-primary" target="_blank" href="/{% if product.url %}{{ product.url }}{% else %}product/{{product.id}}{% endif %}">{{ block.buttonText }}</a>
             {% endif %}
-          {% endif %}
+          </div>
         </div>
       </div>
     </div>

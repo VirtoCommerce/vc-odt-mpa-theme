@@ -15,6 +15,9 @@ export default class AddToCartButton extends Vue {
   productId!: string;
 
   @Prop()
+  giftId!: string;
+
+  @Prop()
   textVisible!: boolean;
 
   @cartModule.Action(ADD_ITEM_TO_CART)
@@ -31,6 +34,12 @@ export default class AddToCartButton extends Vue {
     addItem.productId = this.productId;
     addItem.quantity = 1;
     this.addItemToCart(addItem);
+    if (this.giftId) {
+      const giftItem = new AddCartItem();
+      giftItem.productId = this.giftId;
+      giftItem.quantity = 1;
+      this.addItemToCart(giftItem);
+    }
     this.showCartSidebar();
   }
 

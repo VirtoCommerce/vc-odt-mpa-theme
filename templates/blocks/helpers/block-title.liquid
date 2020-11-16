@@ -17,11 +17,11 @@
   {% elsif block.headerType == 'h3' %}
     <h3 {{ classClause }}">{{ givenTitle }}</h3>
   {% elsif block.headerType == 'like-h1' %}
-    <div class="h1 {{ titleStyle }}">{{ givenTitle }}</div>
+    <div class="h1 like-h1 {{ titleStyle }}">{{ givenTitle }}</div>
   {% elsif block.headerType == 'like-h3' %}
-    <div class="h3 {{ titleStyle }}">{{ givenTitle }}</div>
+    <div class="h3 like-h3 {{ titleStyle }}">{{ givenTitle }}</div>
   {% else %}
-    <div class="h2 {{ titleStyle }}">{{ givenTitle }}</div>
+    <div class="h2 like-h2 {{ titleStyle }}">{{ givenTitle }}</div>
   {% endif %}
 {% endif %}
 {% assign givenTitle = null %}

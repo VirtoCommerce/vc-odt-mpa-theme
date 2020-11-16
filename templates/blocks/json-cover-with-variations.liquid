@@ -1,0 +1,105 @@
+{%- assign currentVariant = null %}
+{%- if is_preview_mode %}
+    {%- for variant in block.variations %}
+        {%- if variant.criteriaValue != "" and block.previewValue == variant.criteriaValue %}
+            {%- assign currentVariant = variant %}
+        {%- endif %}
+    {%- endfor %}
+{%- else %}
+    {%- if block.criteria == 'ab' %}
+        {%- assign cookieName = 'ab_'|append:block.__id %}
+        {%- assign ab_value = null %}
+        {%- for cookie in cookies %}
+            {%- if cookie.key == cookieName %}
+                {%- assign ab_value = cookie.value | strip %}
+            {%- endif %}
+        {%- endfor %}
+        {%- if ab_value == null %}
+            {%- assign variants_numbers = block.variations | size %}
+            {%- assign rnd = storefront_utc_now.millisecond %}
+            {%- assign new_index = rnd|modulo:variants_numbers %}
+            {%- assign ab_value = block.variations[new_index].criteriaValue %}
+            <script>
+                document.cookie = "{{cookieName}}={{ ab_value }}";
+            </script>
+        {%- endif %}
+    {%- endif %}
+    {%- for variant in block.variations %}
+        {%- if block.criteria == 'url' %}
+            {%- if request_url contains variant.criteriaValue.value  %}
+                {%- assign currentVariant = variant %}
+            {%- endif %}
+        {%- elsif block.criteria == 'userGroup' and current_user and current_user.contact %}
+            {%- if current_user.contact.user_groups contains variant.criteriaValue.value %}
+                {%- assign currentVariant = variant %}
+            {%- endif %}
+        {%- elsif block.criteria == 'ab' %}
+            {%- if variant.criteriaValue.value == ab_value %}
+                {%- assign currentVariant = variant %}
+            {%- endif %}
+        {%- endif %}
+    {%- endfor %}
+{%- endif %}
+{%- assign variations_size = block.variations | size %}
+{%- if currentVariant == null and variations_size > 0 %}
+    {%- assign currentVariant = block.variations[0] %}
+{%- endif %}
+{%- unless currentVariant == null %}
+    {%- assign currentSettings = block.settings[currentVariant.settingsIndex.value] %}
+    {%- if currentSettings == empty and block.settings.length > 0 %}
+        {%- assign currentSettings = block.settings[0] %}
+    {%- endif %}
+    {%- assign hasSettings = currentSettings != empty %}
+    {%- capture underlayBlockAsJson %}
+    {
+      "name": null,
+      "__id": "{{block.__id}}",
+      "title": "{{currentVariant.title}}",
+      "subtitle": "{{ currentVariant.subtitle }}",
+      "note": "{{ currentVariant.note }}",
+      "containerImage": {% if currentVariant.image == empty %}null{% else %}{{ currentVariant.image | json }}{% endif %},
+      "background": {% if currentVariant.backgroundImage == empty %}null{% else %}{{ currentVariant.backgroundImage | json }}{% endif %},
+      "firstButton": {% if currentVariant.firstButton == empty %}null{% else %}{{ currentVariant.firstButton | json }}{% endif %},
+      "secondButton": {% if currentVariant.secondButton == empty %}null{% else %}{{ currentVariant.secondButton | json }}{% endif %},
+
+      "headerType": "{% if hasSettings %}{{ currentSettings.headerType }}{% else %}like-h1{% endif %}",
+      "imagePosition": "{% if hasSettings %}{{ currentSettings.imagePosition }}{% else %}right{% endif %}",
+      "textColumnWidth": "{% if hasSettings %}{{ currentSettings.textWidth }}{% else %}col{% endif %}",
+      "secondColumnWidth": "{% if hasSettings %}{{ currentSettings.imageWidth }}{% else %}col-md-6{% endif %}",
+      "titleColor": "{% if hasSettings %}{{ currentSettings.titleColor }}{% else %}#000000{% endif %}",
+      "subtitleColor": "{% if hasSettings %}{{ currentSettings.subtitleColor }}{% else %}#737373{% endif %}",
+      "noteColor": "{% if hasSettings %}{{ currentSettings.noteColor }}{% endif %}",
+      "backgroundColor": "{% if hasSettings %}{{ currentSettings.backgroundColor }}{% endif %}",
+      "overlayColor": "{% if hasSettings %}{{ currentSettings.overlayColor }}{% endif %}"
+    }
+    {%- endcapture %}
+    {%- assign underlayBlock = underlayBlockAsJson | parse_json %}
+    {% include 'blocks/json-cover-with-image' block: underlayBlock %}
+{%- endunless %}
+{%- comment %}
+
+previewValue: string
+criteria: none | url | userGroup | ab
+variations: [
+  criteriaValue: string
+  - hideOnMatch: boolean
+  title: string
+  subtitle: string
+  note: string
+  image: image
+  backgroundImage: image
+  firstButton: url
+  secondButton: url
+]
+settings: [
+  imagePosition: null | right
+  textWidth: col-md-* style
+  imageWidth: col-md-* style
+  headerType: h1-6|like-h1-6
+  titleColor: string
+  subtitleColor: string
+  noteColor: string
+  backgroundColor: string
+  overlayColor: string
+]
+{% endcomment %}

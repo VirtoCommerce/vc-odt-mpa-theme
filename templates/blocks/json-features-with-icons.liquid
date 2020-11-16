@@ -1,49 +1,59 @@
-<div id="{{ block.__id }}" style="position: relative;" class="{{ block.style }}">
-  <div class="{% include 'blocks/helpers/block-paddings' %} block container">
-    <div class="px-5">
-      {% include 'blocks/helpers/block-title' %}
-    </div>
-    <div class="row px-5 justify-content-center">
-      <div class="{{block.textAreaWidth}}">
-        {% if block.content %}
-        {{ block.content }}
-        {% endif %}
-      </div>
-    </div>
+{% include 'blocks/helpers/color-style' %}
 
-    {% if block.columns.size > 0 %}
-    <div class="row p-5 list-items {% if block.iconsType == 'letters' %} list-items-letters {% endif %}">
-      {% for column in block.columns %}
-      <div class="col-{{block.columnsCount}} list-item">
-        <div>
-          {% if block.iconsType == 'numbers' or block.iconsType == 'letters' %}
-          <div class="text-{{column.button.style}} list__num list__num-{{block.iconsFilling}} {% if block.iconsAreFilled == 'True' %} list__num--filled-{{block.iconsFilling}} {% endif %}"></div>
-          {% endif %}
+<div id="{{ block.__id }}" style="position: relative;">
+    <div class="{% include 'blocks/helpers/block-paddings' %} block">
+        <div class="container">
+            <div class="px-5">
+                <div class="d-flex flex-column align-items-center row">
+                    <div class="text-center align-self-center {{ block.textAreaWidth }}">
+                      {% include 'blocks/helpers/block-title' %}
+                    </div>
+                </div>
+                {% if block.content %}
+                    <div class="d-flex flex-column align-items-center row">
+                        <div class="text-center text-container align-self-center {{ block.textAreaWidth }}">
+                            {{ block.content }}
+                        </div>
+                    </div>
+                {% endif %}
 
-          {% if block.iconsType == 'customIcon' and column.image.url != '' %}
-              <img src="{{ column.image.url }}" title="{{column.image.altText}}" class="list-icon" />
-          {% endif %}
-          {% if block.iconsType == 'images' and column.image.url != '' %}
-              <div class="list-image" title="{{column.image.altText}}" style="background-image: url({{ column.image.url }});"></div>
-          {% endif %}
-          {% if column.title != '' %}
-          <div class="h4 py-3">{{ column.title }}</div>
-          {% endif %}
-          {% if column.content != '' %}
-          <div class="py-3">{{ column.content }}</div>
-          {% endif %}
-          {% if column.button != '' and column.button.urlText != '' %}
-          <div class="block__space"></div>
-          <div class="block__actions">
-            <a href="{{column.button.url}}" class="btn {{column.button.style}}" {% if column.openInNewTab == 'True' %} target="_blank" {% endif %}>{{column.button.urlText}}</a>
-          </div>
-          {% endif %}
+                {% if block.columns.size > 0 %}
+                    <div class="d-flex flex-column align-items-center row justify-content-between">
+                        <div class="row {{ block.textAreaWidth }} list-items {% if block.iconsType == 'letters' %} list-items-letters {% endif %}">
+                            {% for column in block.columns %}
+                                <div class="col-{{block.columnsCount}} list-item">
+                                    <div>
+                                        {% if block.iconsType == 'numbers' or block.iconsType == 'letters' %}
+                                            <div class="text-{{column.button.style}} list__num list__num-{{block.iconsFilling}} {% if block.iconsAreFilled == 'True' %} list__num--filled-{{block.iconsFilling}} {% endif %}"></div>
+                                        {% endif %}
+
+                                        {% if block.iconsType == 'customIcon' and column.image.url != '' %}
+                                            <img src="{{ column.image.url }}" title="{{column.image.altText}}" class="list-icon" />
+                                        {% endif %}
+                                        {% if block.iconsType == 'images' and column.image.url != '' %}
+                                            <div class="list-image" title="{{column.image.altText}}" style="background-image: url({{ column.image.url }});"></div>
+                                        {% endif %}
+                                        {% if column.title != '' %}
+                                            <div class="h4 py-3">{{ column.title }}</div>
+                                        {% endif %}
+                                        {% if column.content != '' %}
+                                            <div class="py-3">{{ column.content }}</div>
+                                        {% endif %}
+                                        {% if column.button != '' and column.button.urlText != '' %}
+                                            <div class="block__space"></div>
+                                            <div class="block__actions">
+                                              <a href="{{column.button.url}}" class="btn {{column.button.style}}" {% if column.openInNewTab == 'True' %} target="_blank" {% endif %}>{{column.button.urlText}}</a>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
         </div>
-      </div>
-      {% endfor %}
     </div>
-    {% endif %}
-  </div>
 </div>
 
 {% comment %}

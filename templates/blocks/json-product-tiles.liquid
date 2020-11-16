@@ -1,7 +1,7 @@
 {% assign display_block = true %}
 {% assign request = request_url | format:null %}
 
-{% if block.utmString != '' %}
+{% if block.utmString and block.utmString != '' %}
   {% assign display_block = request contains block.utmString %}
   {% if block.utmNegotiate == 'True' %}
     {% comment %} i couldn't find a negotiate operator {% endcomment %}
@@ -13,20 +13,27 @@
   {% endif %}
 {% endif %}
 
+{% if display_block == true and current_user and current_user.contact and block.userGroup and block.userGroup.value %}
+
+{% assign display_block = current_user.contact.user_groups contains block.userGroup.value %}
+
+{% endif %}
+
 {% if display_block or is_preview_mode %}
+{% include 'blocks/helpers/color-style' %}
 <div id="{{ block.__id }}" style="position: relative;" class="{{ block.style }}">
   <div class="{% include 'blocks/helpers/block-paddings' %} block container">
     <div class="px-5">
-      {% include 'blocks/helpers/block-title' %}
+      {% include 'blocks/helpers/block-title' givenTitle: block.categoryId.name %}
 
-      {% if block.content %}
-      <div class="block-text"> {{ block.content}} </div>
+      {% if block.subtitle %}
+      <div class="text-container"> {{ block.subtitle }} </div>
       {% endif %}
 
-      {% if block.categoryId %}
+      {% if block.categoryId and block.categoryId.id %}
       <div>
         <div class="row">
-          {% assign category = collections | where: 'Id', '==', block.categoryId | first %}
+          {% assign category = collections | where: 'Id', '==', block.categoryId.id | first %}
 
           {% assign skus = block.excludes | split: '\n' %}
 
@@ -39,8 +46,11 @@
           {% endfor %}
 
           {% assign count = category.products.size %}
-          {% if block.count and block.count > 0 %}
-          {% assign count = block.count %}
+          {% if block.count %}
+              {% assign maxCount = block.count.value %}
+              {% if maxCount > 0 %}
+                  {% assign count = block.count %}
+              {% endif %}
           {% endif %}
 
           {% for product in p limit:count %}

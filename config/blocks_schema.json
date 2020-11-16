@@ -50,9 +50,10 @@
       },
       {
         "id": "headerType",
-        "label": "Header type",
-        "default": "like-h2",
+        "label": "Title SEO tag",
+        "default": "like-h1",
         "tab": "Settings",
+        "sort": 230,
         "type": "select",
         "options": [
           {
@@ -80,99 +81,6 @@
             "label": "Like H3"
           }
         ]
-      },
-      {
-        "id": "titleAlignment",
-        "label": "Align title",
-        "default": null,
-        "tab": "Settings",
-        "type": "select",
-        "options": [
-          {
-            "value": "text-center",
-            "label": "Center"
-          },
-          {
-            "value": null,
-            "label": "Left"
-          }
-        ]
-      },
-      {
-        "id": "titleStyle",
-        "label": "Title style",
-        "type": "select",
-        "default": null,
-        "options": [
-          {
-            "value": null,
-            "label": "Default"
-          },
-          {
-            "value": "text-primary",
-            "label": "Primary"
-          },
-          {
-            "value": "text-secondary",
-            "label": "Secondary"
-          },
-          {
-            "value": "text-success",
-            "label": "Success"
-          },
-          {
-            "value": "text-danger",
-            "label": "Danger"
-          },
-          {
-            "value": "text-warning",
-            "label": "Warning"
-          },
-          {
-            "value": "text-info",
-            "label": "Info"
-          },
-          {
-            "value": "text-muted",
-            "label": "Muted"
-          },
-          {
-            "value": "text-black-50",
-            "label": "Black 50%"
-          }
-        ],
-        "tab": "Settings"
-      },
-      {
-        "id": "style",
-        "label": "Block style",
-        "type": "select",
-        "default": "light",
-        "options": [
-          {
-            "value": null,
-            "label": "Light"
-          },
-          {
-            "value": "bg-light",
-            "label": "Dark"
-          }
-        ],
-        "tab": "Settings"
-      },
-      {
-        "id": "noTop",
-        "label": "Remove top margin",
-        "type": "checkbox",
-        "tab": "Settings",
-        "default": false
-      },
-      {
-        "id": "noBottom",
-        "label": "Remove bottom margin",
-        "type": "checkbox",
-        "tab": "Settings",
-        "default": false
       }
     ],
     "namedSettings": {
@@ -181,19 +89,22 @@
           "id": "title",
           "label": "Title",
           "type": "string",
+          "sort": 10,
           "default": "Bring your ideas to life"
         },
         {
           "id": "subtitle",
           "label": "Subtitle",
           "type": "text",
-          "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win."
+          "sort": 20,
+          "default": "Anything you dream about is possible to realise just at the moment when you decide to win"
         },
         {
           "id": "backgroundColor",
           "label": "Background color",
           "type": "color",
-          "default": "",
+          "default": null,
+          "sort": 270,
           "tab": "Settings",
           "group": "Background"
         },
@@ -201,7 +112,8 @@
           "id": "titleColor",
           "label": "Title color",
           "type": "color",
-          "default": "",
+          "default": "#000000",
+          "sort": 240,
           "tab": "Settings",
           "group": "Background"
         },
@@ -209,13 +121,15 @@
           "id": "subtitleColor",
           "label": "Subtitle color",
           "type": "color",
-          "default": "",
+          "default": "#737373",
           "tab": "Settings",
+          "sort": 250,
           "group": "Background"
         },
         {
           "id": "overlayColor",
-          "label": "Overlay color",
+          "label": "Background overlay color",
+          "sort": 280,
           "type": "color",
           "default": "",
           "tab": "Settings",
@@ -223,84 +137,87 @@
         },
         {
           "id": "background",
-          "label": "Background",
+          "label": "Background image",
           "type": "image",
+          "sort": 50,
+          "default": null,
           "group": "Background"
         },
         {
           "id": "textColumnWidth",
-          "label": "Text column width",
+          "label": "Text container width",
           "type": "select",
           "tab": "Settings",
+          "sort": 210,
           "options": [
             {
-              "label": "6 cols",
-              "value": "col-md-6"
-            },
-            {
-              "label": "5 cols",
-              "value": "col-md-5"
+              "label": "3 cols",
+              "value": "col-md-3"
             },
             {
               "label": "4 cols",
               "value": "col-md-4"
             },
             {
-              "label": "3 cols",
-              "value": "col-md-3"
+              "label": "5 cols",
+              "value": "col-md-5"
             },
             {
-              "label": "2 cols",
-              "value": "col-md-2"
+              "label": "6 cols",
+              "value": "col-md-6"
+            },
+            {
+              "label": "7 cols",
+              "value": "col-md-7"
+            },
+            {
+              "label": "8 cols",
+              "value": "col-md-8"
+            },
+            {
+              "label": "Fluid",
+              "value": "col"
             }
           ],
-          "default": "col-md-4"
+          "default": "col"
         },
         {
           "id": "secondColumnWidth",
-          "label": "Second column width",
+          "label": "Sides image width",
           "tab": "Settings",
           "type": "select",
+          "sort": 220,
           "options": [
             {
-              "label": "6 cols",
-              "value": "col-md-6"
-            },
-            {
-              "label": "5 cols",
-              "value": "col-md-5"
+              "label": "3 cols",
+              "value": "col-md-3"
             },
             {
               "label": "4 cols",
               "value": "col-md-4"
             },
             {
-              "label": "3 cols",
-              "value": "col-md-3"
+              "label": "5 cols",
+              "value": "col-md-5"
             },
             {
-              "label": "2 cols",
-              "value": "col-md-2"
-            }
-          ],
-          "default": "col-md-4"
-        },
-        {
-          "id": "columnsPosition",
-          "label": "Columns position",
-          "tab": "Settings",
-          "type": "select",
-          "options": [
-            {
-              "label": "Center",
-              "value": "justify-content-center"
+              "label": "6 cols",
+              "value": "col-md-6"
             },
             {
-              "label": "Justify",
-              "value": "justify-content-between"
+              "label": "7 cols",
+              "value": "col-md-7"
+            },
+            {
+              "label": "8 cols",
+              "value": "col-md-8"
+            },
+            {
+              "label": "Fluid",
+              "value": "col"
             }
           ],
-          "default": "justify-content-center"
+          "default": "col-md-6"
         }
       ],
       "buttons": [
@@ -416,13 +333,14 @@
           "id": "note",
           "label": "Note",
           "type": "string",
-          "default": "Our company"
+          "sort": 30
         },
         {
           "id": "noteColor",
           "label": "Note color",
           "type": "color",
           "default": "",
+          "sort": 260,
           "tab": "Settings",
           "group": "Background"
         }
@@ -434,7 +352,8 @@
           "type": "string",
           "default": "formId",
           "tab": "Settings",
-          "group": "Form"
+          "group": "Form",
+          "sort": 300
         },
         {
           "id": "formName",
@@ -442,58 +361,14 @@
           "type": "string",
           "default": "formName",
           "tab": "Settings",
-          "group": "Form"
+          "group": "Form",
+          "sort": 310
         },
         {
           "id": "formSubmitRedirectUrl",
-          "label": "Submit redirect URL",
+          "label": "Form success URL",
+          "sort": 320,
           "type": "string",
-          "tab": "Settings",
-          "group": "Form"
-        },
-        {
-          "id": "formSubmitButtonStyle",
-          "label": "Submit button style",
-          "type": "select",
-          "default": "btn-primary",
-          "options": [
-            {
-              "value": "btn-primary",
-              "label": "Primary button"
-            },
-            {
-              "value": "btn-secondary",
-              "label": "Secondary button"
-            },
-            {
-              "value": "btn-success",
-              "label": "Success button"
-            },
-            {
-              "value": "btn-danger",
-              "label": "Danger button"
-            },
-            {
-              "value": "btn-warning",
-              "label": "Warning button"
-            },
-            {
-              "value": "btn-info",
-              "label": "Info button"
-            },
-            {
-              "value": "btn-light",
-              "label": "Light button"
-            },
-            {
-              "value": "btn-dark",
-              "label": "Dark button"
-            },
-            {
-              "value": "btn-link",
-              "label": "Link button"
-            }
-          ],
           "tab": "Settings",
           "group": "Form"
         },
@@ -504,6 +379,7 @@
           "addText": "Add a field",
           "removeText": "Remove a field",
           "displayField": "labelText",
+          "sort": 60,
           "element": [
             {
               "id": "fieldType",
@@ -678,7 +554,7 @@
               "fieldType": "text",
               "required": true,
               "labelText": "Full name",
-              "placeholder": "Enter your name"
+              "placeholder": "Enter your full name"
             },
             {
               "fieldName": "email",
@@ -689,72 +565,142 @@
               "placeholder": "Enter your email"
             },
             {
+              "fieldName": "fullname",
+              "fieldId": "fullname",
+              "fieldType": "checkbox",
+              "required": true,
+              "labelText": "By clicking \"Submit\" I understand that I consent to opt-in to the Terms and Policy"
+            },
+            {
               "fieldType": "button",
-              "labelText": "Action button"
+              "labelText": "Submit"
             }
           ],
           "group": "Form"
         },
         {
           "id": "showFormLabels",
-          "label": "Show form labels",
+          "label": "Show labels",
           "type": "checkbox",
-          "default": true,
+          "sort": 70,
+          "hint": "change logic when checked - hide, when unchecked - show",
+          "default": false,
           "group": "Form"
         }
       ],
       "text-width": [
         {
           "id": "textAreaWidth",
-          "label": "Text area width",
+          "label": "Text container width",
           "type": "select",
-          "default": "col-lg",
+          "default": "col-md-8",
           "options": [
             {
-              "value": "col-lg",
-              "label": "Full width"
+              "label": "4 cols",
+              "value": "col-md-4"
             },
             {
-              "value": "col-lg-10",
-              "label": "10 cols"
+              "label": "5 cols",
+              "value": "col-md-5"
             },
             {
-              "value": "col-lg-8",
-              "label": "8 cols"
+              "label": "6 cols",
+              "value": "col-md-6"
             },
             {
-              "value": "col-lg-6",
-              "label": "6 cols"
+              "label": "7 cols",
+              "value": "col-md-7"
             },
             {
-              "value": "col-lg-4",
-              "label": "4 cols"
+              "label": "8 cols",
+              "value": "col-md-8"
             },
             {
-              "value": "col-lg-3",
-              "label": "3 cols"
+              "label": "9 cols",
+              "value": "col-md-9"
+            },
+            {
+              "label": "10 cols",
+              "value": "col-md-10"
+            },
+            {
+              "label": "11 cols",
+              "value": "col-md-11"
+            },
+            {
+              "label": "12 cols",
+              "value": "col-md-12"
             }
           ],
           "tab": "Settings",
+          "sort": 215,
           "group": "Main block settings"
         }
       ],
       "utm-marks": [
         {
           "id": "utmString",
-          "label": "UTM expression",
+          "label": "URL parameter",
           "type": "string",
           "default": null,
           "tab": "Settings",
-          "sort": 35
+          "sort": 300
         },
         {
           "id": "utmNegotiate",
-          "label": "Negotiate UTM",
+          "label": "Hide on match",
           "type": "checkbox",
           "default": false,
           "tab": "Settings",
-          "sort": 36
+          "info": "When checked then block will be hidden when URL param matches, when unchecked block will be show only when URL param",
+          "sort": 310
+        }
+      ],
+      "margins": [
+        {
+          "id": "noTop",
+          "label": "Remove top margin",
+          "type": "checkbox",
+          "tab": "Settings",
+          "sort": 235,
+          "default": false
+        },
+        {
+          "id": "noBottom",
+          "label": "Remove bottom margin",
+          "type": "checkbox",
+          "tab": "Settings",
+          "sort": 236,
+          "default": false
+        }
+      ],
+      "colors": [
+        {
+          "id": "backgroundColor",
+          "label": "Background color",
+          "type": "color",
+          "default": null,
+          "sort": 270,
+          "tab": "Settings",
+          "group": "Background"
+        },
+        {
+          "id": "titleColor",
+          "label": "Title color",
+          "type": "color",
+          "default": "#000000",
+          "sort": 240,
+          "tab": "Settings",
+          "group": "Background"
+        },
+        {
+          "id": "contentColor",
+          "label": "Content color",
+          "type": "color",
+          "default": "#767676",
+          "sort": 245,
+          "tab": "Settings",
+          "group": "Background"
         }
       ]
     }
@@ -765,22 +711,35 @@
     "displayField": "name",
     "category": "Covers and Hero",
     "includeShared": [ "cover-items", "notes", "buttons" ],
-    "excludeShared": [ "titleStyle", "titleAlignment", "style" ],
+    "excludeShared": [],
+    "default": {
+      "background": {
+        "url": "/assets/blocks/cover-with-image-background.jpg"
+      },
+      "firstButton": {
+        "url": "",
+        "urlText": "Learn more",
+        "style": "btn-dark"
+      }
+    },
     "settings": [
       {
         "id": "containerImage",
-        "label": "Upload image",
+        "label": "Side image",
         "type": "image",
+        "sort": 40,
         "default": {
-          "url": "/assets/pages/video-screen-4.png"
+          "url": "/assets/blocks/portfolio-woocommerce.png"
         },
         "group": "Container media"
       },
       {
         "id": "imagePosition",
-        "label": "Image position",
+        "label": "Side image position",
         "type": "select",
         "tab": "Settings",
+        "default": "right",
+        "sort": 200,
         "options": [
           {
             "value": null,
@@ -799,21 +758,38 @@
     "icon": "image-text",
     "displayField": "name",
     "category": "Covers and Hero",
-    "includeShared": [ "cover-items", "notes", "buttons", "form" ],
-    "excludeShared": [ "titleStyle", "titleAlignment", "style" ],
+    "includeShared": [ "cover-items", "notes", "form" ],
+    "excludeShared": [],
+    "default": {
+      "title": "Meet the expert, explore the tool and get a free consultation",
+      "subtitle": "<p>Sign up for the webinar and get a free expert consultation for your business.</p>",
+      "background": {
+        "url": "/assets/blocks/coveer-with-form-background.png"
+      },
+      "titleColor": "#ffffff",
+      "subtitleColor": "#c4c4c4",
+      "overlayColor": "rgba(0,0,0,0.6)"
+    },
     "settings": [
       {
         "id": "centerText",
-        "label": "Place text in center",
+        "label": "Align vertically in the middle",
         "type": "checkbox",
+        "sort": 175,
         "default": true,
         "tab": "Settings"
+      },
+      {
+        "id": "secondColumnWidth",
+        "label": "Form width",
+        "default": "col-md-4"
       },
       {
         "id": "formPosition",
         "label": "Form position",
         "default": "right",
         "type": "select",
+        "sort": 170,
         "tab": "Settings",
         "options": [
           {
@@ -825,10 +801,6 @@
             "label": "Right"
           }
         ]
-      },
-      {
-        "id": "firstButton",
-        "default": null
       }
     ]
   },
@@ -838,16 +810,451 @@
     "displayField": "name",
     "category": "Covers and Hero",
     "includeShared": [ "notes", "cover-items", "buttons" ],
-    "excludeShared": [ "textColumnWidth", "secondColumnWidth", "columnsPosition", "titleAlignment" ],
-    "settings": []
+    "excludeShared": [ "secondColumnWidth" ],
+    "default": {
+      "title": "Probably the best digital agency for SMBs in the market",
+      "subtitle": "<p>Create a targeted live campaign. Scale your infrastructure with our simple service.</p>",
+      "background": {
+        "url": "/assets/blocks/coveer-with-form-background.png"
+      },
+      "firstButton": {
+        "url": "",
+        "urlText": "Learn why",
+        "style": "btn-warning"
+      },
+      "titleColor": "#ffffff",
+      "subtitleColor": "#c4c4c4",
+      "overlayColor": "rgba(0,0,0,0.6)"
+    },
+    "settings": [
+      {
+        "id": "textColumnWidth",
+        "options": [
+          {
+            "label": "4 cols",
+            "value": "col-md-4"
+          },
+          {
+            "label": "5 cols",
+            "value": "col-md-5"
+          },
+          {
+            "label": "6 cols",
+            "value": "col-md-6"
+          },
+          {
+            "label": "7 cols",
+            "value": "col-md-7"
+          },
+          {
+            "label": "8 cols",
+            "value": "col-md-8"
+          },
+          {
+            "label": "9 cols",
+            "value": "col-md-9"
+          },
+          {
+            "label": "10 cols",
+            "value": "col-md-10"
+          },
+          {
+            "label": "11 cols",
+            "value": "col-md-11"
+          },
+          {
+            "label": "12 cols",
+            "value": "col-md-12"
+          }
+        ],
+        "default": "col-md-8"
+      }
+    ]
+  },
+  "cover-with-variations": {
+    "name": "Cover with variations",
+    "icon": "text",
+    "displayField": "name",
+    "category": "Covers and Hero",
+    "excludeShared": [ "headerType" ],
+    "settings": [
+      {
+        "id": "previewValue",
+        "label": "Preview value",
+        "type": "string"
+      },
+      {
+        "id": "criteria",
+        "label": "Criteria",
+        "type": "select",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "url",
+            "label": "URL parameter"
+          },
+          {
+            "value": "userGroup",
+            "label": "User group"
+          },
+          {
+            "value": "ab",
+            "label": "A/B"
+          }
+        ]
+      },
+      {
+        "id": "variations",
+        "label": "Variations",
+        "type": "list",
+        "default": [
+          {
+            "hideOnMatch": false,
+            "title": "Bring your ideas to life",
+            "subtitle": "Anything you dream about is possible to realise just at the moment when you decide to win",
+            "image": {
+              "url": "/assets/blocks/portfolio-woocommerce.png"
+            },
+            "backgroundImage": {
+              "url": "/assets/blocks/cover-with-image-background.jpg"
+            }
+          }
+        ],
+        "element": [
+          {
+            "id": "criteriaValue",
+            "label": "Criteria value",
+            "type": "string"
+          },
+          {
+            "id": "title",
+            "label": "Title",
+            "type": "string"
+          },
+          {
+            "id": "subtitle",
+            "label": "Subtitle",
+            "type": "string"
+          },
+          {
+            "id": "note",
+            "label": "Note",
+            "type": "string"
+          },
+          {
+            "id": "image",
+            "label": "Side Image",
+            "type": "image"
+          },
+          {
+            "id": "backgroundImage",
+            "label": "Background Image",
+            "type": "image"
+          },
+          {
+            "id": "firstButton",
+            "label": "First button",
+            "type": "url",
+            "urlLabel": "Url",
+            "textLabel": "Button text",
+            "styleLabel": "Link style",
+            "styles": [
+              {
+                "value": "btn-primary",
+                "label": "Primary button"
+              },
+              {
+                "value": "btn-secondary",
+                "label": "Secondary button"
+              },
+              {
+                "value": "btn-success",
+                "label": "Success button"
+              },
+              {
+                "value": "btn-danger",
+                "label": "Danger button"
+              },
+              {
+                "value": "btn-warning",
+                "label": "Warning button"
+              },
+              {
+                "value": "btn-info",
+                "label": "Info button"
+              },
+              {
+                "value": "btn-light",
+                "label": "Light button"
+              },
+              {
+                "value": "btn-dark",
+                "label": "Dark button"
+              },
+              {
+                "value": "btn-link",
+                "label": "Link button"
+              }
+            ]
+          },
+          {
+            "id": "secondButton",
+            "label": "Second button",
+            "type": "url",
+            "urlLabel": "Url",
+            "textLabel": "Button text",
+            "styleLabel": "Link style",
+            "styles": [
+              {
+                "value": "btn-primary",
+                "label": "Primary button"
+              },
+              {
+                "value": "btn-secondary",
+                "label": "Secondary button"
+              },
+              {
+                "value": "btn-success",
+                "label": "Success button"
+              },
+              {
+                "value": "btn-danger",
+                "label": "Danger button"
+              },
+              {
+                "value": "btn-warning",
+                "label": "Warning button"
+              },
+              {
+                "value": "btn-info",
+                "label": "Info button"
+              },
+              {
+                "value": "btn-light",
+                "label": "Light button"
+              },
+              {
+                "value": "btn-dark",
+                "label": "Dark button"
+              },
+              {
+                "value": "btn-link",
+                "label": "Link button"
+              }
+            ]
+          },
+          {
+            "id": "settingsIndex",
+            "label": "Settings index",
+            "type": "number",
+            "default": 0
+          }
+        ]
+      },
+      {
+        "id": "settings",
+        "label": "Settings",
+        "tab": "Settings",
+        "type": "list",
+        "element": [
+          {
+            "id": "imagePosition",
+            "label": "Image position",
+            "type": "select",
+            "default": "right",
+            "options": [
+              {
+                "value": null,
+                "label": "Left"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "id": "textWidth",
+            "label": "Text container width",
+            "type": "select",
+            "options": [
+              {
+                "label": "3 cols",
+                "value": "col-md-3"
+              },
+              {
+                "label": "4 cols",
+                "value": "col-md-4"
+              },
+              {
+                "label": "5 cols",
+                "value": "col-md-5"
+              },
+              {
+                "label": "6 cols",
+                "value": "col-md-6"
+              },
+              {
+                "label": "7 cols",
+                "value": "col-md-7"
+              },
+              {
+                "label": "8 cols",
+                "value": "col-md-8"
+              },
+              {
+                "label": "Fluid",
+                "value": "col"
+              }
+            ]
+          },
+          {
+            "id": "imageWidth",
+            "label": "Side image width",
+            "type": "select",
+            "options": [
+              {
+                "label": "3 cols",
+                "value": "col-md-3"
+              },
+              {
+                "label": "4 cols",
+                "value": "col-md-4"
+              },
+              {
+                "label": "5 cols",
+                "value": "col-md-5"
+              },
+              {
+                "label": "6 cols",
+                "value": "col-md-6"
+              },
+              {
+                "label": "7 cols",
+                "value": "col-md-7"
+              },
+              {
+                "label": "8 cols",
+                "value": "col-md-8"
+              },
+              {
+                "label": "Fluid",
+                "value": "col"
+              }
+            ]
+          },
+          {
+            "id": "headerType",
+            "label": "Title SEO Tag",
+            "type": "select",
+            "options": [
+              {
+                "value": "h1",
+                "label": "H1"
+              },
+              {
+                "value": "h2",
+                "label": "H2"
+              },
+              {
+                "value": "h3",
+                "label": "H3"
+              },
+              {
+                "value": "h4",
+                "label": "H4"
+              },
+              {
+                "value": "h5",
+                "label": "H5"
+              },
+              {
+                "value": "h6",
+                "label": "H6"
+              },
+              {
+                "value": "like-h1",
+                "label": "Like H1"
+              },
+              {
+                "value": "like-h2",
+                "label": "Like H2"
+              },
+              {
+                "value": "like-h3",
+                "label": "Like H3"
+              },
+              {
+                "value": "like-h4",
+                "label": "Like H4"
+              },
+              {
+                "value": "like-h5",
+                "label": "Like H5"
+              },
+              {
+                "value": "like-h6",
+                "label": "Like H6"
+              }
+            ]
+          },
+          {
+            "id": "titleColor",
+            "label": "Title color",
+            "type": "color"
+          },
+          {
+            "id": "subtitleColor",
+            "label": "Subtitle color",
+            "type": "color"
+          },
+          {
+            "id": "noteColor",
+            "label": "Note color",
+            "type": "color"
+          },
+          {
+            "id": "backgroundColor",
+            "label": "Background color",
+            "type": "color"
+          },
+          {
+            "id": "overlayColor",
+            "label": "Overlay background color",
+            "type": "color"
+          }
+        ],
+        "default": [
+          {
+            "imagePosition": "right",
+            "textWidth": "col",
+            "imageWidth": "col-md-6",
+            "headerType": "like-h1",
+            "titleColor": "#000000",
+            "subtitleColor": "#737373"
+          }
+        ]
+      }
+    ]
   },
   "headline": {
-    "name": "Headline",
+    "name": "Headline with simple text",
     "icon": "text",
     "displayField": "name",
     "category": "Headlines and Forms",
-    "includeShared": [ "notes", "cover-items", "text-width", "buttons" ],
-    "excludeShared": [ "textColumnWidth", "secondColumnWidth", "columnsPosition", "titleAlignment" ],
+    "includeShared": [ "notes", "cover-items", "buttons", "margins", "text-width" ],
+    "excludeShared": [ "textColumnWidth", "secondColumnWidth" ],
+    "default": {
+      "title": "How to write headlines that actually work?",
+      "subtitle": "<p>A headline's purpose is to quickly and briefly draw attention to the story. It is generally written by a copy editor, but may also be written by the writer, the page layout designer, or other editors.</p>",
+      "note": "HOW-TOs",
+      "titleColor": "#000000",
+      "subtitleColor": "#737373",
+      "noteColor": "#6c757d"
+    },
     "settings": []
   },
   "headline-with-form": {
@@ -856,37 +1263,40 @@
     "displayField": "name",
     "category": "Headlines and Forms",
     "includeShared": [ "notes", "cover-items", "form", "text-width" ],
-    "excludeShared": [ "textColumnWidth", "secondColumnWidth", "columnsPosition", "titleAlignment" ],
+    "excludeShared": [ "textColumnWidth", "secondColumnWidth" ],
+    "default": {
+      "title": "Improve your business efficiency",
+      "subtitle": "<p>Apply to participate in our new webinar about social media marketing and building your brand.</p>",
+      "note": "FREE WEBINAR",
+      "titleColor": "#000000",
+      "subtitleColor": "#767676",
+      "noteColor": "#6c757d",
+      "backgroundColor": "#efefef",
+      "background": null
+    },
     "settings": [
       {
         "id": "formWidth",
         "label": "Form area width",
         "type": "select",
-        "default": "col-lg-6",
+        "sort": 236,
+        "default": "col-md-4",
         "options": [
           {
-            "value": "col-lg",
-            "label": "Full width"
+            "value": "col-md-3",
+            "label": "3 cols"
           },
           {
-            "value": "col-lg-10",
-            "label": "10 cols"
-          },
-          {
-            "value": "col-lg-8",
-            "label": "8 cols"
-          },
-          {
-            "value": "col-lg-6",
-            "label": "6 cols"
-          },
-          {
-            "value": "col-lg-4",
+            "value": "col-md-4",
             "label": "4 cols"
           },
           {
-            "value": "col-lg-3",
-            "label": "3 cols"
+            "value": "col-md-5",
+            "label": "5 cols"
+          },
+          {
+            "value": "col-md-6",
+            "label": "6 cols"
           }
         ],
         "tab": "Settings",
@@ -895,70 +1305,28 @@
     ]
   },
   "text": {
-    "name": "Simple text",
+    "name": "Simple text with title",
     "icon": "text",
     "displayField": "name",
     "category": "Paragraphs and Links",
+    "includeShared": [ "text-width", "margins", "colors" ],
+    "excludeShared": [],
+    "default": {
+      "backgroundColor": "#efefef"
+    },
     "settings": [
       {
         "id": "title",
         "label": "Title",
         "type": "string",
-        "default": "Block title",
+        "default": "Readability is primarily the concern of designer",
         "autofocus": true
       },
       {
         "id": "content",
         "label": "Content",
         "type": "text",
-        "default": "Text block content"
-      }
-    ]
-  },
-  "two-columns-text": {
-    "name": "Two columns text",
-    "icon": "text",
-    "displayField": "name",
-    "category": "Paragraphs and Links",
-    "settings": [
-      {
-        "id": "title",
-        "label": "Title",
-        "type": "string",
-        "default": "Block title",
-        "autofocus": true
-      },
-      {
-        "id": "contentBefore",
-        "label": "Content",
-        "type": "text",
-        "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-      },
-      {
-        "id": "items",
-        "label": "Items",
-        "type": "list",
-        "addText": "Add item",
-        "removeText": "Remove item",
-        "displayField": "title",
-        "element": [
-          {
-            "id": "text",
-            "label": "Text",
-            "type": "text"
-          }
-        ],
-        "default": [
-          {
-            "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-          },
-          {
-            "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-          },
-          {
-            "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-          }
-        ]
+        "default": "<p>In quo enim maxime consuevit iactare vestra se repellere, idque instituit docere sic: omne animal, simul atque insitam in liberos atque haec ratio late patet in quo quaerimus, non ero tibique, si ob rem aperiam eaque ipsa, quae sunt in gravissimo bello animadversionis metu contineret.</p><p>Certe, inquam, pertinax non intellegamus, tu tam inportuno tamque crudeli; sin, ut dolore disputandum putant sed ut labore et argumentandum et dolorum fuga et aut quid est et expedita distinctio nam libero tempore, cum a natura incorrupte atque natum sit, voluptatem sequi nesciunt, neque porro.</p><p>Quae fuerit causa, nollem me ab eo ortum, tam crudelis fuisse, nihil ut alterum aspernandum sentiamus alii autem, quibus ego cum a philosophis compluribus permulta dicantur, cur verear, ne ferae quidem faciunt, ut earum rerum hic tenetur a philosophis compluribus permulta dicantur, cur verear, ne.</p>"
       }
     ]
   },
@@ -967,20 +1335,25 @@
     "icon": "image-text",
     "displayField": "title",
     "category": "Media and Logotypes",
-    "includeShared": [],
-    "excludeShared": [ "titleAlignment" ],
+    "includeShared": [ "text-width", "margins", "colors" ],
+    "excludeShared": [],
+    "default": {
+      "titleColor": "#000000",
+      "contentColor": "#767676"
+    },
     "settings": [
       {
         "id": "title",
         "label": "Title",
-        "type": "string",
-        "default": "Bring your ideas to life"
+        "sort": 10,
+        "default": "Our partners"
       },
       {
-        "id": "content",
-        "label": "Content",
+        "id": "subtitle",
+        "label": "Subtitle",
         "type": "text",
-        "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win."
+        "sort": 20,
+        "default": "<p>If you are interested in becoming a partner, please feel free to write us.</p>"
       },
       {
         "id": "logotypes",
@@ -989,6 +1362,7 @@
         "addText": "Add logotype",
         "removeText": "Remove logotype",
         "displayField": "image.url",
+        "sort": 30,
         "element": [
           {
             "id": "image",
@@ -1010,28 +1384,28 @@
         "default": [
           {
             "image": {
-              "url": "/assets/pages/lavazza-logo.svg"
+              "url": "/assets/blocks/logo-1.png"
             },
             "url": "",
             "openInNewTab": false
           },
           {
             "image": {
-              "url": "/assets/pages/lavazza-logo.svg"
+              "url": "/assets/blocks/logo-2.png"
             },
             "url": "",
             "openInNewTab": false
           },
           {
             "image": {
-              "url": "/assets/pages/lavazza-logo.svg"
+              "url": "/assets/blocks/logo-3.png"
             },
             "url": "",
             "openInNewTab": false
           },
           {
             "image": {
-              "url": "/assets/pages/lavazza-logo.svg"
+              "url": "/assets/blocks/logo-4.png"
             },
             "url": "",
             "openInNewTab": false
@@ -1045,75 +1419,24 @@
     "icon": "image-text",
     "displayField": "title",
     "category": "Features and Cards",
-    "includeShared": [ "text-width" ],
+    "includeShared": [ "text-width", "colors", "margins" ],
+    "default": {
+      "backgroundColor": "#efefef"
+    },
     "settings": [
-      {
-        "id": "columnsCount",
-        "label": "Columns count",
-        "type": "select",
-        "default": "4",
-        "options": [
-          {
-            "value": "12",
-            "label": "1"
-          },
-          {
-            "value": "6",
-            "label": "2"
-          },
-          {
-            "value": "4",
-            "label": "3"
-          },
-          {
-            "value": "3",
-            "label": "4"
-          }
-        ],
-        "tab": "Settings",
-        "group": "Main block settings"
-      },
-      {
-        "id": "iconsType",
-        "label": "Icons type",
-        "type": "select",
-        "default": "numbers",
-        "options": [
-          {
-            "value": "none",
-            "label": "None"
-          },
-          {
-            "value": "numbers",
-            "label": "Numbers"
-          },
-          {
-            "value": "letters",
-            "label": "Letters"
-          },
-          {
-            "value": "customIcon",
-            "label": "Custom icon"
-          },
-          {
-            "value": "images",
-            "label": "Image"
-          }
-        ],
-        "tab": "Settings",
-        "group": "Items"
-      },
       {
         "id": "title",
         "label": "Title",
         "type": "string",
-        "default": "Bring your ideas to life"
+        "sort": 10,
+        "default": "Explore the features"
       },
       {
         "id": "content",
         "label": "Content",
         "type": "text",
-        "default": "Anything you've even dreamed about is possible to realise just at the moment when you decided to win."
+        "sort": 20,
+        "default": "<p>With a crystal-clear camera, real-time HD video display, and intuitive flight controls, what will you create?</p>"
       },
       {
         "id": "columns",
@@ -1188,168 +1511,160 @@
         ],
         "default": [
           {
-            "title": "Access to customer insights yields competitive advantage"
+            "title": "Epic Aerial Video",
+            "content": "With the Phantom 3 Professional, you're shooting 4K video at up to 30 frames per second and capturing 12 megapixel photos."
           },
           {
-            "title": "Access to customer insights yields competitive advantage"
+            "title": "Live HD View",
+            "content": "Simply connect your phone or tablet, and a 720p HD view of everything your camera sees as you fly is displayed live."
           },
           {
-            "title": "Access to customer insights yields competitive advantage"
+            "title": "Complete Control",
+            "content": "Keep your Phantom 3 fully under your command while accessing the most-used features right on the included remote controller."
           }
         ]
+      },
+      {
+        "id": "textAreaWidth",
+        "default": "col-md-12"
+      },
+      {
+        "id": "columnsCount",
+        "label": "Columns in row",
+        "type": "select",
+        "default": "4",
+        "sort": 216,
+        "options": [
+          {
+            "value": "12",
+            "label": "1"
+          },
+          {
+            "value": "6",
+            "label": "2"
+          },
+          {
+            "value": "4",
+            "label": "3"
+          },
+          {
+            "value": "3",
+            "label": "4"
+          }
+        ],
+        "tab": "Settings",
+        "group": "Main block settings"
+      },
+      {
+        "id": "iconsType",
+        "label": "Icons type",
+        "type": "select",
+        "sort": 217,
+        "default": "numbers",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "numbers",
+            "label": "Numbers"
+          },
+          {
+            "value": "letters",
+            "label": "Letters"
+          },
+          {
+            "value": "customIcon",
+            "label": "Custom icon"
+          },
+          {
+            "value": "images",
+            "label": "Image"
+          }
+        ],
+        "tab": "Settings",
+        "group": "Items"
       }
     ]
   },
   "call-to-action": {
-    "name": "Call to action",
+    "name": "Simple call-to-action",
     "icon": "image-text",
     "displayField": "title",
     "category": "Promotions and CTAs",
-    "includeShared": [ "cover-items", "text-width", "buttons" ],
-    "excludeShared": [ "note", "noteColor" ],
+    "includeShared": [ "buttons", "colors" ],
+    "excludeShared": [ "contentColor", "secondButton" ],
+    "default": {
+      "headerType": "like-h3",
+      "titleColor": "#ffffff",
+      "backgroundColor": "#000000"
+    },
     "settings": [
       {
-        "id": "subtitleColor",
-        "label": "Content text color"
+        "id": "title",
+        "label": "Title",
+        "type": "string",
+        "sort": 10,
+        "default": "Book a free e-commerce consulting"
       },
       {
-        "id": "brandColor",
-        "label": "Brand colour",
-        "type": "color",
-        "default": "gray",
-        "tab": "Settings"
+        "id": "firstButton",
+        "label": "button",
+        "default": {
+          "url": "",
+          "urlText": "Get my seat reserved",
+          "style": "btn-warning"
+        }
       },
       {
-        "id": "subtitle",
-        "label": "Content"
-      },
-      {
-        "id": "displayType",
-        "label": "Block display type",
+        "id": "titleAlignment",
+        "label": "Block style",
         "type": "select",
-        "default": "logo",
+        "default": "justify-content-between",
+        "sort": 235,
+        "tab": "Settings",
         "options": [
           {
-            "value": "logo",
-            "label": "With logo"
+            "value": "justify-content-center",
+            "label": "Center"
           },
           {
-            "value": "simple",
-            "label": "Simple"
+            "value": "justify-content-between",
+            "label": "Justifyed"
           }
         ]
       }
     ]
   },
   "buy-now": {
-    "name": "Product details (live)",
+    "name": "Single product promotion",
     "icon": "text",
     "displayField": "name",
     "category": "Queries and Others",
-    "includeShared": [ "utm-marks" ],
-    "excludeShared": [ "titleAlignment" ],
+    "includeShared": [ "utm-marks", "margins", "colors" ],
+    "excludeShared": [],
+    "default": {
+      "headerType": "like-h3",
+      "titleColor": "#000000",
+      "contentColor": "#767676"
+    },
     "settings": [
       {
-        "id": "reverse",
-        "label": "Reverse columns",
-        "type": "checkbox",
-        "tab": "Settings",
-        "default": false
-      },
-      {
-        "id": "title",
-        "label": "Title",
-        "type": "string",
-        "default": "Buy now!"
-      },
-      {
-        "id": "price",
-        "label": "Price",
-        "type": "string",
-        "default": null
-      },
-      {
         "id": "product",
-        "label": "Product",
-        "type": "select",
-        "equalKey": "id",
-        "filterList": false,
-        "request": {
-          "url": "api/catalog/search/products",
-          "method": "post",
-          "resultField": "items",
-          "searchField": "searchPhrase",
-          "label": "name",
-          "value": [
-            "id",
-            "name",
-            "code",
-            "imgSrc",
-            {
-              "key": "content",
-              "query": "$.reviews[?(@.reviewType=='QuickReview')].content",
-              "isArray": false
-            }
-          ],
-          "params": {
-            "storeId": "odt",
-            "catalogId": "4974648a41df4e6ea67ef2ad76d7bbd4",
-            "responseGroup": "5243487",
-            "sort": "priority-descending;name-ascending"
-          }
-        },
-        "options": [
-          {
-            "label": "[none]",
-            "value": null
-          }
-        ]
-      },
-      {
-        "id": "description",
-        "label": "Description",
-        "type": "text"
-      },
-      {
-        "id": "buttonText",
-        "label": "Button text",
-        "type": "string",
-        "default": "Buy now!"
-      }
-    ]
-  },
-  "buy-now-search": {
-    "name": "Product detail",
-    "icon": "text",
-    "displayField": "name",
-    "category": "Queries and Others",
-    "includeShared": [ "utm-marks" ],
-    "excludeShared": [ "titleAlignment" ],
-    "settings": [
-      {
-        "id": "reverse",
-        "label": "Reverse columns",
-        "type": "checkbox",
-        "tab": "Settings",
-        "default": false
-      },
-      {
-        "id": "title",
-        "label": "Title",
-        "type": "string",
-        "default": "Buy now!"
-      },
-      {
-        "id": "hidePrice",
-        "label": "Hide price",
-        "type": "checkbox",
-        "default": false
-      },
-      {
-        "id": "product",
-        "label": "Product",
+        "label": "SKU",
+        "sort": 1,
         "type": "search",
-        "nodataText": "No product found",
+        "nodataText": "Search by SKU to retrieve product data here",
+        "default": {
+          "id": "9cbd8f316e254a679ba34a900fccb076",
+          "name": "3DR Solo Quadcopter (No Gimbal)",
+          "imgSrc": "/assets/blocks/1428965138000_1133723.jpg",
+          "description": "<ul class=\"top-section-list\">&#10;<li class=\"top-section-list-item\">Capture Aerial Photos/Video with a GoPro</li>&#10;<li class=\"top-section-list-item\">Linear Tracking with Cablecam Mode</li>&#10;<li class=\"top-section-list-item\">Follow Me: Tracks Your Mobile Device</li>&#10;<li class=\"top-section-list-item\">HDMI Output on Transmitter</li>&#10;<li class=\"top-section-list-item\">Android and iOS Mobile Apps</li>&#10;<li class=\"top-section-list-item\">Video Game-Style Controls</li>&#10;<li class=\"top-section-list-item\">Return Home and &#34;Safety Net&#34; Modes</li>&#10;<li class=\"top-section-list-item\">One-Button Flying / &#34;Pause&#34; Button</li>&#10;<li class=\"top-section-list-item\">Operate GoPro Through App</li>&#10;<li class=\"top-section-list-item\">Works with Optional Solo Gimbal</li>&#10;</ul>",
+          "price": "$995.99",
+          "url": "3dr-solo-quadcopter-no-gimbal",
+          "__searchQuery": "3DRSOLO"
+        },
         "displayInfo": [
           {
             "label": "Name",
@@ -1362,99 +1677,191 @@
           }
         ],
         "request": {
-          "url": "api/catalog/search/products",
+          "url": "/graphql",
           "method": "post",
-          "resultField": "items",
-          "searchField": "searchPhrase",
-          "label": "name",
-          "value": [
-            "id",
-            "name",
-            "code",
-            "imgSrc"
-          ],
-          "params": {
-            "storeId": "odt",
-            "catalogId": "4974648a41df4e6ea67ef2ad76d7bbd4",
-            "responseGroup": "5243487",
-            "sort": "priority-descending;name-ascending"
+          "body": {
+            "operationName": null,
+            "variables": {},
+            "query": "{products(storeId:\"odt\",filter:\"sku:{{__searchQuery}}\",userId:\"\"){items{id,code,name,imgSrc,descriptions{reviewType,content}prices{currency,actual{formattedAmount}}seoInfos{semanticUrl}}}}"
+          },
+          "response": {
+            "result": "data.products.items",
+            "isArray": false,
+            "value": [
+              "id",
+              "name",
+              "code",
+              "imgSrc",
+              {
+                "key": "description",
+                "query": "$.descriptions[?(@.reviewType=='QuickReview')].content",
+                "isArray": false
+              },
+              {
+                "key": "price",
+                "query": "$.prices[?(@.currency=='USD')].actual.formattedAmount",
+                "isArray": false
+              },
+              {
+                "key": "url",
+                "query": "$.seoInfos.semanticUrl",
+                "isArray": false
+              }
+            ]
           }
         }
       },
       {
         "id": "description",
         "label": "Description",
+        "sort": 2,
         "type": "text"
       },
       {
         "id": "buttonText",
         "label": "Button text",
         "type": "string",
-        "default": "Buy now!"
+        "sort": 3,
+        "default": "Add to card"
       },
       {
-        "id": "buttonType",
+        "id": "buttonAction",
         "label": "Button action",
         "type": "select",
+        "default": "add",
+        "sort": 4,
         "options": [
           {
             "label": "Add to cart",
-            "value": "cart"
+            "value": "add"
           },
           {
-            "label": "Go to product page",
-            "value": "link"
+            "label": "Open product page",
+            "value": "open"
+          }
+        ]
+      },
+      {
+        "id": "giftProduct",
+        "label": "Choose gift",
+        "type": "select",
+        "sort": 1,
+        "cacheRequest": true,
+        "equalKey": "id",
+        "default": null,
+        "request": {
+          "url": "/api/catalog/search/products",
+          "method": "post",
+          "body": {
+            "objectType": "Product",
+            "catalogId": "4974648a41df4e6ea67ef2ad76d7bbd4",
+            "take": 100
+          },
+          "response": {
+            "result": "items",
+            "isArray": true,
+            "value": [ "id", "name" ]
+          },
+          "label": "name"
+        },
+        "options": [
+          {
+            "label": "[none]",
+            "value": null
+          }
+        ]
+      },
+      {
+        "id": "hidePrice",
+        "label": "Hide price",
+        "type": "checkbox",
+        "default": false,
+        "tab": "Settings",
+        "sort": 101
+      },
+      {
+        "id": "imagePosition",
+        "label": "Side image position",
+        "type": "select",
+        "default": "right",
+        "sort": 102,
+        "tab": "Settings",
+        "options": [
+          {
+            "label": "Left",
+            "value": "left"
+          },
+          {
+            "label": "Right",
+            "value": "right"
           }
         ]
       }
     ]
   },
   "product-tiles": {
-    "name": "Product tiles",
+    "name": "Category promotion",
     "icon": "text",
     "displayField": "name",
     "category": "Queries and Others",
-    "includeShared": [ "utm-marks" ],
+    "includeShared": [ "utm-marks", "margins", "colors" ],
     "settings": [
       {
-        "id": "title",
-        "label": "Title",
-        "type": "string"
-      },
-      {
-        "id": "content",
-        "label": "Content",
-        "type": "text"
+        "id": "subtitle",
+        "label": "Subtitle",
+        "type": "text",
+        "sort": 2
       },
       {
         "id": "categoryId",
         "label": "Choose category",
         "type": "select",
+        "sort": 1,
         "cacheRequest": true,
+        "equalKey": "id",
+        "default": {
+          "id": "45d3fc9a913d4610a5c7d0470558c4b2",
+          "name": "Camcoders"
+        },
         "request": {
           "url": "/api/catalog/search/categories",
           "method": "post",
-          "resultField": "items",
-          "params": {
+          "body": {
             "objectType": "Category",
             "catalogId": "4974648a41df4e6ea67ef2ad76d7bbd4"
           },
-          "label": "name",
-          "value": "id"
+          "response": {
+            "result": "items",
+            "isArray": true,
+            "value": [ "id", "name" ]
+          },
+          "label": "name"
         }
       },
       {
         "id": "count",
         "label": "Max items",
         "type": "number",
+        "tab": "Settings",
+        "sort": 100,
         "default": 0,
         "min": 0
       },
       {
         "id": "excludes",
         "label": "SKU for exclude",
+        "tab": "Settings",
         "type": "string",
+        "sort": 101,
         "multiline": true
+      },
+      {
+        "id": "userGroup",
+        "label": "User group",
+        "type": "string",
+        "tab": "Settings",
+        "sort": 311,
+        "default": null
       }
     ]
   }
