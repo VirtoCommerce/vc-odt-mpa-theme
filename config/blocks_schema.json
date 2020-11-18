@@ -879,9 +879,11 @@
     "excludeShared": [ "headerType" ],
     "settings": [
       {
-        "id": "previewValue",
-        "label": "Preview value",
-        "type": "string"
+        "id": "previewIndex",
+        "label": "Preview index",
+        "type": "number",
+        "min": 0,
+        "default": 0
       },
       {
         "id": "criteria",
@@ -912,7 +914,6 @@
         "type": "list",
         "default": [
           {
-            "hideOnMatch": false,
             "title": "Bring your ideas to life",
             "subtitle": "Anything you dream about is possible to realise just at the moment when you decide to win",
             "image": {
@@ -1682,7 +1683,7 @@
           "body": {
             "operationName": null,
             "variables": {},
-            "query": "{products(storeId:\"odt\",filter:\"sku:{{__searchQuery}}\",userId:\"\"){items{id,code,name,imgSrc,descriptions{reviewType,content}prices{currency,actual{formattedAmount}}seoInfos{semanticUrl}}}}"
+            "query": "{products(storeId:\"odt\",filter:\"sku:{{__searchQuery}}\",userId:\"\"){items{id,code,name,imgSrc,descriptions{reviewType,content}prices{currency,actual{formattedAmount}}seoInfo{semanticUrl}}}}"
           },
           "response": {
             "result": "data.products.items",
@@ -1704,7 +1705,7 @@
               },
               {
                 "key": "url",
-                "query": "$.seoInfos.semanticUrl",
+                "query": "$.seoInfo.semanticUrl",
                 "isArray": false
               }
             ]
@@ -1862,6 +1863,357 @@
         "tab": "Settings",
         "sort": 311,
         "default": null
+      }
+    ]
+  },
+  "product-variations": {
+    "name": "Product variations",
+    "icon": "text",
+    "displayField": "name",
+    "category": "Queries and Others",
+    "includeShared": [],
+    "excludeShared": [ "headerType" ],
+    "settings": [
+      {
+        "id": "previewIndex",
+        "label": "Preview index",
+        "type": "number",
+        "min": 0,
+        "default": 0
+      },
+      {
+        "id": "criteria",
+        "label": "Criteria",
+        "type": "select",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "url",
+            "label": "URL parameter"
+          },
+          {
+            "value": "userGroup",
+            "label": "User group"
+          },
+          {
+            "value": "ab",
+            "label": "A/B"
+          }
+        ]
+      },
+      {
+        "id": "variations",
+        "label": "Variations",
+        "type": "list",
+        "default": [
+          {
+            "backgroundImage": {
+              "url": "/themes/assets/blocks/cover-with-image-background.jpg"
+            },
+            "product": {
+              "id": "9cbd8f316e254a679ba34a900fccb076",
+              "name": "3DR Solo Quadcopter (No Gimbal)",
+              "imgSrc": "/themes/assets/blocks/1428965138000_1133723.jpg",
+              "description": "<ul class=\"top-section-list\">&#10;<li class=\"top-section-list-item\">Capture Aerial Photos/Video with a GoPro</li>&#10;<li class=\"top-section-list-item\">Linear Tracking with Cablecam Mode</li>&#10;<li class=\"top-section-list-item\">Follow Me: Tracks Your Mobile Device</li>&#10;<li class=\"top-section-list-item\">HDMI Output on Transmitter</li>&#10;<li class=\"top-section-list-item\">Android and iOS Mobile Apps</li>&#10;<li class=\"top-section-list-item\">Video Game-Style Controls</li>&#10;<li class=\"top-section-list-item\">Return Home and &#34;Safety Net&#34; Modes</li>&#10;<li class=\"top-section-list-item\">One-Button Flying / &#34;Pause&#34; Button</li>&#10;<li class=\"top-section-list-item\">Operate GoPro Through App</li>&#10;<li class=\"top-section-list-item\">Works with Optional Solo Gimbal</li>&#10;</ul>",
+              "price": "$995.99",
+              "url": "3dr-solo-quadcopter-no-gimbal",
+              "__searchQuery": "3DRSOLO"
+            },
+            "buttonAction": "add",
+            "settingsIndex": 0
+          }
+        ],
+        "element": [
+          {
+            "id": "criteriaValue",
+            "label": "Criteria value",
+            "type": "string"
+          },
+          {
+            "id": "product",
+            "label": "SKU",
+            "sort": 1,
+            "type": "search",
+            "nodataText": "Search by SKU to retrieve product data here",
+            "displayInfo": [
+              {
+                "label": "Name",
+                "key": "name"
+              },
+              {
+                "label": "Image",
+                "key": "imgSrc",
+                "type": "image"
+              }
+            ],
+            "request": {
+              "url": "/graphql",
+              "method": "post",
+              "body": {
+                "operationName": null,
+                "variables": {},
+                "query": "{products(storeId:\"odt\",filter:\"sku:{{__searchQuery}}\",userId:\"\"){items{id,code,name,imgSrc,descriptions{reviewType,content}prices{currency,actual{formattedAmount}}seoInfo{semanticUrl}}}}"
+              },
+              "response": {
+                "result": "data.products.items",
+                "isArray": false,
+                "value": [
+                  "id",
+                  "name",
+                  "code",
+                  "imgSrc",
+                  {
+                    "key": "description",
+                    "query": "$.descriptions[?(@.reviewType=='QuickReview')].content",
+                    "isArray": false
+                  },
+                  {
+                    "key": "price",
+                    "query": "$.prices[?(@.currency=='USD')].actual.formattedAmount",
+                    "isArray": false
+                  },
+                  {
+                    "key": "url",
+                    "query": "$.seoInfo.semanticUrl",
+                    "isArray": false
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "title",
+            "label": "Override title",
+            "type": "string"
+          },
+          {
+            "id": "description",
+            "label": "Override description",
+            "type": "text"
+          },
+          {
+            "id": "image",
+            "label": "Override image",
+            "type": "image"
+          },
+          {
+            "id": "backgroundImage",
+            "label": "Background Image",
+            "type": "image"
+          },
+          {
+            "id": "buttonText",
+            "label": "Button text",
+            "type": "string",
+            "sort": 3,
+            "default": "Add to card"
+          },
+          {
+            "id": "buttonAction",
+            "label": "Button action",
+            "type": "select",
+            "default": "add",
+            "sort": 4,
+            "options": [
+              {
+                "label": "Add to cart",
+                "value": "add"
+              },
+              {
+                "label": "Open product page",
+                "value": "open"
+              }
+            ]
+          },
+          {
+            "id": "settingsIndex",
+            "label": "Settings index",
+            "type": "number",
+            "default": 0,
+            "min": 0
+          }
+        ]
+      },
+      {
+        "id": "settings",
+        "label": "Settings",
+        "tab": "Settings",
+        "type": "list",
+        "element": [
+          {
+            "id": "imagePosition",
+            "label": "Image position",
+            "type": "select",
+            "default": "right",
+            "options": [
+              {
+                "value": null,
+                "label": "Left"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "id": "textWidth",
+            "label": "Text container width",
+            "type": "select",
+            "options": [
+              {
+                "label": "3 cols",
+                "value": "col-md-3"
+              },
+              {
+                "label": "4 cols",
+                "value": "col-md-4"
+              },
+              {
+                "label": "5 cols",
+                "value": "col-md-5"
+              },
+              {
+                "label": "6 cols",
+                "value": "col-md-6"
+              },
+              {
+                "label": "7 cols",
+                "value": "col-md-7"
+              },
+              {
+                "label": "8 cols",
+                "value": "col-md-8"
+              },
+              {
+                "label": "Fluid",
+                "value": "col"
+              }
+            ]
+          },
+          {
+            "id": "imageWidth",
+            "label": "Side image width",
+            "type": "select",
+            "options": [
+              {
+                "label": "3 cols",
+                "value": "col-md-3"
+              },
+              {
+                "label": "4 cols",
+                "value": "col-md-4"
+              },
+              {
+                "label": "5 cols",
+                "value": "col-md-5"
+              },
+              {
+                "label": "6 cols",
+                "value": "col-md-6"
+              },
+              {
+                "label": "7 cols",
+                "value": "col-md-7"
+              },
+              {
+                "label": "8 cols",
+                "value": "col-md-8"
+              },
+              {
+                "label": "Fluid",
+                "value": "col"
+              }
+            ]
+          },
+          {
+            "id": "headerType",
+            "label": "Title SEO Tag",
+            "type": "select",
+            "options": [
+              {
+                "value": "h1",
+                "label": "H1"
+              },
+              {
+                "value": "h2",
+                "label": "H2"
+              },
+              {
+                "value": "h3",
+                "label": "H3"
+              },
+              {
+                "value": "h4",
+                "label": "H4"
+              },
+              {
+                "value": "h5",
+                "label": "H5"
+              },
+              {
+                "value": "h6",
+                "label": "H6"
+              },
+              {
+                "value": "like-h1",
+                "label": "Like H1"
+              },
+              {
+                "value": "like-h2",
+                "label": "Like H2"
+              },
+              {
+                "value": "like-h3",
+                "label": "Like H3"
+              },
+              {
+                "value": "like-h4",
+                "label": "Like H4"
+              },
+              {
+                "value": "like-h5",
+                "label": "Like H5"
+              },
+              {
+                "value": "like-h6",
+                "label": "Like H6"
+              }
+            ]
+          },
+          {
+            "id": "titleColor",
+            "label": "Title color",
+            "type": "color"
+          },
+          {
+            "id": "descriptionColor",
+            "label": "Description color",
+            "type": "color"
+          },
+          {
+            "id": "backgroundColor",
+            "label": "Background color",
+            "type": "color"
+          },
+          {
+            "id": "overlayColor",
+            "label": "Overlay background color",
+            "type": "color"
+          }
+        ],
+        "default": [
+          {
+            "imagePosition": null,
+            "textWidth": "col",
+            "imageWidth": "col-md-6",
+            "headerType": "like-h1",
+            "titleColor": "#000000"
+          }
+        ]
       }
     ]
   }
