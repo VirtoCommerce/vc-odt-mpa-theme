@@ -27,6 +27,12 @@
     }
   {% endif %}
 
+  {%- if block.descriptionColor != '' %}
+    #{{block.__id}} .subtitle-container, #{{block.__id}} .subtitle-container > * {
+      color: {{block.descriptionColor}};    
+    }
+  {% endif %}
+
   {%- if block.noteColor != '' %}
     #{{block.__id}} .text-muted {
       color: {{block.noteColor}} !important;

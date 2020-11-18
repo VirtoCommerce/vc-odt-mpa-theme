@@ -1,10 +1,6 @@
 {%- assign currentVariant = null %}
 {%- if is_preview_mode %}
-    {%- for variant in block.variations %}
-        {%- if variant.criteriaValue != "" and block.previewValue == variant.criteriaValue %}
-            {%- assign currentVariant = variant %}
-        {%- endif %}
-    {%- endfor %}
+    {%- assign currentVariant = block.variations[block.previewIndex] %}
 {%- else %}
     {%- if block.criteria == 'ab' %}
         {%- assign cookieName = 'ab_'|append:block.__id %}
@@ -78,11 +74,10 @@
 {%- endunless %}
 {%- comment %}
 
-previewValue: string
+previewIndex: int
 criteria: none | url | userGroup | ab
 variations: [
   criteriaValue: string
-  - hideOnMatch: boolean
   title: string
   subtitle: string
   note: string
@@ -90,6 +85,7 @@ variations: [
   backgroundImage: image
   firstButton: url
   secondButton: url
+  settingsIndex: number
 ]
 settings: [
   imagePosition: null | right
