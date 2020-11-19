@@ -88,8 +88,8 @@ jobs:
           sync: false
 
       - name: Set Build status Successful
-        run: echo "::set-env name=BUILD_STATE::successful"
+        run: echo "BUILD_STATE=successful" >> $GITHUB_ENV
 
       - name: Set Build status Failed
         if: failure()
-        run: echo "::set-env name=BUILD_STATE::failed"
+        run: echo "BUILD_STATE=failed" >> $GITHUB_ENV
