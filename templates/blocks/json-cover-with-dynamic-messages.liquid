@@ -1,0 +1,48 @@
+{%- assign currentVariant = null %}
+{%- if is_preview_mode %}
+    {%- assign currentVariant = block.dynamicMessages[block.previewIndex] %}
+{%- else %}
+    {%- for variant in block.dynamicMessages %}
+        {%- if block.criteria == 'url' %}
+            {%- if request_url contains variant.criteriaValue.value  %}
+                {%- assign currentVariant = variant %}
+            {%- endif %}
+        {%- elsif block.criteria == 'userGroup' and current_user and current_user.contact %}
+            {%- if current_user.contact.user_groups contains variant.criteriaValue.value %}
+                {%- assign currentVariant = variant %}
+            {%- endif %}
+        {%- endif %}
+    {%- endfor %}
+{%- endif %}
+{%- assign variations_size = block.dynamicMessages | size %}
+{%- if currentVariant == null and variations_size > 0 %}
+    {%- assign currentVariant = block.dynamicMessages[0] %}
+{%- endif %}
+{%- unless currentVariant == null %}
+
+    {%- capture underlayBlockAsJson %}
+    {
+      "name": null,
+      "__id": "{{block.__id}}",
+      "title": "{{block.title | string.replace block.dynamicPlaceholder currentVariant.title}}",
+      "subtitle": "{{ block.subtitle }}",
+      "note": "{{ block.note }}",
+      "containerImage": {% if block.containerImage == empty %}null{% else %}{{ block.containerImage | json }}{% endif %},
+      "background": {% if block.background == empty %}null{% else %}{{ block.background | json }}{% endif %},
+      "firstButton": {% if block.firstButton == empty %}null{% else %}{{ block.firstButton | json }}{% endif %},
+      "secondButton": {% if block.secondButton == empty %}null{% else %}{{ block.secondButton | json }}{% endif %},
+
+      "headerType": "{{ block.headerType }}",
+      "imagePosition": "{{ block.imagePosition }}",
+      "textColumnWidth": "{{ block.textColumnWidth }}",
+      "secondColumnWidth": "{{ block.secondColumnWidth }}",
+      "titleColor": "{{ block.titleColor }}",
+      "subtitleColor": "{{ block.subtitleColor }}",
+      "noteColor": "{{ block.noteColor }}",
+      "backgroundColor": "{{ block.backgroundColor }}",
+      "overlayColor": "{{ block.overlayColor }}"
+    }
+    {%- endcapture %}
+    {%- assign underlayBlock = underlayBlockAsJson | parse_json %}
+    {% include 'blocks/json-cover-with-image' block: underlayBlock %}
+{%- endunless %}

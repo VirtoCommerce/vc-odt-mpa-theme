@@ -1241,6 +1241,111 @@
       }
     ]
   },
+  "cover-with-dynamic-messages": {
+    "name": "Cover with dynamic messages",
+    "icon": "text",
+    "displayField": "name",
+    "category": "Covers and Hero",
+    "includeShared": [ "notes", "cover-items", "buttons" ],
+    "default": {
+      "title": "Bring your %%text%% to life",
+      "subtitle": "<p>Anything you dream about is possible to realise just at the moment whtn you decide to win</p>",
+      "background": {
+        "url": "/themes/assets/blocks/cover-with-image-background.jpg"
+      }
+    },
+    "settings": [
+      {
+        "id": "previewIndex",
+        "label": "Preview index",
+        "type": "number",
+        "sort": 3,
+        "default": 0,
+        "min": 0
+      },
+      {
+        "id": "dynamicPlaceholder",
+        "label": "Dynamic placholder",
+        "type": "string",
+        "sort": 1,
+        "default": "%%text%%"
+      },
+      {
+        "id": "criteria",
+        "sort": 2,
+        "label": "Criteria",
+        "type": "select",
+        "default": "url",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "url",
+            "label": "URL parameter"
+          },
+          {
+            "value": "userGroup",
+            "label": "User group"
+          }
+        ]
+      },
+      {
+        "id": "dynamicMessages",
+        "label": "Dynamic messages",
+        "type": "list",
+        "addText": "Add message",
+        "removeText": "Remove message",
+        "displayField": "title",
+        "default": [
+          {
+            "title": "ideas"
+          }
+        ],
+        "element": [
+          {
+            "id": "criteriaValue",
+            "label": "Criteria value",
+            "type": "string"
+          },
+          {
+            "id": "title",
+            "label": "Title",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "id": "containerImage",
+        "label": "Side image",
+        "type": "image",
+        "sort": 40,
+        "default": {
+          "url": "/themes/assets/blocks/portfolio-woocommerce.png"
+        },
+        "group": "Container media"
+      },
+      {
+        "id": "imagePosition",
+        "label": "Side image position",
+        "type": "select",
+        "tab": "Settings",
+        "default": "right",
+        "sort": 200,
+        "options": [
+          {
+            "value": null,
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      }
+    ]
+  },
   "headline": {
     "name": "Headline with simple text",
     "icon": "text",
