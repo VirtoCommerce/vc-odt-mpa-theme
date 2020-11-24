@@ -714,7 +714,7 @@
     "excludeShared": [],
     "default": {
       "background": {
-        "url": "/assets/blocks/cover-with-image-background.jpg"
+        "url": "/themes/assets/blocks/cover-with-image-background.jpg"
       },
       "firstButton": {
         "url": "",
@@ -729,7 +729,7 @@
         "type": "image",
         "sort": 40,
         "default": {
-          "url": "/assets/blocks/portfolio-woocommerce.png"
+          "url": "/themes/assets/blocks/portfolio-woocommerce.png"
         },
         "group": "Container media"
       },
@@ -764,7 +764,7 @@
       "title": "Meet the expert, explore the tool and get a free consultation",
       "subtitle": "<p>Sign up for the webinar and get a free expert consultation for your business.</p>",
       "background": {
-        "url": "/assets/blocks/coveer-with-form-background.png"
+        "url": "/themes/assets/blocks/cover-with-form-background.png"
       },
       "titleColor": "#ffffff",
       "subtitleColor": "#c4c4c4",
@@ -815,7 +815,7 @@
       "title": "Probably the best digital agency for SMBs in the market",
       "subtitle": "<p>Create a targeted live campaign. Scale your infrastructure with our simple service.</p>",
       "background": {
-        "url": "/assets/blocks/coveer-with-form-background.png"
+        "url": "/themes/assets/blocks/cover-with-form-background.png"
       },
       "firstButton": {
         "url": "",
@@ -917,10 +917,10 @@
             "title": "Bring your ideas to life",
             "subtitle": "Anything you dream about is possible to realise just at the moment when you decide to win",
             "image": {
-              "url": "/assets/blocks/portfolio-woocommerce.png"
+              "url": "/themes/assets/blocks/portfolio-woocommerce.png"
             },
             "backgroundImage": {
-              "url": "/assets/blocks/cover-with-image-background.jpg"
+              "url": "/themes/assets/blocks/cover-with-image-background.jpg"
             }
           }
         ],
@@ -1385,28 +1385,28 @@
         "default": [
           {
             "image": {
-              "url": "/assets/blocks/logo-1.png"
+              "url": "/themes/assets/blocks/logo-1.png"
             },
             "url": "",
             "openInNewTab": false
           },
           {
             "image": {
-              "url": "/assets/blocks/logo-2.png"
+              "url": "/themes/assets/blocks/logo-2.png"
             },
             "url": "",
             "openInNewTab": false
           },
           {
             "image": {
-              "url": "/assets/blocks/logo-3.png"
+              "url": "/themes/assets/blocks/logo-3.png"
             },
             "url": "",
             "openInNewTab": false
           },
           {
             "image": {
-              "url": "/assets/blocks/logo-4.png"
+              "url": "/themes/assets/blocks/logo-4.png"
             },
             "url": "",
             "openInNewTab": false
@@ -1660,7 +1660,7 @@
         "default": {
           "id": "9cbd8f316e254a679ba34a900fccb076",
           "name": "3DR Solo Quadcopter (No Gimbal)",
-          "imgSrc": "/assets/blocks/1428965138000_1133723.jpg",
+          "imgSrc": "/themes/assets/blocks/solo-quadcopter.jpg",
           "description": "<ul class=\"top-section-list\">&#10;<li class=\"top-section-list-item\">Capture Aerial Photos/Video with a GoPro</li>&#10;<li class=\"top-section-list-item\">Linear Tracking with Cablecam Mode</li>&#10;<li class=\"top-section-list-item\">Follow Me: Tracks Your Mobile Device</li>&#10;<li class=\"top-section-list-item\">HDMI Output on Transmitter</li>&#10;<li class=\"top-section-list-item\">Android and iOS Mobile Apps</li>&#10;<li class=\"top-section-list-item\">Video Game-Style Controls</li>&#10;<li class=\"top-section-list-item\">Return Home and &#34;Safety Net&#34; Modes</li>&#10;<li class=\"top-section-list-item\">One-Button Flying / &#34;Pause&#34; Button</li>&#10;<li class=\"top-section-list-item\">Operate GoPro Through App</li>&#10;<li class=\"top-section-list-item\">Works with Optional Solo Gimbal</li>&#10;</ul>",
           "price": "$995.99",
           "url": "3dr-solo-quadcopter-no-gimbal",
@@ -1683,7 +1683,7 @@
           "body": {
             "operationName": null,
             "variables": {},
-            "query": "{products(storeId:\"odt\",filter:\"sku:{{__searchQuery}}\",userId:\"\"){items{id,code,name,imgSrc,descriptions{reviewType,content}prices{currency,actual{formattedAmount}}seoInfo{semanticUrl}}}}"
+            "query": "{products(storeId:\"odt\",filter:\"sku:{{__searchQuery}}\",userId:\"\"){items{id,code,name,imgSrc,descriptions{reviewType,content}prices{currency,list{formattedAmount}}seoInfo{semanticUrl}}}}"
           },
           "response": {
             "result": "data.products.items",
@@ -1700,7 +1700,7 @@
               },
               {
                 "key": "price",
-                "query": "$.prices[?(@.currency=='USD')].actual.formattedAmount",
+                "query": "$.prices[?(@.currency=='USD')].list.formattedAmount",
                 "isArray": false
               },
               {
@@ -1916,7 +1916,7 @@
             "product": {
               "id": "9cbd8f316e254a679ba34a900fccb076",
               "name": "3DR Solo Quadcopter (No Gimbal)",
-              "imgSrc": "/themes/assets/blocks/1428965138000_1133723.jpg",
+              "imgSrc": "/themes/assets/blocks/solo-quadcopter.jpg",
               "description": "<ul class=\"top-section-list\">&#10;<li class=\"top-section-list-item\">Capture Aerial Photos/Video with a GoPro</li>&#10;<li class=\"top-section-list-item\">Linear Tracking with Cablecam Mode</li>&#10;<li class=\"top-section-list-item\">Follow Me: Tracks Your Mobile Device</li>&#10;<li class=\"top-section-list-item\">HDMI Output on Transmitter</li>&#10;<li class=\"top-section-list-item\">Android and iOS Mobile Apps</li>&#10;<li class=\"top-section-list-item\">Video Game-Style Controls</li>&#10;<li class=\"top-section-list-item\">Return Home and &#34;Safety Net&#34; Modes</li>&#10;<li class=\"top-section-list-item\">One-Button Flying / &#34;Pause&#34; Button</li>&#10;<li class=\"top-section-list-item\">Operate GoPro Through App</li>&#10;<li class=\"top-section-list-item\">Works with Optional Solo Gimbal</li>&#10;</ul>",
               "price": "$995.99",
               "url": "3dr-solo-quadcopter-no-gimbal",
@@ -1955,7 +1955,7 @@
               "body": {
                 "operationName": null,
                 "variables": {},
-                "query": "{products(storeId:\"odt\",filter:\"sku:{{__searchQuery}}\",userId:\"\"){items{id,code,name,imgSrc,descriptions{reviewType,content}prices{currency,actual{formattedAmount}}seoInfo{semanticUrl}}}}"
+                "query": "{products(storeId:\"odt\",filter:\"sku:{{__searchQuery}}\",userId:\"\"){items{id,code,name,imgSrc,descriptions{reviewType,content}prices{currency,list{formattedAmount}}seoInfo{semanticUrl}}}}"
               },
               "response": {
                 "result": "data.products.items",
@@ -1972,7 +1972,7 @@
                   },
                   {
                     "key": "price",
-                    "query": "$.prices[?(@.currency=='USD')].actual.formattedAmount",
+                    "query": "$.prices[?(@.currency=='USD')].list.formattedAmount",
                     "isArray": false
                   },
                   {
