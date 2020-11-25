@@ -163,7 +163,7 @@
                       <div class="product-action-buttons">
                         <div class="btn-group">
                           {% if currentVariant.buttonAction == 'add' %}
-                            <button class="app-add-item-to-cart btn btn-primary" title="{{ currentVariant.buttonText }}" product-id="{{block.product.id}}" {% if block.giftProduct %} {% endif %} text-visible="">
+                            <button class="app-add-item-to-cart btn btn-primary" title="{{ currentVariant.buttonText }}" product-id="{{currentVariant.product.id}}" text-visible="">
                               <i class="fas fa-shopping-cart"></i>
                               <span>{{ currentVariant.buttonText }}</span>
                             </button>
@@ -179,7 +179,7 @@
         </div>
     </div>
 
-
+    {% include 'blocks/helpers/catalog-script' %}
 {%- endunless %}
 
 {% comment %}

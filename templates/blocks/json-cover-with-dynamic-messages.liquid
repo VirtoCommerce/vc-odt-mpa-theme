@@ -1,6 +1,6 @@
 {%- assign currentVariant = null %}
 {%- if is_preview_mode %}
-    {%- assign currentVariant = block.dynamicMessages[block.previewIndex] %}
+    {%- assign currentVariant = block.dynamicMessages[block.previewIndex.value] %}
 {%- else %}
     {%- for variant in block.dynamicMessages %}
         {%- if block.criteria == 'url' %}
@@ -25,11 +25,16 @@
       "name": null,
       "__id": "{{block.__id}}",
       "title": "{{block.title | string.replace block.dynamicPlaceholder currentVariant.title}}",
-      "subtitle": "{{ block.subtitle }}",
-      "note": "{{ block.note }}",
+      "subtitle": "{{ block.subtitle | string.replace block.dynamicPlaceholder currentVariant.title }}",
+      "note": "{{ block.note | string.replace block.dynamicPlaceholder currentVariant.title }}",
       "containerImage": {% if block.containerImage == empty %}null{% else %}{{ block.containerImage | json }}{% endif %},
       "background": {% if block.background == empty %}null{% else %}{{ block.background | json }}{% endif %},
-      "firstButton": {% if block.firstButton == empty %}null{% else %}{{ block.firstButton | json }}{% endif %},
+      "firstButton": {% if block.firstButton == empty %}null{% else %}
+      {
+            "url": "{{ firstButton.url }}",
+            "urlText": "{{ firstButton.urlText | string.replace block.dynamicPlaceholder currentVariant.title }}",
+            "style": "{{ firstButton.style }}"
+      }{% endif %},
       "secondButton": {% if block.secondButton == empty %}null{% else %}{{ block.secondButton | json }}{% endif %},
 
       "headerType": "{{ block.headerType }}",
