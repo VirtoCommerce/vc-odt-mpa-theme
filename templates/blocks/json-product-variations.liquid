@@ -99,7 +99,7 @@
                         {% if hasSettings and currentSettings.imagePosition == 'right' %} flex-row-reverse {% endif %}"
                         style="min-height: 550px;">
                       <div class="align-self-center col {{ hasSettings and currentSettings.imageWidth }}">
-                        {% if currentVariant.image and currentVariant.image.url != '' %}
+                        {% if currentVariant.image != empty and currentVariant.image.url != '' %}
                               <img src="{{ currentVariant.image.url }}" title="{{currentVariant.image.altText}}" class="img-fluid" />
                         {% elsif currentVariant.product and currentVariant.product.imgSrc %}
                             <img src="{{ currentVariant.product.imgSrc }}" title="{{currentVariant.product.name}}" class="img-fluid" />
