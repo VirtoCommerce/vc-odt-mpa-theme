@@ -8,8 +8,17 @@
                 {%- assign currentVariant = variant %}
             {%- endif %}
         {%- elsif block.criteria == 'userGroup' and current_user and current_user.contact %}
-            {%- if current_user.contact.user_groups contains variant.criteriaValue.value %}
-                {%- assign currentVariant = variant %}
+            {% assign variantGroups = variant.criteriaValue | string.split ',' %}
+            {%- assign allEquals = true %}
+            {% for variantGroup in variantGroups %}
+            	<!-- {{ variantGroup }} in {{ current_user.contact.user_groups }} = {{ current_user.contact.user_groups contains variantGroup }} -->
+                {%- unless current_user.contact.user_groups contains variantGroup %}
+                    {%- assign allEquals = false %}
+                {%- endunless %}
+            {% endfor %}
+            <!-- {{ variantGroups }} subset of {{ current_user.contact.user_groups }} == {{ allEquals }} -->
+            {%- if allEquals %}
+	            {%- assign currentVariant = variant %}
             {%- endif %}
         {%- endif %}
     {%- endfor %}
