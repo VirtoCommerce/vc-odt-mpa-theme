@@ -33,14 +33,22 @@
       {
             "url": "{{ firstButton.url }}",
             "urlText": "{{ firstButton.urlText | string.replace block.dynamicPlaceholder currentVariant.title }}",
-            "style": "{{ firstButton.style }}"
+            "style": "{{ firstButton.style }}",
+            "openInNewTab": "{{ firstButton.openInNewTab }}"
       }{% endif %},
-      "secondButton": {% if block.secondButton == empty %}null{% else %}{{ block.secondButton | json }}{% endif %},
+      "secondButton": {% if block.secondButton == empty %}null{% else %}
+      {
+            "url": "{{ secondButton.url }}",
+            "urlText": "{{ secondButton.urlText | string.replace block.dynamicPlaceholder currentVariant.title }}",
+            "style": "{{ secondButton.style }}",
+            "openInNewTab": "{{ secondButton.openInNewTab }}"
+      }{% endif %},
 
       "headerType": "{{ block.headerType }}",
       "imagePosition": "{{ block.imagePosition }}",
       "textColumnWidth": "{{ block.textColumnWidth }}",
       "secondColumnWidth": "{{ block.secondColumnWidth }}",
+      "textAreaWidth": "{{ block.secondColumnWidth }}",
       "titleColor": "{{ block.titleColor }}",
       "subtitleColor": "{{ block.subtitleColor }}",
       "noteColor": "{{ block.noteColor }}",
@@ -49,5 +57,11 @@
     }
     {%- endcapture %}
     {%- assign underlayBlock = underlayBlockAsJson | parse_json %}
-    {% include 'blocks/json-cover-with-image' block: underlayBlock %}
+    {%- if block.templateName == null or block.templateName == '' %}
+        {%- assign blockTemplateName = "blocks/json-cover-with-simple-text" %}
+    {%- else %}
+        {%- assign blockTemplateName = "blocks/"|append:block.templateName %}
+    {%- endif %}
+    <!-- template: {{ blockTemplateName }} -->
+    {% include blockTemplateName block: underlayBlock %}    
 {%- endunless %}

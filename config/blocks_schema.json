@@ -1327,6 +1327,32 @@
         "group": "Container media"
       },
       {
+        "id": "templateName",
+        "label": "Display template",
+        "type": "select",
+        "sort": 190,
+        "tab": "Settings",
+        "default": "json-cover-with-simple-text",
+        "options": [
+          {
+            "value": "json-cover-with-image",
+            "label": "Cover with image"
+          },
+          {
+            "value": "json-cover-with-simple-text",
+            "label": "Cover with simple text"
+          },
+          {
+            "value": "json-headline",
+            "label": "Headline with simple text"
+          },
+          {
+            "value": "json-call-to-action",
+            "label": "Call to action"
+          }
+        ]
+      },
+      {
         "id": "imagePosition",
         "label": "Side image position",
         "type": "select",
