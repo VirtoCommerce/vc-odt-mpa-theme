@@ -3,7 +3,7 @@ name: Theme CI
 on:
   workflow_dispatch:
   push:
-    branches: [ dev ]
+    branches: [master, dev]
     paths-ignore:
       - '.github/**'
       - 'docs/**'
@@ -11,7 +11,7 @@ on:
       - 'README.md'
       - 'LICENSE'
   pull_request:
-    branches: [ dev ]
+    branches: [master, dev]
     paths-ignore:
       - '.github/**'
       - 'docs/**'
@@ -32,6 +32,8 @@ jobs:
       SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
       GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
       BLOB_SAS: ${{ secrets.BLOB_TOKEN }}
+      VERSION_SUFFIX: ""
+    
     name: ci
 
     steps:
@@ -48,8 +50,22 @@ jobs:
       uses: warchant/setup-sonar-scanner@v3
 
     - name: Get Image Version
-      uses: VirtoCommerce/vc-github-actions/get-image-version@master
+      uses: VirtoCommerce/vc-github-actions/get-image-version@VP-6108
       id: image
+      with:
+        path: './client-app'
+
+    - name: Set VERSION_SUFFIX variable
+      run: |
+        if [ '${{ github.event_name }}' = 'workflow_dispatch' ]; then
+          echo "VERSION_SUFFIX=${{ steps.image.outputs.fullSuffix }}" >> $GITHUB_ENV
+        else
+          echo "VERSION_SUFFIX=${{ steps.image.outputs.suffix }}" >> $GITHUB_ENV
+        fi;
+
+    - name: Get changelog
+      id: changelog
+      uses: VirtoCommerce/vc-github-actions/changelog-generator@master
 
       # After anp install 'bower install' cmd will be invoked as package.json script
     - name: Npm Install
@@ -61,25 +77,49 @@ jobs:
     - name: Build theme and compress to zip
       run: npm run compress
 
-    - name: Set artifact name
+    - name: Set artifact
       shell: pwsh
-      id: artifact-name
-      run: |
-        Write-Host "::set-output name=value::$('${{ github.repository }}'.Replace('${{ github.repository_owner }}/', ''))_${{ steps.image.outputs.taggedVersion }}"
-
-    - name: Rename artifact
-      id: artifact-path
-      shell: pwsh
+      id: artifact
       run: |
         $file = Get-ChildItem -Path ../artifacts -Filter "*.zip" | Select-Object -First 1
-        Get-ChildItem $file.FullName | ForEach-Object {
-          Rename-Item $_ -NewName ${{steps.artifact-name.outputs.value}}.zip
+        Write-Host "::set-output name=name::$($file.BaseName)_${{ env.VERSION_SUFFIX }}.zip"
+        Write-Host "::set-output name=full-name::$($file.FullName)"
+
+    - name: Rename artifact
+      if: ${{ github.ref != 'refs/heads/master' }}
+      shell: pwsh
+      run: |
+        Get-ChildItem ${{ steps.artifact.outputs.full-name }} | ForEach-Object {
+          Rename-Item $_ -NewName ${{steps.artifact.outputs.name}}
         }
 
+
     - name: Upload a Build Artifact to Azure Blob Storage
+      if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev' || (github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/master')}}
       uses: bacongobbler/azure-blob-storage-upload@v1.1.1
       with:
         source_dir: './artifacts'
         container_name: 'packages'
         connection_string: ${{ secrets.BLOB_CONNECTION_STRING }}
         sync: false
+
+    - name: Create Release
+      if: ${{ github.ref == 'refs/heads/master' }}
+      id: create_release
+      uses: actions/create-release@v1
+      with:
+        tag_name: ${{ steps.image.outputs.prefix }}
+        release_name: ${{ steps.image.outputs.prefix }}
+        draft: false
+        prerelease: false
+        body: ${{ steps.changelog.outputs.changelog }}
+
+    - name: Upload Release Asset
+      if: ${{ github.ref == 'refs/heads/master' }}
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: './artifacts'
+        asset_name: ${{ steps.artifact.outputs.name }}
+        asset_content_type: application/zip        
