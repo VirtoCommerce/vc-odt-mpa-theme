@@ -50,7 +50,7 @@ jobs:
       uses: warchant/setup-sonar-scanner@v3
 
     - name: Get Image Version
-      uses: VirtoCommerce/vc-github-actions/get-image-version@VP-6108
+      uses: VirtoCommerce/vc-github-actions/get-image-version@master
       id: image
       with:
         path: './client-app'
