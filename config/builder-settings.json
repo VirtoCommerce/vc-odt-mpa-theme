@@ -1,6 +1,6 @@
 {
   "moduleName": "content",
-  "storeBaseUrl": "https://odt-storefront.dev.govirto.com/",
+  "storeBaseUrl": "https://odt-storefront.dev.govirto.com",
   "storePreviewPath": "/designer-preview",
   "fullPreviewUrl": "{{settings.storeBaseUrl}}{{config.storePreviewPath}}?preview_mode={{sessionId}}&ep={{location.origin}}",
   "baseThemeName": "default",
