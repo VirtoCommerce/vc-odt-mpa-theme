@@ -1,0 +1,38 @@
+{
+  "moduleName": "contentsaas",
+  "storeBaseUrl": "https://odt-storefront.dev.govirto.com/",
+  "storePreviewPath": "/designer-preview",
+  "fullPreviewUrl": "{{settings.storeBaseUrl}}{{config.storePreviewPath}}?preview_mode={{sessionId}}&ep={{location.origin}}",
+  "baseThemeName": "default",
+  "themeName": "default",
+  "waitPreviewResponseTimeout": 120000,
+  "filePath": "{{location.params.path}}",
+  "themeThumbUrl": "{{config.storeBaseUrl}}/themes/assets/thumb_{{key}}.jpg",
+  "assetsUrlTemplate": "{{storeBaseUrl}}{{assetName}}",
+  "pageRequest": "/api/{{config.moduleName}}/{{location.params.contentType}}/{{location.params.storeId}}?relativeUrl={{location.params.path}}",
+  "themeBaseUrl": "/api/{{config.moduleName}}/themes/{{location.params.storeId}}",
+  "blocksSettingsRequest": "{{settings.themeBaseUrl}}?relativeUrl=%2Fdefault%2Fconfig%2Fblocks_schema.json",
+  "settingsSchemaRequest": "{{settings.themeBaseUrl}}?relativeUrl=%2Fdefault%2Fconfig%2Fsettings_schema.json",
+  "settingsDataRequest": "{{settings.themeBaseUrl}}?relativeUrl=%2Fdefault%2Fconfig%2Fsettings_data.json",
+  "uploadThemeDraftRequest": {
+      "url": "{{settings.themeBaseUrl}}?folderUrl=%2Fdefault%2Fconfig%2Fdrafts",
+      "method": "POST",
+      "form": { "name": "{{sessionId}}_settings_data.json" }
+  },
+  "uploadThemeSettingsRequest": {
+      "url": "{{settings.themeBaseUrl}}?folderUrl=%2Fdefault%2Fconfig",
+      "method": "POST",
+      "form": { "name": "settings_data.json" }
+  },
+  "uploadPageRequest": {
+      "url": "/api/{{config.moduleName}}/{{location.params.contentType}}/{{location.params.storeId}}?folderUrl={{pageFilepath}}",
+      "method": "POST",
+      "form": { "name": "{{pageFilename}}" }
+  },
+  "uploadAssetsRequest": {
+      "url": "/api/{{config.moduleName}}/{{location.params.contentType}}/{{location.params.storeId}}?folderUrl=/assets/{{location.params.contentType}}&name={{assetName}}",
+      "method": "POST",
+      "form": { "name": "uploadedFile", "fileName": "{{assetName}}" },
+      "response": { "result": "$.url", "isArray": false }
+  }
+}
