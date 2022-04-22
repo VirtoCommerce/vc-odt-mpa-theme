@@ -1,3 +1,10 @@
+## Deprecation warning ⚠️
+The theme is no longer being maintained by Virto Commerce. Developers are encouraged to check out [Vue B2B Theme](https://github.com/VirtoCommerce/vc-theme-b2b-vue) .
+
+You can continue to use the theme with Virto Commerce Platform 3.x and Storefront 5.x; however, this repo will not be kept up-to-date.
+
+---
+
 # ODT-MPA starter/boilerplate theme for VirtoCommerce Storefront.
 
 ![ODT Category page](https://user-images.githubusercontent.com/66079752/90002067-75540d00-dc92-11ea-9688-3a88ebfcea21.jpg)
